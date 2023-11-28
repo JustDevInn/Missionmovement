@@ -1,13 +1,37 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer base {
+  body {
+    @apply font-primary bg-[#1D1916];
+  }
+  .h1-header {
+    @apply text-yellow font-primary text-[20px] md:text-[30px] lg:text-[40px] font-bold uppercase leading-[120%] tracking-widest;
+  }
+  .h1 {
+    @apply text-yellow font-primary text-[35px] md:text-[60px] font-medium uppercase leading-[120%] tracking-wider;
+  }
+  .h2 {
+    @apply text-brown font-primary text-[35px] md:text-[60px] font-medium uppercase leading-[120%] tracking-wide;
+  }
+  .h1-teko {
+    @apply text-yellow font-secondary text-[40px] md:text-[90px] font-light uppercase leading-[120%] tracking-wide;
+  }
+  .h2-teko {
+    @apply text-brown font-secondary text-[35px] md:text-[60px] font-light uppercase leading-[120%] tracking-wide;
+  }
+  .section {
+    @apply h-[450px] md:h-[550px] lg:h-[600px] w-screen;
+  }
+  .semisection {
+    @apply h-[150px] md:h-[250px] w-screen;
+  }
+  .btn {
+    @apply py-[5px] px-[5px] h-[35px] w-[120px] flex items-center justify-center uppercase font-bold tracking-widest bg-yellow text-black;
+  }
+  .btn-lg {
+    @apply py-[5px] px-[5px] h-[50px] w-[140px] flex items-center justify-center uppercase font-bold tracking-widest bg-yellow text-black text-xl;
+  }
+ 
 }
