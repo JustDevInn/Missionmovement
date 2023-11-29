@@ -23,6 +23,8 @@ module.exports = {
       backgroundImage: {
         'royalmarine': "url('./img/royalmarines.jpg')",
         'barret': "url('./img/barret.jpg')",
+        'marsof': "url('./img/marsof.jpg')",
+        'boatgroup': "url('./img/Bootgroup_carry.jpg')",
       }
     },
   },

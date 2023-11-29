@@ -31,7 +31,7 @@
     @apply py-[5px] px-[5px] h-[35px] w-[120px] flex items-center justify-center uppercase font-bold tracking-widest bg-yellow text-black;
   }
   .btn-lg {
-    @apply py-[5px] px-[5px] h-[50px] w-[140px] flex items-center justify-center uppercase font-bold tracking-widest bg-yellow text-black text-xl;
+    @apply py-[5px] px-[5px] h-[60px] w-[200px] flex items-center justify-center uppercase font-bold tracking-widest bg-yellow text-black text-xl;
   }
  
 }
