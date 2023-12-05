@@ -26,12 +26,14 @@ const Home = () => {
     </section>
 {/* banner section */}
     <section className="">
+
+
 {/* about mission movement */}
-    <div className="md:h-[400px] lg:h-[500px] w-screen flex flex-col md:flex-row">
+    <div className="lg:h-[500px] w-screen flex flex-col lg:flex-row">
       {/* image */}
-      <div className="order-first md:order-last w-full md:w-1/2 bg-barret bg-bottom bg-cover md:h-full h-[450px]"></div>
+      <div className="order-first lg:order-last w-full lg:w-1/2 bg-barret bg-bottom bg-cover lg:h-full h-[450px]"></div>
       {/* text */}
-      <div className="w-full md:w-1/2 px-10 md:px-20 py-20 flex flex-col justify-center items-start text-left">
+      <div className="w-full lg:w-1/2 px-10 lg:px-20 py-20 flex flex-col justify-center items-start text-left">
           <h2 className="h2-teko mb-5">About mission movement</h2>
           <p className="text-white text-lg font-thin tracking-wider">
             At Mission Movement, we're dedicated to sculpting the elite. Our coaching and training programs are meticulously
@@ -45,12 +47,14 @@ const Home = () => {
           </div>
       </div>
     </div>
+
+
 {/* our program */}
-    <div className="md:h-[400px] lg:h-[500px] w-screen flex flex-col md:flex-row">
+    <div className="lg:h-[500px] w-screen flex flex-col lg:flex-row">
       {/* image */}
-      <div className="order-first md:order-first w-full md:w-1/2 bg-marsof bg-bottom bg-cover md:h-full h-[450px]"></div>
+      <div className="order-first lg:order-first w-full lg:w-1/2 bg-marsof bg-bottom bg-cover lg:h-full h-[450px]"></div>
       {/* text */}
-      <div className="w-full md:w-1/2 px-10 md:px-20 py-20 flex flex-col justify-center items-start text-left">
+      <div className="w-full lg:w-1/2 px-10 lg:px-20 py-20 flex flex-col justify-center items-start text-left">
           <h2 className="h2-teko mb-5">Our Programs</h2>
           <p className="text-white text-lg font-thin tracking-wider">
             Experience an immersive journey toward elite forces. <br></br>Our 6-week coaching program covers every facet, from physical fitness to mental resilience.
@@ -59,11 +63,11 @@ const Home = () => {
       </div>
     </div>
 {/* success stories */}
-<div className="md:h-[400px] lg:h-[500px] w-screen flex flex-col md:flex-row">
+<div className="lg:h-[500px] w-screen flex flex-col lg:flex-row">
       {/* image */}
-      <div className="order-first md:order-last w-full md:w-1/2 bg-boatgroup bg-bottom bg-cover md:h-full h-[450px]"></div>
+      <div className="order-first lg:order-last w-full lg:w-1/2 bg-boatgroup bg-bottom bg-cover lg:h-full h-[450px]"></div>
       {/* text */}
-      <div className="w-full md:w-1/2 px-10 md:px-20 py-20 flex flex-col justify-center items-start text-left">
+      <div className="w-full lg:w-1/2 px-10 lg:px-20 py-20 flex flex-col justify-center items-start text-left">
           <h2 className="h2-teko mb-5">Success Stories</h2>
           <p className="text-white text-lg font-thin tracking-wider">
             Discover firsthand experiences from individuals who've transformed their lives with Mission Movement.
