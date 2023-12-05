@@ -25,6 +25,9 @@ module.exports = {
         'barret': "url('./img/barret.jpg')",
         'marsof': "url('./img/marsof.jpg')",
         'boatgroup': "url('./img/Bootgroup_carry.jpg')",
+        'marsen': "url('./img/marsenopleiding.jpg')",
+        'spelioladder': "url('./img/spelioladder.jpg')",
+        'hlo': "url('./img/hlo.jpg')",
       }
     },
   },

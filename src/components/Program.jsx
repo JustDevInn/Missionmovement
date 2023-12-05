@@ -2,8 +2,12 @@ import React from "react";
 // import icon
 import { FaCheck } from "react-icons/fa6";
 import { GrAchievement } from "react-icons/gr";
-
-
+// import banners
+import Banners from '../components/Banners';
+import MobileBanners from '../components/MobileBanners';
+// import images
+import Trainer from '../img/profilepicture.png';
+import Bundle from '../img/bundle.png';
 
 const Program = () => {
   return (
@@ -159,7 +163,141 @@ const Program = () => {
     </header>
   </section>
 
+{/* course banners */}
+<div className="hidden lg:flex">
+  <Banners />
+</div>
+<div className="lg:hidden">
+  <MobileBanners />
+</div>
+
+{/* trainers */}
+<section className="w-screen">
+    <h1 className="h1-teko text-yellow text-center p-20">Trainers</h1>
+    <div className="flex flex-col lg:flex-row py-10">
+    {/* text left side */}
+      <div className="lg:w-1/2 px-10">
+      <h2 className="mb-2 text-brown font-secondary text-[25px] md:text-[50px] font-light uppercase leading-[120%] tracking-wide">Justin Peeters, Founder of Mission Movement</h2>
+      <p className="text-white font-light">
+      With a decade of elite service in the Royal Marine Corps, including four years in the esteemed MARSOC units, Justin brings battle-tested expertise to Mission Movement.
+      Transitioning from military service, Justin spent five years owning and running a personal training gym, honing skills in physical conditioning and mental resilience.
+<br /><br />
+As a seasoned coach for nine years, Justin amalgamates military precision with coaching finesse. His dedication extends beyond conventional training, advocating a holistic approach to fitness,
+integrating mountain climbs, surfing, and gym sessions for a well-rounded experience.
+<br /><br />
+Justin's commitment to preventing injuries and guiding individuals toward optimal fitness is remarkable. His insights, drawn from personal experiences, underscore the crucial need for proper
+physical preparation, particularly in demanding roles like special forces.
+He ensures individuals have the tools and training for safe, enduring careers, emphasising the value of departing on one's terms, not due to preventable injuries.
+<br /><br />
+This ethos drives Justin's focus on comprehensive and mindful training regimens at Mission Movement.
+      </p>
+      </div>
+        {/* image right side */}
+      <div className="lg:w-1/2 flex flex-col px-10 py-10 lg:py-0 justify-center items-center">
+        {/* image and text div */}
+        <div>
+          <img src={Trainer} alt="profilepicture" className="lg:h-[350px] lg:w-[290px]"/>
+          <div className="mt-10">
+            <h2 className="mb-2 text-brown font-secondary text-[25px] md:text-[50px] font-light uppercase leading-[120%] tracking-wide">
+              statistics
+            </h2>
+            <div className="grid grid-cols-2 gap-1 font-light">
+              <div className="flex flex-row gap-2 text-white">
+                <FaCheck />
+                <p>10 years Royal Marine corps</p>
+              </div>
+              <div className="flex flex-row gap-2 text-white pl-2">
+                <FaCheck />
+                <p>4 years MARSOC</p>
+              </div>
+              <div className="flex flex-row gap-2 text-white">
+                <FaCheck />
+                <p>9 years of personal training</p>
+              </div>
+              <div className="flex flex-row gap-2 text-white pl-2">
+                <FaCheck />
+                <p>Tested</p>
+              </div>
+              <div className="flex flex-row gap-2 text-white">
+                <FaCheck />
+                <p>Commitment to lift others</p>
+              </div>
+              <div className="flex flex-row gap-2 text-white pl-2">
+                <FaCheck />
+                <p>Always there to help out</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+</section>
+{/* Success stories */}
+<section className="lg:h-screen w-screen flex justify-center items-center p-10">
+<div>
+  <h2 className="h1-teko text-center py-20">SUCCESS STORIES</h2>
+  <div className="flex flex-col lg:flex-row py-10">
+  {/* Hendriks */}
+    <div className="lg:px-10 py-5">
+      <h2 className="h2-teko mb-2">Hendriks, J</h2>
+      <p className="text-white font-light tracking-wider">
+      As a seasoned coach for nine years, Justin amalgamates military precision with coaching  beyond conventional training,
+      advocating a holistic approach to fitness, integrating mountain climbs, surfing, and gym sessions for a well-rounded experience.
+      <br /><br />
+      years, Justin amalgamates military precision with coaching  advocating a  approach to fitness, integrating mountain climbs, surfing,
+      and gym sessions for a well-rounded experience.
+      </p>
+    </div>
+    {/* Van der werf */}
+    <div className="lg:px-10 py-5">
+      <h2 className="h2-teko mb-2">Van der werf, J</h2>
+      <p className="text-white font-light tracking-wider">
+      As a seasoned coach for nine years, Justin amalgamates military precision with coaching  beyond conventional training, advocating a holistic
+      approach to fitness, integrating mountain climbs, surfing, and gym sessions for a well-rounded experience.
+      <br /><br />
+      years, Justin amalgamates military precision with coaching  advocating a  approach to fitness, integrating mountain climbs, surfing, and gym
+      sessions for a well-rounded experience.
+      </p>
+    </div>
+    {/* Trommels */}
+    <div className="lg:px-10 py-5">
+      <h2 className="h2-teko mb-2">Trommels, E</h2>
+      <p className="text-white font-light tracking-wider">
+      As a seasoned coach for nine years, Justin amalgamates military precision with coaching  beyond conventional training, advocating a holistic approach
+      to fitness, integrating mountain climbs, surfing, and gym sessions for a well-rounded experience.
+      <br /><br />
+      years, Justin amalgamates military precision with coaching  advocating a  approach to fitness, integrating mountain climbs, surfing, and gym sessions
+      for a well-rounded experience.
+
+
+      </p>
+    </div>
   </div>
+</div>
+</section>
+{/* link to program */}
+    <section className="h-screen w-screen
+    flex flex-col lg:flex-row py-20 p-10
+    justify-between items-center lg:items-start lg:mt-20
+    ">
+    {/* text */}
+    <div className="lg:w-1/2 flex flex-col font-light px-5 lg:px-28">
+      <h5 className="font-secondary text-[30px] md:text-[40px] lg:text-[50px]
+      tracking-wider text-brown lg:text-left text-center">
+      <span className="text-yellow">
+      Ready? </span>
+      Sign up for our program and transform your mind and body into a powerful force to be reckoned with.
+      </h5>
+      <p className="font-secondary text-brown uppercase lg:py-20 pt-10 pb-20 text-center lg:text-left">
+      Discipline | Commitment | Determination</p>
+    </div>
+    {/* image + button */}
+    <div className="flex flex-col justify-center items-center lg:w-1/2">
+      <img src={Bundle} alt="" className="h-[400px] w-[250px]"/>
+      <button className="btn btn-lg my-5 lg:my-10">Purchase</button>
+    </div>
+    </section>
+</div>
   );
 };
 

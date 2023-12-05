@@ -30,7 +30,7 @@ const Home = () => {
 {/* about mission movement */}
     <div className="md:h-[400px] lg:h-[500px] w-screen flex flex-col md:flex-row">
       {/* image */}
-      <div className=" order-first md:order-last w-full md:w-1/2 bg-barret bg-bottom bg-cover md:h-full h-[450px]"></div>
+      <div className="order-first md:order-last w-full md:w-1/2 bg-barret bg-bottom bg-cover md:h-full h-[450px]"></div>
       {/* text */}
       <div className="w-full md:w-1/2 px-10 md:px-20 py-20 flex flex-col justify-center items-start text-left">
           <h2 className="h2-teko mb-5">About mission movement</h2>
@@ -40,7 +40,9 @@ const Home = () => {
             time is maximised and your readiness unparalleled.
           </p>
           <div className="w-full flex justify-start">
-          <button className="btn md:btn-lg my-5">about</button>
+          <Link to='about'>
+            <button className="btn md:btn-lg my-5">about</button>
+          </Link>
           </div>
       </div>
     </div>
@@ -73,7 +75,7 @@ const Home = () => {
     </section>
 
     {/* Ready to rise? */}
-    <section className="h-[350px] md:h-[600px] w-screen flex justify-center items-center">
+    <section className="h-[350px] md:h-[600px] w-screen flex justify-center items-center px-10">
     <div className='w-full flex flex-col justify-center items-center'>
       <h2 className='h1-teko text-brown text-[40px] md:text-[70px]
       mb-2 text-center'>Ready to rise?</h2>
