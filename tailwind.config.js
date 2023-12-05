@@ -30,6 +30,8 @@ module.exports = {
         'hlo': "url('./img/hlo.jpg')",
         'parajumping': "url('./img/parajumping.jpg')",
         'heigendhert': "url('./img/heigendhert.jpg')",
+        'friscatnight': "url('./img/friscatnight.jpg')",
+        'takethestep': "url('./img/takethestep.jpg')",
       }
     },
   },

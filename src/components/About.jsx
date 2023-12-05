@@ -37,31 +37,45 @@ const About = () => {
   </section>
   
   {/* Mission & values */}
-  <section className="section flex flex-col justify-center items-center bg-pink-100">
-    <h1 className="h1-teko">Mission & values</h1>
+  <section className="w-screen p-10 lg:px-20 flex flex-col justify-center items-center">
+    <h1 className="h1-teko py-20">Mission & values</h1>
     {/* mission */}
-    <div>
-      <h5 className="font-secondary text-yellow uppercase">mission:</h5>
-      <p>
+    <div className="mb-10">
+      <h5 className="font-secondary text-yellow uppercase text-2xl mb-2">mission:</h5>
+      <p className="font-light tracking-wider text-white lg:text-xl">
       At Mission Movement, our mission is clear: to sculpt future military operators by providing the necessary support and tools for their journey. We're committed to empowering individuals with the resilience
       and readiness required to excel in elite forces, ensuring safe, enduring careers.
       </p>
     </div>
     {/* core values */}
     <div>
-    <h5 className="font-secondary text-yellow">Core values:</h5>
-      <div>
-        <p>
+    <h5 className="font-secondary text-yellow text-2xl mb-2">Core values:</h5>
+      <div className="font-light tracking-wider text-white lg:text-xl">
+        <p className="mb-3">
         <span className="text-brown uppercase font-secondary">Discipline:</span>
         We embody structured training, fostering mental resilience and cultivating habits crucial for military preparedness. It's about adherence to a rigorous regimen that breeds excellence in every
         aspect of preparation.
         </p>
-        <p>
+        <p className="mb-3">
         <span className="text-brown uppercase font-secondary">Commitment:</span>
         Our dedication extends beyond training; it signifies resilience amid challenges, staying devoted to the journey toward elite forces, and fostering a growth-oriented mindset.
         </p>
+        <p className="mb-3">
+        <span className="text-brown uppercase font-secondary">Determination:</span>
+        We believe in an unwavering spirit to overcome obstacles, relentless pursuit of goals, and the courage to push boundaries. It signifies a mindset that fuels perseverance,
+        essential for success in demanding roles.
+        </p>
+        <p>
+        These core values anchor our coaching philosophy, fostering a holistic and enduring approach to preparing individuals for elite forces. At Mission Movement,
+        our dedication lies in sculpting resilient individuals with the mindset and capabilities to excel in demanding roles.
+        </p>
       </div>
     </div>
+  </section>
+
+    {/* image */}
+    <section className="h-[250px] md:h-[450px] w-screen
+  bg-friscatnight bg-bottom bg-no-repeat bg-cover">
   </section>
   </div>
   );
