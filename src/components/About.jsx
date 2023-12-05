@@ -1,7 +1,70 @@
 import React from "react";
 
 const About = () => {
-  return <div>About</div>;
+  return (
+  <div>
+  {/* The story */}
+  <section className="section flex justify-center items-center bg-parajumping bg-bottom bg-no-repeat bg-cover">
+    <div className='h-full w-full flex justify-end items-start pt-20 pr-5 lg:pr-20'>
+      <h1 className='text-yellow font-primary text-[35px] md:text-[60px] font-medium
+      uppercase tracking-wider'>
+      The Story
+      </h1>
+    </div>
+  </section>
+  {/* foundation */}
+  <section className="w-screen p-10 py-20 flex flex-col justify-center items-center text-left">
+    <h1 className="h1-teko pb-10">Foundations</h1>
+    <div className="lg:px-20 pt-5">
+      <h5 className="mb-5 text-yellow font-secondary text-[25px] md:text-[50px] font-light uppercase leading-[120%] tracking-wide">The story</h5>
+      <p className="font-light tracking-wider text-white lg:text-xl">
+      With a foundation rooted in a decade of elite service within the <span className="text-yellow">Royal Marine Corps</span>,
+      including four years in the esteemed <span className="text-yellow">MARSOC</span> units, Mission Movement brings battle-tested
+      expertise to the forefront. Transitioning from military service, our team spent five years spearheading a <span className="text-yellow">personal training </span>
+      gym, honing skills in physical conditioning and mental resilience.
+      <br /><br />
+      As seasoned coaches for nine years, our team amalgamates military precision with coaching finesse, advocating for a <span className="text-yellow">holistic</span> approach to fitness. Embracing mountain climbs, surfing, and gym sessions, we craft a comprehensive fitness experience.
+      <br /><br />
+      Our primary aim is to sculpt future military operators, equipping them with the essential support and tools needed for their journey. Insights derived from personal experiences underscore the necessity for proper physical preparation, particularly in demanding roles like special forces.
+      <br /><br />
+      <span className="text-yellow">At Mission Movement</span>, our focus prioritises sculpting resilient individuals for safe, enduring careers, empowering them to shape their future in the military forces.
+      </p>
+    </div>
+  </section>
+  {/* image */}
+  <section className="h-[250px] md:h-[450px] w-screen
+  bg-heigendhert bg-bottom bg-no-repeat bg-cover">
+  </section>
+  
+  {/* Mission & values */}
+  <section className="section flex flex-col justify-center items-center bg-pink-100">
+    <h1 className="h1-teko">Mission & values</h1>
+    {/* mission */}
+    <div>
+      <h5 className="font-secondary text-yellow uppercase">mission:</h5>
+      <p>
+      At Mission Movement, our mission is clear: to sculpt future military operators by providing the necessary support and tools for their journey. We're committed to empowering individuals with the resilience
+      and readiness required to excel in elite forces, ensuring safe, enduring careers.
+      </p>
+    </div>
+    {/* core values */}
+    <div>
+    <h5 className="font-secondary text-yellow">Core values:</h5>
+      <div>
+        <p>
+        <span className="text-brown uppercase font-secondary">Discipline:</span>
+        We embody structured training, fostering mental resilience and cultivating habits crucial for military preparedness. It's about adherence to a rigorous regimen that breeds excellence in every
+        aspect of preparation.
+        </p>
+        <p>
+        <span className="text-brown uppercase font-secondary">Commitment:</span>
+        Our dedication extends beyond training; it signifies resilience amid challenges, staying devoted to the journey toward elite forces, and fostering a growth-oriented mindset.
+        </p>
+      </div>
+    </div>
+  </section>
+  </div>
+  );
 };
 
 export default About;

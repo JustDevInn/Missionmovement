@@ -16,7 +16,6 @@ const Home = () => {
           Explore oportunities →
         </a>
     </Link>
-        
     </div>
   </section>
 {/* Program button */}

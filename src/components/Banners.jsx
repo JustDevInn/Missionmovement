@@ -3,7 +3,7 @@ import React from "react";
 const Banners = () => {
   return (
     <div>
-<section className="section px-10 my-5">
+<section className="section px-20 my-10">
   <div className="h-full flex justify-start items-center bg-marsen bg-center bg-no-repeat bg-cover">
     <div className='flex flex-row justify-center items-start w-full px-10'>
       <h2 className='order-second w-1/2 h2-teko text-white p-10'>MILITARY PROGRAM 01: <br />BASIC REQUIREMENTS</h2>
@@ -17,7 +17,7 @@ const Banners = () => {
     </div>
   </div>
 </section>
-  <section className="section px-10 my-5">
+  <section className="section px-20 my-10">
   <div className="h-full flex justify-start items-center bg-marsof bg-center bg-no-repeat bg-cover">
   <div className='flex flex-row justify-center items-start w-full px-10'>
       <h2 className='order-first w-1/2 h2-teko text-white p-10'>MILITARY PROGRAM 02: <br />FOUNDATIONAL STRENGTH</h2>
@@ -30,7 +30,7 @@ const Banners = () => {
     </div>
   </div>
   </section>
-  <section className="section px-10 my-5">
+  <section className="section px-20 my-10">
   <div className="h-full flex justify-start items-center bg-spelioladder bg-center bg-no-repeat bg-cover">
   <div className='flex flex-row justify-center items-start w-full px-10'>
       <h2 className='order-second w-1/2 h2-teko text-white p-10'>MILITARY PROGRAM 03: <br />SWIM OR SINK</h2>
@@ -42,7 +42,7 @@ const Banners = () => {
     </div>
   </div>
   </section>
-  <section className="section px-10 my-5">
+  <section className="section px-20 my-10">
   <div className="h-full flex justify-start items-center bg-hlo bg-center bg-no-repeat bg-cover">
   <div className='flex flex-row justify-center items-start w-full px-10'>
       <h2 className='order-first w-1/2 h2-teko text-white p-10'>MILITARY PROGRAM 04/05: <br />SUPPORT</h2>

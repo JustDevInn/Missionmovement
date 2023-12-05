@@ -46,7 +46,7 @@ const Nav = () => {
   ];
 
   return (
-    <div className="flex h-24 md:h-32 bg-primary z-50 justify-between sm:w-full items-center w-full px-[30px] text-yellow text-lg">
+    <div className="sticky top-0 flex h-24 md:h-32 bg-primary z-50 justify-between items-center w-screen px-[30px] text-yellow text-lg">
       <div>
         <RouterLink to="/">
           <h1 className='w-full text-start h1-header'>Mission movement</h1>
@@ -74,6 +74,14 @@ const Nav = () => {
 
       {nav && (
         <ul className="flex flex-col justify-center items-center  absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black to-gray-900 text-yellow">
+        {/* <RouterLink
+              onClick={() => setNav(!nav)}
+                to="/"
+                duration={500}
+        >
+              <h1 className="px-4 cursor-pointer py-6 text-5xl uppercase font-secondary font-light tracking-widest duration-200">
+              mission movement</h1>
+            </RouterLink> */}
           {links.map(({ id, link }) => (
             <li
               key={id}

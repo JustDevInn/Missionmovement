@@ -177,7 +177,10 @@ const Program = () => {
     <div className="flex flex-col lg:flex-row py-10">
     {/* text left side */}
       <div className="lg:w-1/2 px-10">
-      <h2 className="mb-2 text-brown font-secondary text-[25px] md:text-[50px] font-light uppercase leading-[120%] tracking-wide">Justin Peeters, Founder of Mission Movement</h2>
+      <h2 className="mb-6 text-brown font-secondary text-[25px] md:text-[50px]
+      font-light uppercase leading-[120%] tracking-wide">
+      Justin Peeters, Founder of Mission Movement
+      </h2>
       <p className="text-white font-light">
       With a decade of elite service in the Royal Marine Corps, including four years in the esteemed MARSOC units, Justin brings battle-tested expertise to Mission Movement.
       Transitioning from military service, Justin spent five years owning and running a personal training gym, honing skills in physical conditioning and mental resilience.
@@ -276,7 +279,7 @@ This ethos drives Justin's focus on comprehensive and mindful training regimens 
 </div>
 </section>
 {/* link to program */}
-    <section className="h-screen w-screen
+    <section className="w-screen
     flex flex-col lg:flex-row py-20 p-10
     justify-between items-center lg:items-start lg:mt-20
     ">
@@ -294,7 +297,7 @@ This ethos drives Justin's focus on comprehensive and mindful training regimens 
     {/* image + button */}
     <div className="flex flex-col justify-center items-center lg:w-1/2">
       <img src={Bundle} alt="" className="h-[400px] w-[250px]"/>
-      <button className="btn btn-lg my-5 lg:my-10">Purchase</button>
+      <button className="btn btn-lg my-10">Purchase</button>
     </div>
     </section>
 </div>

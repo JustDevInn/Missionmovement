@@ -28,6 +28,8 @@ module.exports = {
         'marsen': "url('./img/marsenopleiding.jpg')",
         'spelioladder': "url('./img/spelioladder.jpg')",
         'hlo': "url('./img/hlo.jpg')",
+        'parajumping': "url('./img/parajumping.jpg')",
+        'heigendhert': "url('./img/heigendhert.jpg')",
       }
     },
   },
