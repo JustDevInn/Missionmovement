@@ -236,12 +236,12 @@ This ethos drives Justin's focus on comprehensive and mindful training regimens 
     </div>
 </section>
 {/* Success stories */}
-<section className="lg:h-screen w-screen flex justify-center items-center p-10">
+<section className=" w-screen flex justify-center items-center p-10">
 <div>
   <h2 className="h1-teko text-center py-20">SUCCESS STORIES</h2>
-  <div className="flex flex-col lg:flex-row py-10">
+  <div className="flex flex-col md:flex-row py-10">
   {/* Hendriks */}
-    <div className="lg:px-10 py-5">
+    <div className="lg:px-10 py-5 px-1">
       <h2 className="h2-teko mb-2">Hendriks, J</h2>
       <p className="text-white font-light tracking-wider">
       As a seasoned coach for nine years, Justin amalgamates military precision with coaching  beyond conventional training,
@@ -252,7 +252,7 @@ This ethos drives Justin's focus on comprehensive and mindful training regimens 
       </p>
     </div>
     {/* Van der werf */}
-    <div className="lg:px-10 py-5">
+    <div className="lg:px-10 py-5 px-1">
       <h2 className="h2-teko mb-2">Van der werf, J</h2>
       <p className="text-white font-light tracking-wider">
       As a seasoned coach for nine years, Justin amalgamates military precision with coaching  beyond conventional training, advocating a holistic
@@ -263,7 +263,7 @@ This ethos drives Justin's focus on comprehensive and mindful training regimens 
       </p>
     </div>
     {/* Trommels */}
-    <div className="lg:px-10 py-5">
+    <div className="lg:px-10 py-5 px-1">
       <h2 className="h2-teko mb-2">Trommels, E</h2>
       <p className="text-white font-light tracking-wider">
       As a seasoned coach for nine years, Justin amalgamates military precision with coaching  beyond conventional training, advocating a holistic approach
@@ -284,8 +284,8 @@ This ethos drives Justin's focus on comprehensive and mindful training regimens 
     justify-between items-center lg:items-start lg:mt-20
     ">
     {/* text */}
-    <div className="lg:w-1/2 flex flex-col font-light px-5 lg:px-28">
-      <h5 className="font-secondary text-[30px] md:text-[40px] lg:text-[50px]
+    <div className="md:w-1/2 flex flex-col font-light px-5 lg:px-28">
+      <h5 className="font-secondary text-[30px] lg:text-[50px]
       tracking-wider text-brown lg:text-left text-center">
       <span className="text-yellow">
       Ready? </span>

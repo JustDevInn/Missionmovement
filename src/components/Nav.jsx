@@ -56,7 +56,7 @@ const Nav = () => {
         {links.map(({ id, link }) => (
           <li
             key={id}
-            className="px-4 cursor-pointer uppercase font-light tracking-wide hover:scale-105 duration-200"
+            className="px-4 cursor-pointer text-xl uppercase font-extralight tracking-widest font-secondary hover:scale-105 duration-200"
           >
             <RouterLink to={`/${link}`} smooth duration={500}>
               {link}

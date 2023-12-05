@@ -15,9 +15,9 @@ const Contact = () => {
       <p className="text-brown font-light uppercase tracking-widest text-xs lg:text-xl text-center">Fill out the form below to take the first steps working towards <br />the future you want.</p>
     </section>
     {/* GET IN TOUCH form*/}
-    <section className="w-screen flex justify-center items-center p-10 lg:p-20 py-40 lg:py-40">
+    <section className="w-screen flex justify-center items-center px-10 py-20 lg:py-40">
       <div className="flex flex-col justify-center items-center">
-      <h1 className="h1 my-10 text-center">
+      <h1 className="h1 mb-10 text-center">
         Contact
       </h1>
         {/* form */}
