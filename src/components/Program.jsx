@@ -297,7 +297,7 @@ This ethos drives Justin's focus on comprehensive and mindful training regimens 
     {/* image + button */}
     <div className="flex flex-col justify-center items-center lg:w-1/2">
       <img src={Bundle} alt="" className="h-[400px] w-[250px]"/>
-      <button className="btn btn-lg my-10">Purchase</button>
+      <button className="btn btn-lg my-10">Enrol</button>
     </div>
     </section>
 </div>
