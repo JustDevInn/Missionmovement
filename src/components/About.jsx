@@ -75,7 +75,7 @@ const About = () => {
 
     {/* image */}
     <section className="h-[250px] md:h-[450px] w-screen
-  bg-friscatnight bg-bottom bg-no-repeat bg-cover">
+  bg-friscatnight bg-center bg-no-repeat bg-cover">
   </section>
   </div>
   );

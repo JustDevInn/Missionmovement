@@ -9,12 +9,12 @@ const Home = () => {
   <section className="section flex justify-center items-center bg-royalmarine bg-bottom bg-no-repeat bg-cover">
     <div className='w-full flex flex-col justify-center items-start pl-10 lg:pl-20'>
       <h1 className='h1 mb-2'>Join the elite foces</h1>
-      <p className="text-white tracking-widest md:text-[30px]">Empowering excellence. <br />
+      <p className="text-white tracking-widest text-[25px] md:text-[40px]">Empowering excellence. <br />
         Your Mission Begins.</p>
     <Link className="mt-5 md:mt-10" to="/program">
-        <a href="/" className="text-yellow tracking-widest md:text-[20px] uppercase hover:underline">
+        <p className="text-yellow tracking-widest md:text-[20px] uppercase hover:underline">
           Explore oportunities →
-        </a>
+        </p>
     </Link>
     </div>
   </section>

@@ -11,9 +11,6 @@ import GalleryImg8 from './img/spelioladder.jpg'
 import { IoMdArrowForward } from 'react-icons/io';
 
 export const galleryData = {
-  title: 'Check my gallery:',
-  btnText: 'View all',
-  btnIcon: <IoMdArrowForward />,
   images: [
     {
       src: GalleryImg1,

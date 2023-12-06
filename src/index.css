@@ -22,8 +22,9 @@
     @apply text-brown font-secondary text-[35px] md:text-[60px] font-light uppercase leading-[120%] tracking-wide;
   }
   .section {
-    @apply h-[450px] md:h-[550px] lg:h-[600px] w-screen;
+    @apply h-[450px] md:h-[550px] w-screen;
   }
+  /* section initial height for large screens lg:h-[600px] */
   .semisection {
     @apply h-[150px] md:h-[250px] w-screen;
   }

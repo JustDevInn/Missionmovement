@@ -10,6 +10,7 @@ import Trainer from '../img/profilepicture.png';
 import Bundle from '../img/bundle.png';
 
 const Program = () => {
+
   return (
   <div>
   {/* hero */}
