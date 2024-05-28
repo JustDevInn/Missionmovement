@@ -1,27 +1,7 @@
-// import React from "react";
-// // linking
-// import { Link } from 'react-router-dom';
-// import { RxHamburgerMenu } from "react-icons/rx";
-
-// const Nav = () => {
-//   return (
-//        <nav className='w-full h-24 md:h-32 bg-primary px-[30px] flex justify-center items-center'>
-//         <div className='flex justify-between items-center w-full'>
-//           <Link to="/">
-//           <h1 className='w-full text-start h1-header'>Mission movement</h1>
-//         </Link>
-//         <div className='text-yellow flex justify-end'><RxHamburgerMenu size={35}/></div>
-//       </div>
-//     </nav>
-//   );
-// };
-// export default Nav;
-
 import React, { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { Link as RouterLink } from "react-router-dom"; // Import Router Link
-// import { Link as ScrollLink } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
 
 const Nav = () => {
   const [nav, setNav] = useState(false);
@@ -74,14 +54,6 @@ const Nav = () => {
 
       {nav && (
         <ul className="flex flex-col justify-center items-center  absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black to-gray-900 text-yellow">
-        {/* <RouterLink
-              onClick={() => setNav(!nav)}
-                to="/"
-                duration={500}
-        >
-              <h1 className="px-4 cursor-pointer py-6 text-5xl uppercase font-secondary font-light tracking-widest duration-200">
-              mission movement</h1>
-            </RouterLink> */}
           {links.map(({ id, link }) => (
             <li
               key={id}

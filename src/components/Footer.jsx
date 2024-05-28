@@ -23,7 +23,9 @@ const Footer = () => {
     <div className="lg:px-10 flex flex-col justify-start md:justify-between md:flex-row text-xs md:text-lg text-white">
       <div className="mb-2">
         <h5 className="font-bold uppercase tracking-widest">Email</h5>
-        <p className="font-thin">MissionMovement@gmail.com</p>
+        <a
+        href="mailto:MissionMovement@gmail.com"
+        className="font-thin">Click to mail.</a>
       </div>
       <div className="mb-2">
         <h5 className="font-bold uppercase tracking-widest">Phone</h5>
@@ -31,7 +33,10 @@ const Footer = () => {
       </div>
       <div className="mb-2">
         <h5 className="font-bold uppercase tracking-widest">Social</h5>
-        <p className="font-thin">@missionmovement</p>
+        <a
+        href="http://www.instagram.com/mission.movement"
+        target="blank"
+        className="font-thin">@missionmovement</a>
       </div>
     </div>
   </div>
