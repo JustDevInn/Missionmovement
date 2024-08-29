@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply font-primary bg-[#1D1916];
+    @apply font-primary bg-[#101010];
   }
   .h1-header {
     @apply text-yellow font-primary text-[20px] md:text-[30px] lg:text-[40px] font-bold uppercase leading-[120%] tracking-widest;

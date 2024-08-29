@@ -142,7 +142,7 @@ const Resources = () => {
    <section className="w-screen px-10 flex flex-col justify-center items-center">
     <h1 className="h1-teko py-20 lg:py-40">
       Social
-    </h1>
+    </h1> 
     <motion.a
       variants={fadeIn('up')}
       initial='hidden'
@@ -187,7 +187,7 @@ const Resources = () => {
       viewport={{once: false, amount: 0.2}}
     className='flex justify-center'>
       <button className='btn btn-lg'>
-        ISTAGRAM
+        INSTAGRAM
       </button>
     </motion.div>
   </section>

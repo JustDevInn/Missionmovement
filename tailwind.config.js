@@ -11,12 +11,12 @@ module.exports = {
   },
   theme: {
     fontFamily: {
-      primary: 'Helvetica Neue',
-      secondary: 'teko',
+      primary: ['Helvetica Neue', 'sans-serif'],
+      secondary: ['Teko', 'sans-serif'],
     },
     extend: {
       colors: {
-        primary: '#1D1916',
+        primary: '#101010',
         yellow: '#FFCC00',
         brown: '#8E774F',
       },
