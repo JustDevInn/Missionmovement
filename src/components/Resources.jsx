@@ -156,7 +156,7 @@ const Resources = () => {
 
   </section>
   {/* instagram lightroom */}
-  <section className="w-screen relative my-20 px-10">
+  <section className= "w-screen relative my-20 px-10">
   {/* photo album */}
   <motion.div
       variants={fadeIn('up')}
