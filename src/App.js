@@ -19,6 +19,7 @@ const App = () => {
     <Router>
       <Nav />
       <ScrollToTop />
+      <div className='pt-24 md:pt-32'>
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/program' element={<Program />}/>
@@ -26,6 +27,7 @@ const App = () => {
         <Route path='/resources' element={<Resources />}/>
         <Route path='/contact' element={<Contact />}/>
       </Routes>
+      </div>
       <Footer />
     </Router>
     </>

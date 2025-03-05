@@ -14,7 +14,7 @@
     "react-scripts": "5.0.1",
     "react-scroll": "^1.9.0",
     "web-vitals": "^2.1.4",
-    "yet-another-react-lightbox": "^3.15.6"
+    "yet-another-react-lightbox": "^3.21.7"
   },
   "scripts": {
     "start": "react-scripts start",
