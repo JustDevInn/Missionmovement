@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { FaTimes } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link as RouterLink } from "react-router-dom";
@@ -9,22 +9,20 @@ const Nav = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
 
   // Function to handle scroll behavior
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     if (window.scrollY > lastScrollY) {
-      // Scrolling down - hide navbar
-      setVisible(false);
+      setVisible(false); // Scrolling down - hide navbar
     } else {
-      // Scrolling up - show navbar
-      setVisible(true);
+      setVisible(true); // Scrolling up - show navbar
     }
     setLastScrollY(window.scrollY);
-  };
+  }, [lastScrollY]);
 
   // Effect to track scrolling
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, [handleScroll]);
 
   const links = [
     { id: 1, link: "program" },
@@ -53,9 +51,7 @@ const Nav = () => {
             key={id}
             className="px-4 cursor-pointer text-xl uppercase font-extralight tracking-widest font-secondary hover:scale-105 duration-200"
           >
-            <RouterLink to={`/${link}`} smooth duration={500}>
-              {link}
-            </RouterLink>
+            <RouterLink to={`/${link}`}>{link}</RouterLink>
           </li>
         ))}
       </ul>
@@ -76,7 +72,7 @@ const Nav = () => {
               key={id}
               className="px-4 cursor-pointer py-6 text-4xl uppercase font-secondary font-light tracking-widest duration-200"
             >
-              <RouterLink onClick={() => setNav(!nav)} to={link} duration={500}>
+              <RouterLink onClick={() => setNav(!nav)} to={`/${link}`}>
                 {link}
               </RouterLink>
             </li>

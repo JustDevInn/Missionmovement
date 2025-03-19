@@ -7,8 +7,6 @@ import GalleryImg5 from './img/marsof.jpg'
 import GalleryImg6 from './img/parajumping.jpg'
 import GalleryImg7 from './img/royalmarines.jpg'
 import GalleryImg8 from './img/spelioladder.jpg'
-// import icons
-import { IoMdArrowForward } from 'react-icons/io';
 
 export const galleryData = {
   images: [

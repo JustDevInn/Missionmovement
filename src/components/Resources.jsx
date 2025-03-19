@@ -21,8 +21,6 @@ const Resources = () => {
   // index state for image gallery
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
-  // destructure gallery data
-  const { images } = galleryData;
 
   // State for FAQ toggle
   const [openFAQ, setOpenFAQ] = useState(null);
