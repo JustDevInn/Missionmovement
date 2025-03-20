@@ -22,17 +22,77 @@
     @apply text-brown font-secondary text-[35px] md:text-[60px] font-light uppercase leading-[120%] tracking-wide;
   }
   .section {
-    @apply h-[450px] md:h-[550px] w-screen;
+    @apply h-[450px] md:h-[550px] w-screen ;
   }
   /* section initial height for large screens lg:h-[600px] */
   .semisection {
-    @apply h-[150px] md:h-[250px] w-screen;
+    @apply h-[150px] md:h-[250px] w-screen ;
   }
   .btn {
     @apply py-[5px] px-[5px] h-[35px] w-[120px] flex items-center justify-center uppercase font-bold tracking-widest bg-yellow text-black;
   }
   .btn-lg {
-    @apply py-[5px] px-[5px] h-[60px] w-[200px] flex items-center justify-center uppercase font-bold tracking-widest bg-yellow text-black text-xl;
+    @apply py-4 px-8 h-[60px] min-w-[180px] flex items-center justify-center uppercase font-bold tracking-widest bg-yellow text-black 
+    hover:bg-transparent hover:text-yellow border border-yellow duration-300 text-xl;
+  }
+  .btn-lg:hover {
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
   }
  
 }
+
+@keyframes lightSweep {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+.animate-light-sweep {
+  background: linear-gradient(90deg, rgba(255, 223, 88, 0) 0%, rgba(255, 223, 88, 0.8) 50%, rgba(255, 223, 88, 0) 100%);
+  background-size: 200% auto;
+  animation: lightSweep 3s ease-out forwards; /* Half speed */
+  
+  /* Ensure the effect applies to text */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -o-background-clip: text;
+  
+  color: transparent; /* Hide original text color */
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 1s ease-out forwards;
+}
+

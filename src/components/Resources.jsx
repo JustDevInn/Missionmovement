@@ -9,7 +9,9 @@ import "yet-another-react-lightbox/styles.css";
 import { motion } from 'framer-motion';
 // import fadeIn
 import { fadeIn } from '../variants';
-
+import {faqData} from '../data.js'
+// Icons
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 // slides
 const slides = galleryData.images.map(({ original, width, height }) => ({
   src: original,
@@ -21,49 +23,24 @@ const Resources = () => {
   // index state for image gallery
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
-
-  // State for FAQ toggle
-  const [openFAQ, setOpenFAQ] = useState(null);
-
-  // FAQ Data
-  const faqData = [
-    {
-      id: 1,
-      question: "What can I do if I don't meet the eligibility requirements to join?",
-      answer: "An area to run, basic equipment like a barbell or dumbbells (these can be swapped with anything, as long as it gives a constant resistant over the axis. Aka; bands do not work.). Access to a swimming location. Preferably a climbing rope, but this can also be substituted by a tower and a pull-up bar."
-    },
-    {
-      id: 2,
-      question: "Can I get a refund after purchase?",
-      answer: "Once paid, the payment is not refundable under any circumstance."
-    },
-    {
-      id: 3,
-      question: "How does the remote coaching work?",
-      answer: "Through online coaching, you have the opportunity to send us daily inquiries about your training. To maximise the benefits of online coaching, we strongly encourage our clients to submit video recordings to ensure correct form and alignment. Incorrect positioning during exercises may hinder desired results. Therefore, we encourage everyone to record their initial training sessions for form and technique evaluations."
-    },
-    {
-      id: 4,
-      question: "How many hours per week is the program?",
-      answer: "The program demands you to train for at least 2 hours per day. This is excluding preparation travel time to a gym/pool/running location."
-    },
-    {
-      id: 5,
-      question: "What is the process like when I enroll in the program?",
-      answer: "Once you make a purchase, you will promptly receive a welcome letter with in-depth information about the program. Shortly after, you will gain access to a link where you'll be able to download the program from."
-    }
-  ];
+  const [openIndex, setOpenIndex] = useState(null);
+  const toggle = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   return (
     <div>
       {/* Resources */}
-      <section className="section flex justify-center items-center bg-hlo bg-center bg-no-repeat bg-cover">
-        <div className='h-full w-full flex justify-end items-start pt-20 pr-5 lg:pr-20'>
-          <h1 className='text-yellow font-primary text-[35px] md:text-[60px] font-medium uppercase tracking-wider'>
-            Resources
-          </h1>
-        </div>
-      </section>
+      <section className="section flex justify-center items-center bg-hlo bg-center bg-no-repeat bg-cover relative bg-fixed">
+  {/* Background Overlay for Better Readability */}
+  <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+  <div className="relative h-full w-full flex justify-center lg:justify-end items-center pt-20 px-5 lg:px-20">
+    <h1 className="text-yellow font-primary text-[35px] md:text-[60px] font-medium uppercase tracking-wider text-center lg:text-right">
+      Resources
+    </h1>
+  </div>
+</section>
+
 
       {/* FAQ Section */}
       <section className="w-screen px-10 pt-20 pb-10 lg:pt-40 lg:pb-20 flex flex-col justify-center items-center">
@@ -76,30 +53,45 @@ const Resources = () => {
       <section className="w-screen p-10 lg:px-20">
         <header className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4 tracking-wider text-white">
 
-          {/* FAQ containers */}
-<div>
-  <h2 className="h2-teko text-yellow my-10">WHAT TO KNOW BEFORE YOU JOIN</h2>
-  <p className="text-sm lg:text-base font-thin">
-    Here are some things you might want to know before you take the next step.
-    <br />
-    You can always reach out to us via the contact form for more specific details.
+        <div className="flex flex-col bg-primary py-6 md:p-10 rounded-lg shadow-lg">
+  <h1 className="h2-teko text-yellow text-center mb-4">What to Know Before Joining</h1>
+
+  {/* Added Intro */}
+  <p className="text-sm lg:text-base font-thin text-white text-center mb-6 text-justify">
+    Have questions? Here are the most common things people ask before signing up.  
+    If you need more details, feel free to reach out!
   </p>
 
-  {/* Map through the FAQ data */}
-  {faqData.map(({ id, question, answer }) => (
-    <div key={id} className="my-4 border-b border-gray-500 pb-2">
-      <h5
-        className="leading-[120%] font-medium cursor-pointer"
-        onClick={() => setOpenFAQ(openFAQ === id ? null : id)}
+  {faqData.map((faq, index) => (
+    <div
+      key={index}
+      className="my-4 bg-brown rounded-lg overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:bg-opacity-80"
+    >
+      {/* Clickable Question */}
+      <button
+        onClick={() => toggle(index)}
+        className="w-full flex justify-between items-center p-5 text-left text-brown font-medium tracking-wider capitalize bg-primary hover:text-yellow transition duration-300"
       >
-        {question}
-      </h5>
-      <div className={`transition-[max-height,opacity] duration-300 ease-in-out overflow-hidden ${openFAQ === id ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}>
-        <p className="font-thin leading-[120%] mt-2">{answer}</p>
+        {faq.question}
+        {openIndex === index ? (
+          <FaChevronUp className="text-yellow transition-transform duration-300" />
+        ) : (
+          <FaChevronDown className="text-yellow transition-transform duration-300" />
+        )}
+      </button>
+
+      {/* Answer Section (Smoother Expansion) */}
+      <div
+        className={`overflow-hidden transition-all duration-700 delay-150 ${
+          openIndex === index ? "max-h-[150px] opacity-100 p-5" : "max-h-0 opacity-0"
+        }`}
+      >
+        <p className="text-white text-sm leading-[160%]">{faq.answer}</p>
       </div>
     </div>
   ))}
 </div>
+
 
 
         </header>
@@ -110,46 +102,30 @@ const Resources = () => {
     Articles</h1>
   </section>
   {/* article container */}
-  <section className="w-screen p-10">
-  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-    <div className="lg:p-10 py-10 lg:w-4/5">
-      <h2 className="mb-5 text-brown font-secondary text-[25px] md:text-[60px] font-light uppercase leading-[120%] tracking-wide">
-      Article about training</h2>
-      <p className="mb-5 text-white text-xs lg:text-lg font-thin tracking-wider">
-      Here are some things you might want to know before you take the next step.
-      You can always reach out to us via the contact form for more specific details.
-      </p>
-      <a href='/' className="mt-5 text-white uppercase leading-[120%] font-medium underline">Read more ...</a>
-    </div>
-    <div className="lg:p-10 py-10 lg:w-4/5">
-      <h2 className="mb-5 text-brown font-secondary text-[25px] md:text-[60px] font-light uppercase leading-[120%] tracking-wide">
-      General physical preparedness</h2>
-      <p className="mb-5 text-white text-xs lg:text-lg font-thin tracking-wider">
-      Here are some things you might want to know before you take the next step.
-      You can always reach out to us via the contact form for more specific details.
-      </p>
-      <a href='/' className="mt-5 text-white uppercase leading-[120%] font-medium underline">Read more ...</a>
-    </div>
-    <div className="lg:p-10 py-10 lg:w-4/5">
-      <h2 className="mb-5 text-brown font-secondary text-[25px] md:text-[60px] font-light uppercase leading-[120%] tracking-wide">
-      Mental fortitude</h2>
-      <p className="mb-5 text-white text-xs lg:text-lg font-thin tracking-wider">
-      Here are some things you might want to know before you take the next step.
-      You can always reach out to us via the contact form for more specific details.
-      </p>
-      <a href='/' className="mt-5 text-white uppercase leading-[120%] font-medium underline">Read more ...</a>
-    </div>
-    <div className="lg:p-10 py-10 lg:w-4/5">
-      <h2 className="mb-5 text-brown font-secondary text-[25px] md:text-[60px] font-light uppercase leading-[120%] tracking-wide">
-      Nutritional values</h2>
-      <p className="mb-5 text-white text-xs lg:text-lg font-thin tracking-wider">
-      Here are some things you might want to know before you take the next step.
-      You can always reach out to us via the contact form for more specific details.
-      </p>
-      <a href='/' className="mt-5 text-white uppercase leading-[120%] font-medium underline">Read more ...</a>
-    </div>
-    </div>
-  </section>
+ {/* Article Container */}
+<section className="w-screen p-10">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+    {[
+      { title: "Article about training", desc: "Here are some things you might want to know before you take the next step.", link: "/" },
+      { title: "General physical preparedness", desc: "You can always reach out to us via the contact form for more specific details.", link: "/" },
+      { title: "Mental fortitude", desc: "Developing mental strength for high-performance challenges.", link: "/" },
+      { title: "Nutritional values", desc: "Optimizing your nutrition for peak military performance.", link: "/" },
+    ].map((article, index) => (
+      <div key={index} className="p-6 bg-primary rounded-lg shadow-lg hover:scale-[1.02] transition-all duration-300">
+        <h2 className="mb-3 text-brown font-secondary text-[25px] md:text-[40px] font-light uppercase leading-[120%] tracking-wide">
+          {article.title}
+        </h2>
+        <p className="text-white text-sm lg:text-lg font-thin tracking-wider mb-5">
+          {article.desc}
+        </p>
+        <a href={article.link} className="inline-block mt-5 bg-yellow text-black px-4 py-2 text-sm font-bold uppercase tracking-wider hover:bg-transparent hover:text-yellow border border-yellow transition duration-300">
+          Read More
+        </a>
+      </div>
+    ))}
+  </div>
+</section>
+
 
    {/* SOCIAL */}
    <section className="w-screen px-10 flex flex-col justify-center items-center">
@@ -169,7 +145,7 @@ const Resources = () => {
 
   </section>
       {/* Instagram Lightbox */}
-      <section className="w-screen relative my-20 px-20">
+      <section className="w-screen relative my-20 px-2 md:px-20">
         {/* Photo Album */}
         <motion.div
           variants={fadeIn('up')}
@@ -199,21 +175,21 @@ const Resources = () => {
   close={() => setOpen(false)}
   index={index}
   slides={slides}
-  controller={{ closeOnBackdropClick: true }} // Ensures clicking outside closes the Lightbox
+  controller={{ closeOnBackdropClick: false }} // Prevents accidental closing
   on={{ view: ({ index }) => setIndex(index) }}
   render={{
     buttonClose: () => (
       <button
-        className="absolute top-5 right-5 text-white text-3xl z-50"
+        className="absolute top-5 right-5 text-white text-sm z-50"
         onClick={() => setOpen(false)}
       >
-        ✕
+        ✕ Close
       </button>
     ),
   }}
   styles={{
     container: { backgroundColor: 'rgba(0, 0, 0, 0.9)' }, // Dark overlay
-    slide: { maxWidth: '70vw', maxHeight: '70vh' }, // Image fills 70% of screen
+    slide: { maxWidth: '75vw', maxHeight: '75vh', margin: '10px' }, // Added spacing
     navigationNext: { color: 'white' },
     navigationPrev: { color: 'white' },
   }}
@@ -221,17 +197,25 @@ const Resources = () => {
 
 
 
-     {/* btn */}
-     <motion.div
-      variants={fadeIn('up')}
-      initial='hidden'
-      whileInView={'show'}
-      viewport={{once: false, amount: 0.2}}
-    className='flex justify-center'>
-      <button className='btn btn-lg'>
-        INSTAGRAM
-      </button>
-    </motion.div>
+
+   {/* Instagram Button */}
+<motion.div
+  variants={fadeIn('up')}
+  initial='hidden'
+  whileInView={'show'}
+  viewport={{ once: false, amount: 0.2 }}
+  className="flex justify-center mt-10 mb-20"
+>
+  <a 
+    href="http://www.instagram.com/mission.movement"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="px-6 py-3 text-sm lg:text-base font-bold uppercase tracking-widest bg-yellow text-black hover:bg-transparent hover:text-yellow border border-yellow transition duration-300"
+  >
+    Instagram
+  </a>
+</motion.div>
+
   </section>
   </div>
   );

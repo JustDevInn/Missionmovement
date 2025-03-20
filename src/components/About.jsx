@@ -4,10 +4,9 @@ const About = () => {
   return (
   <div className="">
   {/* The story */}
-  <section className="section flex justify-center items-center bg-parajumping bg-bottom bg-no-repeat bg-cover">
-    <div className='h-full w-full flex justify-end items-start pt-20 pr-5 lg:pr-20'>
-      <h1 className='text-yellow font-primary text-[35px] md:text-[60px] font-medium
-      uppercase tracking-wider'>
+  <section className="section flex justify-center items-center bg-parajumping bg-bottom bg-no-repeat bg-cover bg-fixed">
+    <div className="relative h-full w-full flex justify-center lg:justify-end items-center pt-20 px-5 lg:px-20">
+      <h1 className="text-yellow font-primary text-[35px] md:text-[60px] font-medium uppercase tracking-wider text-center lg:text-right">
       The Story
       </h1>
     </div>
@@ -15,7 +14,7 @@ const About = () => {
   {/* foundation */}
   <section className="w-screen p-10 py-20 flex flex-col justify-center items-center text-left">
     <h1 className="h1-teko pb-10">Foundations</h1>
-    <div className="lg:px-20 pt-5">
+    <div className="lg:px-20 pt-5 text-justify">
       <h5 className="mb-5 text-yellow font-secondary text-[25px] md:text-[50px] font-light uppercase leading-[120%] tracking-wide">The story</h5>
       <p className="font-light tracking-wider text-white lg:text-xl">
       With a foundation rooted in a decade of elite service within the <span className="text-yellow">Royal Marine Corps</span>,
@@ -32,12 +31,12 @@ const About = () => {
     </div>
   </section>
   {/* image */}
-  <section className="h-[250px] md:h-[450px] w-screen
+  <section className="h-[250px] md:h-[450px] w-screen bg-fixed
   bg-heigendhert bg-bottom bg-no-repeat bg-cover">
   </section>
   
   {/* Mission & values */}
-<section className="w-screen p-10 lg:px-20 flex flex-col justify-center items-center">
+<section className="w-screen md:p-10 lg:px-20 flex flex-col justify-center items-center">
   <h1 className="h1-teko py-20">Mission & Values</h1>
 
   {/* Mission & Core Values Container */}
