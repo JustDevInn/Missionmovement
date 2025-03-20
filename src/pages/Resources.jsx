@@ -1,29 +1,14 @@
 import React, { useState } from 'react';
-// import data
-import { galleryData } from '../data/data.js';
 // import photo album & lightbox
-import { PhotoAlbum } from 'react-photo-album';
-import Lightbox from 'yet-another-react-lightbox';
-import "yet-another-react-lightbox/styles.css";
-// import motion
-import { motion } from 'framer-motion';
-// import fadeIn
-import { fadeIn } from '../utils/variants';
+import SocialGallery from '../components/SocialGallergy.jsx';
 import {faqData} from '../data/data.js'
 // Icons
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import FloatingCTA from '../components/FloatingCTA.jsx';
 
-// slides
-const slides = galleryData.images.map(({ original, width, height }) => ({
-  src: original,
-  width,
-  height,
-}));
+
 
 const Resources = () => {
-  // index state for image gallery
-  const [open, setOpen] = useState(false);
-  const [index, setIndex] = useState(0);
   const [openIndex, setOpenIndex] = useState(null);
   const toggle = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -41,7 +26,7 @@ const Resources = () => {
     </h1>
   </div>
 </section>
-
+<FloatingCTA />
 
       {/* FAQ Section */}
       <section className="w-screen px-10 pt-20 pb-10 lg:pt-40 lg:pb-20 flex flex-col justify-center items-center">
@@ -58,7 +43,7 @@ const Resources = () => {
   <h1 className="h2-teko text-yellow text-center mb-4">What to Know Before Joining</h1>
 
   {/* Added Intro */}
-  <p className="text-sm lg:text-base font-thin text-white text-center mb-6 text-justify">
+  <p className="text-sm lg:text-base font-thin text-white text-justify mb-6">
     Have questions? Here are the most common things people ask before signing up.  
     If you need more details, feel free to reach out!
   </p>
@@ -127,97 +112,8 @@ const Resources = () => {
   </div>
 </section>
 
-
-   {/* SOCIAL */}
-   <section className="w-screen px-10 flex flex-col justify-center items-center">
-    <h1 className="h1-teko pt-20 pb-10 lg:pt-40 lg:pb-20">
-      Social
-    </h1> 
-    <motion.a
-      variants={fadeIn('up')}
-      initial='hidden'
-      whileInView={'show'}
-      viewport={{once: false, amount: 0.6}}
-      href="http://www.instagram.com/mission.movement"
-      target='blank'
-      className="text-yellow w-full text-sm lg:text-lg">
-      @mission.movement
-      </motion.a>
-
-  </section>
-      {/* Instagram Lightbox */}
-      <section className="w-screen relative my-20 px-2 md:px-20">
-        {/* Photo Album */}
-        <motion.div
-          variants={fadeIn('up')}
-          initial='hidden'
-          whileInView={'show'}
-          viewport={{ once: false, amount: 0.2 }}
-          className='mb-8 lg:mb-20'
-        >
-          <PhotoAlbum
-            photos={slides}
-            layout="rows"
-            onClick={({ index }) => {
-              setIndex(index);
-              setOpen(true);
-            }}
-          />
-        </motion.div>
-
-        {open && (
-  <div
-    className="fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-90 z-50"
-    onClick={() => setOpen(false)}
-  />
-)}
-<Lightbox
-  open={open}
-  close={() => setOpen(false)}
-  index={index}
-  slides={slides}
-  controller={{ closeOnBackdropClick: false }} // Prevents accidental closing
-  on={{ view: ({ index }) => setIndex(index) }}
-  render={{
-    buttonClose: () => (
-      <button
-        className="absolute top-5 right-5 text-white text-sm z-50"
-        onClick={() => setOpen(false)}
-      >
-        ✕ Close
-      </button>
-    ),
-  }}
-  styles={{
-    container: { backgroundColor: 'rgba(0, 0, 0, 0.9)' }, // Dark overlay
-    slide: { maxWidth: '75vw', maxHeight: '75vh', margin: '10px' }, // Added spacing
-    navigationNext: { color: 'white' },
-    navigationPrev: { color: 'white' },
-  }}
-/>
-
-
-
-
-   {/* Instagram Button */}
-<motion.div
-  variants={fadeIn('up')}
-  initial='hidden'
-  whileInView={'show'}
-  viewport={{ once: false, amount: 0.2 }}
-  className="flex justify-center mt-10 mb-20"
->
-  <a 
-    href="http://www.instagram.com/mission.movement"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="px-6 py-3 text-sm lg:text-base font-bold uppercase tracking-widest bg-yellow text-black hover:bg-transparent hover:text-yellow border border-yellow transition duration-300"
-  >
-    Instagram
-  </a>
-</motion.div>
-
-  </section>
+{/* Social */}
+<SocialGallery />
   </div>
   );
 };

@@ -1,4 +1,5 @@
 import React from "react";
+import FloatingCTA from "../components/FloatingCTA";
 
 const Contact = () => {
   return (
@@ -12,7 +13,7 @@ const Contact = () => {
           </h1>
         </div>
       </section>
-
+      <FloatingCTA />
       {/* Take the First Step Section */}
       <section className="w-screen flex flex-col justify-center items-center px-10 lg:px-20 py-20">
         <h1 className="text-yellow font-secondary text-[35px] md:text-[80px] uppercase leading-[120%] tracking-wide font-extralight mb-8 text-center">

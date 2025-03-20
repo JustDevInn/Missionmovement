@@ -10,8 +10,9 @@ import MobileBanners from '../components/MobileBanners';
 import {useGlowEffect} from "../Hooks/useGlowEffect";
 // Importing FAQ and program details from data.js
 import { faqData, programDetails } from "../data/data"; 
-
+import FloatingCTA from "../components/FloatingCTA";
 // Image Paths 
+import Reviews from "../components/Reviews";
 const Trainer = "/img/profilepicture.png";
 const Bundle = "/img/bundle.png";
 
@@ -54,7 +55,7 @@ const Program = () => {
     <p className="text-brown px-2 lg:px-5">determination</p>
   </div>
 </section>
-
+<FloatingCTA />
 
     {/* details */}
   <section className="w-screen p-10 lg:px-20">
@@ -279,49 +280,8 @@ This ethos drives Justin's focus on comprehensive and mindful training regimens 
         </div>
     </div>
 </section>
-{/* Success stories */}
-<section className=" w-screen flex justify-center items-center p-10 text-justify">
-<div>
-  <h2 className="h1-teko text-center py-20">SUCCESS STORIES</h2>
-  <div className="flex flex-col md:flex-row py-10">
-  {/* Hendriks */}
-    <div className="lg:px-10 py-5 px-1">
-      <h2 className="h2-teko mb-2">Hendriks, J</h2>
-      <p className="text-white font-light tracking-wider">
-      As a seasoned coach for nine years, Justin amalgamates military precision with coaching  beyond conventional training,
-      advocating a holistic approach to fitness, integrating mountain climbs, surfing, and gym sessions for a well-rounded experience.
-      <br /><br />
-      years, Justin amalgamates military precision with coaching  advocating a  approach to fitness, integrating mountain climbs, surfing,
-      and gym sessions for a well-rounded experience.
-      </p>
-    </div>
-    {/* Van der werf */}
-    <div className="lg:px-10 py-5 px-1">
-      <h2 className="h2-teko mb-2">Van der werf, J</h2>
-      <p className="text-white font-light tracking-wider">
-      As a seasoned coach for nine years, Justin amalgamates military precision with coaching  beyond conventional training, advocating a holistic
-      approach to fitness, integrating mountain climbs, surfing, and gym sessions for a well-rounded experience.
-      <br /><br />
-      years, Justin amalgamates military precision with coaching  advocating a  approach to fitness, integrating mountain climbs, surfing, and gym
-      sessions for a well-rounded experience.
-      </p>
-    </div>
-    {/* Trommels */}
-    <div className="lg:px-10 py-5 px-1">
-      <h2 className="h2-teko mb-2">Trommels, E</h2>
-      <p className="text-white font-light tracking-wider">
-      As a seasoned coach for nine years, Justin amalgamates military precision with coaching  beyond conventional training, advocating a holistic approach
-      to fitness, integrating mountain climbs, surfing, and gym sessions for a well-rounded experience.
-      <br /><br />
-      years, Justin amalgamates military precision with coaching  advocating a  approach to fitness, integrating mountain climbs, surfing, and gym sessions
-      for a well-rounded experience.
-
-
-      </p>
-    </div>
-  </div>
-</div>
-</section>
+{/* Reviews  */}
+<Reviews />
 
 {/* link to program */}
   <section className="w-screen

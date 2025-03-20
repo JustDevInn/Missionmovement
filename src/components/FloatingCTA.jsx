@@ -8,7 +8,7 @@ const FloatingCTA = () => {
   if (!isVisible) return null; // If dismissed, don’t render
 
   return (
-    <div className="fixed bottom-5 right-5 bg-yellow text-black px-4 py-2 rounded-full shadow-lg flex items-center gap-3 cursor-pointer hover:scale-105 transition hidden md:flex">
+    <div className="fixed bottom-5 right-5 bg-yellow text-black px-4 py-2 shadow-lg uppercase z-10 items-center gap-3 cursor-pointer hover:scale-105 transition hidden md:flex">
       <Link to="/program" className="font-bold tracking-wide">
         Join Now
       </Link>

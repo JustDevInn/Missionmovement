@@ -1,4 +1,5 @@
 import React from "react";
+import FloatingCTA from "../components/FloatingCTA";
 
 const About = () => {
   return (
@@ -11,6 +12,7 @@ const About = () => {
       </h1>
     </div>
   </section>
+  <FloatingCTA />
   {/* foundation */}
   <section className="w-screen p-10 py-20 flex flex-col justify-center items-center text-left">
     <h1 className="h1-teko pb-10">Foundations</h1>

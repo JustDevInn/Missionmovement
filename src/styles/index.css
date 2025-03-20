@@ -135,3 +135,28 @@
     }
   }
 }
+
+/* scrollbar reviews carousel */
+/* Works in Chrome, Edge, Safari */
+.scrollbar-visible::-webkit-scrollbar {
+  height: 5px; /* Adjust thickness */
+}
+
+.scrollbar-visible::-webkit-scrollbar-track {
+  background: #1E1E1E; /* Dark grey track */
+}
+
+.scrollbar-visible::-webkit-scrollbar-thumb {
+  background: #8E774F; /* Brownish scrollbar */
+  border-radius: 10px;
+}
+
+.scrollbar-visible::-webkit-scrollbar-thumb:hover {
+  background: #7A6742; /* Slightly darker on hover */
+}
+
+/* Works in Firefox */
+.scrollbar-visible {
+  scrollbar-width: thin;
+  scrollbar-color: #8E774F #1E1E1E; /* Thumb | Track */
+}

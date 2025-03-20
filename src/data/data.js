@@ -2,50 +2,50 @@
 export const galleryData = {
   images: [
     {
-      src: "/assets/img/barret.jpg",
-      original: "/assets/img/barret.jpg",
+      src: "/img/barret.jpg",
+      original: "/img/barret.jpg",
       width: 465,
       height: 412,
     },
     {
-      src: "/assets/img/Bootgroup_carry.jpg",
-      original: "/assets/img/Bootgroup_carry.jpg",
+      src: "/img/Bootgroup_carry.jpg",
+      original: "/img/Bootgroup_carry.jpg",
       width: 465,
       height: 540,
     },
     {
-      src: "/assets/img/friscatnight.jpg",
-      original: "/assets/img/friscatnight.jpg",
+      src: "/img/friscatnight.jpg",
+      original: "/img/friscatnight.jpg",
       width: 465,
       height: 412,
     },
     {
-      src: "/assets/img/heigendhert.jpg",
-      original: "/assets/img/heigendhert.jpg",
+      src: "/img/heigendhert.jpg",
+      original: "/img/heigendhert.jpg",
       width: 465,
       height: 540,
     },
     {
-      src: "/assets/img/marsof.jpg",
-      original: "/assets/img/marsof.jpg",
+      src: "/img/marsof.jpg",
+      original: "/img/marsof.jpg",
       width: 465,
       height: 540,
     },
     {
-      src: "/assets/img/parajumping.jpg",
-      original: "/assets/img/parajumping.jpg",
+      src: "/img/parajumping.jpg",
+      original: "/img/parajumping.jpg",
       width: 464,
       height: 412,
     },
     {
-      src: "/assets/img/royalmarines.jpg",
-      original: "/assets/img/royalmarines.jpg",
+      src: "/img/royalmarines.jpg",
+      original: "/img/royalmarines.jpg",
       width: 465,
       height: 540,
     },
     {
-      src: "/assets/img/spelioladder.jpg",
-      original: "/assets/img/spelioladder.jpg",
+      src: "/img/spelioladder.jpg",
+      original: "/img/spelioladder.jpg",
       width: 465,
       height: 412,
     },
@@ -97,5 +97,40 @@ export const programDetails = [
   {
     title: "Including REMOTE COACHING",
     description: "We will review your exercises and questions to help you stay on track.",
+  },
+];
+
+export const reviews = [
+  {
+    name: "Hendriks, J",
+    text: "As a seasoned coach for nine years, Justin amalgamates military precision with coaching beyond conventional training, advocating a holistic approach to fitness, integrating mountain climbs, surfing, and gym sessions for a well-rounded experience.",
+  },
+  {
+    name: "V.D Werf, J",
+    text: "Justin's mission is to help you reach your full potential and achieve your dreams of serving in the military. He provides the tools and training you need to succeed, physically and mentally.",
+  },
+  {
+    name: "Trommels, E",
+    text: "Efficient, expertly designed training. A 6-week program covering military basics, fitness, nutrition, mental health, and key subjects like mobility, breathwork, and endurance for comprehensive preparation.",
+  },
+  {
+    name: "Eline, T",
+    text: "Efficient, expertly designed training. A 6-week program covering military basics, fitness, nutrition, mental health, and key subjects like mobility, breathwork, and endurance for comprehensive preparation.",
+  },
+  {
+    name: "Hendriks, J",
+    text: "As a seasoned coach for nine years, Justin amalgamates military precision with coaching beyond conventional training, advocating a holistic approach to fitness, integrating mountain climbs, surfing, and gym sessions for a well-rounded experience.",
+  },
+  {
+    name: "V.D Werf, J",
+    text: "Justin's mission is to help you reach your full potential and achieve your dreams of serving in the military. He provides the tools and training you need to succeed, physically and mentally.",
+  },
+  {
+    name: "Trommels, E",
+    text: "Efficient, expertly designed training. A 6-week program covering military basics, fitness, nutrition, mental health, and key subjects like mobility, breathwork, and endurance for comprehensive preparation.",
+  },
+  {
+    name: "Eline, T",
+    text: "Efficient, expertly designed training. A 6-week program covering military basics, fitness, nutrition, mental health, and key subjects like mobility, breathwork, and endurance for comprehensive preparation.",
   },
 ];
