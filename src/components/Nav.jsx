@@ -1,177 +1,279 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { FaTimes } from "react-icons/fa";
-import { RxHamburgerMenu } from "react-icons/rx";
+import { FaTimes, FaUser, FaPlus, FaMinus } from "react-icons/fa";
+import { HiMenuAlt4 } from "react-icons/hi"; // Thicker, square-line menu icon
 import { Link as RouterLink } from "react-router-dom";
-import { useAuth } from "../context/AuthContext"; // Import auth context
+import { useAuth } from "../context/AuthContext";
 
 const Nav = () => {
-  const { user, logout } = useAuth(); // Access auth state
+  const { user } = useAuth();
   const [nav, setNav] = useState(false);
+  const [dropdown, setDropdown] = useState({});
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+
+  // Detect screen size
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 1024);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Toggle dropdown sections (mobile)
+  const toggleDropdown = (section) => {
+    setDropdown((prev) => ({ ...prev, [section]: !prev[section] }));
+  };
+
+  // Hide navbar on scroll down, show on scroll up
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const handleScroll = useCallback(() => {
     const currentScrollY = window.scrollY;
 
-    // Ensure navbar is always visible at the top of the page
     if (currentScrollY === 0) {
       setVisible(true);
       return;
     }
 
-    // Scroll behavior: Hide on scroll down, show on scroll up
     if (currentScrollY > lastScrollY + 10) {
-      setVisible(false); // Scrolling down, hide navbar
+      setVisible(false);
     } else if (currentScrollY < lastScrollY - 10) {
-      setVisible(true); // Scrolling up, show navbar
+      setVisible(true);
     }
 
     setLastScrollY(currentScrollY);
   }, [lastScrollY]);
 
-  // Effect to track scrolling
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  const links = [
-    { id: 1, link: "program" },
-    { id: 2, link: "about" },
-    { id: 3, link: "resources" },
-    { id: 4, link: "contact" },
-  ];
-
   return (
     <div
-      className={`fixed top-0 w-screen px-[30px] h-24 md:h-32 bg-primary z-50 flex justify-between items-center text-yellow text-lg transition-transform duration-300 ${
+      className={`fixed top-0 w-screen px-6 h-16 md:h-20 bg-primary border-b-2 border-yellow z-50 flex justify-between items-center text-yellow text-lg transition-transform duration-300 ${
         visible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      {/* Logo */}
-      <div>
-        <RouterLink to="/">
-          <h1 className="w-full text-start h1-header">Mission Movement</h1>
-        </RouterLink>
-      </div>
+      {/* ✅ Mobile Navbar */}
+      {isMobile ? (
+        <>
+          {/* Left: Hamburger Menu */}
+          <div className="flex items-center cursor-pointer" onClick={() => setNav(!nav)}>
+            {nav ? <FaTimes size={36} className="text-white" /> : <HiMenuAlt4 size={36} className="text-white" />}
+          </div>
 
-      {/* Desktop Links */}
-      <ul className="hidden lg:flex items-center gap-6">
-        {links.map(({ id, link }) => (
-          <li
-            key={id}
-            className="px-4 cursor-pointer text-xl uppercase font-extralight tracking-widest font-secondary hover:scale-105 duration-200"
+          {/* Center: Brand Name (Stacked with Borders) */}
+          <RouterLink 
+            to="/" 
+            className="flex flex-col items-center uppercase text-center text-sm font-bold tracking-widest relative px-4"
+            onClick={() => setNav(false)}
           >
-            <RouterLink to={`/${link}`}>{link}</RouterLink>
-          </li>
-        ))}
+            <span className="">
+              Mission
+            </span>
+            <span className="">
+              Movement
+            </span>
+          </RouterLink>
 
-        {/* 🔥 Authentication Links */}
-        {!user ? (
-          <>
-            <RouterLink
-              to="/login"
-              className="px-4 py-2 bg-yellow text-black hover:bg-transparent hover:text-yellow border border-yellow"
-            >
-              Login
-            </RouterLink>
-            <RouterLink
-              to="/signup"
-              className="px-4 py-2 border border-yellow hover:bg-yellow hover:text-black"
-            >
-              Sign Up
-            </RouterLink>
-          </>
-        ) : (
-          <>
-            <RouterLink
-              to="/dashboard"
-              className="px-4 py-2 bg-green-600 hover:bg-green-700"
-            >
-              Dashboard
-            </RouterLink>
-            <button
-              onClick={logout}
-              className="px-4 py-2 bg-red-500 hover:bg-red-600"
-            >
-              Logout
-            </button>
-          </>
-        )}
-      </ul>
-
-      {/* Mobile Menu Button */}
-      <div
-        onClick={() => setNav(!nav)}
-        className="cursor-pointer pr-4 z-10 text-yellow lg:hidden"
-      >
-        {nav ? <FaTimes size={30} /> : <RxHamburgerMenu size={30} />}
-      </div>
-
-      {/* Mobile Menu */}
-      {nav && (
-        <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black to-gray-900 text-yellow">
-          {links.map(({ id, link }) => (
-            <li
-              key={id}
-              className="px-4 cursor-pointer py-6 text-4xl uppercase font-secondary font-light tracking-widest duration-200"
-            >
-              <RouterLink onClick={() => setNav(false)} to={`/${link}`}>
-                {link}
+          {/* Right: Authentication Icon */}
+          <div className="cursor-pointer">
+            {!user ? (
+              <RouterLink to="/login">
+                <FaUser size={28} className="text-white" />
               </RouterLink>
-            </li>
-          ))}
+            ) : (
+              <RouterLink to="/dashboard">
+                <FaUser size={28} className="text-green-500" />
+              </RouterLink>
+            )}
+          </div>
 
-          {/* 🔥 Authentication Links for Mobile */}
-          {!user ? (
-            <>
-              <li className="py-4">
-                <RouterLink
-                  onClick={() => setNav(false)}
-                  to="/login"
-                  className="px-6 py-3 bg-yellow text-black hover:bg-transparent hover:text-yellow border border-yellow"
-                >
+          {/* Full-Screen Dropdown Menu */}
+          <div
+            className={`absolute top-full left-0 w-full h-screen bg-primary border-t-2 border-yellow transition-all duration-300 ${
+              nav ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
+          >
+            {/* Dropdown Menu Content */}
+            <div className="flex flex-col h-full justify-start px-8 py-8 text-white">
+              {/* Sections with Expandable Links */}
+              {[
+                { name: "About", links: [{ title: "Who We Are", path: "/about" }, { title: "What is Mission Movement?", path: "/mission" }] },
+                { name: "News", links: [{ title: "Blog", path: "/blogs" }] },
+                { name: "Program", links: [{ title: "Program", path: "/program" }] },
+                { name: "Multimedia", links: [{ title: "Resources", path: "/resources" }, { title: "Instagram", path: "https://www.instagram.com/mission.movement", external: true }] },
+                { name: "Contact", links: [{ title: "Get in Touch", path: "/contact" }] },
+                { name: "Pricing", links: [{ title: "View Pricing", path: "/pricing" }] },
+              ].map(({ name, links }) => (
+                <div key={name} className="border-b border-white/50 py-3">
+                  {/* Section Header */}
+                  <button
+                    className="w-full py-3 flex justify-between items-center text-yellow text-lg uppercase font-bold"
+                    onClick={() => toggleDropdown(name)}
+                  >
+                    {name} {dropdown[name] ? <FaMinus size={18} /> : <FaPlus size={18} />}
+                  </button>
+
+                  {/* Links (Expandable) */}
+                  {dropdown[name] && (
+                    <div className="mt-2 text-sm space-y-1">
+                      {links.map(({ title, path, external }) =>
+                        external ? (
+                          <a
+                            key={title}
+                            href={path}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block text-gray-300 hover:text-yellow py-1"
+                            onClick={() => setNav(false)}
+                          >
+                            {title}
+                          </a>
+                        ) : (
+                          <RouterLink
+                            key={title}
+                            to={path}
+                            className="block text-gray-300 hover:text-yellow py-1"
+                            onClick={() => setNav(false)}
+                          >
+                            {title}
+                          </RouterLink>
+                        )
+                      )}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </>
+      ) : (
+        // ✅ Desktop Navbar
+        <>
+          {/* Left: Hamburger Menu */}
+          <div className="flex items-center cursor-pointer" onClick={() => setNav(!nav)}>
+            {nav ? <FaTimes size={35} /> : <HiMenuAlt4 size={35} />}
+            <span className="ml-2 text-lg uppercase font-light tracking-wider">Menu</span>
+          </div>
+
+          {/* Center: Brand Name */}
+          <RouterLink to="/" className="text-xl font-bold uppercase tracking-widest" onClick={() => setNav(false)}>
+            Mission Movement
+          </RouterLink>
+
+          {/* Right: Authentication Links */}
+          <div className="flex gap-4 text-white text-sm md:text-lg">
+            {!user ? (
+              <>
+                <RouterLink to="/signup" className="hover:text-yellow">
+                  Signup
+                </RouterLink>
+                <span>|</span>
+                <RouterLink to="/login" className="hover:text-yellow">
                   Login
                 </RouterLink>
-              </li>
-              <li className="py-4">
-                <RouterLink
-                  onClick={() => setNav(false)}
-                  to="/signup"
-                  className="px-6 py-3 border border-yellow hover:bg-yellow hover:text-black"
-                >
-                  Sign Up
-                </RouterLink>
-              </li>
-            </>
-          ) : (
-            <>
-              <li className="py-4">
-                <RouterLink
-                  onClick={() => setNav(false)}
-                  to="/dashboard"
-                  className="px-6 py-3 bg-green-600 hover:bg-green-700"
-                >
+              </>
+            ) : (
+              <>
+                <RouterLink to="/dashboard" className="hover:text-yellow">
                   Dashboard
                 </RouterLink>
-              </li>
-              <li className="py-4">
-                <button
-                  onClick={() => {
-                    logout();
-                    setNav(false);
-                  }}
-                  className="px-6 py-3 bg-red-500 hover:bg-red-600"
-                >
+                <span>|</span>
+                <button onClick={() => setNav(false)} className="hover:text-yellow">
                   Logout
                 </button>
-              </li>
-            </>
-          )}
-        </ul>
+              </>
+            )}
+          </div>
+
+          {/* Desktop Dropdown Menu */}
+          <div
+            className={`absolute top-full left-0 w-full bg-primary border-t-2 border-yellow transition-all duration-300 ${
+              nav ? "h-[70vh] opacity-100" : "h-0 opacity-0 pointer-events-none"
+            } overflow-hidden`}
+          >
+            <div className="grid grid-cols-2 gap-10 px-20 py-10">
+             {/* First Column */}
+<div className="flex flex-col space-y-8">
+{/* About Section */}
+<div>
+  <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">About</h3>
+  <div className="border-t border-white w-20 my-2"></div>
+  <RouterLink to="/about" className="block text-gray-300 hover:text-yellow py-1" onClick={() => setNav(false)}>
+    Who are we?
+  </RouterLink>
+  <RouterLink to="/mission" className="block text-gray-300 hover:text-yellow py-1" onClick={() => setNav(false)}>
+    What is Mission Movement?
+  </RouterLink>
+</div>
+
+{/* News Section */}
+<div>
+  <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">News</h3>
+  <div className="border-t border-white w-20 my-2"></div>
+  <RouterLink to="/blogs" className="block text-gray-300 hover:text-yellow py-1" onClick={() => setNav(false)}>
+    Blog
+  </RouterLink>
+</div>
+
+{/* Program Section */}
+<div>
+  <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">Program</h3>
+  <div className="border-t border-white w-20 my-2"></div>
+  <RouterLink to="/program" className="block text-gray-300 hover:text-yellow py-1" onClick={() => setNav(false)}>
+    Program Details
+  </RouterLink>
+</div>
+</div>
+
+{/* Second Column */}
+<div className="flex flex-col space-y-8">
+{/* Multimedia Section */}
+<div>
+  <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">Multimedia</h3>
+  <div className="border-t border-white w-20 my-2"></div>
+  <RouterLink to="/resources" className="block text-gray-300 hover:text-yellow py-1" onClick={() => setNav(false)}>
+    Resources
+  </RouterLink>
+  <a
+    href="https://www.instagram.com/mission.movement"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="block text-gray-300 hover:text-yellow py-1"
+    onClick={() => setNav(false)}
+  >
+    Instagram
+  </a>
+</div>
+
+{/* Get in Contact Section */}
+<div>
+  <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">Get in Contact</h3>
+  <div className="border-t border-white w-20 my-2"></div>
+  <RouterLink to="/contact" className="block text-gray-300 hover:text-yellow py-1" onClick={() => setNav(false)}>
+    Contact Us
+  </RouterLink>
+</div>
+
+{/* Pricing Section */}
+<div>
+  <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">Pricing</h3>
+  <div className="border-t border-white w-20 my-2"></div>
+  <RouterLink to="/pricing" className="block text-gray-300 hover:text-yellow py-1" onClick={() => setNav(false)}>
+    View Pricing
+  </RouterLink>
+</div>
+</div>
+            </div>
+          </div>
+        </>
       )}
     </div>
   );
 };
 
 export default Nav;
+
+
+
