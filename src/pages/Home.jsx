@@ -51,24 +51,26 @@ const Home = () => {
 
 
 {/* about mission movement */}
-    <div className="lg:h-[500px] w-screen flex flex-col lg:flex-row">
-      {/* image */}
-      <div className="order-first lg:order-last w-full lg:w-1/2 bg-fixed bg-barret bg-bottom bg-cover lg:h-full h-[450px] relative"></div>
-      {/* text */}
-      <div className="w-full lg:w-1/2 px-10 lg:px-20 py-20 flex flex-col justify-center items-start text-left">
-          <h2 className="h2-teko mb-5">About mission movement</h2>
-          <p className="text-white text-lg font-thin tracking-wider text-justify">
-            At Mission Movement, we're dedicated to sculpting the elite. Our coaching and training programs are meticulously
-            designed to prepare you for the challenges of special military forces. We value efficiency and excellence, ensuring your
-            time is maximised and your readiness unparalleled.
-          </p>
-          <div className="w-full flex justify-start">
-          <Link to='about'>
-            <button className="btn md:btn-lg my-5">about</button>
-          </Link>
-          </div>
-      </div>
+<div className="lg:h-[500px] w-screen flex flex-col lg:flex-row relative">
+  {/* Background Image */}
+  <div className="order-first lg:order-last w-full lg:w-1/2 bg-fixed bg-barret bg-bottom bg-cover lg:h-full h-[450px]"></div>
+
+  {/* Text Content */}
+  <div className="w-full lg:w-1/2 px-10 lg:px-20 py-20 flex flex-col justify-center items-start text-left relative">
+    <h2 className="h2-teko mb-5">About mission movement</h2>
+    <p className="text-white text-lg font-thin tracking-wider text-justify">
+      At Mission Movement, we're dedicated to sculpting the elite. Our coaching and training programs are meticulously
+      designed to prepare you for the challenges of special military forces. We value efficiency and excellence, ensuring your
+      time is maximised and your readiness unparalleled.
+    </p>
+    <div className="w-full flex justify-start">
+      <Link to='about'>
+        <button className="btn md:btn-lg my-5">about</button>
+      </Link>
     </div>
+  </div>
+</div>
+
 
 
 {/* our program */}
