@@ -96,7 +96,7 @@
   animation: slideInLeft 1s ease-out forwards;
 }
 
-/* Default for Desktop */
+/* Default fixed background for desktop */
 .bg-fixed {
   position: relative;
   background-attachment: fixed;
@@ -104,27 +104,34 @@
   background-size: cover;
 }
 
-/* Mobile workaround: Use a pseudo-element */
+/* Mobile workaround: Apply fix only if needed */
 @media (max-width: 768px) {
   .bg-fixed {
-    background-attachment: fixed !important;
     background-position: center;
     background-size: cover;
   }
 
-  .bg-fixed::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: inherit;
-    background-position: center;
-    background-size: cover;
-    background-attachment: scroll;
-    z-index: -1;
-    transform: translateZ(0); /* Prevents background glitches */
-    will-change: transform; /* Helps with performance */
+  /* iOS-Specific Fix */
+  @supports (-webkit-overflow-scrolling: touch) {
+    .bg-fixed {
+      background-attachment: scroll !important; /* Forces correct rendering */
+    }
+
+    .bg-fixed::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: inherit;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      z-index: -1;
+      transform: translateZ(0);
+      will-change: transform;
+    }
   }
 }
