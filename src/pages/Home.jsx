@@ -53,7 +53,7 @@ const Home = () => {
 {/* about mission movement */}
     <div className="lg:h-[500px] w-screen flex flex-col lg:flex-row">
       {/* image */}
-      <div className="order-first lg:order-last w-full lg:w-1/2 bg-fixed bg-barret bg-bottom bg-cover lg:h-full h-[450px]"></div>
+      <div className="order-first lg:order-last w-full lg:w-1/2 bg-fixed bg-barret bg-bottom bg-cover lg:h-full h-[450px] relative"></div>
       {/* text */}
       <div className="w-full lg:w-1/2 px-10 lg:px-20 py-20 flex flex-col justify-center items-start text-left">
           <h2 className="h2-teko mb-5">About mission movement</h2>

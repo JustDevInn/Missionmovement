@@ -96,3 +96,33 @@
   animation: slideInLeft 1s ease-out forwards;
 }
 
+/* General bg-fixed styling */
+.bg-fixed {
+  position: relative;
+  overflow: hidden; /* Prevent any layout shifts */
+}
+
+/* Desktop: Apply real bg-fixed */
+@media (min-width: 769px) {
+  .bg-fixed {
+    background-attachment: fixed;
+  }
+}
+
+/* Mobile: Simulate bg-fixed with pseudo-element */
+@media (max-width: 768px) {
+  .bg-fixed::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: inherit;
+    background-position: center;
+    background-size: cover;
+    background-attachment: scroll;
+    z-index: -1;
+    will-change: transform; /* Improves performance */
+  }
+}
