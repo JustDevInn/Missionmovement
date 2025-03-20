@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // import data
-import { galleryData } from '../data';
+import { galleryData } from '../data/data.js';
 // import photo album & lightbox
 import { PhotoAlbum } from 'react-photo-album';
 import Lightbox from 'yet-another-react-lightbox';
@@ -8,10 +8,11 @@ import "yet-another-react-lightbox/styles.css";
 // import motion
 import { motion } from 'framer-motion';
 // import fadeIn
-import { fadeIn } from '../variants';
-import {faqData} from '../data.js'
+import { fadeIn } from '../utils/variants';
+import {faqData} from '../data/data.js'
 // Icons
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+
 // slides
 const slides = galleryData.images.map(({ original, width, height }) => ({
   src: original,

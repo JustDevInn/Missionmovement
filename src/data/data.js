@@ -1,12 +1,12 @@
 // import images
-import GalleryImg1 from './img/barret.jpg'
-import GalleryImg2 from './img/Bootgroup_carry.jpg'
-import GalleryImg3 from './img/friscatnight.jpg'
-import GalleryImg4 from './img/heigendhert.jpg'
-import GalleryImg5 from './img/marsof.jpg'
-import GalleryImg6 from './img/parajumping.jpg'
-import GalleryImg7 from './img/royalmarines.jpg'
-import GalleryImg8 from './img/spelioladder.jpg'
+import GalleryImg1 from '../assets/img/barret.jpg'
+import GalleryImg2 from '../assets/img/Bootgroup_carry.jpg'
+import GalleryImg3 from '../assets/img/friscatnight.jpg'
+import GalleryImg4 from '../assets/img/heigendhert.jpg'
+import GalleryImg5 from '../assets/img/marsof.jpg'
+import GalleryImg6 from '../assets/img/parajumping.jpg'
+import GalleryImg7 from '../assets/img/royalmarines.jpg'
+import GalleryImg8 from '../assets/img/spelioladder.jpg'
 
 export const galleryData = {
   images: [

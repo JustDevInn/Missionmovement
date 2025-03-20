@@ -7,11 +7,11 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import Banners from '../components/Banners';
 import MobileBanners from '../components/MobileBanners';
 // import images
-import Trainer from '../img/profilepicture.png';
-import Bundle from '../img/bundle.png';
+import Trainer from '../assets/img/profilepicture.png';
+import Bundle from '../assets/img/bundle.png';
 import {useGlowEffect} from "../Hooks/useGlowEffect";
 // Importing FAQ and program details from data.js
-import { faqData, programDetails } from "../data"; 
+import { faqData, programDetails } from "../data/data"; 
 
 
 
@@ -165,7 +165,7 @@ const Program = () => {
   <h1 className="h2-teko text-yellow text-center mb-4">What to Know Before Joining</h1>
 
   {/* Added Intro */}
-  <p className="text-sm lg:text-base font-thin text-white text-center mb-6 text-justify">
+  <p className="text-sm lg:text-base font-thin text-white mb-6 text-justify">
     Have questions? Here are the most common things people ask before signing up.  
     If you need more details, feel free to reach out!
   </p>
