@@ -2,31 +2,32 @@ import React, { useState, useEffect, useCallback } from "react";
 import { FaTimes } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link as RouterLink } from "react-router-dom";
+import { useAuth } from "../context/AuthContext"; // Import auth context
 
 const Nav = () => {
+  const { user, logout } = useAuth(); // Access auth state
   const [nav, setNav] = useState(false);
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const handleScroll = useCallback(() => {
     const currentScrollY = window.scrollY;
-  
+
     // Ensure navbar is always visible at the top of the page
     if (currentScrollY === 0) {
       setVisible(true);
       return;
     }
-  
+
     // Scroll behavior: Hide on scroll down, show on scroll up
     if (currentScrollY > lastScrollY + 10) {
       setVisible(false); // Scrolling down, hide navbar
     } else if (currentScrollY < lastScrollY - 10) {
       setVisible(true); // Scrolling up, show navbar
     }
-  
+
     setLastScrollY(currentScrollY);
   }, [lastScrollY]);
-  
 
   // Effect to track scrolling
   useEffect(() => {
@@ -55,7 +56,7 @@ const Nav = () => {
       </div>
 
       {/* Desktop Links */}
-      <ul className="hidden lg:flex">
+      <ul className="hidden lg:flex items-center gap-6">
         {links.map(({ id, link }) => (
           <li
             key={id}
@@ -64,6 +65,39 @@ const Nav = () => {
             <RouterLink to={`/${link}`}>{link}</RouterLink>
           </li>
         ))}
+
+        {/* 🔥 Authentication Links */}
+        {!user ? (
+          <>
+            <RouterLink
+              to="/login"
+              className="px-4 py-2 bg-yellow text-black hover:bg-transparent hover:text-yellow border border-yellow"
+            >
+              Login
+            </RouterLink>
+            <RouterLink
+              to="/signup"
+              className="px-4 py-2 border border-yellow hover:bg-yellow hover:text-black"
+            >
+              Sign Up
+            </RouterLink>
+          </>
+        ) : (
+          <>
+            <RouterLink
+              to="/dashboard"
+              className="px-4 py-2 bg-green-600 hover:bg-green-700"
+            >
+              Dashboard
+            </RouterLink>
+            <button
+              onClick={logout}
+              className="px-4 py-2 bg-red-500 hover:bg-red-600"
+            >
+              Logout
+            </button>
+          </>
+        )}
       </ul>
 
       {/* Mobile Menu Button */}
@@ -82,11 +116,58 @@ const Nav = () => {
               key={id}
               className="px-4 cursor-pointer py-6 text-4xl uppercase font-secondary font-light tracking-widest duration-200"
             >
-              <RouterLink onClick={() => setNav(!nav)} to={`/${link}`}>
+              <RouterLink onClick={() => setNav(false)} to={`/${link}`}>
                 {link}
               </RouterLink>
             </li>
           ))}
+
+          {/* 🔥 Authentication Links for Mobile */}
+          {!user ? (
+            <>
+              <li className="py-4">
+                <RouterLink
+                  onClick={() => setNav(false)}
+                  to="/login"
+                  className="px-6 py-3 bg-yellow text-black hover:bg-transparent hover:text-yellow border border-yellow"
+                >
+                  Login
+                </RouterLink>
+              </li>
+              <li className="py-4">
+                <RouterLink
+                  onClick={() => setNav(false)}
+                  to="/signup"
+                  className="px-6 py-3 border border-yellow hover:bg-yellow hover:text-black"
+                >
+                  Sign Up
+                </RouterLink>
+              </li>
+            </>
+          ) : (
+            <>
+              <li className="py-4">
+                <RouterLink
+                  onClick={() => setNav(false)}
+                  to="/dashboard"
+                  className="px-6 py-3 bg-green-600 hover:bg-green-700"
+                >
+                  Dashboard
+                </RouterLink>
+              </li>
+              <li className="py-4">
+                <button
+                  onClick={() => {
+                    logout();
+                    setNav(false);
+                  }}
+                  className="px-6 py-3 bg-red-500 hover:bg-red-600"
+                >
+                  Logout
+                </button>
+              </li>
+            </>
+          )}
         </ul>
       )}
     </div>
