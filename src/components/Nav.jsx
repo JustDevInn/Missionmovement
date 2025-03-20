@@ -8,15 +8,25 @@ const Nav = () => {
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  // Function to handle scroll behavior
   const handleScroll = useCallback(() => {
-    if (window.scrollY > lastScrollY) {
-      setVisible(false); // Scrolling down - hide navbar
-    } else {
-      setVisible(true); // Scrolling up - show navbar
+    const currentScrollY = window.scrollY;
+  
+    // Ensure navbar is always visible at the top of the page
+    if (currentScrollY === 0) {
+      setVisible(true);
+      return;
     }
-    setLastScrollY(window.scrollY);
+  
+    // Scroll behavior: Hide on scroll down, show on scroll up
+    if (currentScrollY > lastScrollY + 10) {
+      setVisible(false); // Scrolling down, hide navbar
+    } else if (currentScrollY < lastScrollY - 10) {
+      setVisible(true); // Scrolling up, show navbar
+    }
+  
+    setLastScrollY(currentScrollY);
   }, [lastScrollY]);
+  
 
   // Effect to track scrolling
   useEffect(() => {
