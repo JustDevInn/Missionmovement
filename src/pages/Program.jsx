@@ -6,15 +6,14 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 // import banners
 import Banners from '../components/Banners';
 import MobileBanners from '../components/MobileBanners';
-// import images
-import Trainer from '../assets/img/profilepicture.png';
-import Bundle from '../assets/img/bundle.png';
+// Hooks
 import {useGlowEffect} from "../Hooks/useGlowEffect";
 // Importing FAQ and program details from data.js
 import { faqData, programDetails } from "../data/data"; 
 
-
-
+// Image Paths 
+const Trainer = "/img/profilepicture.png";
+const Bundle = "/img/bundle.png";
 
   
 
@@ -208,7 +207,6 @@ const Program = () => {
       </div>
     </header>
   </section>
-
 {/* course banners */}
 <div className="hidden lg:flex">
   <Banners />

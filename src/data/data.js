@@ -1,60 +1,51 @@
-// import images
-import GalleryImg1 from '../assets/img/barret.jpg'
-import GalleryImg2 from '../assets/img/Bootgroup_carry.jpg'
-import GalleryImg3 from '../assets/img/friscatnight.jpg'
-import GalleryImg4 from '../assets/img/heigendhert.jpg'
-import GalleryImg5 from '../assets/img/marsof.jpg'
-import GalleryImg6 from '../assets/img/parajumping.jpg'
-import GalleryImg7 from '../assets/img/royalmarines.jpg'
-import GalleryImg8 from '../assets/img/spelioladder.jpg'
-
+// Gallery Data
 export const galleryData = {
   images: [
     {
-      src: GalleryImg1,
-      original: GalleryImg1,
+      src: "/assets/img/barret.jpg",
+      original: "/assets/img/barret.jpg",
       width: 465,
       height: 412,
     },
     {
-      src: GalleryImg2,
-      original: GalleryImg2,
+      src: "/assets/img/Bootgroup_carry.jpg",
+      original: "/assets/img/Bootgroup_carry.jpg",
       width: 465,
       height: 540,
     },
     {
-      src: GalleryImg3,
-      original: GalleryImg3,
+      src: "/assets/img/friscatnight.jpg",
+      original: "/assets/img/friscatnight.jpg",
       width: 465,
       height: 412,
     },
     {
-      src: GalleryImg4,
-      original: GalleryImg4,
+      src: "/assets/img/heigendhert.jpg",
+      original: "/assets/img/heigendhert.jpg",
       width: 465,
       height: 540,
     },
     {
-      src: GalleryImg5,
-      original: GalleryImg5,
+      src: "/assets/img/marsof.jpg",
+      original: "/assets/img/marsof.jpg",
       width: 465,
       height: 540,
     },
     {
-      src: GalleryImg6,
-      original: GalleryImg6,
+      src: "/assets/img/parajumping.jpg",
+      original: "/assets/img/parajumping.jpg",
       width: 464,
       height: 412,
     },
     {
-      src: GalleryImg7,
-      original: GalleryImg7,
+      src: "/assets/img/royalmarines.jpg",
+      original: "/assets/img/royalmarines.jpg",
       width: 465,
       height: 540,
     },
     {
-      src: GalleryImg8,
-      original: GalleryImg8,
+      src: "/assets/img/spelioladder.jpg",
+      original: "/assets/img/spelioladder.jpg",
       width: 465,
       height: 412,
     },
