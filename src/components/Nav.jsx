@@ -1,28 +1,27 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { FaTimes, FaUser, FaPlus, FaMinus } from "react-icons/fa";
-import { HiMenuAlt4 } from "react-icons/hi"; // Thicker, square-line menu icon
+import { HiMenuAlt4 } from "react-icons/hi";
 import { Link as RouterLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { MdClose } from "react-icons/md";
+import { MdLogin } from "react-icons/md";
 
 const Nav = () => {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
   const [nav, setNav] = useState(false);
   const [dropdown, setDropdown] = useState({});
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
 
-  // Detect screen size
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 1024);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Toggle dropdown sections (mobile)
   const toggleDropdown = (section) => {
     setDropdown((prev) => ({ ...prev, [section]: !prev[section] }));
   };
 
-  // Hide navbar on scroll down, show on scroll up
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -54,33 +53,25 @@ const Nav = () => {
         visible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      {/* ✅ Mobile Navbar */}
       {isMobile ? (
         <>
-          {/* Left: Hamburger Menu */}
           <div className="flex items-center cursor-pointer" onClick={() => setNav(!nav)}>
-            {nav ? <FaTimes size={36} className="text-white" /> : <HiMenuAlt4 size={36} className="text-white" />}
+            {nav ? <MdClose size={36} className="text-white" /> : <HiMenuAlt4 size={36} className="text-white" />}
           </div>
 
-          {/* Center: Brand Name (Stacked with Borders) */}
-          <RouterLink 
-            to="/" 
+          <RouterLink
+            to="/"
             className="flex flex-col items-center uppercase text-center text-sm font-bold tracking-widest relative px-4"
             onClick={() => setNav(false)}
           >
-            <span className="">
-              Mission
-            </span>
-            <span className="">
-              Movement
-            </span>
+            <span className="">Mission</span>
+            <span className="">Movement</span>
           </RouterLink>
 
-          {/* Right: Authentication Icon */}
           <div className="cursor-pointer">
             {!user ? (
               <RouterLink to="/login">
-                <FaUser size={28} className="text-white" />
+                <MdLogin className="text-2xl hover:scale-105 duration-300 text-white hover:text-yellow"/>
               </RouterLink>
             ) : (
               <RouterLink to="/dashboard">
@@ -89,72 +80,87 @@ const Nav = () => {
             )}
           </div>
 
-          {/* Full-Screen Dropdown Menu */}
           <div
-            className={`absolute top-full left-0 w-full h-screen bg-primary border-t-2 border-yellow transition-all duration-300 ${
-              nav ? "opacity-100" : "opacity-0 pointer-events-none"
+            className={`absolute top-full left-0 w-full bg-primary border-t-2 border-yellow transition-all duration-500 ease-in-out overflow-y-auto ${
+              nav ? "max-h-[90vh] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
             }`}
+            style={{ fontFamily: "Overpass, sans-serif" }}
           >
-            {/* Dropdown Menu Content */}
-            <div className="flex flex-col h-full justify-start px-8 py-8 text-white">
-              {/* Sections with Expandable Links */}
-              {[
-                { name: "About", links: [{ title: "Who We Are", path: "/about" }, { title: "What is Mission Movement?", path: "/mission" }] },
-                { name: "News", links: [{ title: "Blog", path: "/blogs" }] },
-                { name: "Program", links: [{ title: "Program", path: "/program" }] },
-                { name: "Multimedia", links: [{ title: "Resources", path: "/resources" }, { title: "Instagram", path: "https://www.instagram.com/mission.movement", external: true }] },
-                { name: "Contact", links: [{ title: "Get in Touch", path: "/contact" }] },
-                { name: "Pricing", links: [{ title: "View Pricing", path: "/pricing" }] },
-              ].map(({ name, links }) => (
-                <div key={name} className="border-b border-white/50 py-3">
-                  {/* Section Header */}
-                  <button
-                    className="w-full py-3 flex justify-between items-center text-yellow text-lg uppercase font-bold"
-                    onClick={() => toggleDropdown(name)}
+            <form className="px-6 py-8 space-y-4 text-[#CCCCCC]">
+              {[{ name: "About", links: [
+                { title: "Who We Are", path: "/about" },
+                { title: "What is Mission Movement?", path: "/mission" }
+              ]},
+              { name: "News", links: [
+                { title: "Blog", path: "/blogs" }
+              ]},
+              { name: "Program", links: [
+                { title: "Program", path: "/program" }
+              ]},
+              { name: "Multimedia", links: [
+                { title: "Resources", path: "/resources" },
+                { title: "Instagram", path: "https://www.instagram.com/mission.movement", external: true }
+              ]},
+              { name: "Contact", links: [
+                { title: "Get in Touch", path: "/contact" }
+              ]},
+              { name: "Pricing", links: [
+                { title: "View Pricing", path: "/pricing" }
+              ]}].map(({ name, links }) => (
+                <div key={name}>
+                  <input
+                    type="checkbox"
+                    id={`menu-${name}`}
+                    className="hidden"
+                    checked={dropdown[name] || false}
+                    onChange={() => toggleDropdown(name)}
+                  />
+                  <label
+                    htmlFor={`menu-${name}`}
+                    className="flex justify-between items-center text-[#CCCCCC] hover:text-yellow uppercase text-lg font-bold py-3 border-b border-white/50 cursor-pointer"
                   >
-                    {name} {dropdown[name] ? <FaMinus size={18} /> : <FaPlus size={18} />}
-                  </button>
-
-                  {/* Links (Expandable) */}
-                  {dropdown[name] && (
-                    <div className="mt-2 text-sm space-y-1">
-                      {links.map(({ title, path, external }) =>
-                        external ? (
-                          <a
-                            key={title}
-                            href={path}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block text-gray-300 hover:text-yellow py-1"
-                            onClick={() => setNav(false)}
-                          >
-                            {title}
-                          </a>
-                        ) : (
-                          <RouterLink
-                            key={title}
-                            to={path}
-                            className="block text-gray-300 hover:text-yellow py-1"
-                            onClick={() => setNav(false)}
-                          >
-                            {title}
-                          </RouterLink>
-                        )
-                      )}
-                    </div>
-                  )}
+                    {name}
+                    <span>{dropdown[name] ? <FaMinus size={14} /> : <FaPlus size={14} />}</span>
+                  </label>
+                  <ul className={`pl-4 py-2 space-y-1 overflow-hidden transition-all duration-300 ease-in-out ${
+                      dropdown[name] ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                      }`}>
+                      {links.map(({ title, path, external }) => (
+                        <li key={title}>
+                          {external ? (
+                            <a
+                              href={path}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="block text-sm text-gray-300 hover:text-yellow"
+                              onClick={() => setNav(false)}
+                            >
+                              {title}
+                            </a>
+                          ) : (
+                            <RouterLink
+                              to={path}
+                              className="block text-sm text-gray-300 hover:text-yellow"
+                              onClick={() => setNav(false)}
+                            >
+                              {title}
+                            </RouterLink>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
                 </div>
               ))}
-            </div>
+            </form>
           </div>
         </>
       ) : (
         // ✅ Desktop Navbar
         <>
           {/* Left: Hamburger Menu */}
-          <div className="flex items-center cursor-pointer" onClick={() => setNav(!nav)}>
+          <div className="flex items-center cursor-pointer text-white hover:text-yellow" onClick={() => setNav(!nav)}>
             {nav ? <FaTimes size={35} /> : <HiMenuAlt4 size={35} />}
-            <span className="ml-2 text-lg uppercase font-light tracking-wider">Menu</span>
+            <span className="ml-2 text-lg uppercase tracking-wider font-extrabold">Menu</span>
           </div>
 
           {/* Center: Brand Name */}
@@ -166,12 +172,8 @@ const Nav = () => {
           <div className="flex gap-4 text-white text-sm md:text-lg">
             {!user ? (
               <>
-                <RouterLink to="/signup" className="hover:text-yellow">
-                  Signup
-                </RouterLink>
-                <span>|</span>
                 <RouterLink to="/login" className="hover:text-yellow">
-                  Login
+                <MdLogin className="text-2xl hover:scale-105 duration-300"/>
                 </RouterLink>
               </>
             ) : (
@@ -180,7 +182,10 @@ const Nav = () => {
                   Dashboard
                 </RouterLink>
                 <span>|</span>
-                <button onClick={() => setNav(false)} className="hover:text-yellow">
+                <button onClick={() => {
+                  setNav(false);
+                  logout();
+                }} className="hover:text-yellow">
                   Logout
                 </button>
               </>
