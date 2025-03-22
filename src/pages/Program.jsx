@@ -13,6 +13,9 @@ import { faqData, programDetails } from "../data/data";
 import FloatingCTA from "../components/FloatingCTA";
 // Image Paths 
 import Reviews from "../components/Reviews";
+
+import { Link } from 'react-router-dom';
+
 const Trainer = "/img/profilepicture.png";
 const Bundle = "/img/bundle.png";
 
@@ -55,7 +58,6 @@ const Program = () => {
     <p className="text-brown px-2 lg:px-5">determination</p>
   </div>
 </section>
-<FloatingCTA />
 
     {/* details */}
   <section className="w-screen p-10 lg:px-20">
@@ -203,9 +205,11 @@ const Program = () => {
 
 
     {/* button */}
-      <div className="flex justify-center items-center">
-        <button className="btn lg:btn-lg">enrol</button>
-      </div>
+<div className="flex justify-center items-center">
+  <Link to="/pricing">
+    <button className="btn lg:btn-lg">Enroll</button>
+  </Link>
+</div>
     </header>
   </section>
 {/* course banners */}
@@ -326,7 +330,12 @@ This ethos drives Justin's focus on comprehensive and mindful training regimens 
     {/* image + button */}
     <div className="flex flex-col justify-center items-center lg:w-1/2">
       <img src={Bundle} alt="projectbundlecover" className="h-[400px] w-[250px]"/>
-      <button className="btn btn-lg my-10">Enrol</button>
+      {/* button */}
+<div className="flex justify-center items-center mt-5">
+  <Link to="/pricing">
+    <button className="btn lg:btn-lg">Enroll</button>
+  </Link>
+</div>
     </div>
   </section>
 

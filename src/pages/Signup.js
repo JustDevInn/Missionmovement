@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { auth } from "../firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+// Signup.js
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useNavigate, Link as RouterLink } from "react-router-dom";
 
 const Signup = () => {
@@ -13,17 +14,31 @@ const Signup = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     setError("");
+  
     if (!username.trim()) {
       setError("Please enter a username.");
       return;
     }
+  
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      await userCredential.user.updateProfile({
-        displayName: username,
-      });
-      navigate("/dashboard");
+  
+      // ✅ Try to set the display name, but don't crash if it fails
+      try {
+        await updateProfile(userCredential.user, {
+          displayName: username,
+        });
+      } catch (profileErr) {
+        console.warn("Display name could not be set:", profileErr.message);
+      }
+  
+      // ✅ Delay navigation to ensure context updates
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 500);
     } catch (err) {
+      console.error("Signup error:", err);
+  
       if (err.code === "auth/email-already-in-use") {
         setError("This email is already registered. Try logging in instead.");
       } else if (err.code === "auth/invalid-email") {
@@ -35,6 +50,9 @@ const Signup = () => {
       }
     }
   };
+  
+  
+  
   
 
   return (
