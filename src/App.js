@@ -31,12 +31,19 @@ import TrainingProgram from "./dashboard/training/TrainingProgram";
 import Tracker from "./dashboard/tracker/Tracker";
 import Progress from "./dashboard/progress/Progress";
 import CheckIn from "./dashboard/checkin/CheckIn";
+import Messages from './dashboard/messages/Messages';
+import Nutrition from './dashboard/nutrition/Nutrition';
+import Settings from './dashboard/settings/Settings';
 
 // Admin Pages
 import AdminDashboard from "./admin/AdminDashboard";
 import UploadVideo from "./admin/UploadVideo";
 import ManageVideos from "./admin/ManageVideos";
 import ManageUsers from "./admin/ManageUsers";
+
+// Layout
+import DashboardLayout from "./layouts/DashboardLayout";
+
 
 const MainRoutes = () => {
   const location = useLocation();
@@ -52,45 +59,53 @@ const MainRoutes = () => {
     location.pathname.startsWith("/admin");
 
   return (
-    <>
-      {!isDashboardRoute && <Nav />}
-      <ScrollToTop />
-      <div className="pt-24 md:pt-32">
-        <Routes>
-          {/* Public Pages */}
-          <Route path="/" element={<Home />} />
-          <Route path="/program" element={<Program />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/resources" element={<Resources />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/success" element={<Success />} />
-          <Route path="/cancel" element={<Cancel />} />
+<>
+  {!isDashboardRoute && <Nav />}
+  <ScrollToTop />
 
-          {/* Open Dashboard Pages */}
-          <Route path="/tracker" element={<Tracker />} />
-          <Route path="/progress" element={<Progress />} />
+  {isDashboardRoute ? (
+    <Routes>
+      {/* Protected Dashboard Routes with Shared Sidebar */}
+      <Route element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>}>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/tracker" element={<Tracker />} />
+        <Route path="/progress" element={<Progress />} />
+        <Route path="/nutrition" element={<Nutrition />} />
+        <Route path="/messages" element={<Messages />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/check-in" element={<PaidRoute><CheckIn /></PaidRoute>} />
+        <Route path="/trainingprogram" element={<PaidRoute><TrainingProgram /></PaidRoute>} />
+        <Route path="/library" element={<PaidRoute><Library /></PaidRoute>} />
+      </Route>
 
-          {/* Paid User Pages */}
-          <Route path="/trainingprogram" element={<PaidRoute><TrainingProgram /></PaidRoute>} />
-          <Route path="/check-in" element={<PaidRoute><CheckIn /></PaidRoute>} />
-          <Route path="/library" element={<PaidRoute><Library /></PaidRoute>} />
+      {/* Admin Dashboard Routes */}
+      <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>}>
+        <Route path="upload" element={<UploadVideo />} />
+        <Route path="manage-videos" element={<ManageVideos />} />
+        <Route path="manage-users" element={<ManageUsers />} />
+      </Route>
+    </Routes>
+  ) : (
+    <div className="pt-24 md:pt-32">
+      <Routes>
+        {/* Public Pages */}
+        <Route path="/" element={<Home />} />
+        <Route path="/program" element={<Program />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/resources" element={<Resources />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/cancel" element={<Cancel />} />
+      </Routes>
+    </div>
+  )}
 
-          {/* Authenticated Dashboard */}
-          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+  {!isDashboardRoute && <Footer />}
+</>
 
-          {/* Admin Dashboard Routes */}
-          <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>}>
-            <Route path="upload" element={<UploadVideo />} />
-            <Route path="manage-videos" element={<ManageVideos />} />
-            <Route path="manage-users" element={<ManageUsers />} />
-          </Route>
-        </Routes>
-      </div>
-      {!isDashboardRoute && <Footer />}
-    </>
   );
 };
 

@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { Navigate } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { motion, AnimatePresence } from "framer-motion";
+
 
 const Library = () => {
   const { user, hasPaid } = useAuth();
@@ -15,6 +16,18 @@ const Library = () => {
   const [detailsOpen, setDetailsOpen] = useState(null);
   const modalRef = useRef();
   const [allTags, setAllTags] = useState([]);
+
+  const handleThumbnailClick = (video) => {
+    setScrollY(window.scrollY);
+    setSelectedVideo(video);
+    document.body.style.overflow = "hidden";
+  };
+
+  const handleCloseModal = useCallback(() => {
+    setSelectedVideo(null);
+    document.body.style.overflow = "auto";
+    window.scrollTo({ top: scrollY });
+  }, [scrollY]);
 
 
   useEffect(() => {
@@ -45,22 +58,11 @@ const Library = () => {
     };
     if (selectedVideo) document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [selectedVideo]);
+}, [selectedVideo, handleCloseModal]);
+
 
   if (!user) return <Navigate to="/login" />;
   if (!hasPaid) return <Navigate to="/pricing" />;
-
-  const handleThumbnailClick = (video) => {
-    setScrollY(window.scrollY);
-    setSelectedVideo(video);
-    document.body.style.overflow = "hidden";
-  };
-
-  const handleCloseModal = () => {
-    setSelectedVideo(null);
-    document.body.style.overflow = "auto";
-    window.scrollTo({ top: scrollY });
-  };
 
   const filterText = search.toLowerCase();
   const filteredVideos = videos.filter((video) => {

@@ -10,7 +10,6 @@ import MobileBanners from '../components/MobileBanners';
 import {useGlowEffect} from "../Hooks/useGlowEffect";
 // Importing FAQ and program details from data.js
 import { faqData, programDetails } from "../data/data"; 
-import FloatingCTA from "../components/FloatingCTA";
 // Image Paths 
 import Reviews from "../components/Reviews";
 

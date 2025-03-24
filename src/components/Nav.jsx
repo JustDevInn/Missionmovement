@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { FaTimes, FaUser, FaPlus, FaMinus } from "react-icons/fa";
-import { HiMenuAlt4 } from "react-icons/hi";
+import { FaUser, FaPlus, FaMinus } from "react-icons/fa";
 import { Link as RouterLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { MdClose } from "react-icons/md";
 import { MdLogin } from "react-icons/md";
+import { IoMdMenu } from "react-icons/io";
 
 const Nav = () => {
   const { user, logout } = useAuth();
@@ -56,7 +56,7 @@ const Nav = () => {
       {isMobile ? (
         <>
           <div className="flex items-center cursor-pointer" onClick={() => setNav(!nav)}>
-            {nav ? <MdClose size={36} className="text-white" /> : <HiMenuAlt4 size={36} className="text-white" />}
+            {nav ? <MdClose size={36} className="text-white" /> : <IoMdMenu size={36} className="text-white" />}
           </div>
 
           <RouterLink
@@ -120,7 +120,7 @@ const Nav = () => {
                     className="flex justify-between items-center text-[#CCCCCC] hover:text-yellow uppercase text-lg font-bold py-3 border-b border-white/50 cursor-pointer"
                   >
                     {name}
-                    <span>{dropdown[name] ? <FaMinus size={14} /> : <FaPlus size={14} />}</span>
+                    <span>{dropdown[name] ? <FaMinus size={16} /> : <FaPlus size={16} />}</span>
                   </label>
                   <ul className={`pl-4 py-2 space-y-1 overflow-hidden transition-all duration-300 ease-in-out ${
                       dropdown[name] ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
@@ -158,8 +158,8 @@ const Nav = () => {
         // ✅ Desktop Navbar
         <>
           {/* Left: Hamburger Menu */}
-          <div className="flex items-center cursor-pointer text-white hover:text-yellow" onClick={() => setNav(!nav)}>
-            {nav ? <FaTimes size={35} /> : <HiMenuAlt4 size={35} />}
+          <div className="flex items-center cursor-pointer text-white" onClick={() => setNav(!nav)}>
+            {nav ? <MdClose size={35} /> : <IoMdMenu size={35} />}
             <span className="ml-2 text-lg uppercase tracking-wider font-extrabold">Menu</span>
           </div>
 
@@ -204,7 +204,7 @@ const Nav = () => {
 {/* About Section */}
 <div>
   <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">About</h3>
-  <div className="border-t border-white w-20 my-2"></div>
+  <div className="border-t border-gray-400 w-20 my-2"></div>
   <RouterLink to="/about" className="block text-gray-300 hover:text-yellow py-1" onClick={() => setNav(false)}>
     Who are we?
   </RouterLink>
@@ -216,7 +216,7 @@ const Nav = () => {
 {/* News Section */}
 <div>
   <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">News</h3>
-  <div className="border-t border-white w-20 my-2"></div>
+  <div className="border-t border-gray-400 w-20 my-2"></div>
   <RouterLink to="/blogs" className="block text-gray-300 hover:text-yellow py-1" onClick={() => setNav(false)}>
     Blog
   </RouterLink>
@@ -225,7 +225,7 @@ const Nav = () => {
 {/* Program Section */}
 <div>
   <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">Program</h3>
-  <div className="border-t border-white w-20 my-2"></div>
+  <div className="border-t border-gray-400 w-20 my-2"></div>
   <RouterLink to="/program" className="block text-gray-300 hover:text-yellow py-1" onClick={() => setNav(false)}>
     Program Details
   </RouterLink>
@@ -237,7 +237,7 @@ const Nav = () => {
 {/* Multimedia Section */}
 <div>
   <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">Multimedia</h3>
-  <div className="border-t border-white w-20 my-2"></div>
+  <div className="border-t border-gray-400 w-20 my-2"></div>
   <RouterLink to="/resources" className="block text-gray-300 hover:text-yellow py-1" onClick={() => setNav(false)}>
     Resources
   </RouterLink>
@@ -255,7 +255,7 @@ const Nav = () => {
 {/* Get in Contact Section */}
 <div>
   <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">Get in Contact</h3>
-  <div className="border-t border-white w-20 my-2"></div>
+  <div className="border-t border-gray-400 w-20 my-2"></div>
   <RouterLink to="/contact" className="block text-gray-300 hover:text-yellow py-1" onClick={() => setNav(false)}>
     Contact Us
   </RouterLink>
@@ -264,7 +264,7 @@ const Nav = () => {
 {/* Pricing Section */}
 <div>
   <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">Pricing</h3>
-  <div className="border-t border-white w-20 my-2"></div>
+  <div className="border-t border-gray-400 w-20 my-2"></div>
   <RouterLink to="/pricing" className="block text-gray-300 hover:text-yellow py-1" onClick={() => setNav(false)}>
     View Pricing
   </RouterLink>
