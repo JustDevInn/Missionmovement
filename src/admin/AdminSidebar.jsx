@@ -16,14 +16,12 @@ const AdminSidebar = () => {
   return (
     <>
       {/* Mobile toggle button */}
-      <div className="md:hidden p-4">
-        <button
-          onClick={() => setIsMobileOpen(true)}
-          className="text-2xl text-gray-700"
-        >
-          <FaBars />
-        </button>
-      </div>
+      <button
+        onClick={() => setIsMobileOpen(true)}
+        className="md:hidden fixed top-4 left-4 z-50 bg-white border border-gray-300 rounded-full p-2 shadow"
+      >
+        <FaBars className="text-gray-700 text-lg" />
+      </button>
 
       {/* Desktop Sidebar */}
       <aside className="w-64 min-h-screen bg-white border-r px-6 py-8 hidden md:block sticky top-0">

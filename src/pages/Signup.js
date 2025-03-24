@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { auth } from "../firebase";
-// Signup.js
+import { auth, db } from "../firebase"; // ✅ make sure db is here
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { setDoc, doc } from "firebase/firestore";
 import { useNavigate, Link as RouterLink } from "react-router-dom";
+import { serverTimestamp } from "firebase/firestore";
+import { Timestamp } from "firebase/firestore";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -14,16 +16,16 @@ const Signup = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     setError("");
-  
+
     if (!username.trim()) {
       setError("Please enter a username.");
       return;
     }
-  
+
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-  
-      // ✅ Try to set the display name, but don't crash if it fails
+
+      // ✅ Set displayName in Firebase Auth
       try {
         await updateProfile(userCredential.user, {
           displayName: username,
@@ -31,14 +33,28 @@ const Signup = () => {
       } catch (profileErr) {
         console.warn("Display name could not be set:", profileErr.message);
       }
-  
-      // ✅ Delay navigation to ensure context updates
+
+      // ✅ Write to Firestore
+      await setDoc(doc(db, "users", userCredential.user.uid), {
+        displayName: username,
+        email: userCredential.user.email,
+        createdAt: serverTimestamp(),
+        hasPaid: false,
+        paymentInfo: {
+          method: "Stripe",
+          date: Timestamp,
+          amount: 39
+        },
+        role: "user",
+      });
+
+      // ✅ Delay redirect slightly to ensure context has synced
       setTimeout(() => {
         navigate("/dashboard");
       }, 500);
     } catch (err) {
       console.error("Signup error:", err);
-  
+
       if (err.code === "auth/email-already-in-use") {
         setError("This email is already registered. Try logging in instead.");
       } else if (err.code === "auth/invalid-email") {
@@ -50,10 +66,6 @@ const Signup = () => {
       }
     }
   };
-  
-  
-  
-  
 
   return (
     <form
@@ -68,7 +80,6 @@ const Signup = () => {
         className="w-full p-2 my-2 rounded bg-gray-900"
         onChange={(e) => setUsername(e.target.value)}
       />
-
       <input
         type="email"
         placeholder="Email"

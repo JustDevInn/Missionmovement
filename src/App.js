@@ -53,7 +53,7 @@ const MainRoutes = () => {
 
   return (
     <>
-      <Nav />
+      {!isDashboardRoute && <Nav />}
       <ScrollToTop />
       <div className="pt-24 md:pt-32">
         <Routes>

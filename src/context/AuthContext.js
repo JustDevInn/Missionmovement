@@ -3,7 +3,6 @@ import { auth } from "../firebase";
 // AuthContext.js
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
-
 import { db } from "../firebase"; // Make sure you export `db` in firebase.js
 
 const AuthContext = createContext();
@@ -12,7 +11,8 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [hasPaid, setHasPaid] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [role, setRole] = useState("user"); // default role
+
 
   // Listen for auth state changes
   useEffect(() => {
@@ -25,19 +25,16 @@ export const AuthProvider = ({ children }) => {
           if (docSnap.exists()) {
             const data = docSnap.data();
             setHasPaid(data.hasPaid || false);
-            setIsAdmin(data.isAdmin || false);
+            setRole(data.role || "user");
           } else {
             setHasPaid(false);
-            setIsAdmin(false);
           }
         } catch (error) {
           console.error("Error fetching user payment status:", error);
           setHasPaid(false);
-          setIsAdmin(false);
         }
       } else {
         setHasPaid(false);
-        setIsAdmin(false);
       }
       setLoading(false);
     });
@@ -49,7 +46,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => signOut(auth);
 
   return (
-    <AuthContext.Provider value={{ user, logout, hasPaid, isAdmin }}>
+    <AuthContext.Provider value={{ user, logout, hasPaid, role }}>
       {!loading && children}
     </AuthContext.Provider>
   );
