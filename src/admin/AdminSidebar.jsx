@@ -1,5 +1,5 @@
 // src/admin/AdminSidebar.jsx
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import {
   FaBars,
@@ -14,6 +14,8 @@ import {
 
 const AdminSidebar = ({ isCollapsed, setIsCollapsed }) => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const drawerRef = useRef();
+  const touchStartX = useRef(null);
 
   const links = [
     { path: "/admin", label: "Dashboard", icon: <FaHome /> },
@@ -22,12 +24,43 @@ const AdminSidebar = ({ isCollapsed, setIsCollapsed }) => {
     { path: "/admin/manage-users", label: "Manage Users", icon: <FaUsers /> },
   ];
 
+  // Gesture to close sidebar
+  useEffect(() => {
+    const handleTouchStart = (e) => {
+      touchStartX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchMove = (e) => {
+      if (!touchStartX.current) return;
+      const currentX = e.touches[0].clientX;
+      const diff = touchStartX.current - currentX;
+
+      if (diff > 50) {
+        setIsMobileOpen(false);
+        touchStartX.current = null;
+      }
+    };
+
+    const drawer = drawerRef.current;
+    if (drawer) {
+      drawer.addEventListener("touchstart", handleTouchStart);
+      drawer.addEventListener("touchmove", handleTouchMove);
+    }
+
+    return () => {
+      if (drawer) {
+        drawer.removeEventListener("touchstart", handleTouchStart);
+        drawer.removeEventListener("touchmove", handleTouchMove);
+      }
+    };
+  }, []);
+
   return (
     <>
       {/* Mobile toggle button */}
       <button
         onClick={() => setIsMobileOpen(true)}
-        className="md:hidden fixed top-4 left-4 z-50 bg-white border border-gray-300 rounded-full p-2 shadow"
+        className="md:hidden fixed top-4 right-4 z-50 bg-white border border-gray-300 rounded-full p-2 shadow"
       >
         <FaBars className="text-gray-700 text-lg" />
       </button>
@@ -85,15 +118,22 @@ const AdminSidebar = ({ isCollapsed, setIsCollapsed }) => {
       </aside>
 
       {/* Mobile Sidebar Drawer */}
-      {isMobileOpen && (
-        <div
-          className="fixed inset-0 z-50 bg-black bg-opacity-50 md:hidden"
-          onClick={() => setIsMobileOpen(false)}
-        >
-          <div
-            className="bg-white w-64 h-full p-6 space-y-6 relative"
-            onClick={(e) => e.stopPropagation()}
-          >
+  {/* Backdrop always rendered, fade controlled by opacity */}
+<div
+  className={`fixed inset-0 z-50 bg-black transition-opacity duration-300 md:hidden ${
+    isMobileOpen ? 'bg-opacity-50 pointer-events-auto' : 'bg-opacity-0 pointer-events-none'
+  }`}
+  onClick={() => setIsMobileOpen(false)}
+>
+  {/* Slide-in Drawer */}
+  <div
+    ref={drawerRef}
+    className={`fixed top-0 right-0 h-full w-64 bg-white p-6 space-y-6 shadow-lg transform transition-transform duration-300 ${
+      isMobileOpen ? 'translate-x-0' : 'translate-x-full'
+    }`}
+    onClick={(e) => e.stopPropagation()}
+  >
+
             <button
               onClick={() => setIsMobileOpen(false)}
               className="absolute top-4 right-4 text-2xl text-gray-500 hover:text-black"
@@ -129,7 +169,6 @@ const AdminSidebar = ({ isCollapsed, setIsCollapsed }) => {
             </Link>
           </div>
         </div>
-      )}
     </>
   );
 };

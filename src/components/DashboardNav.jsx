@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { FaChevronLeft, FaChevronRight, FaSignOutAlt, FaBars, FaTimes } from "react-icons/fa";
+import {
+  FaChevronLeft,
+  FaChevronRight,
+  FaSignOutAlt,
+  FaBars,
+  FaTimes,
+} from "react-icons/fa";
 import { useAuth } from "../context/AuthContext";
 
 const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
   const { logout, hasPaid } = useAuth();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const drawerRef = useRef(null);
+  const startX = useRef(null);
 
   const navLinks = [
     { to: "/dashboard", label: "Overview", icon: "🏠" },
@@ -19,12 +27,40 @@ const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
     { to: "/settings", label: "Settings", icon: "⚙️" },
   ];
 
+  useEffect(() => {
+    const handleTouchStart = (e) => {
+      startX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchMove = (e) => {
+      if (!startX.current) return;
+      const deltaX = startX.current - e.touches[0].clientX;
+      if (deltaX > 50) {
+        setIsMobileOpen(false);
+        startX.current = null;
+      }
+    };
+
+    const drawer = drawerRef.current;
+    if (drawer) {
+      drawer.addEventListener("touchstart", handleTouchStart);
+      drawer.addEventListener("touchmove", handleTouchMove);
+    }
+
+    return () => {
+      if (drawer) {
+        drawer.removeEventListener("touchstart", handleTouchStart);
+        drawer.removeEventListener("touchmove", handleTouchMove);
+      }
+    };
+  }, []);
+
   return (
     <>
       {/* Mobile toggle button */}
       <button
         onClick={() => setIsMobileOpen(true)}
-        className="md:hidden fixed top-4 left-4 z-50 bg-white border border-gray-300 rounded-full p-2 shadow"
+        className="md:hidden fixed top-4 right-4 z-50 bg-white border border-gray-300 rounded-full p-2 shadow"
       >
         <FaBars className="text-gray-700 text-lg" />
       </button>
@@ -35,7 +71,6 @@ const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
           isCollapsed ? "w-16" : "w-64"
         }`}
       >
-        {/* Collapse/Expand Toggle */}
         <div className="flex items-center justify-between px-4 py-3 border-b border-gray-300">
           {!isCollapsed && <h2 className="text-lg font-bold">Mission</h2>}
           <button
@@ -63,47 +98,50 @@ const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
         </nav>
       </aside>
 
-      {/* Mobile Sidebar Drawer */}
-      {isMobileOpen && (
+      {/* Mobile Sidebar Drawer (animated with gesture support) */}
+      <div
+        className={`fixed inset-0 z-50 md:hidden transition-opacity duration-300 ${
+          isMobileOpen ? "bg-black bg-opacity-50 pointer-events-auto" : "bg-transparent pointer-events-none"
+        }`}
+        onClick={() => setIsMobileOpen(false)}
+      >
         <div
-          className="fixed inset-0 z-50 bg-black bg-opacity-50 md:hidden"
-          onClick={() => setIsMobileOpen(false)}
+          ref={drawerRef}
+          className={`fixed top-0 right-0 h-full w-64 bg-white p-6 space-y-6 shadow-lg transform transition-transform duration-300 ease-in-out ${
+            isMobileOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+          onClick={(e) => e.stopPropagation()}
         >
-          <div
-            className="bg-white w-64 h-full p-6 space-y-6 relative"
-            onClick={(e) => e.stopPropagation()}
+          <button
+            onClick={() => setIsMobileOpen(false)}
+            className="absolute top-4 right-4 text-2xl text-gray-500 hover:text-black"
           >
-            <button
-              onClick={() => setIsMobileOpen(false)}
-              className="absolute top-4 right-4 text-2xl text-gray-500 hover:text-black"
-            >
-              <FaTimes />
-            </button>
-            <h2 className="text-xl font-bold mb-6">Mission</h2>
-            <nav className="flex flex-col gap-4 text-sm font-semibold">
-              {navLinks.map(({ to, label, icon }) => (
-                <Link
-                  key={to}
-                  to={to}
-                  onClick={() => setIsMobileOpen(false)}
-                  className="hover:text-yellow"
-                >
-                  {icon} {label}
-                </Link>
-              ))}
-              <button
-                onClick={() => {
-                  setIsMobileOpen(false);
-                  logout();
-                }}
-                className="text-left text-red-500 hover:underline flex items-center gap-2 mt-4"
+            <FaTimes />
+          </button>
+          <h2 className="text-xl font-bold mb-6">Mission</h2>
+          <nav className="flex flex-col gap-4 text-sm font-semibold">
+            {navLinks.map(({ to, label, icon }) => (
+              <Link
+                key={to}
+                to={to}
+                onClick={() => setIsMobileOpen(false)}
+                className="hover:text-yellow"
               >
-                <FaSignOutAlt /> Logout
-              </button>
-            </nav>
-          </div>
+                {icon} {label}
+              </Link>
+            ))}
+            <button
+              onClick={() => {
+                setIsMobileOpen(false);
+                logout();
+              }}
+              className="text-left text-red-500 hover:underline flex items-center gap-2 mt-4"
+            >
+              <FaSignOutAlt /> Logout
+            </button>
+          </nav>
         </div>
-      )}
+      </div>
     </>
   );
 };
