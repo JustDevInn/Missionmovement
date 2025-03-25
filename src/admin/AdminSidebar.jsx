@@ -10,6 +10,7 @@ import {
   FaHome,
   FaChevronLeft,
   FaChevronRight,
+  FaListAlt,
 } from "react-icons/fa";
 
 const AdminSidebar = ({ isCollapsed, setIsCollapsed }) => {
@@ -22,6 +23,7 @@ const AdminSidebar = ({ isCollapsed, setIsCollapsed }) => {
     { path: "/admin/upload", label: "Upload Video", icon: <FaUpload /> },
     { path: "/admin/manage-videos", label: "Manage Videos", icon: <FaVideo /> },
     { path: "/admin/manage-users", label: "Manage Users", icon: <FaUsers /> },
+    { path: "/admin/manage-program", label: "Manage Program", icon: <FaListAlt /> },
   ];
 
   // Gesture to close sidebar

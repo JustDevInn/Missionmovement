@@ -40,6 +40,7 @@ import AdminDashboard from "./admin/AdminDashboard";
 import UploadVideo from "./admin/UploadVideo";
 import ManageVideos from "./admin/ManageVideos";
 import ManageUsers from "./admin/ManageUsers";
+import ManageTrainingProgram from './admin/manage/ManageTrainingProgram';
 
 // Layout
 import DashboardLayout from "./layouts/DashboardLayout";
@@ -80,10 +81,14 @@ const MainRoutes = () => {
 
       {/* Admin Dashboard Routes */}
       <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>}>
-        <Route path="upload" element={<UploadVideo />} />
-        <Route path="manage-videos" element={<ManageVideos />} />
-        <Route path="manage-users" element={<ManageUsers />} />
-      </Route>
+  <Route index element={<div className="p-6">Welcome to Admin Dashboard</div>} />
+  <Route path="upload" element={<UploadVideo />} />
+  <Route path="manage-videos" element={<ManageVideos />} />
+  <Route path="manage-users" element={<ManageUsers />} />
+  <Route path="manage-program" element={<ManageTrainingProgram />} />
+</Route>
+
+
     </Routes>
   ) : (
     <div className="pt-24 md:pt-32">
