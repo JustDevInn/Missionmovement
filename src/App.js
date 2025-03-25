@@ -40,7 +40,8 @@ import AdminDashboard from "./admin/AdminDashboard";
 import UploadVideo from "./admin/UploadVideo";
 import ManageVideos from "./admin/ManageVideos";
 import ManageUsers from "./admin/ManageUsers";
-import ManageTrainingProgram from './admin/manage/ManageTrainingProgram';
+import ManageTrainingProgram from './admin/ManageTrainingProgram';
+import UploadTrainingProgram from './admin/UploadTrainingProgram';
 
 // Layout
 import DashboardLayout from "./layouts/DashboardLayout";
@@ -86,6 +87,7 @@ const MainRoutes = () => {
   <Route path="manage-videos" element={<ManageVideos />} />
   <Route path="manage-users" element={<ManageUsers />} />
   <Route path="manage-program" element={<ManageTrainingProgram />} />
+  <Route path="upload-program" element={<UploadTrainingProgram />} />
 </Route>
 
 

@@ -23,6 +23,7 @@ const AdminSidebar = ({ isCollapsed, setIsCollapsed }) => {
     { path: "/admin/manage-videos", label: "Manage Videos", icon: <FaVideo /> },
     { path: "/admin/manage-users", label: "Manage Users", icon: <FaUsers /> },
     { path: "/admin/manage-program", label: "Manage Program", icon: <FaListAlt /> },
+    { path: "/admin/upload-program", label: "Upload Program", icon: <FaUpload /> },
   ];
 
   // Swipe gesture for mobile drawer
