@@ -7,13 +7,13 @@ const AdminDashboard = () => {
   const sidebarWidth = isCollapsed ? "w-16" : "w-64";
 
   return (
-    <div className="flex min-h-screen bg-[#F9F9F9] text-[#22201F] relative">
+    <div className="admin-dark-theme flex min-h-screen relative">
       {/* Desktop Sidebar */}
       <div className={`hidden md:block ${sidebarWidth}`}>
         <AdminSidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
       </div>
 
-      {/* Mobile Sidebar (still needs to be rendered for the toggle) */}
+      {/* Mobile Sidebar */}
       <div className="md:hidden">
         <AdminSidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
       </div>
@@ -21,7 +21,9 @@ const AdminDashboard = () => {
       {/* Main content */}
       <div className="flex-1 pt-20 sm:pt-20">
         <main className="p-4 sm:px-6 sm:py-8">
-          <Outlet />
+          <div className="bg-[#121212] border border-[#2A2A2A] shadow-md rounded-xl p-6">
+            <Outlet />
+          </div>
         </main>
       </div>
     </div>

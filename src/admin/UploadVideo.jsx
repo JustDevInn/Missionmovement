@@ -3,7 +3,6 @@ import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase";
 import { FaClipboard } from "react-icons/fa";
 
-
 const UploadVideo = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -19,8 +18,7 @@ const UploadVideo = () => {
     setShowCopied(true);
     setTimeout(() => setShowCopied(false), 2000);
   };
-  
-  // Auto-generate thumbnail from YouTube URL
+
   useEffect(() => {
     const match = videoUrl.match(/v=([^&]+)/);
     if (match && match[1]) {
@@ -60,64 +58,66 @@ const UploadVideo = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Upload Video</h1>
+    <div className="max-w-2xl mx-auto min-h-screen text-gray-300">
+      <h1 className="text-3xl font-bold mb-6 text-cyan-400">Upload Video</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
           placeholder="Title"
-          className="w-full p-2 border rounded"
+          className="w-full p-3 bg-[#121212] border border-[#2A2A2A] rounded placeholder-gray-400"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
         <textarea
           placeholder="Description"
-          className="w-full p-2 border rounded"
+          className="w-full p-3 bg-[#121212] border border-[#2A2A2A] rounded placeholder-gray-400"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
         <input
           type="text"
           placeholder="YouTube Video URL"
-          className="w-full p-2 border rounded"
+          className="w-full p-3 bg-[#121212] border border-[#2A2A2A] rounded placeholder-gray-400"
           value={videoUrl}
           onChange={(e) => setVideoUrl(e.target.value)}
         />
         <input
           type="text"
           placeholder="Thumbnail URL"
-          className="w-full p-2 border rounded"
+          className="w-full p-3 bg-[#121212] border border-[#2A2A2A] rounded placeholder-gray-400"
           value={thumbnail}
           onChange={(e) => setThumbnail(e.target.value)}
         />
         <div className="relative inline-block mt-2">
-  <button
-    type="button"
-    onClick={handleCopy}
-    className="flex items-center gap-2 text-sm hover:underline hover:text-blue-800"
-  >
-    <FaClipboard />
-    https://img.youtube.com/vi/string/hqdefault.jpg
-  </button>
-  {showCopied && (
-    <span className="absolute top-full left-0 mt-1 text-xs text-green-600 bg-white px-2 py-1 border border-green-300 rounded shadow-sm">
-      Copied!
-    </span>
-  )}
-</div>
-
+          <button
+            type="button"
+            onClick={handleCopy}
+            className="flex items-center gap-2 text-xs hover:underline text-gray-400 hover:text-blue-400"
+          >
+            <FaClipboard />
+            https://img.youtube.com/vi/string/hqdefault.jpg
+          </button>
+          {showCopied && (
+            <span className="absolute top-full left-0 mt-1 text-xs text-green-400 bg-[#1E1E1E] px-2 py-1 border border-green-600 rounded shadow-sm">
+              Copied!
+            </span>
+          )}
+        </div>
         <input
           type="text"
           placeholder="Tags (comma-separated)"
-          className="w-full p-2 border rounded"
+          className="w-full p-3 bg-[#121212] border border-[#2A2A2A] rounded placeholder-gray-400"
           value={tags}
           onChange={(e) => setTags(e.target.value)}
         />
-        <button type="submit" className="px-4 py-2 bg-yellow text-black font-semibold rounded">
+        <button
+          type="submit"
+          className="bg-yellow text-black font-semibold px-4 py-2 rounded hover:brightness-110 transition"
+        >
           Upload
         </button>
-        {error && <p className="text-red-500 text-sm">{error}</p>}
-        {success && <p className="text-green-600 text-sm">Video uploaded successfully!</p>}
+        {error && <p className="text-red-400 text-sm">{error}</p>}
+        {success && <p className="text-green-400 text-sm">Video uploaded successfully!</p>}
       </form>
     </div>
   );

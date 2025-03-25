@@ -6,7 +6,7 @@ const DashboardLayout = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   return (
-    <div className="min-h-screen bg-white text-[#22201F] relative">
+    <div className="min-h-screen bg-[#121212] text-gray-200 relative">
       {/* Sidebar + Content */}
       <div className="flex">
         <DashboardNav isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />

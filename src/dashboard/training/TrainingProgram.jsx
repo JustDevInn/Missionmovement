@@ -3,7 +3,6 @@ import { useAuth } from "../../context/AuthContext";
 import { Navigate } from "react-router-dom";
 import { fetchTrainingProgram } from "../../utils/firebase/getTrainingProgram";
 
-
 const TrainingProgram = () => {
   const { user, hasPaid } = useAuth();
   const [activeWeek, setActiveWeek] = useState(
@@ -14,53 +13,48 @@ const TrainingProgram = () => {
   const [programData, setProgramData] = useState({});
   const [loading, setLoading] = useState(true);
 
-  // Store activeWeek in localStorage
   useEffect(() => {
     localStorage.setItem("activeWeek", activeWeek);
   }, [activeWeek]);
 
-  // Fetch program from Firestore
-useEffect(() => {
-  const fetchProgram = async () => {
-    const data = await fetchTrainingProgram();
-    if (data) {
-      setProgramData(data || {});
-    }
-    setLoading(false);
-  };
+  useEffect(() => {
+    const fetchProgram = async () => {
+      const data = await fetchTrainingProgram();
+      if (data) {
+        setProgramData(data || {});
+      }
+      setLoading(false);
+    };
 
-  fetchProgram();
-}, []);
-
+    fetchProgram();
+  }, []);
 
   if (!user) return <Navigate to="/login" />;
   if (!hasPaid) return <Navigate to="/pricing" />;
-  if (loading) return <div className="p-6">Loading training program...</div>;
+  if (loading) return <div className="p-6 text-gray-300">Loading training program...</div>;
 
   const weekTabs = [1, 2, 3, 4, 5, 6];
   const currentWeek = programData[`week${activeWeek}`];
-
   const days = currentWeek ? Object.keys(currentWeek) : [];
-
 
   const toggleDay = (day) => {
     setExpandedDays((prev) => ({ ...prev, [day]: !prev[day] }));
   };
 
   return (
-    <div className="min-h-screen bg-white text-[#22201F] px-4 sm:px-6 py-10 max-w-5xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6 font-secondary">Your Training Program</h1>
+    <div className="min-h-screen bg-[#121212] text-gray-200 px-4 sm:px-6 py-10 max-w-5xl mx-auto">
+      <h1 className="text-3xl font-bold mb-6 text-white">Your Training Program</h1>
 
       {/* Week Tabs */}
-      <div className="flex gap-2 mb-8 overflow-x-auto font-secondary">
+      <div className="flex gap-2 mb-8 overflow-x-auto">
         {weekTabs.map((week) => (
           <button
             key={week}
             onClick={() => setActiveWeek(week)}
-            className={`px-4 py-2 rounded border tracking-wider whitespace-nowrap ${
+            className={`px-4 py-2 rounded text-sm tracking-wider font-medium whitespace-nowrap transition-all duration-200 ${
               activeWeek === week
-                ? "bg-yellow text-black"
-                : "bg-gray-100 hover:bg-yellow hover:text-black"
+                ? "bg-cyan-400 text-white"
+                : "bg-[#1E1E1E] text-gray-400 border-[#2A2A2A] hover:bg-cyan-400 hover:text-white"
             }`}
           >
             Week {week}
@@ -69,38 +63,38 @@ useEffect(() => {
       </div>
 
       {/* Daily Sessions */}
-      <div className="space-y-4 font-secondary">
+      <div className="space-y-4">
         {days.map((day) => {
           const session = currentWeek[day];
           const isOpen = expandedDays[day];
 
           return (
-            <div key={day} className="border border-gray-300 rounded bg-[#F7F7F7]">
+            <div key={day} className="border border-[#2A2A2A] rounded bg-[#1E1E1E]">
               <button
-                className="w-full flex justify-between items-center p-4 text-left"
+                className="w-full flex justify-between items-center p-4 text-left text-white hover:bg-[#2A2A2A]"
                 onClick={() => toggleDay(day)}
               >
                 <div>
-                  <h2 className="text-2xl font-bold">{day}</h2>
-                  <p className="text-sm text-gray-500 font-medium uppercase tracking-wider">
+                  <h2 className="text-xl font-bold capitalize">{day}</h2>
+                  <p className="text-sm text-gray-400 font-medium uppercase tracking-wider">
                     {session.type}
                   </p>
                 </div>
-                <span className="text-2xl font-bold text-gray-500">{isOpen ? "−" : "+"}</span>
+                <span className="text-2xl font-bold text-gray-400">{isOpen ? "−" : "+"}</span>
               </button>
 
               {isOpen && (
                 <div className="p-4 space-y-4">
                   {session.blocks.map((block, idx) => (
-                    <div key={idx} className="bg-white rounded border p-4 shadow-sm">
-                      <h3 className="font-semibold text-lg mb-1 tracking-wide">{block.title}</h3>
-                      <ul className="list-disc list-inside text-sm text-gray-700 space-y-1 tracking-wider">
+                    <div key={idx} className="bg-[#121212] border border-[#2A2A2A] rounded p-4">
+                      <h3 className="font-semibold text-lg mb-2 text-white">{block.title}</h3>
+                      <ul className="list-disc list-inside text-sm text-gray-300 space-y-1">
                         {block.items.map((item, i) => (
                           <li key={i}>{item}</li>
                         ))}
                       </ul>
                       {block.note && (
-                        <p className="mt-2 italic text-sm text-gray-500 tracking-wider">{block.note}</p>
+                        <p className="mt-2 italic text-sm text-gray-500">{block.note}</p>
                       )}
                     </div>
                   ))}

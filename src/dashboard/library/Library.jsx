@@ -5,7 +5,6 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { motion, AnimatePresence } from "framer-motion";
 
-
 const Library = () => {
   const { user, hasPaid } = useAuth();
   const [videos, setVideos] = useState([]);
@@ -29,7 +28,6 @@ const Library = () => {
     window.scrollTo({ top: scrollY });
   }, [scrollY]);
 
-
   useEffect(() => {
     const fetchVideos = async () => {
       const querySnapshot = await getDocs(collection(db, "videos"));
@@ -38,17 +36,15 @@ const Library = () => {
         ...doc.data(),
       }));
       setVideos(videoList);
-  
-      // Collect all unique tags from the video list
+
       const tagsSet = new Set();
-      videoList.forEach(video => {
-        video.tags?.forEach(tag => tagsSet.add(tag));
+      videoList.forEach((video) => {
+        video.tags?.forEach((tag) => tagsSet.add(tag));
       });
       setAllTags([...tagsSet]);
     };
     fetchVideos();
   }, []);
-  
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -58,8 +54,7 @@ const Library = () => {
     };
     if (selectedVideo) document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-}, [selectedVideo, handleCloseModal]);
-
+  }, [selectedVideo, handleCloseModal]);
 
   if (!user) return <Navigate to="/login" />;
   if (!hasPaid) return <Navigate to="/pricing" />;
@@ -74,31 +69,32 @@ const Library = () => {
   });
 
   return (
-    <div className="min-h-screen bg-white text-[#22201F] p-6 max-w-6xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">Library</h1>
+    <div className="min-h-screen px-4 sm:px-6 py-8 max-w-6xl mx-auto text-gray-200">
+      <h1 className="text-2xl font-bold mb-6 text-cyan-400">Video Library</h1>
 
       <input
         type="text"
         placeholder="Search by title or tag..."
-        className="w-full p-3 border border-gray-300 rounded mb-6"
+        className="w-full p-3 bg-[#121212] border border-[#2A2A2A] rounded mb-6 text-white placeholder-gray-500"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-    <div className="flex flex-wrap gap-2 mb-6">
+
+      <div className="flex flex-wrap gap-2 mb-6">
         {allTags.map((tag, i) => (
-        <button
-          key={i}
-          onClick={() => setActiveTag(tag)}
-          className={`px-3 py-1 text-xs rounded font-semibold transition ${
-          activeTag === tag
-            ? "bg-yellow text-black"
-            : "bg-gray-100 text-gray-700 hover:bg-yellow hover:text-black"
-          }`}
-        >
-          #{tag}
-        </button>
-          ))}
-    </div>
+          <button
+            key={i}
+            onClick={() => setActiveTag(tag)}
+            className={`px-3 py-1 text-xs rounded font-semibold transition ${
+              activeTag === tag
+                ? "bg-yellow text-black"
+                : "bg-[#1E1E1E] text-gray-400 border border-[#2A2A2A] hover:bg-[#2A2A2A] hover:text-white"
+            }`}
+          >
+            #{tag}
+          </button>
+        ))}
+      </div>
 
       {activeTag && (
         <div className="mb-4 text-sm">
@@ -108,7 +104,7 @@ const Library = () => {
           </span>
           <button
             onClick={() => setActiveTag(null)}
-            className="ml-3 text-sm text-red-500 hover:underline"
+            className="ml-3 text-sm text-red-400 hover:underline"
           >
             Clear
           </button>
@@ -119,7 +115,7 @@ const Library = () => {
         {filteredVideos.map((video) => (
           <div
             key={video.id}
-            className="border border-gray-200 rounded shadow-sm p-4 bg-white transition-all duration-300 flex flex-col justify-between h-[370px] relative"
+            className="border border-[#2A2A2A] rounded bg-[#1E1E1E] p-4 transition-all duration-300 flex flex-col justify-between h-[370px] relative shadow"
           >
             {video.thumbnail && (
               <img
@@ -129,12 +125,12 @@ const Library = () => {
                 className="w-full h-48 object-cover rounded mb-3 cursor-pointer hover:scale-105 hover:shadow-lg transition-transform duration-300"
               />
             )}
-            <h2 className="text-lg font-semibold mb-1">{video.title}</h2>
-            <div className="text-sm text-gray-500 mb-2 min-h-[2rem]">
+            <h2 className="text-lg font-semibold mb-1 text-white">{video.title}</h2>
+            <div className="text-sm text-gray-400 mb-2 min-h-[2rem]">
               {video.tags?.map((tag, i) => (
                 <button
                   key={i}
-                  className="inline-block mr-2 mb-1 px-2 py-1 bg-gray-100 rounded text-xs hover:bg-yellow hover:text-black transition"
+                  className="inline-block mr-2 mb-1 px-2 py-1 bg-[#2A2A2A] text-gray-300 rounded text-xs hover:bg-yellow hover:text-black transition"
                   onClick={() => setActiveTag(tag)}
                 >
                   #{tag}
@@ -154,9 +150,9 @@ const Library = () => {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="absolute z-40 top-full mt-2 left-0 right-0 bg-white border border-gray-300 shadow-lg p-3 rounded"
+                  className="absolute z-40 top-full mt-2 left-0 right-0 bg-[#1E1E1E] border border-[#2A2A2A] shadow-lg p-3 rounded text-sm text-gray-300"
                 >
-                  <p className="text-sm text-gray-700">{video.description}</p>
+                  <p>{video.description}</p>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -164,7 +160,6 @@ const Library = () => {
         ))}
       </div>
 
-      {/* Modal for video playback */}
       <AnimatePresence>
         {selectedVideo && (
           <motion.div
@@ -177,12 +172,12 @@ const Library = () => {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-white rounded-lg p-4 w-full max-w-3xl relative shadow-lg"
+              className="bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg p-4 w-full max-w-3xl relative shadow-lg"
               ref={modalRef}
             >
               <button
                 onClick={handleCloseModal}
-                className="absolute top-2 right-4 text-gray-500 text-2xl hover:text-black"
+                className="absolute top-2 right-4 text-gray-400 text-2xl hover:text-white"
               >
                 &times;
               </button>

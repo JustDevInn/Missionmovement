@@ -70,7 +70,7 @@ const ManageUsers = () => {
   
   return (
     
-    <div className="min-h-screen text-[#22201F] px-2 sm:px-4">
+    <div className="min-h-screen text-gray-200 px-2 sm:px-4">
       <h1 className="text-2xl sm:text-3xl font-bold mb-6">Manage Users</h1>
       <div className="mb-4">
   <input
@@ -85,7 +85,7 @@ const ManageUsers = () => {
       {/* 🖥️ Table View for Desktop */}
       <div className="hidden sm:block overflow-x-auto">
         <table className="min-w-full border text-sm">
-          <thead className="bg-gray-100 text-left font-semibold">
+        <thead className="bg-[#1E1E1E] text-left font-semibold text-gray-300 border-b border-[#2A2A2A]">
             <tr>
               <th className="p-3 border">Email</th>
               <th className="p-3 border">Username</th>
@@ -116,9 +116,11 @@ const ManageUsers = () => {
                   </button>
                 </td>
                 <td className="p-3">
-                <span className="px-3 py-1 rounded text-xs font-semibold bg-gray-100 text-gray-700">
+
+                <span className="inline-block min-w-[60px] text-center px-3 py-2 rounded text-xs font-semibold bg-gray-100 text-gray-700">
   {user.role || "user"}
 </span>
+
 
                 </td>
                 <td className="p-3">
@@ -149,8 +151,8 @@ const ManageUsers = () => {
       {/* 📱 Card View for Mobile */}
       <div className="flex flex-col gap-4 sm:hidden">
       {filteredUsers.map((user) => (
-          <div key={user.id} className="border rounded-lg p-4 shadow bg-white">
-            <p className="text-sm">
+          <div key={user.id} className="border rounded-lg p-4 shadow bg-[#1E1E1E] text-white">
+            <p className="text-sm break-words">
               <span className="font-semibold">Email:</span> {user.email || "-"}
             </p>
             <p className="text-sm">
@@ -162,36 +164,46 @@ const ManageUsers = () => {
                 ? format(new Date(user.createdAt.seconds * 1000), "dd MMM yyyy")
                 : "Invalid Date"}
             </p>
-            <div className="flex gap-2 mt-2">
-              <button
-                onClick={() => handleToggleField(user.id, "hasPaid")}
-                className={`px-3 py-1 rounded text-xs font-semibold transition ${
-                  user.hasPaid ? "bg-green-200 text-green-700" : "bg-red-200 text-red-700"
-                }`}
-              >
-                {user.hasPaid ? "Paid" : "Not Paid"}
-              </button>
-              <span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded font-semibold">
-  {user.role || "user"}
-</span>
 
 
-              <button
-  onClick={() => {
-    setEditingUser(user);
-    setNewRole(user.role || "user");
-  }}
-  className="text-blue-500 hover:underline text-sm mr-2"
->
-  Edit
-</button>
-              <button
-                onClick={() => setConfirmDeleteId(user.id)}
-                className="text-red-500 hover:underline text-xs ml-auto"
-              >
-                Delete
-              </button>
-            </div>
+
+            <div className="grid grid-cols-2 gap-2 mt-3 text-xs">
+  <button
+    onClick={() => handleToggleField(user.id, "hasPaid")}
+    className={`px-2 py-1 rounded font-semibold text-center ${
+      user.hasPaid ? "bg-green-200 text-green-700" : "bg-red-200 text-red-700"
+    }`}
+  >
+    {user.hasPaid ? "Paid" : "Not Paid"}
+  </button>
+
+  <span className="px-2 py-1 rounded font-semibold bg-gray-100 text-gray-700 flex items-center justify-center">
+    {user.role || "user"}
+  </span>
+
+  <button
+    onClick={() => {
+      setEditingUser(user);
+      setNewRole(user.role || "user");
+    }}
+    className="px-2 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 text-center"
+  >
+    Edit
+  </button>
+
+  <button
+    onClick={() => setConfirmDeleteId(user.id)}
+    className="px-2 py-1 rounded bg-red-600 text-white hover:bg-red-700 text-center"
+  >
+    Delete
+  </button>
+</div>
+
+
+
+
+
+
           </div>
         ))}
       </div>
@@ -210,7 +222,7 @@ const ManageUsers = () => {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-white w-full max-w-sm p-6 rounded-lg shadow-lg text-center"
+              className="bg-[#1E1E1E] text-white w-full max-w-sm p-6 rounded-lg shadow-lg text-center"
             >
               <h2 className="text-xl font-bold mb-4">Confirm Deletion</h2>
               <p className="text-sm text-gray-600 mb-6">
@@ -248,7 +260,7 @@ const ManageUsers = () => {
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
-        className="bg-white w-full max-w-sm p-6 rounded-lg shadow-lg"
+        className="bg-[#1E1E1E] text-white w-full max-w-sm p-6 rounded-lg shadow-lg"
       >
         <h2 className="text-xl font-bold mb-4 text-center">Edit User Role</h2>
 

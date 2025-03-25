@@ -160,3 +160,41 @@
   scrollbar-width: thin;
   scrollbar-color: #8E774F #1E1E1E; /* Thumb | Track */
 }
+
+@layer components {
+  .admin-dark-theme {
+    @apply bg-[#121212] text-white min-h-screen;
+  }
+
+  .admin-dark-theme h1,
+  .admin-dark-theme h2,
+  .admin-dark-theme h3 {
+    @apply text-white;
+  }
+
+  .admin-dark-theme input,
+  .admin-dark-theme textarea,
+  .admin-dark-theme select {
+    @apply bg-[#1E1E1E] border border-gray-600 text-white rounded px-3 py-2;
+  }
+
+  .admin-dark-theme button {
+    @apply rounded px-4 py-2 transition;
+  }
+
+  .admin-dark-theme .btn-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-500;
+  }
+
+  .admin-dark-theme .btn-accent {
+    @apply bg-cyan-500 text-black hover:bg-cyan-400;
+  }
+
+  .admin-dark-theme .card {
+    @apply bg-[#1E1E1E] border border-gray-700 shadow-md rounded-lg p-4;
+  }
+
+  .admin-dark-theme .section-title {
+    @apply text-lg font-bold text-cyan-400;
+  }
+}

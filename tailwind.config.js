@@ -19,6 +19,10 @@ module.exports = {
         primary: '#22201F',
         yellow: '#FFCC00',
         brown: '#8E774F',
+        dark: '#121212',
+        surface: '#1E1E1E',
+        accent: '#00FFFF', // Cyan
+        highlight: '#00BFFF', // DeepSkyBlue
       },
       backgroundImage: {
         'royalmarine': "url('/public/img/royalmarines.jpg')",
