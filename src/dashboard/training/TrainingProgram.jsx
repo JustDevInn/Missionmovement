@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { Navigate } from "react-router-dom";
-import { fetchTrainingProgram } from "../../utils/firebase/getTrainingProgram";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../firebase"; // adjust path as needed
 
 const TrainingProgram = () => {
   const { user, hasPaid } = useAuth();
@@ -19,13 +20,14 @@ const TrainingProgram = () => {
 
   useEffect(() => {
     const fetchProgram = async () => {
-      const data = await fetchTrainingProgram();
-      if (data) {
-        setProgramData(data || {});
+      const docRef = doc(db, "trainingPrograms", "default");
+      const snap = await getDoc(docRef);
+      if (snap.exists()) {
+        const data = snap.data();
+        setProgramData(data.weeks || {});
       }
       setLoading(false);
     };
-
     fetchProgram();
   }, []);
 
@@ -41,11 +43,15 @@ const TrainingProgram = () => {
     setExpandedDays((prev) => ({ ...prev, [day]: !prev[day] }));
   };
 
+  const weekdayOrder = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+  const daysSorted = days.sort(
+    (a, b) => weekdayOrder.indexOf(a.toLowerCase()) - weekdayOrder.indexOf(b.toLowerCase())
+  );
+
   return (
     <div className="min-h-screen bg-[#121212] text-gray-200 px-4 sm:px-6 py-10 max-w-5xl mx-auto">
       <h1 className="text-3xl font-bold mb-6 text-white">Your Training Program</h1>
 
-      {/* Week Tabs */}
       <div className="flex gap-2 mb-8 overflow-x-auto">
         {weekTabs.map((week) => (
           <button
@@ -62,9 +68,8 @@ const TrainingProgram = () => {
         ))}
       </div>
 
-      {/* Daily Sessions */}
       <div className="space-y-4">
-        {days.map((day) => {
+        {daysSorted.map((day) => {
           const session = currentWeek[day];
           const isOpen = expandedDays[day];
 
@@ -88,10 +93,20 @@ const TrainingProgram = () => {
                   {session.blocks.map((block, idx) => (
                     <div key={idx} className="bg-[#121212] border border-[#2A2A2A] rounded p-4">
                       <h3 className="font-semibold text-lg mb-2 text-white">{block.title}</h3>
-                      <ul className="list-disc list-inside text-sm text-gray-300 space-y-1">
-                        {block.items.map((item, i) => (
-                          <li key={i}>{item}</li>
-                        ))}
+                      <ul className="text-sm text-gray-300 space-y-2 list-inside">
+                        {block.items.map((item, i) => {
+                          const text = typeof item === "string" ? item : item.text;
+                          const note = typeof item === "object" ? item.note : null;
+
+                          return (
+                            <li key={i} className="list-disc ml-2">
+                              {text}
+                              {note && (
+                                <p className="italic text-sm text-gray-500 list-none mt-1 mb-5">{note}</p>
+                              )}
+                            </li>
+                          );
+                        })}
                       </ul>
                       {block.note && (
                         <p className="mt-2 italic text-sm text-gray-500">{block.note}</p>

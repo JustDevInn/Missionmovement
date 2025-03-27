@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
-import { FaPen, FaCheck } from "react-icons/fa";
 
 const ManageTrainingProgram = () => {
   const [week, setWeek] = useState(1);
@@ -9,7 +8,22 @@ const ManageTrainingProgram = () => {
   const [programData, setProgramData] = useState({});
   const [loading, setLoading] = useState(true);
   const [editing, setEditing] = useState({});
-  const [saved, setSaved] = useState({});
+  const [saving, setSaving] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+
+  const normalizeProgramData = (data) => {
+    const normalized = { ...data };
+    for (const weekKey in normalized) {
+      for (const day in normalized[weekKey]) {
+        normalized[weekKey][day].blocks.forEach((block) => {
+          block.items = block.items.map((item) =>
+            typeof item === "string" ? { text: item, note: "" } : item
+          );
+        });
+      }
+    }
+    return normalized;
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,59 +31,102 @@ const ManageTrainingProgram = () => {
       const snap = await getDoc(docRef);
       if (snap.exists()) {
         const data = snap.data();
-        setProgramData(data.weeks || {});
+        const normalized = normalizeProgramData(data.weeks || {});
+        setProgramData(normalized);
       }
       setLoading(false);
     };
     fetchData();
   }, []);
+  
 
   const toggleDay = (day) => {
     setExpandedDays((prev) => ({ ...prev, [day]: !prev[day] }));
   };
 
   const handleEdit = (path) => {
-    setEditing({ ...editing, [path]: true });
+    setEditing((prev) => ({ ...prev, [path]: true }));
   };
 
   const handleSaveChange = async (path, value) => {
-    const [weekKey, day, blockIdx, field, itemIdx] = path.split(".");
+    const [weekKey, day, blockIdx, field, itemIdx, subField] = path.split(".");
     const updatedData = { ...programData };
 
     if (field === "items") {
-      updatedData[weekKey][day].blocks[blockIdx].items[itemIdx] = value;
+      if (subField === "note") {
+        updatedData[weekKey][day].blocks[blockIdx].items[itemIdx].note = value;
+      } else {
+        updatedData[weekKey][day].blocks[blockIdx].items[itemIdx].text = value;
+      }
     } else {
       updatedData[weekKey][day].blocks[blockIdx][field] = value;
     }
 
     setProgramData(updatedData);
-    setEditing({ ...editing, [path]: false });
+    setEditing((prev) => ({ ...prev, [path]: false }));
+    setSaving(true);
 
-    const docRef = doc(db, "trainingPrograms", "default");
-    await updateDoc(docRef, {
-      [`weeks.${weekKey}.${day}.blocks`]: updatedData[weekKey][day].blocks,
-    });
-
-    setSaved((prev) => ({ ...prev, [path]: true }));
-    setTimeout(() => {
-      setSaved((prev) => ({ ...prev, [path]: false }));
-    }, 1500);
+    try {
+      const docRef = doc(db, "trainingPrograms", "default");
+      await updateDoc(docRef, {
+        [`weeks.${weekKey}.${day}.blocks`]: updatedData[weekKey][day].blocks,
+      });
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 3000);
+    } catch (error) {
+      console.error("Error saving update:", error);
+    } finally {
+      setSaving(false);
+    }
   };
 
-  const handleKeyDown = (e, path, currentValue) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      handleSaveChange(path, e.target.value);
+  const handleAddItem = (week, day, blockIdx) => {
+    const weekKey = `week${week}`;
+    const updatedData = { ...programData };
+    updatedData[weekKey][day].blocks[blockIdx].items.push({ text: "", note: "" });
+    setProgramData(updatedData);
+  };
+
+  const handleRemoveItem = async (week, day, blockIdx, itemIdx) => {
+    const weekKey = `week${week}`;
+    const updatedData = { ...programData };
+    updatedData[weekKey][day].blocks[blockIdx].items.splice(itemIdx, 1);
+    setProgramData(updatedData);
+
+    try {
+      await updateDoc(doc(db, "trainingPrograms", "default"), {
+        [`weeks.${weekKey}.${day}.blocks`]: updatedData[weekKey][day].blocks,
+      });
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 3000);
+    } catch (error) {
+      console.error("Error removing item:", error);
     }
   };
 
   if (loading) return <div className="p-6 text-gray-300">Loading training program...</div>;
 
   const currentWeek = programData[`week${week}`] || {};
-  const days = Object.keys(currentWeek);
+  const weekdayOrder = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+const days = Object.keys(currentWeek).sort(
+  (a, b) => weekdayOrder.indexOf(a.toLowerCase()) - weekdayOrder.indexOf(b.toLowerCase())
+);
 
+
+  
   return (
     <div className="min-h-screen bg-[#121212] text-gray-200 px-4 sm:px-6 py-10 max-w-5xl mx-auto">
+      {saving && (
+        <div className="fixed top-4 right-4 z-50">
+          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-cyan-400 border-opacity-50"></div>
+        </div>
+      )}
+      {showToast && (
+        <div className="fixed top-4 right-16 bg-cyan-600 text-white px-4 py-2 rounded shadow-lg z-50 transition">
+          ✅ Program updated successfully!
+        </div>
+      )}
+
       <h1 className="text-3xl font-bold mb-6 text-cyan-400">Manage Training Program</h1>
 
       <div className="flex gap-2 mb-8 overflow-x-auto">
@@ -110,94 +167,95 @@ const ManageTrainingProgram = () => {
               {isOpen && (
                 <div className="p-4 space-y-4">
                   {session.blocks.map((block, blockIdx) => (
-                    <div key={blockIdx} className="bg-[#121212] border border-[#2A2A2A] rounded p-4">
-                      {/* Block Title */}
-                      <div className="flex items-center justify-between mb-1">
-                        {editing[`week${week}.${day}.${blockIdx}.title`] ? (
-                          <input
-                            className="w-full bg-transparent border border-[#2A2A2A] text-white px-2 py-1 rounded mr-2"
-                            defaultValue={block.title}
-                            onKeyDown={(e) =>
-                              handleKeyDown(e, `week${week}.${day}.${blockIdx}.title`, block.title)
-                            }
-                          />
-                        ) : (
-                          <h3 className="font-semibold text-lg text-white">
-                            {block.title}
-                          </h3>
-                        )}
-                        <span className="ml-2 text-green-400">
-                          {saved[`week${week}.${day}.${blockIdx}.title`] && <FaCheck />}
-                        </span>
-                        <button
-                          className="text-sm text-gray-400 hover:text-white ml-2"
-                          onClick={() => handleEdit(`week${week}.${day}.${blockIdx}.title`)}
-                        >
-                          <FaPen />
-                        </button>
-                      </div>
+                    <div key={blockIdx} className="bg-[#121212] border border-[#2A2A2A] rounded p-4 space-y-2">
+                      <input
+                        className={`w-full font-bold text-lg text-white bg-transparent px-3 py-2 rounded ${
+                          editing[`week${week}.${day}.${blockIdx}.title`] ? "border border-[#2A2A2A]" : "border-none"
+                        }`}
+                        defaultValue={block.title}
+                        onFocus={() => handleEdit(`week${week}.${day}.${blockIdx}.title`)}
+                        onBlur={(e) =>
+                          handleSaveChange(`week${week}.${day}.${blockIdx}.title`, e.target.value)
+                        }
+                      />
+                      <input
+                        className={`w-full italic text-sm text-gray-300 bg-transparent px-3 py-2 rounded ${
+                          editing[`week${week}.${day}.${blockIdx}.subHeader`] ? "border border-[#2A2A2A]" : "border-none"
+                        }`}
+                        placeholder="Block Sub-header"
+                        defaultValue={block.subHeader || ""}
+                        onFocus={() => handleEdit(`week${week}.${day}.${blockIdx}.subHeader`)}
+                        onBlur={(e) =>
+                          handleSaveChange(`week${week}.${day}.${blockIdx}.subHeader`, e.target.value)
+                        }
+                      />
+                      <AutoExpandingTextarea
+                        value={block.note}
+                        onSave={(val) =>
+                          handleSaveChange(`week${week}.${day}.${blockIdx}.note`, val)
+                        }
+                        isEditing={editing[`week${week}.${day}.${blockIdx}.note`]}
+                        onEdit={() => handleEdit(`week${week}.${day}.${blockIdx}.note`)}
+                      />
 
-                      {/* Items */}
-                      <ul className="list-disc list-inside text-sm text-gray-300 space-y-1 pl-4">
+                      <ul className="list-none text-sm space-y-4">
                         {block.items.map((item, itemIdx) => (
-                          <li key={itemIdx} className="flex items-center justify-between gap-2">
-                            {editing[`week${week}.${day}.${blockIdx}.items.${itemIdx}`] ? (
+                          <li key={itemIdx}>
+                            <div className="flex items-center gap-2">
                               <input
-                                className="flex-1 bg-transparent border border-[#2A2A2A] text-white px-2 py-1 rounded"
-                                defaultValue={item}
-                                onKeyDown={(e) =>
-                                  handleKeyDown(
-                                    e,
-                                    `week${week}.${day}.${blockIdx}.items.${itemIdx}`,
-                                    item
+                                className={`flex-1 bg-transparent text-white px-2 py-1 rounded ${
+                                  editing[`week${week}.${day}.${blockIdx}.items.${itemIdx}.text`]
+                                    ? "border border-[#2A2A2A]"
+                                    : "border-none"
+                                }`}
+                                defaultValue={item.text}
+                                onFocus={() =>
+                                  handleEdit(`week${week}.${day}.${blockIdx}.items.${itemIdx}.text`)
+                                }
+                                onBlur={(e) =>
+                                  handleSaveChange(
+                                    `week${week}.${day}.${blockIdx}.items.${itemIdx}.text`,
+                                    e.target.value
                                   )
                                 }
                               />
-                            ) : (
-                              <span>{item}</span>
-                            )}
-                            <span className="ml-2 text-green-400">
-                              {saved[`week${week}.${day}.${blockIdx}.items.${itemIdx}`] && <FaCheck />}
-                            </span>
-                            <button
-                              className="text-xs text-gray-400 hover:text-white ml-2"
-                              onClick={() =>
-                                handleEdit(
-                                  `week${week}.${day}.${blockIdx}.items.${itemIdx}`
+                              <div className="flex space-x-2">
+                                <button
+                                  onClick={() => handleAddItem(week, day, blockIdx)}
+                                  className="text-xs text-cyan-400 hover:text-white"
+                                  title="Add Item"
+                                >
+                                  +
+                                </button>
+                                <button
+                                  onClick={() => handleRemoveItem(week, day, blockIdx, itemIdx)}
+                                  className="text-xs text-red-400 hover:text-white"
+                                  title="Remove Item"
+                                >
+                                  −
+                                </button>
+                              </div>
+                            </div>
+
+                            <AutoExpandingTextarea
+                              value={item.note}
+                              placeholder="Item subnote (optional)"
+                              onSave={(val) =>
+                                handleSaveChange(
+                                  `week${week}.${day}.${blockIdx}.items.${itemIdx}.note`,
+                                  val
                                 )
                               }
-                            >
-                              <FaPen />
-                            </button>
+                              isEditing={
+                                editing[`week${week}.${day}.${blockIdx}.items.${itemIdx}.note`]
+                              }
+                              onEdit={() =>
+                                handleEdit(`week${week}.${day}.${blockIdx}.items.${itemIdx}.note`)
+                              }
+                            />
                           </li>
                         ))}
                       </ul>
-
-                      {/* Note */}
-                      {block.note && (
-                        <div className="mt-2 flex items-center justify-between">
-                          {editing[`week${week}.${day}.${blockIdx}.note`] ? (
-                            <textarea
-                              className="w-full bg-transparent border border-[#2A2A2A] text-gray-300 px-2 py-1 rounded"
-                              defaultValue={block.note}
-                              onKeyDown={(e) =>
-                                handleKeyDown(e, `week${week}.${day}.${blockIdx}.note`, block.note)
-                              }
-                            />
-                          ) : (
-                            <p className="italic text-sm text-gray-500">{block.note}</p>
-                          )}
-                          <span className="ml-2 text-green-400">
-                            {saved[`week${week}.${day}.${blockIdx}.note`] && <FaCheck />}
-                          </span>
-                          <button
-                            className="text-xs text-gray-400 hover:text-white ml-2"
-                            onClick={() => handleEdit(`week${week}.${day}.${blockIdx}.note`)}
-                          >
-                            <FaPen />
-                          </button>
-                        </div>
-                      )}
                     </div>
                   ))}
                 </div>
@@ -207,6 +265,41 @@ const ManageTrainingProgram = () => {
         })}
       </div>
     </div>
+  );
+};
+
+const AutoExpandingTextarea = ({ value, onSave, isEditing, onEdit, placeholder }) => {
+  const ref = useRef();
+
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.style.height = "auto";
+      ref.current.style.height = `${ref.current.scrollHeight}px`;
+    }
+  }, [value]);
+
+  return (
+    <textarea
+      ref={ref}
+      className={`w-full italic text-sm text-gray-400 bg-transparent px-3 py-2 rounded resize-none overflow-hidden ${
+        isEditing ? "border border-[#2A2A2A]" : "border-none"
+      }`}
+      placeholder={placeholder || "Note (optional)"}
+      defaultValue={value}
+      rows={1}
+      onFocus={onEdit}
+      onBlur={(e) => onSave(e.target.value)}
+      onInput={(e) => {
+        e.target.style.height = "auto";
+        e.target.style.height = `${e.target.scrollHeight}px`;
+      }}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          e.target.blur();
+        }
+      }}
+    />
   );
 };
 
