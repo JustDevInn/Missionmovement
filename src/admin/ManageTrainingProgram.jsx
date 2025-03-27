@@ -38,7 +38,6 @@ const ManageTrainingProgram = () => {
     };
     fetchData();
   }, []);
-  
 
   const toggleDay = (day) => {
     setExpandedDays((prev) => ({ ...prev, [day]: !prev[day] }));
@@ -83,7 +82,10 @@ const ManageTrainingProgram = () => {
   const handleAddItem = (week, day, blockIdx) => {
     const weekKey = `week${week}`;
     const updatedData = { ...programData };
-    updatedData[weekKey][day].blocks[blockIdx].items.push({ text: "", note: "" });
+    updatedData[weekKey][day].blocks[blockIdx].items.push({
+      text: "",
+      note: "",
+    });
     setProgramData(updatedData);
   };
 
@@ -104,16 +106,25 @@ const ManageTrainingProgram = () => {
     }
   };
 
-  if (loading) return <div className="p-6 text-gray-300">Loading training program...</div>;
+  if (loading)
+    return <div className="p-6 text-gray-300">Loading training program...</div>;
 
   const currentWeek = programData[`week${week}`] || {};
-  const weekdayOrder = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
-const days = Object.keys(currentWeek).sort(
-  (a, b) => weekdayOrder.indexOf(a.toLowerCase()) - weekdayOrder.indexOf(b.toLowerCase())
-);
+  const weekdayOrder = [
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday",
+  ];
+  const days = Object.keys(currentWeek).sort(
+    (a, b) =>
+      weekdayOrder.indexOf(a.toLowerCase()) -
+      weekdayOrder.indexOf(b.toLowerCase())
+  );
 
-
-  
   return (
     <div className="min-h-screen bg-[#121212] text-gray-200 px-4 sm:px-6 py-10 max-w-5xl mx-auto">
       {saving && (
@@ -127,7 +138,9 @@ const days = Object.keys(currentWeek).sort(
         </div>
       )}
 
-      <h1 className="text-3xl font-bold mb-6 text-cyan-400">Manage Training Program</h1>
+      <h1 className="text-3xl font-bold mb-6 text-cyan-400">
+        Manage Training Program
+      </h1>
 
       <div className="flex gap-2 mb-8 overflow-x-auto">
         {[1, 2, 3, 4, 5, 6].map((w) => (
@@ -150,7 +163,10 @@ const days = Object.keys(currentWeek).sort(
           const session = currentWeek[day];
           const isOpen = expandedDays[day];
           return (
-            <div key={day} className="border border-[#2A2A2A] rounded bg-[#1E1E1E]">
+            <div
+              key={day}
+              className="border border-[#2A2A2A] rounded bg-[#1E1E1E]"
+            >
               <button
                 className="w-full flex justify-between items-center p-4 text-left text-white hover:bg-[#2A2A2A]"
                 onClick={() => toggleDay(day)}
@@ -161,41 +177,86 @@ const days = Object.keys(currentWeek).sort(
                     {session.type || "Session"}
                   </p>
                 </div>
-                <span className="text-2xl font-bold text-gray-400">{isOpen ? "−" : "+"}</span>
+                <span className="text-2xl font-bold text-gray-400">
+                  {isOpen ? "−" : "+"}
+                </span>
               </button>
 
               {isOpen && (
                 <div className="p-4 space-y-4">
                   {session.blocks.map((block, blockIdx) => (
-                    <div key={blockIdx} className="bg-[#121212] border border-[#2A2A2A] rounded p-4 space-y-2">
+                    <div
+                      key={blockIdx}
+                      className="bg-[#121212] border border-[#2A2A2A] rounded p-4 space-y-2"
+                    >
                       <input
                         className={`w-full font-bold text-lg text-white bg-transparent px-3 py-2 rounded ${
-                          editing[`week${week}.${day}.${blockIdx}.title`] ? "border border-[#2A2A2A]" : "border-none"
+                          editing[`week${week}.${day}.${blockIdx}.title`]
+                            ? "border border-[#2A2A2A]"
+                            : "border-none"
                         }`}
                         defaultValue={block.title}
-                        onFocus={() => handleEdit(`week${week}.${day}.${blockIdx}.title`)}
+                        onFocus={() =>
+                          handleEdit(`week${week}.${day}.${blockIdx}.title`)
+                        }
                         onBlur={(e) =>
-                          handleSaveChange(`week${week}.${day}.${blockIdx}.title`, e.target.value)
+                          handleSaveChange(
+                            `week${week}.${day}.${blockIdx}.title`,
+                            e.target.value
+                          )
                         }
                       />
                       <input
                         className={`w-full italic text-sm text-gray-300 bg-transparent px-3 py-2 rounded ${
-                          editing[`week${week}.${day}.${blockIdx}.subHeader`] ? "border border-[#2A2A2A]" : "border-none"
+                          editing[`week${week}.${day}.${blockIdx}.subHeader`]
+                            ? "border border-[#2A2A2A]"
+                            : "border-none"
                         }`}
                         placeholder="Block Sub-header"
                         defaultValue={block.subHeader || ""}
-                        onFocus={() => handleEdit(`week${week}.${day}.${blockIdx}.subHeader`)}
+                        onFocus={() =>
+                          handleEdit(`week${week}.${day}.${blockIdx}.subHeader`)
+                        }
                         onBlur={(e) =>
-                          handleSaveChange(`week${week}.${day}.${blockIdx}.subHeader`, e.target.value)
+                          handleSaveChange(
+                            `week${week}.${day}.${blockIdx}.subHeader`,
+                            e.target.value
+                          )
                         }
                       />
                       <AutoExpandingTextarea
-                        value={block.note}
+                        value={block.blockNote}
+                        placeholder="Items Note (e.g., general instructions before the list)"
                         onSave={(val) =>
-                          handleSaveChange(`week${week}.${day}.${blockIdx}.note`, val)
+                          handleSaveChange(
+                            `week${week}.${day}.${blockIdx}.blockNote`,
+                            val
+                          )
                         }
-                        isEditing={editing[`week${week}.${day}.${blockIdx}.note`]}
-                        onEdit={() => handleEdit(`week${week}.${day}.${blockIdx}.note`)}
+                        isEditing={
+                          editing[`week${week}.${day}.${blockIdx}.blockNote`]
+                        }
+                        onEdit={() =>
+                          handleEdit(`week${week}.${day}.${blockIdx}.blockNote`)
+                        }
+                        className="text-white"
+                      />
+
+                      <AutoExpandingTextarea
+                        value={block.note}
+                        placeholder="Block footer note (gray italic)"
+                        onSave={(val) =>
+                          handleSaveChange(
+                            `week${week}.${day}.${blockIdx}.note`,
+                            val
+                          )
+                        }
+                        isEditing={
+                          editing[`week${week}.${day}.${blockIdx}.note`]
+                        }
+                        onEdit={() =>
+                          handleEdit(`week${week}.${day}.${blockIdx}.note`)
+                        }
                       />
 
                       <ul className="list-none text-sm space-y-4">
@@ -204,13 +265,17 @@ const days = Object.keys(currentWeek).sort(
                             <div className="flex items-center gap-2">
                               <input
                                 className={`flex-1 bg-transparent text-white px-2 py-1 rounded ${
-                                  editing[`week${week}.${day}.${blockIdx}.items.${itemIdx}.text`]
+                                  editing[
+                                    `week${week}.${day}.${blockIdx}.items.${itemIdx}.text`
+                                  ]
                                     ? "border border-[#2A2A2A]"
                                     : "border-none"
                                 }`}
                                 defaultValue={item.text}
                                 onFocus={() =>
-                                  handleEdit(`week${week}.${day}.${blockIdx}.items.${itemIdx}.text`)
+                                  handleEdit(
+                                    `week${week}.${day}.${blockIdx}.items.${itemIdx}.text`
+                                  )
                                 }
                                 onBlur={(e) =>
                                   handleSaveChange(
@@ -221,14 +286,23 @@ const days = Object.keys(currentWeek).sort(
                               />
                               <div className="flex space-x-2">
                                 <button
-                                  onClick={() => handleAddItem(week, day, blockIdx)}
+                                  onClick={() =>
+                                    handleAddItem(week, day, blockIdx)
+                                  }
                                   className="text-xs text-cyan-400 hover:text-white"
                                   title="Add Item"
                                 >
                                   +
                                 </button>
                                 <button
-                                  onClick={() => handleRemoveItem(week, day, blockIdx, itemIdx)}
+                                  onClick={() =>
+                                    handleRemoveItem(
+                                      week,
+                                      day,
+                                      blockIdx,
+                                      itemIdx
+                                    )
+                                  }
                                   className="text-xs text-red-400 hover:text-white"
                                   title="Remove Item"
                                 >
@@ -247,10 +321,14 @@ const days = Object.keys(currentWeek).sort(
                                 )
                               }
                               isEditing={
-                                editing[`week${week}.${day}.${blockIdx}.items.${itemIdx}.note`]
+                                editing[
+                                  `week${week}.${day}.${blockIdx}.items.${itemIdx}.note`
+                                ]
                               }
                               onEdit={() =>
-                                handleEdit(`week${week}.${day}.${blockIdx}.items.${itemIdx}.note`)
+                                handleEdit(
+                                  `week${week}.${day}.${blockIdx}.items.${itemIdx}.note`
+                                )
                               }
                             />
                           </li>
@@ -268,7 +346,13 @@ const days = Object.keys(currentWeek).sort(
   );
 };
 
-const AutoExpandingTextarea = ({ value, onSave, isEditing, onEdit, placeholder }) => {
+const AutoExpandingTextarea = ({
+  value,
+  onSave,
+  isEditing,
+  onEdit,
+  placeholder,
+}) => {
   const ref = useRef();
 
   useEffect(() => {

@@ -3,11 +3,12 @@ import { NavLink, Link } from "react-router-dom";
 import {
   FaHome,
   FaCalendarAlt,
-  FaClipboardList,
+  FaDownload,
   FaBrain,
   FaBook,
   FaLeaf,
   FaChartBar,
+  FaStopwatch,
   FaComments,
   FaCog,
   FaSignOutAlt,
@@ -29,9 +30,13 @@ const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
     {
       to: hasPaid ? "/trainingprogram" : "/pricing",
       label: "My Program",
-      icon: <FaClipboardList />,
+      icon: <FaDownload />,
     },
-    { to: "/tracker", label: "Training Schedule", icon: <FaCalendarAlt /> },
+    {
+      to: hasPaid ? "/trainingschedule" : "/pricing",
+      label: "Training Schedule",
+      icon: <FaCalendarAlt />,
+    },
     {
       to: hasPaid ? "/check-in" : "/pricing",
       label: "Check-In",
@@ -42,6 +47,7 @@ const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
       label: "Library",
       icon: <FaBook />,
     },
+    { to: "/stopwatch", label: "Stopwatch", icon: <FaStopwatch /> },
     { to: "/nutrition", label: "Nutrition", icon: <FaLeaf /> },
     { to: "/progress", label: "Progress", icon: <FaChartBar /> },
     { to: "/messages", label: "Messages", icon: <FaComments /> },
@@ -140,7 +146,9 @@ const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
       {/* Mobile Sidebar Drawer */}
       <div
         className={`fixed inset-0 z-50 bg-black transition-opacity duration-300 md:hidden ${
-          isMobileOpen ? "bg-opacity-50 pointer-events-auto" : "bg-opacity-0 pointer-events-none"
+          isMobileOpen
+            ? "bg-opacity-50 pointer-events-auto"
+            : "bg-opacity-0 pointer-events-none"
         }`}
         onClick={() => setIsMobileOpen(false)}
       >

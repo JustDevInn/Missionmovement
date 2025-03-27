@@ -14,6 +14,7 @@ const UploadTrainingProgram = () => {
   const [newBlock, setNewBlock] = useState({
     title: "",
     subHeader: "",
+    blockNote: "",
     note: "",
     items: [],
   });
@@ -39,7 +40,10 @@ const UploadTrainingProgram = () => {
     if (newItem.text.trim()) {
       setNewBlock((prev) => ({
         ...prev,
-        items: [...prev.items, { text: newItem.text.trim(), note: newItem.note.trim() }],
+        items: [
+          ...prev.items,
+          { text: newItem.text.trim(), note: newItem.note.trim() },
+        ],
       }));
       setNewItem({ text: "", note: "" });
     }
@@ -60,6 +64,7 @@ const UploadTrainingProgram = () => {
     const blockToAdd = {
       title: newBlock.title.trim(),
       subHeader: newBlock.subHeader.trim(),
+      blockNote: newBlock.blockNote.trim(),
       note: newBlock.note.trim(),
       items: finalItems,
     };
@@ -67,7 +72,13 @@ const UploadTrainingProgram = () => {
     const updatedBlocks = [...blocks, blockToAdd];
     setBlocks(updatedBlocks);
     setNewItem({ text: "", note: "" });
-    setNewBlock({ title: "", subHeader: "", note: "", items: [] });
+    setNewBlock({
+      title: "",
+      subHeader: "",
+      blockNote: "",
+      note: "",
+      items: [],
+    });
 
     const docRef = doc(db, "trainingPrograms", "default");
     const snap = await getDoc(docRef);
@@ -122,7 +133,9 @@ const UploadTrainingProgram = () => {
         </div>
       )}
 
-      <h1 className="text-2xl font-bold mb-6 text-cyan-400">Upload Training Program</h1>
+      <h1 className="text-2xl font-bold mb-6 text-cyan-400">
+        Upload Training Program
+      </h1>
 
       <div className="mb-6 flex gap-4">
         <select
@@ -131,7 +144,9 @@ const UploadTrainingProgram = () => {
           className="bg-[#1E1E1E] border border-[#2A2A2A] rounded px-3 py-2 text-white"
         >
           {[1, 2, 3, 4, 5, 6].map((w) => (
-            <option key={w} value={w}>Week {w}</option>
+            <option key={w} value={w}>
+              Week {w}
+            </option>
           ))}
         </select>
 
@@ -140,8 +155,18 @@ const UploadTrainingProgram = () => {
           onChange={(e) => setDay(e.target.value)}
           className="bg-[#1E1E1E] border border-[#2A2A2A] rounded px-3 py-2 text-white"
         >
-          {["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"].map((d) => (
-            <option key={d} value={d}>{d.charAt(0).toUpperCase() + d.slice(1)}</option>
+          {[
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday",
+          ].map((d) => (
+            <option key={d} value={d}>
+              {d.charAt(0).toUpperCase() + d.slice(1)}
+            </option>
           ))}
         </select>
       </div>
@@ -156,8 +181,20 @@ const UploadTrainingProgram = () => {
         className="w-full bg-[#121212] border border-[#2A2A2A] px-3 py-2 mb-3 rounded placeholder-gray-400 text-white"
         placeholder="Block Sub-header (e.g., Strength / Conditioning)"
         value={newBlock.subHeader}
-        onChange={(e) => setNewBlock({ ...newBlock, subHeader: e.target.value })}
+        onChange={(e) =>
+          setNewBlock({ ...newBlock, subHeader: e.target.value })
+        }
       />
+
+      <input
+        className="w-full bg-[#121212] border border-[#2A2A2A] px-3 py-2 mb-3 rounded placeholder-gray-400 text-white"
+        placeholder="Items Note (e.g., general instructions before the list)"
+        value={newBlock.blockNote}
+        onChange={(e) =>
+          setNewBlock({ ...newBlock, blockNote: e.target.value })
+        }
+      />
+
       <textarea
         className="w-full bg-[#121212] border border-[#2A2A2A] px-3 py-2 mb-3 rounded placeholder-gray-400 text-white resize-none overflow-hidden"
         placeholder="Block Note"
@@ -171,7 +208,10 @@ const UploadTrainingProgram = () => {
 
       <ul className="mb-4 space-y-2">
         {newBlock.items.map((item, i) => (
-          <li key={i} className="bg-[#1E1E1E] border border-[#2A2A2A] rounded p-3 text-sm">
+          <li
+            key={i}
+            className="bg-[#1E1E1E] border border-[#2A2A2A] rounded p-3 text-sm"
+          >
             <div className="flex justify-between items-center">
               <span className="text-gray-200">{item.text}</span>
               <button
@@ -182,7 +222,11 @@ const UploadTrainingProgram = () => {
                 <FaMinus />
               </button>
             </div>
-            {item.note && <p className="text-gray-400 italic text-xs mt-1 ml-1">{item.note}</p>}
+            {item.note && (
+              <p className="text-gray-400 italic text-xs mt-1 ml-1">
+                {item.note}
+              </p>
+            )}
           </li>
         ))}
       </ul>
@@ -218,22 +262,35 @@ const UploadTrainingProgram = () => {
 
       <div className="space-y-4 mb-6">
         {blocks.map((block, index) => (
-          <div key={index} className="bg-[#1E1E1E] border border-[#2A2A2A] rounded p-4">
+          <div
+            key={index}
+            className="bg-[#1E1E1E] border border-[#2A2A2A] rounded p-4"
+          >
             <div className="flex justify-between items-start">
               <div>
                 <h3 className="text-lg font-bold text-white">{block.title}</h3>
                 {block.subHeader && (
-                  <p className="text-sm font-semibold text-cyan-400 mb-1">{block.subHeader}</p>
+                  <p className="text-sm font-semibold text-cyan-400 mb-1">
+                    {block.subHeader}
+                  </p>
+                )}
+                {block.blockNote && (
+                  <p className="text-sm text-white mb-2">{block.blockNote}</p>
                 )}
                 {block.note && (
-                  <p className="text-sm text-gray-400 italic mb-2">{block.note}</p>
+                  <p className="text-sm text-gray-400 italic mb-2">
+                    {block.note}
+                  </p>
                 )}
+
                 <ul className="list-disc list-inside text-sm text-gray-300 space-y-1">
                   {block.items?.map((item, i) => (
                     <li key={i}>
                       {item.text}
                       {item.note && (
-                        <p className="text-gray-400 italic text-xs ml-4 mt-1">{item.note}</p>
+                        <p className="text-gray-400 italic text-xs ml-4 mt-1">
+                          {item.note}
+                        </p>
                       )}
                     </li>
                   ))}

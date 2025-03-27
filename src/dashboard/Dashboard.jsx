@@ -7,7 +7,9 @@ import { FaUserCircle } from "react-icons/fa";
 const LockedCard = ({ title }) => (
   <div className="p-5 text-center bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow">
     <h3 className="text-lg font-semibold text-white">{title}</h3>
-    <p className="text-gray-400 mt-2 text-sm">Upgrade to unlock this feature.</p>
+    <p className="text-gray-400 mt-2 text-sm">
+      Upgrade to unlock this feature.
+    </p>
     <Link
       to="/pricing"
       className="mt-4 inline-block px-4 py-2 bg-yellow text-black font-semibold rounded hover:bg-yellow-400 hover:scale-[1.02] transition"
@@ -52,26 +54,40 @@ const Dashboard = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         {hasPaid ? (
-          <Link to="/trainingprogram" className="p-5 bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow hover:bg-yellow hover:text-black transition">
+          <Link
+            to="/trainingprogram"
+            className="p-5 bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow hover:bg-yellow hover:text-black transition"
+          >
             <h3 className="text-lg font-semibold">Your Program</h3>
-            <p className="text-sm mt-2 text-gray-400">Click to view your plan</p>
+            <p className="text-sm mt-2 text-gray-400">
+              Click to view your program
+            </p>
           </Link>
         ) : (
           <LockedCard title="Training Program" />
         )}
 
-        <Link to="/tracker" className="p-5 bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow hover:bg-yellow hover:text-black transition">
-          <h3 className="text-lg font-semibold">Workout Tracker</h3>
-          <p className="text-sm mt-2 text-gray-400">Track your workouts</p>
+        <Link
+          to="/trainingschedule"
+          className="p-5 bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow hover:bg-yellow hover:text-black transition"
+        >
+          <h3 className="text-lg font-semibold">Training schedule</h3>
+          <p className="text-sm mt-2 text-gray-400">View your workouts</p>
         </Link>
 
-        <Link to="/progress" className="p-5 bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow hover:bg-yellow hover:text-black transition">
+        <Link
+          to="/progress"
+          className="p-5 bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow hover:bg-yellow hover:text-black transition"
+        >
           <h3 className="text-lg font-semibold">Progress Overview</h3>
           <p className="text-sm mt-2 text-gray-400">View your gains</p>
         </Link>
 
         {hasPaid ? (
-          <Link to="/check-in" className="p-5 bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow hover:bg-yellow hover:text-black transition">
+          <Link
+            to="/check-in"
+            className="p-5 bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow hover:bg-yellow hover:text-black transition"
+          >
             <h3 className="text-lg font-semibold">Schedule Check-In</h3>
             <p className="text-sm mt-2 text-gray-400">Book a call</p>
           </Link>
@@ -80,7 +96,10 @@ const Dashboard = () => {
         )}
 
         {hasPaid ? (
-          <Link to="/library" className="p-5 bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow hover:bg-yellow hover:text-black transition">
+          <Link
+            to="/library"
+            className="p-5 bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow hover:bg-yellow hover:text-black transition"
+          >
             <h3 className="text-lg font-semibold">Video Library</h3>
             <p className="text-sm mt-2 text-gray-400">Explore resources</p>
           </Link>

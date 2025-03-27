@@ -28,7 +28,7 @@ import AdminRoute from "./components/AdminRoute";
 import Dashboard from "./dashboard/Dashboard";
 import Library from "./dashboard/library/Library";
 import TrainingProgram from "./dashboard/training/TrainingProgram";
-import Tracker from "./dashboard/tracker/Tracker";
+import TrainingSchedule from "./dashboard/trainingschedule/TrainingSchedule.jsx"
 import Progress from "./dashboard/progress/Progress";
 import CheckIn from "./dashboard/checkin/CheckIn";
 import Messages from './dashboard/messages/Messages';
@@ -45,7 +45,7 @@ import UploadTrainingProgram from './admin/UploadTrainingProgram';
 
 // Layout
 import DashboardLayout from "./layouts/DashboardLayout";
-
+import Stopwatch from './dashboard/stopwatch/StopWatch';
 
 const MainRoutes = () => {
   const location = useLocation();
@@ -53,8 +53,9 @@ const MainRoutes = () => {
     location.pathname.startsWith("/library") ||
     location.pathname.startsWith("/trainingprogram") ||
     location.pathname.startsWith("/check-in") ||
-    location.pathname.startsWith("/tracker") ||
+    location.pathname.startsWith("/trainingschedule") ||
     location.pathname.startsWith("/progress") ||
+    location.pathname.startsWith("/stopwatch") ||
     location.pathname.startsWith("/nutrition") ||
     location.pathname.startsWith("/messages") ||
     location.pathname.startsWith("/settings") ||
@@ -70,7 +71,8 @@ const MainRoutes = () => {
       {/* Protected Dashboard Routes with Shared Sidebar */}
       <Route element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>}>
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/tracker" element={<Tracker />} />
+        <Route path="/stopwatch" element={<Stopwatch />} />
+        <Route path="/trainingschedule" element={<TrainingSchedule />} />
         <Route path="/progress" element={<Progress />} />
         <Route path="/nutrition" element={<Nutrition />} />
         <Route path="/messages" element={<Messages />} />

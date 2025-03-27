@@ -1,123 +1,153 @@
-import React, { useState, useEffect } from "react";
-import { useAuth } from "../../context/AuthContext";
-import { Navigate } from "react-router-dom";
-import { doc, getDoc } from "firebase/firestore";
-import { db } from "../../firebase"; // adjust path as needed
+import React from "react";
+import { FaDownload } from "react-icons/fa";
+
+const documents = [
+  {
+    title: "WELCOME",
+    file: "/pdfs/welcome_guide.pdf",
+    image: "/img/takethestep.jpg",
+    description:
+      "Start here – A message from Justin and an overview of your program.",
+  },
+  {
+    title: "MILITARY PREP GUIDE",
+    file: "/pdfs/military_prep_guide.pdf",
+    image: "/img/barret.jpg",
+    description:
+      "Must-read coaching guide with key structure and philosophy behind the program.",
+  },
+  {
+    title: "01 BASIC REQUIREMENTS",
+    file: "/pdfs/military_basic_requirements.pdf",
+    image: "/img/Bootgroup_carry.jpg",
+    description:
+      "Covers physical entry standards and how to prepare for military selection.",
+  },
+  {
+    title: "02 FOUNDATIONAL STRENGTH",
+    file: "/pdfs/military_foundational_strength.pdf",
+    image: "/img/marsof.jpg",
+    description:
+      "Helps build total-body strength and capacity before bootcamp begins.",
+  },
+  {
+    title: "03 SWIMMING PRACTICE",
+    file: "/pdfs/swimming_practice.pdf",
+    image: "/img/spelioladder.jpg",
+    description:
+      "Develop your water confidence and swimming technique for military prep.",
+  },
+  {
+    title: "SUPPORT 01 – EXERCISE LIBRARY",
+    file: "/pdfs/support_exercise_library.pdf",
+    image: "/img/friscatnight.jpg",
+    description:
+      "Every movement and drill explained – your complete visual reference.",
+  },
+  {
+    title: "SUPPORT 02 – MOBILITY GUIDE",
+    file: "/pdfs/support_mobility_guide.pdf",
+    image: "/img/hlo.jpg",
+    description:
+      "Mobility, decompression, and mindfulness strategies to stay sharp.",
+  },
+  {
+    title: "6-WEEK PROGRAM OVERVIEW",
+    file: "/pdfs/six_week_program.pdf",
+    image: "/img/takethestep.jpg",
+    description:
+      "Full breakdown of the 6-week cycle: sessions, days, and structure.",
+  },
+];
 
 const TrainingProgram = () => {
-  const { user, hasPaid } = useAuth();
-  const [activeWeek, setActiveWeek] = useState(
-    parseInt(localStorage.getItem("activeWeek")) || 1
-  );
-
-  const [expandedDays, setExpandedDays] = useState({});
-  const [programData, setProgramData] = useState({});
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    localStorage.setItem("activeWeek", activeWeek);
-  }, [activeWeek]);
-
-  useEffect(() => {
-    const fetchProgram = async () => {
-      const docRef = doc(db, "trainingPrograms", "default");
-      const snap = await getDoc(docRef);
-      if (snap.exists()) {
-        const data = snap.data();
-        setProgramData(data.weeks || {});
-      }
-      setLoading(false);
-    };
-    fetchProgram();
-  }, []);
-
-  if (!user) return <Navigate to="/login" />;
-  if (!hasPaid) return <Navigate to="/pricing" />;
-  if (loading) return <div className="p-6 text-gray-300">Loading training program...</div>;
-
-  const weekTabs = [1, 2, 3, 4, 5, 6];
-  const currentWeek = programData[`week${activeWeek}`];
-  const days = currentWeek ? Object.keys(currentWeek) : [];
-
-  const toggleDay = (day) => {
-    setExpandedDays((prev) => ({ ...prev, [day]: !prev[day] }));
-  };
-
-  const weekdayOrder = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
-  const daysSorted = days.sort(
-    (a, b) => weekdayOrder.indexOf(a.toLowerCase()) - weekdayOrder.indexOf(b.toLowerCase())
-  );
-
   return (
-    <div className="min-h-screen bg-[#121212] text-gray-200 px-4 sm:px-6 py-10 max-w-5xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6 text-white">Your Training Program</h1>
-
-      <div className="flex gap-2 mb-8 overflow-x-auto">
-        {weekTabs.map((week) => (
-          <button
-            key={week}
-            onClick={() => setActiveWeek(week)}
-            className={`px-4 py-2 rounded text-sm tracking-wider font-medium whitespace-nowrap transition-all duration-200 ${
-              activeWeek === week
-                ? "bg-cyan-400 text-white"
-                : "bg-[#1E1E1E] text-gray-400 border-[#2A2A2A] hover:bg-cyan-400 hover:text-white"
-            }`}
-          >
-            Week {week}
-          </button>
-        ))}
+    <div className="min-h-screen bg-[#121212] text-white px-4 sm:px-6 py-12 max-w-5xl mx-auto">
+      {/* Hero Banner */}
+      <div className="mb-10">
+        <img
+          src="/img/royalmarines.jpg"
+          alt="Military Prep"
+          className="w-full h-64 object-cover rounded-xl shadow-md mb-4"
+        />
+        <h1 className="text-3xl sm:text-4xl font-bold text-cyan-400 mb-2">
+          The Military Preparation Program
+        </h1>
+        <p className="text-gray-400 text-sm sm:text-base max-w-3xl">
+          This program is your step-by-step path to becoming mentally and
+          physically ready for military life. It’s divided into key
+          sub-programs, each focused on a specific phase of your preparation –
+          from meeting entry requirements to building strength, water
+          confidence, and mobility.
+        </p>
       </div>
 
-      <div className="space-y-4">
-        {daysSorted.map((day) => {
-          const session = currentWeek[day];
-          const isOpen = expandedDays[day];
+      {/* Program Structure Overview */}
+      <div className="mb-10">
+        <h2 className="text-xl font-semibold text-white mb-2">
+          Program Structure
+        </h2>
+        <ul className="list-disc list-inside text-sm text-gray-400 space-y-1">
+          <li>
+            <strong>Welcome Guide:</strong> Get started with a personal message
+            and full orientation.
+          </li>
+          <li>
+            <strong>Military Prep Guide:</strong> Learn the system and training
+            philosophy.
+          </li>
+          <li>
+            <strong>Basic Requirements:</strong> Prepare for military selection
+            benchmarks.
+          </li>
+          <li>
+            <strong>Foundational Strength:</strong> Build resilience for
+            bootcamp.
+          </li>
+          <li>
+            <strong>Swimming Practice:</strong> Boost confidence in aquatic
+            environments.
+          </li>
+          <li>
+            <strong>Support – Exercise & Mobility:</strong> Learn the movements
+            and restore your body.
+          </li>
+          <li>
+            <strong>6-Week Schedule:</strong> Your weekly plan, laid out for
+            daily execution.
+          </li>
+        </ul>
+      </div>
 
-          return (
-            <div key={day} className="border border-[#2A2A2A] rounded bg-[#1E1E1E]">
-              <button
-                className="w-full flex justify-between items-center p-4 text-left text-white hover:bg-[#2A2A2A]"
-                onClick={() => toggleDay(day)}
-              >
-                <div>
-                  <h2 className="text-xl font-bold capitalize">{day}</h2>
-                  <p className="text-sm text-gray-400 font-medium uppercase tracking-wider">
-                    {session.type}
-                  </p>
-                </div>
-                <span className="text-2xl font-bold text-gray-400">{isOpen ? "−" : "+"}</span>
-              </button>
-
-              {isOpen && (
-                <div className="p-4 space-y-4">
-                  {session.blocks.map((block, idx) => (
-                    <div key={idx} className="bg-[#121212] border border-[#2A2A2A] rounded p-4">
-                      <h3 className="font-semibold text-lg mb-2 text-white">{block.title}</h3>
-                      <ul className="text-sm text-gray-300 space-y-2 list-inside">
-                        {block.items.map((item, i) => {
-                          const text = typeof item === "string" ? item : item.text;
-                          const note = typeof item === "object" ? item.note : null;
-
-                          return (
-                            <li key={i} className="list-disc ml-2">
-                              {text}
-                              {note && (
-                                <p className="italic text-sm text-gray-500 list-none mt-1 mb-5">{note}</p>
-                              )}
-                            </li>
-                          );
-                        })}
-                      </ul>
-                      {block.note && (
-                        <p className="mt-2 italic text-sm text-gray-500">{block.note}</p>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
+      {/* Download Cards */}
+      <div className="grid gap-6 sm:grid-cols-2">
+        {documents.map((doc, index) => (
+          <div
+            key={index}
+            className="bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow hover:shadow-lg transition overflow-hidden flex flex-col"
+          >
+            <div
+              className="h-32 bg-cover bg-center relative"
+              style={{ backgroundImage: `url('${doc.image}')` }}
+            >
+              <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <h3 className="text-white text-lg font-bold text-center px-2">
+                  {doc.title}
+                </h3>
+              </div>
             </div>
-          );
-        })}
+            <div className="p-4 flex flex-col flex-1 justify-between">
+              <p className="text-sm text-gray-300 mb-3">{doc.description}</p>
+              <a
+                href={doc.file}
+                download
+                className="mt-auto inline-flex items-center gap-2 text-cyan-400 hover:text-white text-sm"
+              >
+                <FaDownload /> Download PDF
+              </a>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
