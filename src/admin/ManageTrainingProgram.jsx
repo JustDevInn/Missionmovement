@@ -2,6 +2,47 @@ import React, { useState, useEffect, useRef } from "react";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
 
+const AutoExpandingTextarea = ({
+  value,
+  onSave,
+  isEditing,
+  onEdit,
+  placeholder,
+}) => {
+  const ref = useRef();
+
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.style.height = "auto";
+      ref.current.style.height = `${ref.current.scrollHeight}px`;
+    }
+  }, [value]);
+
+  return (
+    <textarea
+      ref={ref}
+      className={`w-full italic text-sm text-red-400 bg-transparent px-3 py-2 rounded resize-none overflow-hidden ${
+        isEditing ? "border border-[#2A2A2A]" : "border-none"
+      }`}
+      placeholder={placeholder || "Note (optional)"}
+      defaultValue={value}
+      rows={1}
+      onFocus={onEdit}
+      onBlur={(e) => onSave(e.target.value)}
+      onInput={(e) => {
+        e.target.style.height = "auto";
+        e.target.style.height = `${e.target.scrollHeight}px`;
+      }}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          e.target.blur();
+        }
+      }}
+    />
+  );
+};
+
 const ManageTrainingProgram = () => {
   const [week, setWeek] = useState(1);
   const [expandedDays, setExpandedDays] = useState({});
@@ -343,47 +384,6 @@ const ManageTrainingProgram = () => {
         })}
       </div>
     </div>
-  );
-};
-
-const AutoExpandingTextarea = ({
-  value,
-  onSave,
-  isEditing,
-  onEdit,
-  placeholder,
-}) => {
-  const ref = useRef();
-
-  useEffect(() => {
-    if (ref.current) {
-      ref.current.style.height = "auto";
-      ref.current.style.height = `${ref.current.scrollHeight}px`;
-    }
-  }, [value]);
-
-  return (
-    <textarea
-      ref={ref}
-      className={`w-full italic text-sm text-gray-400 bg-transparent px-3 py-2 rounded resize-none overflow-hidden ${
-        isEditing ? "border border-[#2A2A2A]" : "border-none"
-      }`}
-      placeholder={placeholder || "Note (optional)"}
-      defaultValue={value}
-      rows={1}
-      onFocus={onEdit}
-      onBlur={(e) => onSave(e.target.value)}
-      onInput={(e) => {
-        e.target.style.height = "auto";
-        e.target.style.height = `${e.target.scrollHeight}px`;
-      }}
-      onKeyDown={(e) => {
-        if (e.key === "Enter") {
-          e.preventDefault();
-          e.target.blur();
-        }
-      }}
-    />
   );
 };
 

@@ -14,7 +14,9 @@ const UploadVideo = () => {
   const [showCopied, setShowCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText("https://img.youtube.com/vi/string/hqdefault.jpg");
+    navigator.clipboard.writeText(
+      "https://img.youtube.com/vi/string/hqdefault.jpg"
+    );
     setShowCopied(true);
     setTimeout(() => setShowCopied(false), 2000);
   };
@@ -59,7 +61,7 @@ const UploadVideo = () => {
 
   return (
     <div className="max-w-2xl mx-auto min-h-screen text-gray-300">
-      <h1 className="text-3xl font-bold mb-6 text-cyan-400">Upload Video</h1>
+      <h1 className="text-3xl font-bold mb-6"> Upload Video</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
@@ -117,7 +119,9 @@ const UploadVideo = () => {
           Upload
         </button>
         {error && <p className="text-red-400 text-sm">{error}</p>}
-        {success && <p className="text-green-400 text-sm">Video uploaded successfully!</p>}
+        {success && (
+          <p className="text-green-400 text-sm">Video uploaded successfully!</p>
+        )}
       </form>
     </div>
   );

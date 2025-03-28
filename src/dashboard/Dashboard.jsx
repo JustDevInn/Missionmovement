@@ -1,23 +1,62 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Link } from "react-router-dom";
-import { FaUserCircle } from "react-icons/fa";
+import { FaUserCircle, FaLock } from "react-icons/fa";
 
-// Locked feature card
-const LockedCard = ({ title }) => (
-  <div className="p-5 text-center bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow">
-    <h3 className="text-lg font-semibold text-white">{title}</h3>
-    <p className="text-gray-400 mt-2 text-sm">
-      Upgrade to unlock this feature.
-    </p>
-    <Link
-      to="/pricing"
-      className="mt-4 inline-block px-4 py-2 bg-yellow text-black font-semibold rounded hover:bg-yellow-400 hover:scale-[1.02] transition"
-    >
-      Upgrade Now
-    </Link>
-  </div>
-);
+// bgPosition: "center top",
+// bgPosition: "70% 30%",
+// bgPosition: "left top",
+
+const featureCards = [
+  {
+    title: "Your Program",
+    description: "Click to view your program",
+    image: "/img/bootgroup_carry.jpg",
+    route: "/trainingprogram",
+    locked: true,
+    bgPosition: "top", // default
+    bgSize: "cover", // optional override
+    bgRepeat: "no-repeat", // optional
+  },
+  {
+    title: "Training Schedule",
+    description: "View your workouts",
+    image: "/img/profilepicture.png",
+    route: "/trainingschedule",
+    bgPosition: "top", // default
+    bgSize: "cover", // optional override
+    bgRepeat: "no-repeat", // optional
+  },
+  {
+    title: "Progress Overview",
+    description: "View your gains",
+    image: "/img/spelioladder.jpg",
+    route: "/progress",
+    bgPosition: "top", // default
+    bgSize: "cover", // optional override
+    bgRepeat: "no-repeat", // optional
+  },
+  {
+    title: "Schedule Check-In",
+    description: "Book a call",
+    image: "/img/barret.jpg",
+    route: "/check-in",
+    locked: true,
+    bgPosition: "center", // default
+    bgSize: "cover", // optional override
+    bgRepeat: "no-repeat", // optional
+  },
+  {
+    title: "Video Library",
+    description: "Explore resources",
+    image: "/img/friscatnight.jpg",
+    route: "/library",
+    locked: true,
+    bgPosition: "center", // default
+    bgSize: "cover", // optional override
+    bgRepeat: "no-repeat", // optional
+  },
+];
 
 const Dashboard = () => {
   const { user, hasPaid } = useAuth();
@@ -46,66 +85,65 @@ const Dashboard = () => {
             Welcome, {user.displayName || user.email}!
           </h1>
           <p className="text-sm text-gray-400 mt-1">
-            Your journey starts here. Let's get to work.
+            Your journey starts here. Let’s get to work.
           </p>
         </div>
         <FaUserCircle className="text-4xl text-yellow self-start sm:self-center" />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-        {hasPaid ? (
-          <Link
-            to="/trainingprogram"
-            className="p-5 bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow hover:bg-yellow hover:text-black transition"
-          >
-            <h3 className="text-lg font-semibold">Your Program</h3>
-            <p className="text-sm mt-2 text-gray-400">
-              Click to view your program
-            </p>
-          </Link>
-        ) : (
-          <LockedCard title="Training Program" />
-        )}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {featureCards.map((card, index) => {
+          const isLocked = card.locked && !hasPaid;
 
-        <Link
-          to="/trainingschedule"
-          className="p-5 bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow hover:bg-yellow hover:text-black transition"
-        >
-          <h3 className="text-lg font-semibold">Training schedule</h3>
-          <p className="text-sm mt-2 text-gray-400">View your workouts</p>
-        </Link>
+          const CardContent = (
+            <>
+              <div
+                className="h-32 bg-cover bg-center relative"
+                style={{
+                  backgroundImage: `url('${card.image}')`,
+                  backgroundPosition: card.bgPosition || "center",
+                  backgroundSize: card.bgSize || "cover",
+                  backgroundRepeat: card.bgRepeat || "no-repeat",
+                }}
+              >
+                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                  <h3 className="text-white text-lg font-bold text-center px-2">
+                    {card.title}
+                  </h3>
+                </div>
+              </div>
+              <div className="p-4 flex flex-col justify-between flex-1">
+                <p className="text-sm text-gray-300 mb-3">{card.description}</p>
+                {isLocked ? (
+                  <div className="flex items-center gap-2 text-yellow-400 text-sm font-semibold">
+                    <FaLock /> Upgrade to unlock
+                  </div>
+                ) : (
+                  <span className="text-sm text-cyan-400 hover:text-white transition">
+                    Go to {card.title}
+                  </span>
+                )}
+              </div>
+            </>
+          );
 
-        <Link
-          to="/progress"
-          className="p-5 bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow hover:bg-yellow hover:text-black transition"
-        >
-          <h3 className="text-lg font-semibold">Progress Overview</h3>
-          <p className="text-sm mt-2 text-gray-400">View your gains</p>
-        </Link>
-
-        {hasPaid ? (
-          <Link
-            to="/check-in"
-            className="p-5 bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow hover:bg-yellow hover:text-black transition"
-          >
-            <h3 className="text-lg font-semibold">Schedule Check-In</h3>
-            <p className="text-sm mt-2 text-gray-400">Book a call</p>
-          </Link>
-        ) : (
-          <LockedCard title="Schedule Check-In" />
-        )}
-
-        {hasPaid ? (
-          <Link
-            to="/library"
-            className="p-5 bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow hover:bg-yellow hover:text-black transition"
-          >
-            <h3 className="text-lg font-semibold">Video Library</h3>
-            <p className="text-sm mt-2 text-gray-400">Explore resources</p>
-          </Link>
-        ) : (
-          <LockedCard title="Video Library" />
-        )}
+          return isLocked ? (
+            <div
+              key={index}
+              className="bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow flex flex-col overflow-hidden opacity-70 cursor-not-allowed"
+            >
+              {CardContent}
+            </div>
+          ) : (
+            <Link
+              key={index}
+              to={card.route}
+              className="bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow hover:shadow-lg transition overflow-hidden flex flex-col"
+            >
+              {CardContent}
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
