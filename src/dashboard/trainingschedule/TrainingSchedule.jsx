@@ -1,17 +1,44 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { Navigate } from "react-router-dom";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
+
+// Auto-expanding textarea for day notes
+const DayNoteTextarea = ({ value, onChange }) => {
+  const ref = useRef();
+
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.style.height = "auto";
+      ref.current.style.height = `${ref.current.scrollHeight}px`;
+    }
+  }, [value]);
+
+  return (
+    <textarea
+      ref={ref}
+      value={value}
+      onChange={onChange}
+      placeholder="Add a note for this training day..."
+      className="w-full italic text-sm text-white bg-transparent border border-[#2A2A2A] px-3 py-2 rounded resize-none overflow-hidden"
+      rows={1}
+      onInput={(e) => {
+        e.target.style.height = "auto";
+        e.target.style.height = `${e.target.scrollHeight}px`;
+      }}
+    />
+  );
+};
 
 const TrainingSchedule = () => {
   const { user, hasPaid } = useAuth();
   const [activeWeek, setActiveWeek] = useState(
     parseInt(localStorage.getItem("activeWeek")) || 1
   );
-
   const [expandedDays, setExpandedDays] = useState({});
   const [programData, setProgramData] = useState({});
+  const [userProgress, setUserProgress] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -19,17 +46,75 @@ const TrainingSchedule = () => {
   }, [activeWeek]);
 
   useEffect(() => {
-    const fetchProgram = async () => {
-      const docRef = doc(db, "trainingPrograms", "default");
-      const snap = await getDoc(docRef);
-      if (snap.exists()) {
-        const data = snap.data();
+    const fetchProgramAndProgress = async () => {
+      const programSnap = await getDoc(doc(db, "trainingPrograms", "default"));
+      const userSnap = await getDoc(doc(db, "users", user.uid));
+
+      if (programSnap.exists()) {
+        const data = programSnap.data();
         setProgramData(data.weeks || {});
       }
+
+      if (userSnap.exists()) {
+        const progressData = userSnap.data().trainingProgress || {};
+        setUserProgress(progressData);
+      }
+
       setLoading(false);
     };
-    fetchProgram();
-  }, []);
+
+    fetchProgramAndProgress();
+  }, [user]);
+
+  const handleNoteChange = async (dayKey, newNote) => {
+    const updatedProgress = {
+      ...userProgress,
+      [`week${activeWeek}`]: {
+        ...userProgress[`week${activeWeek}`],
+        [dayKey]: {
+          ...(userProgress[`week${activeWeek}`]?.[dayKey] || {}),
+          note: newNote,
+        },
+      },
+    };
+
+    setUserProgress(updatedProgress);
+
+    const userRef = doc(db, "users", user.uid);
+    await updateDoc(userRef, {
+      [`trainingProgress.week${activeWeek}.${dayKey}.note`]: newNote,
+    });
+  };
+
+  const handleBlockCheckbox = async (dayKey, blockIdx) => {
+    const prevState =
+      userProgress?.[`week${activeWeek}`]?.[dayKey]?.blocksCompleted?.[
+        blockIdx
+      ] || false;
+
+    const updatedProgress = {
+      ...userProgress,
+      [`week${activeWeek}`]: {
+        ...userProgress[`week${activeWeek}`],
+        [dayKey]: {
+          ...(userProgress[`week${activeWeek}`]?.[dayKey] || {}),
+          blocksCompleted: {
+            ...(userProgress[`week${activeWeek}`]?.[dayKey]?.blocksCompleted ||
+              {}),
+            [blockIdx]: !prevState,
+          },
+        },
+      },
+    };
+
+    setUserProgress(updatedProgress);
+
+    const userRef = doc(db, "users", user.uid);
+    await updateDoc(userRef, {
+      [`trainingProgress.week${activeWeek}.${dayKey}.blocksCompleted.${blockIdx}`]:
+        !prevState,
+    });
+  };
 
   if (!user) return <Navigate to="/login" />;
   if (!hasPaid) return <Navigate to="/pricing" />;
@@ -87,6 +172,9 @@ const TrainingSchedule = () => {
         {daysSorted.map((day) => {
           const session = currentWeek[day];
           const isOpen = expandedDays[day];
+          const userDayData = userProgress[`week${activeWeek}`]?.[day] || {};
+          const dayNote = userDayData.note || {};
+          const blocksCompleted = userDayData.blocksCompleted || {};
 
           return (
             <div
@@ -110,54 +198,69 @@ const TrainingSchedule = () => {
 
               {isOpen && (
                 <div className="p-4 space-y-4">
-                  {session.blocks.map((block, idx) => (
-                    <div
-                      key={idx}
-                      className="bg-[#121212] border border-[#2A2A2A] rounded p-4 space-y-2"
-                    >
-                      <h3 className="font-semibold text-lg text-white">
-                        {block.title}
-                      </h3>
+                  {session.blocks.map((block, idx) => {
+                    const isCompleted = blocksCompleted[idx] || false;
 
-                      {block.subHeader && (
-                        <p className="text-sm text-cyan-400 font-medium mb-2">
-                          {block.subHeader}
-                        </p>
-                      )}
+                    return (
+                      <div
+                        key={idx}
+                        className={`bg-[#121212] border border-[#2A2A2A] rounded p-4 space-y-2 transition-opacity ${
+                          isCompleted ? "opacity-70" : "opacity-100"
+                        }`}
+                      >
+                        <div className="flex items-center justify-between">
+                          <h3 className="font-semibold text-lg text-white">
+                            {block.title}
+                          </h3>
+                          <label className="flex items-center gap-2 text-sm text-gray-400">
+                            <input
+                              type="checkbox"
+                              checked={isCompleted}
+                              onChange={() => handleBlockCheckbox(day, idx)}
+                              className="form-checkbox h-4 w-4 text-cyan-400"
+                            />
+                            Mark complete
+                          </label>
+                        </div>
 
-                      {block.blockNote && (
-                        <p className="text-white text-sm mb-2">
-                          {block.blockNote}
-                        </p>
-                      )}
+                        {block.subHeader && (
+                          <p className="text-sm text-cyan-400 font-medium mb-2">
+                            {block.subHeader}
+                          </p>
+                        )}
 
-                      <ul className="text-sm text-gray-300 space-y-2 list-inside">
-                        {block.items.map((item, i) => {
-                          const text =
-                            typeof item === "string" ? item : item.text;
-                          const note =
-                            typeof item === "object" ? item.note : null;
+                        {block.blockNote && (
+                          <p className="text-white text-sm mb-2">
+                            {block.blockNote}
+                          </p>
+                        )}
 
-                          return (
-                            <li key={i} className="list-disc ml-2">
-                              {text}
-                              {note && (
-                                <p className="italic text-sm text-gray-500 list-none mt-1">
-                                  {note}
-                                </p>
-                              )}
-                            </li>
-                          );
-                        })}
-                      </ul>
+                        <ul className="text-sm text-gray-300 space-y-2 list-inside">
+                          {block.items.map((item, i) => {
+                            const text =
+                              typeof item === "string" ? item : item.text;
+                            return (
+                              <li key={i} className="list-disc ml-2">
+                                {text}
+                              </li>
+                            );
+                          })}
+                        </ul>
 
-                      {block.note && (
-                        <p className="mt-2 italic text-sm text-gray-500">
-                          {block.note}
-                        </p>
-                      )}
-                    </div>
-                  ))}
+                        {block.note && (
+                          <p className="mt-2 italic text-sm text-gray-500">
+                            {block.note}
+                          </p>
+                        )}
+                      </div>
+                    );
+                  })}
+
+                  {/* One day-level note input field */}
+                  <DayNoteTextarea
+                    value={dayNote}
+                    onChange={(e) => handleNoteChange(day, e.target.value)}
+                  />
                 </div>
               )}
             </div>
