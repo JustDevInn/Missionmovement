@@ -167,7 +167,7 @@ const ManageTrainingProgram = () => {
   );
 
   return (
-    <div className="min-h-screen bg-[#121212] text-gray-200 px-4 sm:px-6 py-10 max-w-5xl mx-auto">
+    <div className="min-h-screen bg-[#121212] text-gray-200 py-10 max-w-5xl mx-auto px-0 sm:px-0">
       {saving && (
         <div className="fixed top-4 right-4 z-50">
           <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-cyan-400 border-opacity-50"></div>

@@ -114,7 +114,7 @@ const UploadVideo = () => {
         />
         <button
           type="submit"
-          className="bg-yellow text-black font-semibold px-4 py-2 rounded hover:brightness-110 transition"
+          className="bg-cyan-500 text-white font-semibold px-4 py-2 rounded hover:brightness-110 transition"
         >
           Upload
         </button>

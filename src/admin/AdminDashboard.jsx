@@ -25,9 +25,9 @@ const AdminDashboard = () => {
       </div>
 
       {/* Main content */}
-      <div className="flex-1 pt-20 sm:pt-20">
-        <main className="p-4 sm:px-6 sm:py-8">
-          <div className="bg-[#121212] border border-[#2A2A2A] shadow-md rounded-xl p-6">
+      <div className="flex-1 overflow-y-auto">
+        <main className="p-0 h-full px-6 pt-16">
+          <div className="h-full">
             <Outlet />
           </div>
         </main>

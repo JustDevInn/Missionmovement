@@ -132,8 +132,8 @@ const MessagesAdmin = () => {
 
   // Layout
   return (
-    <div className="min-h-screen flex flex-col md:flex-row bg-[#121212] text-white">
-      {/* Sidebar (users list) */}
+    <div className="flex flex-col md:flex-row h-full min-h-full">
+      {/* Sidebar */}
       <aside
         className={`md:w-64 border-r border-[#2A2A2A] p-4 bg-[#1E1E1E] ${
           selectedUserId && isMobileView ? "hidden" : "block"
@@ -155,9 +155,9 @@ const MessagesAdmin = () => {
         ))}
       </aside>
 
-      {/* Chat window */}
+      {/* Chat Window */}
       {selectedUserId && (
-        <div className="flex-1 flex flex-col">
+        <div className="flex-1 flex flex-col h-[calc(100vh-5rem)] md:h-[calc(100vh-4rem)]">
           {/* Header */}
           <div className="p-4 border-b border-[#2A2A2A] bg-[#1E1E1E] flex items-center justify-between">
             <h2 className="text-lg font-semibold text-cyan-400">
@@ -173,7 +173,7 @@ const MessagesAdmin = () => {
             )}
           </div>
 
-          {/* Messages */}
+          {/* Messages Scroll Area */}
           <div className="flex-1 overflow-y-auto p-4 space-y-4">
             {messages.map((msg) => {
               const isAdmin = msg.sender === "admin";
@@ -204,10 +204,7 @@ const MessagesAdmin = () => {
                           className="bg-[#121212] border border-[#2A2A2A] text-white px-2 py-1 rounded w-full mb-2"
                         />
                         <div className="flex gap-2 justify-end">
-                          <button
-                            onClick={() => handleEditSave(msg.id)}
-                            title="Save"
-                          >
+                          <button onClick={() => handleEditSave(msg.id)}>
                             <FaSave />
                           </button>
                           <button
@@ -215,7 +212,6 @@ const MessagesAdmin = () => {
                               setEditingMessageId(null);
                               setEditedText("");
                             }}
-                            title="Cancel"
                           >
                             <FaTimes />
                           </button>
@@ -250,14 +246,10 @@ const MessagesAdmin = () => {
                                 setEditingMessageId(msg.id);
                                 setEditedText(msg.text || "");
                               }}
-                              title="Edit"
                             >
                               <FaEdit />
                             </button>
-                            <button
-                              onClick={() => handleDelete(msg.id)}
-                              title="Delete"
-                            >
+                            <button onClick={() => handleDelete(msg.id)}>
                               <FaTrash />
                             </button>
                           </div>
@@ -271,7 +263,7 @@ const MessagesAdmin = () => {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Input field */}
+          {/* Input Field */}
           <form
             onSubmit={handleSendMessage}
             className="bg-[#1E1E1E] p-4 border-t border-[#2A2A2A] flex items-center gap-2"
@@ -294,7 +286,6 @@ const MessagesAdmin = () => {
               type="button"
               onClick={() => fileInputRef.current.click()}
               className="text-cyan-400 hover:text-white"
-              title="Attach file"
             >
               <FaPaperclip />
             </button>
