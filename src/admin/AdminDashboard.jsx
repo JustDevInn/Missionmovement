@@ -10,12 +10,18 @@ const AdminDashboard = () => {
     <div className="admin-dark-theme flex min-h-screen relative">
       {/* Desktop Sidebar */}
       <div className={`hidden md:block ${sidebarWidth}`}>
-        <AdminSidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
+        <AdminSidebar
+          isCollapsed={isCollapsed}
+          setIsCollapsed={setIsCollapsed}
+        />
       </div>
 
       {/* Mobile Sidebar */}
       <div className="md:hidden">
-        <AdminSidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
+        <AdminSidebar
+          isCollapsed={isCollapsed}
+          setIsCollapsed={setIsCollapsed}
+        />
       </div>
 
       {/* Main content */}

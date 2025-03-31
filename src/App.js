@@ -42,10 +42,12 @@ import ManageVideos from "./admin/ManageVideos";
 import ManageUsers from "./admin/ManageUsers";
 import ManageTrainingProgram from './admin/ManageTrainingProgram';
 import UploadTrainingProgram from './admin/UploadTrainingProgram';
+import messagesAdmin from './admin/MessagesAdmin.jsx';
 
 // Layout
 import DashboardLayout from "./layouts/DashboardLayout";
 import Stopwatch from './dashboard/stopwatch/StopWatch';
+import MessagesAdmin from './admin/MessagesAdmin.jsx';
 
 const MainRoutes = () => {
   const location = useLocation();
@@ -90,6 +92,7 @@ const MainRoutes = () => {
   <Route path="manage-users" element={<ManageUsers />} />
   <Route path="manage-program" element={<ManageTrainingProgram />} />
   <Route path="upload-program" element={<UploadTrainingProgram />} />
+  <Route path="messagesadmin" element={<MessagesAdmin />} />
 </Route>
 
 

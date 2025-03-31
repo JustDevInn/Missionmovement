@@ -10,6 +10,7 @@ import {
   FaChevronLeft,
   FaChevronRight,
   FaListAlt,
+  FaComments,
 } from "react-icons/fa";
 
 const AdminSidebar = ({ isCollapsed, setIsCollapsed }) => {
@@ -22,8 +23,17 @@ const AdminSidebar = ({ isCollapsed, setIsCollapsed }) => {
     { path: "/admin/upload", label: "Upload Video", icon: <FaUpload /> },
     { path: "/admin/manage-videos", label: "Manage Videos", icon: <FaVideo /> },
     { path: "/admin/manage-users", label: "Manage Users", icon: <FaUsers /> },
-    { path: "/admin/manage-program", label: "Manage Program", icon: <FaListAlt /> },
-    { path: "/admin/upload-program", label: "Upload Program", icon: <FaUpload /> },
+    {
+      path: "/admin/manage-program",
+      label: "Manage Program",
+      icon: <FaListAlt />,
+    },
+    {
+      path: "/admin/upload-program",
+      label: "Upload Program",
+      icon: <FaUpload />,
+    },
+    { path: "/admin/messagesadmin", label: "Messages", icon: <FaComments /> },
   ];
 
   // Swipe gesture for mobile drawer
@@ -115,7 +125,9 @@ const AdminSidebar = ({ isCollapsed, setIsCollapsed }) => {
       {/* Mobile Sidebar Drawer */}
       <div
         className={`fixed inset-0 z-50 bg-black transition-opacity duration-300 md:hidden ${
-          isMobileOpen ? "bg-opacity-50 pointer-events-auto" : "bg-opacity-0 pointer-events-none"
+          isMobileOpen
+            ? "bg-opacity-50 pointer-events-auto"
+            : "bg-opacity-0 pointer-events-none"
         }`}
         onClick={() => setIsMobileOpen(false)}
       >
