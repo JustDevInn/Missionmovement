@@ -36,6 +36,8 @@ const CheckIn = () => {
   const [loading, setLoading] = useState(true);
   const [reflectionDrafts, setReflectionDrafts] = useState({});
   const [savingWeek, setSavingWeek] = useState(null);
+  const [savedBadge, setSavedBadge] = useState({});
+  const [expanded, setExpanded] = useState({});
 
   useEffect(() => {
     const fetchProgress = async () => {
@@ -59,10 +61,12 @@ const CheckIn = () => {
     setSavingWeek(weekKey);
     const userRef = doc(db, "users", user.uid);
     const reflectionValue = reflectionDrafts[weekKey] || "";
+    const timestamp = new Date().toISOString();
 
     try {
       await updateDoc(userRef, {
         [`trainingProgress.${weekKey}.reflection`]: reflectionValue,
+        [`trainingProgress.${weekKey}.lastSavedAt`]: timestamp,
       });
 
       setProgressData((prev) => ({
@@ -70,8 +74,14 @@ const CheckIn = () => {
         [weekKey]: {
           ...prev[weekKey],
           reflection: reflectionValue,
+          lastSavedAt: timestamp,
         },
       }));
+
+      setSavedBadge((prev) => ({ ...prev, [weekKey]: true }));
+      setTimeout(() => {
+        setSavedBadge((prev) => ({ ...prev, [weekKey]: false }));
+      }, 2500);
     } catch (err) {
       console.error("Error saving reflection:", err);
     } finally {
@@ -79,25 +89,16 @@ const CheckIn = () => {
     }
   };
 
-  const getWeekSummary = (weekKey, weekData) => {
-    const days = Object.keys(weekData).filter((k) => k !== "reflection");
-    const totalBlocks = days.reduce((acc, day) => {
-      const blockData = weekData[day]?.blocksCompleted || {};
-      return acc + Object.keys(blockData).length;
-    }, 0);
-
-    const completedBlocks = days.reduce((acc, day) => {
-      const blockData = weekData[day]?.blocksCompleted || {};
-      return acc + Object.values(blockData).filter(Boolean).length;
-    }, 0);
-
-    const hasReflection = !!weekData.reflection;
-
-    return {
-      totalBlocks,
-      completedBlocks,
-      hasReflection,
-    };
+  const formatTimestamp = (iso) => {
+    if (!iso) return "";
+    const date = new Date(iso);
+    return `Last saved: ${date.toLocaleString("default", {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      hour: "2-digit",
+      minute: "2-digit",
+    })}`;
   };
 
   if (!user) return <Navigate to="/login" />;
@@ -110,69 +111,91 @@ const CheckIn = () => {
         Check-In & Reflection
       </h1>
 
-      {/* ✅ Visual Summary Section */}
-      <div className="mb-8 space-y-2">
-        {Object.entries(progressData).map(([weekKey, weekData]) => {
-          if (!weekData || typeof weekData !== "object") return null;
-          const summary = getWeekSummary(weekKey, weekData);
-
-          return (
-            <div
-              key={weekKey}
-              className="flex items-center justify-between bg-[#1E1E1E] border border-[#2A2A2A] px-4 py-2 rounded"
-            >
-              <span className="font-semibold text-white">
-                {weekKey.toUpperCase()}
-              </span>
-              <div className="text-sm text-gray-400 space-x-2">
-                <span>
-                  {summary.completedBlocks}/{summary.totalBlocks} blocks
-                  completed
-                </span>
-                <span>
-                  {summary.hasReflection
-                    ? "📝 Reflection saved"
-                    : "✏️ No reflection"}
-                </span>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      {/* 📝 Weekly Reflections */}
       {progressData &&
         typeof progressData === "object" &&
-        Object.keys(progressData || {}).length > 0 &&
         Object.entries(progressData).map(([weekKey, week]) => {
           if (!week || typeof week !== "object") return null;
 
           const reflection = week.reflection || "";
+          const lastSaved = week.lastSavedAt || null;
+          const days = Object.keys(week).filter(
+            (k) => k !== "reflection" && k !== "lastSavedAt"
+          );
+
+          const blocksCompleted = days.reduce((acc, day) => {
+            const blockData = week[day]?.blocksCompleted || {};
+            const completedCount =
+              Object.values(blockData).filter(Boolean).length;
+            return acc + completedCount;
+          }, 0);
+
+          const isExpanded = expanded[weekKey];
+          const preview =
+            reflection.length > 60
+              ? reflection.slice(0, 60) + "..."
+              : reflection;
 
           return (
             <div
               key={weekKey}
-              className="bg-[#1E1E1E] border border-[#2A2A2A] rounded p-4 mb-6 space-y-4"
+              className="bg-[#1E1E1E] border border-[#2A2A2A] rounded p-4 mb-6"
             >
-              <h2 className="text-xl font-semibold text-cyan-400 capitalize">
-                {weekKey}
-              </h2>
-
-              <AutoExpandingTextarea
-                value={reflectionDrafts[weekKey] ?? reflection}
-                onChange={(e) =>
-                  handleReflectionChange(weekKey, e.target.value)
+              <div
+                className="cursor-pointer flex justify-between items-center"
+                onClick={() =>
+                  setExpanded((prev) => ({
+                    ...prev,
+                    [weekKey]: !prev[weekKey],
+                  }))
                 }
-                placeholder="Write your thoughts or summary for this week..."
-              />
-
-              <button
-                onClick={() => saveReflection(weekKey)}
-                disabled={savingWeek === weekKey}
-                className="mt-2 px-4 py-1 text-sm rounded bg-cyan-500 hover:bg-cyan-600 text-white disabled:opacity-50"
               >
-                {savingWeek === weekKey ? "Saving..." : "Save Reflection"}
-              </button>
+                <div>
+                  <h2 className="text-xl font-semibold text-cyan-400 capitalize">
+                    {weekKey}
+                  </h2>
+                  <p className="text-sm text-gray-400">
+                    Completed blocks: {blocksCompleted}
+                  </p>
+                  {!isExpanded && (
+                    <p className="text-gray-300 text-sm italic mt-1">
+                      {preview || "No reflection yet..."}
+                    </p>
+                  )}
+                  {lastSaved && !isExpanded && (
+                    <p className="text-xs text-gray-500">
+                      {formatTimestamp(lastSaved)}
+                    </p>
+                  )}
+                </div>
+
+                {savedBadge[weekKey] && (
+                  <span className="text-green-400 text-xl font-bold">✅</span>
+                )}
+              </div>
+
+              {isExpanded && (
+                <div className="mt-4 space-y-2">
+                  <AutoExpandingTextarea
+                    value={reflectionDrafts[weekKey] ?? reflection}
+                    onChange={(e) =>
+                      handleReflectionChange(weekKey, e.target.value)
+                    }
+                    placeholder="Write your thoughts or summary for this week..."
+                  />
+                  <div className="flex justify-between items-center">
+                    <button
+                      onClick={() => saveReflection(weekKey)}
+                      disabled={savingWeek === weekKey}
+                      className="px-4 py-1 text-sm rounded bg-cyan-500 hover:bg-cyan-600 text-white disabled:opacity-50"
+                    >
+                      {savingWeek === weekKey ? "Saving..." : "Save Reflection"}
+                    </button>
+                    <span className="text-xs text-gray-500">
+                      {formatTimestamp(lastSaved)}
+                    </span>
+                  </div>
+                </div>
+              )}
             </div>
           );
         })}

@@ -71,14 +71,20 @@ const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
 
     const drawer = drawerRef.current;
     if (drawer) {
-      drawer.addEventListener("touchstart", handleTouchStart);
-      drawer.addEventListener("touchmove", handleTouchMove);
+      drawer.addEventListener("touchstart", handleTouchStart, {
+        passive: true,
+      });
+      drawer.addEventListener("touchmove", handleTouchMove, { passive: true });
     }
 
     return () => {
       if (drawer) {
-        drawer.removeEventListener("touchstart", handleTouchStart);
-        drawer.removeEventListener("touchmove", handleTouchMove);
+        drawer.removeEventListener("touchstart", handleTouchStart, {
+          passive: true,
+        });
+        drawer.removeEventListener("touchmove", handleTouchMove, {
+          passive: true,
+        });
       }
     };
   }, []);

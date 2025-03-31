@@ -4,6 +4,7 @@ import { Navigate } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { motion, AnimatePresence } from "framer-motion";
+import Spinner from "../../components/Spinner";
 
 const Library = () => {
   const { user, hasPaid } = useAuth();
@@ -13,6 +14,7 @@ const Library = () => {
   const [scrollY, setScrollY] = useState(0);
   const [activeTag, setActiveTag] = useState(null);
   const [detailsOpen, setDetailsOpen] = useState(null);
+  const [loading, setLoading] = useState(true); // ← added
   const modalRef = useRef();
   const [allTags, setAllTags] = useState([]);
 
@@ -42,6 +44,8 @@ const Library = () => {
         video.tags?.forEach((tag) => tagsSet.add(tag));
       });
       setAllTags([...tagsSet]);
+
+      setLoading(false); // ← done loading
     };
     fetchVideos();
   }, []);
@@ -52,12 +56,14 @@ const Library = () => {
         handleCloseModal();
       }
     };
-    if (selectedVideo) document.addEventListener("mousedown", handleClickOutside);
+    if (selectedVideo)
+      document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [selectedVideo, handleCloseModal]);
 
   if (!user) return <Navigate to="/login" />;
   if (!hasPaid) return <Navigate to="/pricing" />;
+  if (loading) return <Spinner />; // ← show cyan spinner while loading
 
   const filterText = search.toLowerCase();
   const filteredVideos = videos.filter((video) => {
@@ -125,7 +131,9 @@ const Library = () => {
                 className="w-full h-48 object-cover rounded mb-3 cursor-pointer hover:scale-105 hover:shadow-lg transition-transform duration-300"
               />
             )}
-            <h2 className="text-lg font-semibold mb-1 text-white">{video.title}</h2>
+            <h2 className="text-lg font-semibold mb-1 text-white">
+              {video.title}
+            </h2>
             <div className="text-sm text-gray-400 mb-2 min-h-[2rem]">
               {video.tags?.map((tag, i) => (
                 <button
@@ -138,7 +146,9 @@ const Library = () => {
               ))}
             </div>
             <button
-              onClick={() => setDetailsOpen(detailsOpen === video.id ? null : video.id)}
+              onClick={() =>
+                setDetailsOpen(detailsOpen === video.id ? null : video.id)
+              }
               className="text-sm text-yellow font-semibold focus:outline-none hover:underline"
             >
               ▸ Details
@@ -183,7 +193,9 @@ const Library = () => {
               </button>
               <div className="aspect-w-16 aspect-h-9">
                 <iframe
-                  src={`https://www.youtube.com/embed/${selectedVideo.videoUrl.split("v=")[1]}`}
+                  src={`https://www.youtube.com/embed/${
+                    selectedVideo.videoUrl.split("v=")[1]
+                  }`}
                   title={selectedVideo.title}
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

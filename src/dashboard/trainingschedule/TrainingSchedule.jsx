@@ -3,6 +3,7 @@ import { useAuth } from "../../context/AuthContext";
 import { Navigate } from "react-router-dom";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
+import Spinner from "../../components/Spinner";
 
 // Auto-expanding textarea for day notes
 const DayNoteTextarea = ({ value, onChange }) => {
@@ -118,8 +119,7 @@ const TrainingSchedule = () => {
 
   if (!user) return <Navigate to="/login" />;
   if (!hasPaid) return <Navigate to="/pricing" />;
-  if (loading)
-    return <div className="p-6 text-gray-300">Loading training program...</div>;
+  if (loading) return <Spinner />;
 
   const weekTabs = [1, 2, 3, 4, 5, 6];
   const currentWeek = programData[`week${activeWeek}`];
@@ -173,7 +173,8 @@ const TrainingSchedule = () => {
           const session = currentWeek[day];
           const isOpen = expandedDays[day];
           const userDayData = userProgress[`week${activeWeek}`]?.[day] || {};
-          const dayNote = userDayData.note || {};
+          const dayNote =
+            typeof userDayData.note === "string" ? userDayData.note : "";
           const blocksCompleted = userDayData.blocksCompleted || {};
 
           return (

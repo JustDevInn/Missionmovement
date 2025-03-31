@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 import { FaUserCircle, FaLock } from "react-icons/fa";
+import { db } from "../firebase";
+import { doc, getDoc } from "firebase/firestore";
 
-// bgPosition: "center top",
-// bgPosition: "70% 30%",
-// bgPosition: "left top",
-
+// Feature cards
 const featureCards = [
   {
     title: "Your Program",
@@ -14,27 +13,27 @@ const featureCards = [
     image: "/img/bootgroup_carry.jpg",
     route: "/trainingprogram",
     locked: true,
-    bgPosition: "top", // default
-    bgSize: "cover", // optional override
-    bgRepeat: "no-repeat", // optional
+    bgPosition: "top",
+    bgSize: "cover",
+    bgRepeat: "no-repeat",
   },
   {
     title: "Training Schedule",
     description: "View your workouts",
     image: "/img/profilepicture.png",
     route: "/trainingschedule",
-    bgPosition: "top", // default
-    bgSize: "cover", // optional override
-    bgRepeat: "no-repeat", // optional
+    bgPosition: "top",
+    bgSize: "cover",
+    bgRepeat: "no-repeat",
   },
   {
     title: "Progress Overview",
     description: "View your gains",
     image: "/img/spelioladder.jpg",
     route: "/progress",
-    bgPosition: "top", // default
-    bgSize: "cover", // optional override
-    bgRepeat: "no-repeat", // optional
+    bgPosition: "top",
+    bgSize: "cover",
+    bgRepeat: "no-repeat",
   },
   {
     title: "Schedule Check-In",
@@ -42,9 +41,9 @@ const featureCards = [
     image: "/img/barret.jpg",
     route: "/check-in",
     locked: true,
-    bgPosition: "center", // default
-    bgSize: "cover", // optional override
-    bgRepeat: "no-repeat", // optional
+    bgPosition: "center",
+    bgSize: "cover",
+    bgRepeat: "no-repeat",
   },
   {
     title: "Video Library",
@@ -52,27 +51,39 @@ const featureCards = [
     image: "/img/friscatnight.jpg",
     route: "/library",
     locked: true,
-    bgPosition: "center", // default
-    bgSize: "cover", // optional override
-    bgRepeat: "no-repeat", // optional
+    bgPosition: "center",
+    bgSize: "cover",
+    bgRepeat: "no-repeat",
   },
 ];
 
 const Dashboard = () => {
   const { user, hasPaid } = useAuth();
   const [localLoading, setLocalLoading] = useState(true);
+  const [username, setUsername] = useState("");
 
   useEffect(() => {
-    if (user) {
-      const timer = setTimeout(() => setLocalLoading(false), 500);
-      return () => clearTimeout(timer);
-    }
+    const fetchUsername = async () => {
+      if (user?.uid) {
+        const userRef = doc(db, "users", user.uid);
+        const snap = await getDoc(userRef);
+        if (snap.exists()) {
+          const data = snap.data();
+          setUsername(data.username || "");
+        }
+      }
+    };
+
+    fetchUsername();
+
+    const timer = setTimeout(() => setLocalLoading(false), 500);
+    return () => clearTimeout(timer);
   }, [user]);
 
   if (localLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#121212] text-gray-200">
-        <div className="animate-spin rounded-full h-12 w-12 border-4 border-yellow border-t-transparent" />
+        <div className="animate-spin rounded-full h-12 w-12 border-4 border-cyan-500 border-t-transparent" />
       </div>
     );
   }
@@ -82,13 +93,13 @@ const Dashboard = () => {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
         <div>
           <h1 className="text-2xl md:text-3xl font-bold text-white">
-            Welcome, {user.displayName || user.email}!
+            Welcome, {username || user.displayName || user.email}!
           </h1>
           <p className="text-sm text-gray-400 mt-1">
             Your journey starts here. Let’s get to work.
           </p>
         </div>
-        <FaUserCircle className="text-4xl text-yellow self-start sm:self-center" />
+        <FaUserCircle className="text-4xl text-cyan-500 self-start sm:self-center" />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -101,9 +112,9 @@ const Dashboard = () => {
                 className="h-32 bg-cover bg-center relative"
                 style={{
                   backgroundImage: `url('${card.image}')`,
-                  backgroundPosition: card.bgPosition || "center",
-                  backgroundSize: card.bgSize || "cover",
-                  backgroundRepeat: card.bgRepeat || "no-repeat",
+                  backgroundPosition: card.bgPosition,
+                  backgroundSize: card.bgSize,
+                  backgroundRepeat: card.bgRepeat,
                 }}
               >
                 <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">

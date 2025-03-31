@@ -79,7 +79,6 @@ const documents = [
     bgSize: "cover",
   },
 ];
-
 const TrainingProgram = () => {
   return (
     <div className="min-h-screen bg-[#121212] text-white px-4 sm:px-6 py-12 max-w-5xl mx-auto">
