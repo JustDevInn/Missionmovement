@@ -22,6 +22,8 @@ import {
   FaTimes,
   FaArrowLeft,
 } from "react-icons/fa";
+import Spinner from "../components/Spinner";
+import { useSearchParams } from "react-router-dom";
 
 const MessagesAdmin = () => {
   const [users, setUsers] = useState([]);
@@ -32,38 +34,52 @@ const MessagesAdmin = () => {
   const [editedText, setEditedText] = useState("");
   const [userNames, setUserNames] = useState({});
   const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
+  const [loading, setLoading] = useState(true);
+  const [chatLoading, setChatLoading] = useState(false);
   const messagesEndRef = useRef(null);
   const fileInputRef = useRef(null);
+  const [searchParams] = useSearchParams();
 
-  // Handle responsiveness
   useEffect(() => {
     const handleResize = () => setIsMobileView(window.innerWidth < 768);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Load user list & names
   useEffect(() => {
-    const fetchUserNames = async () => {
-      const snapshot = await getDocs(collection(db, "users"));
+    const fetchAllData = async () => {
+      setLoading(true);
+      const [usersSnap, userNamesSnap] = await Promise.all([
+        getDocs(collection(db, "messages")),
+        getDocs(collection(db, "users")),
+      ]);
+
+      setUsers(usersSnap.docs.map((doc) => ({ id: doc.id })));
+
       const namesMap = {};
-      snapshot.forEach((doc) => {
+      userNamesSnap.forEach((doc) => {
         const data = doc.data();
         namesMap[doc.id] = data.displayName || data.email || doc.id;
       });
       setUserNames(namesMap);
+
+      // Auto-select user from query param
+      const userIdFromParam = searchParams.get("user");
+      if (userIdFromParam) {
+        setSelectedUserId(userIdFromParam);
+      }
+
+      setLoading(false);
     };
 
-    const fetchUsers = async () => {
-      const snapshot = await getDocs(collection(db, "messages"));
-      setUsers(snapshot.docs.map((doc) => ({ id: doc.id })));
-    };
+    fetchAllData();
+  }, [searchParams]);
 
-    fetchUserNames();
-    fetchUsers();
-  }, []);
-
+  // Fetch messages for selected user
   useEffect(() => {
     if (!selectedUserId) return;
+    setChatLoading(true);
     const q = query(
       collection(db, `messages/${selectedUserId}/chat`),
       orderBy("createdAt")
@@ -72,6 +88,7 @@ const MessagesAdmin = () => {
       const msgs = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
       setMessages(msgs);
       scrollToBottom();
+      setChatLoading(false);
     });
     return () => unsubscribe();
   }, [selectedUserId]);
@@ -130,7 +147,8 @@ const MessagesAdmin = () => {
     await deleteDoc(doc(db, `messages/${selectedUserId}/chat`, id));
   };
 
-  // Layout
+  if (loading) return <Spinner />;
+
   return (
     <div className="flex flex-col md:flex-row h-full min-h-full">
       {/* Sidebar */}
@@ -173,129 +191,137 @@ const MessagesAdmin = () => {
             )}
           </div>
 
-          {/* Messages Scroll Area */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4">
-            {messages.map((msg) => {
-              const isAdmin = msg.sender === "admin";
-              const isEditing = editingMessageId === msg.id;
+          {chatLoading ? (
+            <div className="flex-1 flex items-center justify-center">
+              <Spinner />
+            </div>
+          ) : (
+            <>
+              {/* Messages Scroll Area */}
+              <div className="flex-1 overflow-y-auto p-4 space-y-4">
+                {messages.map((msg) => {
+                  const isAdmin = msg.sender === "admin";
+                  const isEditing = editingMessageId === msg.id;
 
-              return (
-                <div
-                  key={msg.id}
-                  className={`flex flex-col ${
-                    isAdmin ? "items-end" : "items-start"
-                  }`}
+                  return (
+                    <div
+                      key={msg.id}
+                      className={`flex flex-col ${
+                        isAdmin ? "items-end" : "items-start"
+                      }`}
+                    >
+                      <p className="text-xs mb-1 text-gray-400">
+                        {isAdmin ? "You" : userNames[selectedUserId] || "User"}
+                      </p>
+                      <div
+                        className={`max-w-[80%] p-3 rounded-lg text-sm relative group ${
+                          isAdmin
+                            ? "bg-cyan-600 text-white"
+                            : "bg-[#1E1E1E] border border-[#2A2A2A] text-gray-200"
+                        }`}
+                      >
+                        {isEditing ? (
+                          <>
+                            <input
+                              value={editedText}
+                              onChange={(e) => setEditedText(e.target.value)}
+                              className="bg-[#121212] border border-[#2A2A2A] text-white px-2 py-1 rounded w-full mb-2"
+                            />
+                            <div className="flex gap-2 justify-end">
+                              <button onClick={() => handleEditSave(msg.id)}>
+                                <FaSave />
+                              </button>
+                              <button
+                                onClick={() => {
+                                  setEditingMessageId(null);
+                                  setEditedText("");
+                                }}
+                              >
+                                <FaTimes />
+                              </button>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            {msg.text && <p>{msg.text}</p>}
+                            {msg.mediaUrl && (
+                              <a
+                                href={msg.mediaUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="underline text-cyan-200"
+                              >
+                                📎 {msg.fileName || "Attachment"}
+                              </a>
+                            )}
+                            <p className="text-xs text-gray-300 mt-2">
+                              {msg.createdAt?.toDate().toLocaleTimeString([], {
+                                hour: "2-digit",
+                                minute: "2-digit",
+                              })}{" "}
+                              {msg.edited && (
+                                <span className="italic ml-1">(edited)</span>
+                              )}
+                            </p>
+                            {isAdmin && (
+                              <div className="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition">
+                                <button
+                                  onClick={() => {
+                                    setEditingMessageId(msg.id);
+                                    setEditedText(msg.text || "");
+                                  }}
+                                >
+                                  <FaEdit />
+                                </button>
+                                <button onClick={() => handleDelete(msg.id)}>
+                                  <FaTrash />
+                                </button>
+                              </div>
+                            )}
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+                <div ref={messagesEndRef} />
+              </div>
+
+              {/* Input Field */}
+              <form
+                onSubmit={handleSendMessage}
+                className="bg-[#1E1E1E] p-4 border-t border-[#2A2A2A] flex items-center gap-2"
+              >
+                <input
+                  type="text"
+                  placeholder="Type a message..."
+                  value={newMsg}
+                  onChange={(e) => setNewMsg(e.target.value)}
+                  className="flex-1 bg-[#121212] border border-[#2A2A2A] px-3 py-2 rounded text-sm text-white placeholder-gray-400"
+                />
+                <input
+                  type="file"
+                  accept="image/*,.pdf,.doc,.docx"
+                  ref={fileInputRef}
+                  onChange={handleFileUpload}
+                  className="hidden"
+                />
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current.click()}
+                  className="text-cyan-400 hover:text-white"
                 >
-                  <p className="text-xs mb-1 text-gray-400">
-                    {isAdmin ? "You" : userNames[selectedUserId] || "User"}
-                  </p>
-                  <div
-                    className={`max-w-[80%] p-3 rounded-lg text-sm relative group ${
-                      isAdmin
-                        ? "bg-cyan-600 text-white"
-                        : "bg-[#1E1E1E] border border-[#2A2A2A] text-gray-200"
-                    }`}
-                  >
-                    {isEditing ? (
-                      <>
-                        <input
-                          value={editedText}
-                          onChange={(e) => setEditedText(e.target.value)}
-                          className="bg-[#121212] border border-[#2A2A2A] text-white px-2 py-1 rounded w-full mb-2"
-                        />
-                        <div className="flex gap-2 justify-end">
-                          <button onClick={() => handleEditSave(msg.id)}>
-                            <FaSave />
-                          </button>
-                          <button
-                            onClick={() => {
-                              setEditingMessageId(null);
-                              setEditedText("");
-                            }}
-                          >
-                            <FaTimes />
-                          </button>
-                        </div>
-                      </>
-                    ) : (
-                      <>
-                        {msg.text && <p>{msg.text}</p>}
-                        {msg.mediaUrl && (
-                          <a
-                            href={msg.mediaUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="underline text-cyan-200"
-                          >
-                            📎 {msg.fileName || "Attachment"}
-                          </a>
-                        )}
-                        <p className="text-xs text-gray-300 mt-2">
-                          {msg.createdAt?.toDate().toLocaleTimeString([], {
-                            hour: "2-digit",
-                            minute: "2-digit",
-                          })}{" "}
-                          {msg.edited && (
-                            <span className="italic ml-1">(edited)</span>
-                          )}
-                        </p>
-                        {isAdmin && (
-                          <div className="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition">
-                            <button
-                              onClick={() => {
-                                setEditingMessageId(msg.id);
-                                setEditedText(msg.text || "");
-                              }}
-                            >
-                              <FaEdit />
-                            </button>
-                            <button onClick={() => handleDelete(msg.id)}>
-                              <FaTrash />
-                            </button>
-                          </div>
-                        )}
-                      </>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-            <div ref={messagesEndRef} />
-          </div>
-
-          {/* Input Field */}
-          <form
-            onSubmit={handleSendMessage}
-            className="bg-[#1E1E1E] p-4 border-t border-[#2A2A2A] flex items-center gap-2"
-          >
-            <input
-              type="text"
-              placeholder="Type a message..."
-              value={newMsg}
-              onChange={(e) => setNewMsg(e.target.value)}
-              className="flex-1 bg-[#121212] border border-[#2A2A2A] px-3 py-2 rounded text-sm text-white placeholder-gray-400"
-            />
-            <input
-              type="file"
-              accept="image/*,.pdf,.doc,.docx"
-              ref={fileInputRef}
-              onChange={handleFileUpload}
-              className="hidden"
-            />
-            <button
-              type="button"
-              onClick={() => fileInputRef.current.click()}
-              className="text-cyan-400 hover:text-white"
-            >
-              <FaPaperclip />
-            </button>
-            <button
-              type="submit"
-              className="bg-cyan-500 hover:bg-cyan-600 text-white px-3 py-2 rounded"
-            >
-              <FaPaperPlane />
-            </button>
-          </form>
+                  <FaPaperclip />
+                </button>
+                <button
+                  type="submit"
+                  className="bg-cyan-500 hover:bg-cyan-600 text-white px-3 py-2 rounded"
+                >
+                  <FaPaperPlane />
+                </button>
+              </form>
+            </>
+          )}
         </div>
       )}
     </div>

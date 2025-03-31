@@ -36,18 +36,19 @@ import Nutrition from './dashboard/nutrition/Nutrition';
 import Settings from './dashboard/settings/Settings';
 
 // Admin Pages
+import AdminHome from './admin/AdminHome.jsx';
 import AdminDashboard from "./admin/AdminDashboard";
 import UploadVideo from "./admin/UploadVideo";
 import ManageVideos from "./admin/ManageVideos";
 import ManageUsers from "./admin/ManageUsers";
 import ManageTrainingProgram from './admin/ManageTrainingProgram';
 import UploadTrainingProgram from './admin/UploadTrainingProgram';
-import messagesAdmin from './admin/MessagesAdmin.jsx';
+import MessagesAdmin from './admin/MessagesAdmin.jsx';
 
 // Layout
 import DashboardLayout from "./layouts/DashboardLayout";
 import Stopwatch from './dashboard/stopwatch/StopWatch';
-import MessagesAdmin from './admin/MessagesAdmin.jsx';
+
 
 const MainRoutes = () => {
   const location = useLocation();
@@ -86,7 +87,7 @@ const MainRoutes = () => {
 
       {/* Admin Dashboard Routes */}
       <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>}>
-  <Route index element={<div className="p-6">Welcome to Admin Dashboard</div>} />
+  <Route index element={<AdminHome />} />
   <Route path="upload" element={<UploadVideo />} />
   <Route path="manage-videos" element={<ManageVideos />} />
   <Route path="manage-users" element={<ManageUsers />} />
