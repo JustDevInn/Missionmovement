@@ -78,7 +78,7 @@ const PurchaseAccess = () => {
               disabled={loading}
               className="btn-lg"
             >
-              {loading ? "Processing..." : "Enroll Now"}
+              {loading ? "Processing..." : "purchase"}
             </button>
 
             {error && (

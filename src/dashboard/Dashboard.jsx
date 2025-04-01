@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 import { FaUserCircle, FaLock } from "react-icons/fa";
-import { db } from "../firebase";
-import { doc, getDoc } from "firebase/firestore";
 
-// Feature cards
+// bgPosition: "center top",
+// bgPosition: "70% 30%",
+// bgPosition: "left top",
+
 const featureCards = [
   {
     title: "Your Program",
@@ -13,27 +14,27 @@ const featureCards = [
     image: "/img/bootgroup_carry.jpg",
     route: "/trainingprogram",
     locked: true,
-    bgPosition: "top",
-    bgSize: "cover",
-    bgRepeat: "no-repeat",
+    bgPosition: "top", // default
+    bgSize: "cover", // optional override
+    bgRepeat: "no-repeat", // optional
   },
   {
     title: "Training Schedule",
     description: "View your workouts",
     image: "/img/profilepicture.png",
     route: "/trainingschedule",
-    bgPosition: "top",
-    bgSize: "cover",
-    bgRepeat: "no-repeat",
+    bgPosition: "top", // default
+    bgSize: "cover", // optional override
+    bgRepeat: "no-repeat", // optional
   },
   {
     title: "Progress Overview",
     description: "View your gains",
     image: "/img/spelioladder.jpg",
     route: "/progress",
-    bgPosition: "top",
-    bgSize: "cover",
-    bgRepeat: "no-repeat",
+    bgPosition: "top", // default
+    bgSize: "cover", // optional override
+    bgRepeat: "no-repeat", // optional
   },
   {
     title: "Schedule Check-In",
@@ -41,9 +42,9 @@ const featureCards = [
     image: "/img/barret.jpg",
     route: "/check-in",
     locked: true,
-    bgPosition: "center",
-    bgSize: "cover",
-    bgRepeat: "no-repeat",
+    bgPosition: "center", // default
+    bgSize: "cover", // optional override
+    bgRepeat: "no-repeat", // optional
   },
   {
     title: "Video Library",
@@ -51,9 +52,9 @@ const featureCards = [
     image: "/img/friscatnight.jpg",
     route: "/library",
     locked: true,
-    bgPosition: "center",
-    bgSize: "cover",
-    bgRepeat: "no-repeat",
+    bgPosition: "center", // default
+    bgSize: "cover", // optional override
+    bgRepeat: "no-repeat", // optional
   },
 ];
 
@@ -63,21 +64,10 @@ const Dashboard = () => {
   const [username, setUsername] = useState("");
 
   useEffect(() => {
-    const fetchUsername = async () => {
-      if (user?.uid) {
-        const userRef = doc(db, "users", user.uid);
-        const snap = await getDoc(userRef);
-        if (snap.exists()) {
-          const data = snap.data();
-          setUsername(data.username || "");
-        }
-      }
-    };
-
-    fetchUsername();
-
-    const timer = setTimeout(() => setLocalLoading(false), 500);
-    return () => clearTimeout(timer);
+    if (user) {
+      const timer = setTimeout(() => setLocalLoading(false), 500);
+      return () => clearTimeout(timer);
+    }
   }, [user]);
 
   if (localLoading) {
@@ -112,9 +102,9 @@ const Dashboard = () => {
                 className="h-32 bg-cover bg-center relative"
                 style={{
                   backgroundImage: `url('${card.image}')`,
-                  backgroundPosition: card.bgPosition,
-                  backgroundSize: card.bgSize,
-                  backgroundRepeat: card.bgRepeat,
+                  backgroundPosition: card.bgPosition || "center",
+                  backgroundSize: card.bgSize || "cover",
+                  backgroundRepeat: card.bgRepeat || "no-repeat",
                 }}
               >
                 <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">

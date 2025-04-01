@@ -5,6 +5,9 @@ import { useAuth } from "../context/AuthContext";
 import { MdClose } from "react-icons/md";
 import { MdLogin } from "react-icons/md";
 import { IoMdMenu } from "react-icons/io";
+import { GiRank3 } from "react-icons/gi";
+import { IoMdLogOut } from "react-icons/io";
+import { MdOutlineSpaceDashboard } from "react-icons/md";
 
 const Nav = () => {
   const { user, logout } = useAuth();
@@ -82,7 +85,7 @@ const Nav = () => {
               </RouterLink>
             ) : (
               <RouterLink to="/dashboard">
-                <FaUser size={28} className="text-green-500" />
+                <GiRank3 size={28} className="text-gold" />
               </RouterLink>
             )}
           </div>
@@ -219,8 +222,11 @@ const Nav = () => {
               </>
             ) : (
               <>
-                <RouterLink to="/dashboard" className="hover:text-yellow">
-                  Dashboard
+                <RouterLink
+                  to="/dashboard"
+                  className="hover:text-yellow flex justify-center items-center"
+                >
+                  <MdOutlineSpaceDashboard />
                 </RouterLink>
                 <span>|</span>
                 <button
@@ -228,9 +234,9 @@ const Nav = () => {
                     setNav(false);
                     logout();
                   }}
-                  className="hover:text-yellow"
+                  className="hover:text-red-500"
                 >
-                  Logout
+                  <IoMdLogOut />
                 </button>
               </>
             )}

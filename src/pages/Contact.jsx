@@ -6,7 +6,8 @@ const Contact = () => {
     <div>
       {/* Hero Section */}
       <section className="section flex justify-center items-center bg-takethestep bg-center bg-no-repeat bg-cover relative bg-fixed">
-        <div className="absolute inset-0 bg-black/50"></div> {/* Subtle dark overlay */}
+        <div className="absolute inset-0 bg-black/50"></div>{" "}
+        {/* Subtle dark overlay */}
         <div className="relative z-10 w-full flex justify-end items-start pt-20 pr-5 lg:pr-20">
           <h1 className="text-yellow font-primary text-[35px] md:text-[60px] font-medium uppercase tracking-wider text-center lg:text-right">
             Contact Us
@@ -20,7 +21,8 @@ const Contact = () => {
           Take the First Step
         </h1>
         <p className="text-brown font-light uppercase tracking-widest text-sm lg:text-lg text-center max-w-2xl">
-          Fill out the form below to start your journey toward the future you want.
+          Fill out the form below to start your journey toward the future you
+          want.
         </p>
       </section>
 
@@ -70,7 +72,7 @@ const Contact = () => {
             />
 
             {/* Submit Button */}
-            <button type="submit" className="btn md:btn-lg mx-auto mt-[30px]">
+            <button type="submit" className="btn md:btn-lg mx-auto my-[15px]">
               Send
             </button>
           </form>
@@ -81,4 +83,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
