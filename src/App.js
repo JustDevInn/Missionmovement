@@ -99,7 +99,7 @@ const MainRoutes = () => {
 
     </Routes>
   ) : (
-    <div className="pt-24 md:pt-32">
+    <div className="pt-18 md:pt-20">
       <Routes>
         {/* Public Pages */}
         <Route path="/" element={<Home />} />
