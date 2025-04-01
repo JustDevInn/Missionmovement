@@ -107,9 +107,7 @@ const CheckIn = () => {
 
   return (
     <div className="min-h-screen bg-[#121212] text-white px-4 sm:px-6 py-10 max-w-5xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6 text-white">
-        Check-In & Reflection
-      </h1>
+      <h1 className="h1 mb-8">Check-In & Reflection</h1>
 
       {progressData &&
         typeof progressData === "object" &&
@@ -138,7 +136,7 @@ const CheckIn = () => {
           return (
             <div
               key={weekKey}
-              className="bg-[#1E1E1E] border border-[#2A2A2A] rounded p-4 mb-6"
+              className="bg-[#1E1E1E] border border-[#2A2A2A] rounded p-5 mb-8"
             >
               <div
                 className="cursor-pointer flex justify-between items-center"
@@ -150,14 +148,14 @@ const CheckIn = () => {
                 }
               >
                 <div>
-                  <h2 className="text-xl font-semibold text-cyan-400 capitalize">
+                  <h2 className="text-xl font-semibold text-yellow capitalize">
                     {weekKey}
                   </h2>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-brown tracking-wider">
                     Completed blocks: {blocksCompleted}
                   </p>
                   {!isExpanded && (
-                    <p className="text-gray-300 text-sm italic mt-1">
+                    <p className="text-sm italic text-gray-300 mt-1">
                       {preview || "No reflection yet..."}
                     </p>
                   )}
@@ -174,7 +172,7 @@ const CheckIn = () => {
               </div>
 
               {isExpanded && (
-                <div className="mt-4 space-y-2">
+                <div className="mt-4 space-y-3">
                   <AutoExpandingTextarea
                     value={reflectionDrafts[weekKey] ?? reflection}
                     onChange={(e) =>
@@ -186,7 +184,7 @@ const CheckIn = () => {
                     <button
                       onClick={() => saveReflection(weekKey)}
                       disabled={savingWeek === weekKey}
-                      className="px-4 py-1 text-sm rounded bg-cyan-500 hover:bg-cyan-600 text-white disabled:opacity-50"
+                      className="btn text-sm px-6 py-2 h-[40px] min-w-[150px] hover:scale-105 transition"
                     >
                       {savingWeek === weekKey ? "Saving..." : "Save Reflection"}
                     </button>

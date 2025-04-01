@@ -5,7 +5,6 @@ import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import Spinner from "../../components/Spinner";
 
-// Auto-expanding textarea for day notes
 const DayNoteTextarea = ({ value, onChange }) => {
   const ref = useRef();
 
@@ -80,7 +79,6 @@ const TrainingSchedule = () => {
     };
 
     setUserProgress(updatedProgress);
-
     const userRef = doc(db, "users", user.uid);
     await updateDoc(userRef, {
       [`trainingProgress.week${activeWeek}.${dayKey}.note`]: newNote,
@@ -109,7 +107,6 @@ const TrainingSchedule = () => {
     };
 
     setUserProgress(updatedProgress);
-
     const userRef = doc(db, "users", user.uid);
     await updateDoc(userRef, {
       [`trainingProgress.week${activeWeek}.${dayKey}.blocksCompleted.${blockIdx}`]:
@@ -146,20 +143,18 @@ const TrainingSchedule = () => {
 
   return (
     <div className="min-h-screen bg-[#121212] text-gray-200 px-4 sm:px-6 py-10 max-w-5xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6 text-white">
-        Your Training Program
-      </h1>
+      <h1 className="h1 text-[35px] md:text-[50px] mb-8">Training Schedule</h1>
 
       {/* Week Tabs */}
-      <div className="flex gap-2 mb-8 overflow-x-auto">
+      <div className="flex gap-2 mb-10 overflow-x-auto">
         {weekTabs.map((week) => (
           <button
             key={week}
             onClick={() => setActiveWeek(week)}
-            className={`px-4 py-2 rounded text-sm tracking-wider font-medium whitespace-nowrap transition-all duration-200 ${
+            className={`px-4 py-2 rounded text-sm tracking-widest font-medium uppercase whitespace-nowrap transition-all duration-200 ${
               activeWeek === week
-                ? "bg-cyan-400 text-white"
-                : "bg-[#1E1E1E] text-gray-400 border-[#2A2A2A] hover:bg-cyan-400 hover:text-white"
+                ? "bg-yellow text-black"
+                : "bg-[#1E1E1E] text-gray-400 border border-[#2A2A2A] hover:bg-yellow hover:text-black"
             }`}
           >
             Week {week}
@@ -168,7 +163,7 @@ const TrainingSchedule = () => {
       </div>
 
       {/* Daily Sessions */}
-      <div className="space-y-4">
+      <div className="space-y-6">
         {daysSorted.map((day) => {
           const session = currentWeek[day];
           const isOpen = expandedDays[day];
@@ -180,37 +175,39 @@ const TrainingSchedule = () => {
           return (
             <div
               key={day}
-              className="border border-[#2A2A2A] rounded bg-[#1E1E1E]"
+              className="border border-[#2A2A2A] rounded-lg bg-[#1E1E1E]"
             >
               <button
-                className="w-full flex justify-between items-center p-4 text-left text-white hover:bg-[#2A2A2A]"
+                className="w-full flex justify-between items-center p-5 text-left hover:bg-[#2A2A2A]"
                 onClick={() => toggleDay(day)}
               >
                 <div>
-                  <h2 className="text-xl font-bold capitalize">{day}</h2>
-                  <p className="text-sm text-gray-400 font-medium uppercase tracking-wider">
+                  <h2 className="text-xl md:text-2xl font-semibold text-yellow capitalize">
+                    {day}
+                  </h2>
+                  <p className="text-xs md:text-sm text-gray-400 font-medium uppercase tracking-wider">
                     {session.type}
                   </p>
                 </div>
-                <span className="text-2xl font-bold text-gray-400">
+                <span className="text-2xl font-bold text-gray-500">
                   {isOpen ? "−" : "+"}
                 </span>
               </button>
 
               {isOpen && (
-                <div className="p-4 space-y-4">
+                <div className="p-5 space-y-5">
                   {session.blocks.map((block, idx) => {
                     const isCompleted = blocksCompleted[idx] || false;
 
                     return (
                       <div
                         key={idx}
-                        className={`bg-[#121212] border border-[#2A2A2A] rounded p-4 space-y-2 transition-opacity ${
+                        className={`bg-[#121212] border border-[#2A2A2A] rounded-lg p-4 space-y-3 transition-opacity ${
                           isCompleted ? "opacity-70" : "opacity-100"
                         }`}
                       >
                         <div className="flex items-center justify-between">
-                          <h3 className="font-semibold text-lg text-white">
+                          <h3 className="font-semibold text-lg text-brown">
                             {block.title}
                           </h3>
                           <label className="flex items-center gap-2 text-sm text-gray-400">
@@ -218,25 +215,25 @@ const TrainingSchedule = () => {
                               type="checkbox"
                               checked={isCompleted}
                               onChange={() => handleBlockCheckbox(day, idx)}
-                              className="form-checkbox h-4 w-4 text-cyan-400"
+                              className="form-checkbox h-4 w-4 text-yellow"
                             />
-                            Mark complete
+                            Complete
                           </label>
                         </div>
 
                         {block.subHeader && (
-                          <p className="text-sm text-cyan-400 font-medium mb-2">
+                          <p className="text-sm text-yellow font-medium mb-2">
                             {block.subHeader}
                           </p>
                         )}
 
                         {block.blockNote && (
-                          <p className="text-white text-sm mb-2">
+                          <p className="text-white text-sm">
                             {block.blockNote}
                           </p>
                         )}
 
-                        <ul className="text-sm text-gray-300 space-y-2 list-inside">
+                        <ul className="text-sm text-white space-y-2 list-inside">
                           {block.items.map((item, i) => {
                             const text =
                               typeof item === "string" ? item : item.text;
@@ -249,7 +246,7 @@ const TrainingSchedule = () => {
                         </ul>
 
                         {block.note && (
-                          <p className="mt-2 italic text-sm text-gray-500">
+                          <p className="italic text-sm text-gray-500">
                             {block.note}
                           </p>
                         )}
@@ -257,7 +254,7 @@ const TrainingSchedule = () => {
                     );
                   })}
 
-                  {/* One day-level note input field */}
+                  {/* Day Note */}
                   <DayNoteTextarea
                     value={dayNote}
                     onChange={(e) => handleNoteChange(day, e.target.value)}

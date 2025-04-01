@@ -14,7 +14,7 @@ const Library = () => {
   const [scrollY, setScrollY] = useState(0);
   const [activeTag, setActiveTag] = useState(null);
   const [detailsOpen, setDetailsOpen] = useState(null);
-  const [loading, setLoading] = useState(true); // ← added
+  const [loading, setLoading] = useState(true);
   const modalRef = useRef();
   const [allTags, setAllTags] = useState([]);
 
@@ -45,7 +45,7 @@ const Library = () => {
       });
       setAllTags([...tagsSet]);
 
-      setLoading(false); // ← done loading
+      setLoading(false);
     };
     fetchVideos();
   }, []);
@@ -63,7 +63,7 @@ const Library = () => {
 
   if (!user) return <Navigate to="/login" />;
   if (!hasPaid) return <Navigate to="/pricing" />;
-  if (loading) return <Spinner />; // ← show cyan spinner while loading
+  if (loading) return <Spinner />;
 
   const filterText = search.toLowerCase();
   const filteredVideos = videos.filter((video) => {
@@ -75,13 +75,13 @@ const Library = () => {
   });
 
   return (
-    <div className="min-h-screen px-4 sm:px-6 py-8 max-w-6xl mx-auto text-gray-200">
-      <h1 className="text-2xl font-bold mb-6 text-cyan-400">Video Library</h1>
+    <div className="min-h-screen bg-[#121212] text-white px-4 sm:px-6 py-10 max-w-6xl mx-auto">
+      <h1 className="h1 mb-8">Video Library</h1>
 
       <input
         type="text"
         placeholder="Search by title or tag..."
-        className="w-full p-3 bg-[#121212] border border-[#2A2A2A] rounded mb-6 text-white placeholder-gray-500"
+        className="w-full p-3 bg-[#1E1E1E] border border-[#2A2A2A] rounded mb-6 text-white placeholder-gray-500"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
@@ -94,7 +94,7 @@ const Library = () => {
             className={`px-3 py-1 text-xs rounded font-semibold transition ${
               activeTag === tag
                 ? "bg-yellow text-black"
-                : "bg-[#1E1E1E] text-gray-400 border border-[#2A2A2A] hover:bg-[#2A2A2A] hover:text-white"
+                : "bg-[#1E1E1E] text-gray-400 border border-[#2A2A2A] hover:bg-yellow hover:text-black"
             }`}
           >
             #{tag}
@@ -104,7 +104,7 @@ const Library = () => {
 
       {activeTag && (
         <div className="mb-4 text-sm">
-          <span className="mr-2">Filtering by tag:</span>
+          <span className="mr-2 text-brown">Filtering by tag:</span>
           <span className="bg-yellow px-2 py-1 rounded text-black font-semibold">
             #{activeTag}
           </span>
@@ -134,7 +134,7 @@ const Library = () => {
             <h2 className="text-lg font-semibold mb-1 text-white">
               {video.title}
             </h2>
-            <div className="text-sm text-gray-400 mb-2 min-h-[2rem]">
+            <div className="text-sm text-brown mb-2 min-h-[2rem]">
               {video.tags?.map((tag, i) => (
                 <button
                   key={i}
@@ -170,6 +170,7 @@ const Library = () => {
         ))}
       </div>
 
+      {/* Modal */}
       <AnimatePresence>
         {selectedVideo && (
           <motion.div

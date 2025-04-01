@@ -1,10 +1,6 @@
 import React from "react";
 import { FaDownload } from "react-icons/fa";
 
-// bgPosition: "center top",
-// bgPosition: "70% 30%",
-// bgPosition: "left top",
-
 const documents = [
   {
     title: "WELCOME",
@@ -79,20 +75,19 @@ const documents = [
     bgSize: "cover",
   },
 ];
+
 const TrainingProgram = () => {
   return (
-    <div className="min-h-screen bg-[#121212] text-white px-4 sm:px-6 py-12 max-w-5xl mx-auto">
+    <div className="min-h-screen bg-[#121212] text-white px-4 sm:px-6 py-12 max-w-5xl mx-auto font-primary">
       {/* Hero Banner */}
       <div className="mb-10">
         <img
           src="/img/royalmarines.jpg"
           alt="Military Prep"
-          className="w-full h-64 object-cover rounded-xl shadow-md mb-4"
+          className="w-full h-64 object-cover rounded-xl shadow-md mb-6"
         />
-        <h1 className="text-3xl sm:text-4xl font-bold text-cyan-400 mb-2">
-          The Military Preparation Program
-        </h1>
-        <p className="text-gray-400 text-sm sm:text-base max-w-3xl">
+        <h1 className="h1 mb-2">The Military Preparation Program</h1>
+        <p className="text-gray-400 text-sm sm:text-base max-w-3xl tracking-wider">
           This program is your step-by-step path to becoming mentally and
           physically ready for military life. It’s divided into key
           sub-programs, each focused on a specific phase of your preparation –
@@ -101,39 +96,41 @@ const TrainingProgram = () => {
         </p>
       </div>
 
-      {/* Program Structure Overview */}
-      <div className="mb-10">
-        <h2 className="text-xl font-semibold text-white mb-2">
-          Program Structure
-        </h2>
-        <ul className="list-disc list-outside pl-4 text-sm text-gray-400 space-y-1">
+      {/* Program Structure */}
+      <div className="mb-12">
+        <h2 className="h2-teko mb-2">Program Structure</h2>
+        <ul className="list-disc list-outside pl-5 text-sm text-gray-400 tracking-wide space-y-1">
           <li>
-            <strong>Welcome Guide:</strong> Get started with a personal message
-            and full orientation.
+            <span className="text-white font-medium">Welcome Guide:</span> Get
+            started with a personal message and full orientation.
           </li>
           <li>
-            <strong>Military Prep Guide:</strong> Learn the system and training
-            philosophy.
+            <span className="text-white font-medium">Military Prep Guide:</span>{" "}
+            Learn the system and training philosophy.
           </li>
           <li>
-            <strong>Basic Requirements:</strong> Prepare for military selection
-            benchmarks.
+            <span className="text-white font-medium">Basic Requirements:</span>{" "}
+            Prepare for military selection benchmarks.
           </li>
           <li>
-            <strong>Foundational Strength:</strong> Build resilience for
-            bootcamp.
+            <span className="text-white font-medium">
+              Foundational Strength:
+            </span>{" "}
+            Build resilience for bootcamp.
           </li>
           <li>
-            <strong>Swimming Practice:</strong> Boost confidence in aquatic
-            environments.
+            <span className="text-white font-medium">Swimming Practice:</span>{" "}
+            Boost confidence in aquatic environments.
           </li>
           <li>
-            <strong>Support – Exercise & Mobility:</strong> Learn the movements
-            and restore your body.
+            <span className="text-white font-medium">
+              Support – Exercise & Mobility:
+            </span>{" "}
+            Learn the movements and restore your body.
           </li>
           <li>
-            <strong>6-Week Schedule:</strong> Your weekly plan, laid out for
-            daily execution.
+            <span className="text-white font-medium">6-Week Schedule:</span>{" "}
+            Your weekly plan, laid out for daily execution.
           </li>
         </ul>
       </div>
@@ -143,10 +140,10 @@ const TrainingProgram = () => {
         {documents.map((doc, index) => (
           <div
             key={index}
-            className="group bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow hover:shadow-cyan-500/10 transition duration-300 overflow-hidden flex flex-col will-change-transform"
+            className="group bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow hover:shadow-yellow/10 transition duration-300 overflow-hidden flex flex-col"
           >
             <div
-              className="h-32 relative transition-transform duration-300 group-hover:scale-[1.03]"
+              className="h-32 relative group-hover:scale-[1.01] transition-transform duration-300"
               style={{
                 backgroundImage: `url('${doc.image}')`,
                 backgroundPosition: doc.bgPosition || "center",
@@ -154,8 +151,8 @@ const TrainingProgram = () => {
                 backgroundRepeat: "no-repeat",
               }}
             >
-              <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-300 group-hover:bg-opacity-60">
-                <h3 className="text-white text-lg font-bold text-center px-2">
+              <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center group-hover:bg-opacity-60 transition duration-300">
+                <h3 className="text-brown text-lg font-bold text-center px-2 tracking-wider">
                   {doc.title}
                 </h3>
               </div>
@@ -165,7 +162,7 @@ const TrainingProgram = () => {
               <a
                 href={doc.file}
                 download
-                className="mt-auto inline-flex items-center gap-2 text-cyan-400 hover:text-white text-sm"
+                className="mt-auto inline-flex items-center gap-2 text-yellow hover:underline tracking-wide text-sm"
               >
                 <FaDownload /> Download PDF
               </a>

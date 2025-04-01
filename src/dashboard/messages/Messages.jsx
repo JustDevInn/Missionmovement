@@ -119,7 +119,7 @@ const Messages = () => {
     <div className="min-h-[80vh] max-h-[85vh] mt-10 flex flex-col bg-[#121212] text-white max-w-3xl mx-auto border border-[#2A2A2A] rounded-lg shadow overflow-hidden">
       {/* Header */}
       <div className="bg-[#1E1E1E] px-4 py-3 border-b border-[#2A2A2A]">
-        <h2 className="text-lg font-semibold text-cyan-400">
+        <h2 className="h2-teko text-yellow text-xl tracking-wider">
           Chat with your Coach
         </h2>
         {isTyping && <p className="text-sm text-gray-400">You’re typing...</p>}
@@ -138,14 +138,18 @@ const Messages = () => {
                 isUser ? "items-end" : "items-start"
               }`}
             >
-              <p className="text-xs mb-1 text-gray-400">
+              <p
+                className={`text-xs mb-1 ${
+                  isUser ? "text-gray-400" : "text-brown"
+                }`}
+              >
                 {isUser ? "You" : "Coach"}
               </p>
 
               <div
-                className={`max-w-[80%] p-3 rounded-lg text-sm relative group ${
+                className={`max-w-[80%] p-3 rounded-lg text-sm relative group transition ${
                   isUser
-                    ? "bg-cyan-600 text-white"
+                    ? "bg-brown text-white"
                     : "bg-[#1E1E1E] border border-[#2A2A2A] text-gray-200"
                 }`}
               >
@@ -184,12 +188,12 @@ const Messages = () => {
                         href={msg.mediaUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="underline text-cyan-200"
+                        className="underline text-cyan-200 hover:text-yellow transition"
                       >
                         📎 {msg.fileName || "Attachment"}
                       </a>
                     )}
-                    <p className="text-xs text-gray-300 mt-2">
+                    <p className="text-xs text-gray-400 mt-2">
                       {msg.createdAt?.toDate().toLocaleTimeString([], {
                         hour: "2-digit",
                         minute: "2-digit",
@@ -199,7 +203,6 @@ const Messages = () => {
                       )}
                     </p>
 
-                    {/* Edit/Delete actions for user */}
                     {isUser && (
                       <div className="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition">
                         <button
@@ -208,14 +211,14 @@ const Messages = () => {
                             setEditedText(msg.text || "");
                           }}
                           title="Edit"
-                          className="text-white hover:text-yellow-400"
+                          className="text-black hover:text-brown"
                         >
                           <FaEdit />
                         </button>
                         <button
                           onClick={() => handleDelete(msg.id)}
                           title="Delete"
-                          className="text-white hover:text-red-400"
+                          className="text-black hover:text-red-500"
                         >
                           <FaTrash />
                         </button>
@@ -252,14 +255,14 @@ const Messages = () => {
         <button
           type="button"
           onClick={() => fileInputRef.current.click()}
-          className="text-cyan-400 hover:text-white"
+          className="text-brown hover:text-yellow transition"
           title="Attach file"
         >
           <FaPaperclip />
         </button>
         <button
           type="submit"
-          className="bg-cyan-500 hover:bg-cyan-600 text-white px-3 py-2 rounded"
+          className="bg-yellow hover:bg-transparent hover:text-yellow text-black border border-yellow px-3 py-2 rounded font-bold tracking-widest transition"
         >
           <FaPaperPlane />
         </button>

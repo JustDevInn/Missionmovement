@@ -42,12 +42,13 @@ const Stopwatch = () => {
 
   return (
     <div className="min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center px-4 py-6 bg-[#121212] text-white">
-      <div className="w-full max-w-md bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow p-6 flex flex-col justify-between h-[550px]">
+      <div className="w-full max-w-md bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow-md p-6 flex flex-col justify-between h-[550px]">
         <div>
-          <h2 className="text-xl font-bold text-cyan-400 text-center mb-4">
+          <h2 className="text-xl font-bold text-yellow text-center mb-4 uppercase tracking-widest">
             Stopwatch
           </h2>
-          <div className="text-5xl md:text-6xl font-mono text-center mb-6">
+
+          <div className="text-5xl md:text-6xl font-mono text-center mb-6 text-white">
             {formatTime(elapsedTime)}
           </div>
 
@@ -55,16 +56,17 @@ const Stopwatch = () => {
             <button
               onClick={handleLap}
               disabled={!isRunning}
-              className="flex-1 py-3 rounded text-md font-semibold border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transition disabled:opacity-50"
+              className="flex-1 py-3 rounded text-sm uppercase font-semibold border border-yellow text-yellow hover:bg-yellow hover:text-black transition disabled:opacity-50"
             >
               Round
             </button>
+
             <button
               onClick={handleStartStop}
-              className={`flex-1 py-3 rounded text-md font-semibold transition ${
+              className={`flex-1 py-3 rounded text-sm uppercase font-bold tracking-wide transition ${
                 isRunning
-                  ? "bg-red-500 hover:bg-red-600 text-white"
-                  : "bg-cyan-400 hover:bg-cyan-500 text-black"
+                  ? "bg-red-600 hover:bg-red-700 text-white"
+                  : "bg-yellow hover:bg-yellow/90 text-black"
               }`}
             >
               {isRunning ? "Stop" : "Start"}
@@ -74,7 +76,7 @@ const Stopwatch = () => {
           {elapsedTime > 0 && !isRunning && (
             <button
               onClick={handleReset}
-              className="w-full text-center text-sm text-gray-400 hover:text-white mb-4"
+              className="w-full text-center text-sm text-gray-400 hover:text-white mb-4 underline"
             >
               Reset
             </button>
@@ -84,7 +86,7 @@ const Stopwatch = () => {
         <div className="text-sm text-gray-300 space-y-1 max-h-48 overflow-y-auto pr-1 border-t border-[#2A2A2A] pt-4">
           {laps.map((lap, idx) => (
             <div key={idx} className="flex justify-between">
-              <span>Round {laps.length - idx}</span>
+              <span className="text-brown">Round {laps.length - idx}</span>
               <span>{formatTime(lap)}</span>
             </div>
           ))}

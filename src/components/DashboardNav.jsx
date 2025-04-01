@@ -19,6 +19,8 @@ import {
 } from "react-icons/fa";
 import { useAuth } from "../context/AuthContext";
 
+// ... all imports stay the same
+
 const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
   const { logout, hasPaid } = useAuth();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
@@ -54,12 +56,9 @@ const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
     { to: "/settings", label: "Settings", icon: <FaCog /> },
   ];
 
-  // Mobile swipe gesture
+  // Swipe logic unchanged
   useEffect(() => {
-    const handleTouchStart = (e) => {
-      startX.current = e.touches[0].clientX;
-    };
-
+    const handleTouchStart = (e) => (startX.current = e.touches[0].clientX);
     const handleTouchMove = (e) => {
       if (!startX.current) return;
       const deltaX = startX.current - e.touches[0].clientX;
@@ -68,7 +67,6 @@ const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
         startX.current = null;
       }
     };
-
     const drawer = drawerRef.current;
     if (drawer) {
       drawer.addEventListener("touchstart", handleTouchStart, {
@@ -76,60 +74,58 @@ const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
       });
       drawer.addEventListener("touchmove", handleTouchMove, { passive: true });
     }
-
     return () => {
       if (drawer) {
-        drawer.removeEventListener("touchstart", handleTouchStart, {
-          passive: true,
-        });
-        drawer.removeEventListener("touchmove", handleTouchMove, {
-          passive: true,
-        });
+        drawer.removeEventListener("touchstart", handleTouchStart);
+        drawer.removeEventListener("touchmove", handleTouchMove);
       }
     };
   }, []);
 
   return (
     <>
-      {/* Mobile toggle */}
+      {/* Mobile hamburger */}
       <button
         onClick={() => setIsMobileOpen(true)}
-        className="md:hidden fixed top-4 right-4 z-50 bg-[#1E1E1E] border border-[#2A2A2A] rounded-full p-2 shadow"
+        className="md:hidden fixed top-4 right-4 z-50 bg-[#1E1E1E] border border-yellow rounded-full p-2 shadow"
       >
-        <FaBars className="text-white hover:text-cyan-400 text-lg" />
+        <FaBars className="text-yellow text-lg" />
       </button>
 
       {/* Desktop Sidebar */}
       <aside
-        className={`hidden md:flex flex-col bg-[#1E1E1E] border-r border-[#2A2A2A] sticky top-0 h-screen transition-all duration-300 ${
+        className={`hidden md:flex flex-col bg-[#101010] border-r border-[#2A2A2A] sticky top-0 h-screen transition-all duration-300 
+        font-primary ${
           isCollapsed ? "w-16 px-2" : "w-64 px-6"
         } py-6 text-white`}
       >
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-8">
           {!isCollapsed && (
             <Link to="/dashboard">
-              <h2 className="text-xl font-bold text-white">Mission</h2>
+              <h2 className="text-yellow text-lg font-bold tracking-widest uppercase">
+                Mission
+              </h2>
             </Link>
           )}
           <button
             onClick={() => setIsCollapsed(!isCollapsed)}
-            className="text-gray-400 hover:text-white transition"
+            className="text-yellow hover:text-white transition"
           >
             {isCollapsed ? <FaChevronRight /> : <FaChevronLeft />}
           </button>
         </div>
 
-        <nav className="flex flex-col gap-3 text-sm font-medium">
+        <nav className="flex flex-col gap-3 text-sm font-primary tracking-widest uppercase">
           {links.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
               end
               className={({ isActive }) =>
-                `flex items-center gap-2 px-3 py-2 rounded-md transition-all ${
+                `flex items-center gap-3 px-3 py-2 rounded-md transition-all ${
                   isActive
-                    ? "bg-cyan-600 text-white font-semibold"
-                    : "text-gray-400 hover:text-white hover:bg-[#2A2A2A]"
+                    ? "text-yellow font-semibold border-l-4 border-yellow pl-2 bg-[#1A1A1A]"
+                    : "text-gray-400 hover:text-yellow hover:bg-[#1A1A1A]"
                 }`
               }
             >
@@ -140,7 +136,7 @@ const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
 
           <button
             onClick={logout}
-            className={`text-left text-red-400 hover:underline flex items-center gap-2 mt-4 ${
+            className={`text-left text-red-400 hover:underline flex items-center gap-2 mt-6 ${
               isCollapsed ? "justify-center" : ""
             }`}
           >
@@ -149,32 +145,32 @@ const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
         </nav>
       </aside>
 
-      {/* Mobile Sidebar Drawer */}
+      {/* Mobile Drawer */}
       <div
         className={`fixed inset-0 z-50 bg-black transition-opacity duration-300 md:hidden ${
-          isMobileOpen
-            ? "bg-opacity-50 pointer-events-auto"
-            : "bg-opacity-0 pointer-events-none"
+          isMobileOpen ? "bg-opacity-50" : "bg-opacity-0 pointer-events-none"
         }`}
         onClick={() => setIsMobileOpen(false)}
       >
         <div
           ref={drawerRef}
-          className={`fixed top-0 right-0 h-full w-64 bg-[#1E1E1E] text-white p-6 shadow-lg transform transition-transform duration-300 ${
+          className={`fixed top-0 right-0 h-full w-64 bg-[#101010] text-white font-primary p-6 shadow-lg transform transition-transform duration-300 ${
             isMobileOpen ? "translate-x-0" : "translate-x-full"
           }`}
           onClick={(e) => e.stopPropagation()}
         >
           <button
             onClick={() => setIsMobileOpen(false)}
-            className="absolute top-4 right-4 text-2xl text-gray-400 hover:text-white"
+            className="absolute top-4 right-4 text-2xl text-yellow hover:text-white"
           >
             <FaTimes />
           </button>
 
-          <h2 className="text-xl font-bold mb-6 text-white">Mission</h2>
+          <h2 className="text-yellow font-bold mb-6 tracking-widest uppercase">
+            Mission
+          </h2>
 
-          <nav className="flex flex-col gap-4 text-sm font-medium">
+          <nav className="flex flex-col gap-4 text-sm font-primary tracking-widest uppercase">
             {links.map((link) => (
               <NavLink
                 key={link.to}
@@ -184,8 +180,8 @@ const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
                 className={({ isActive }) =>
                   `flex items-center gap-2 px-3 py-2 rounded-md transition ${
                     isActive
-                      ? "bg-cyan-600 text-white font-semibold"
-                      : "text-gray-400 hover:text-white hover:bg-[#2A2A2A]"
+                      ? "text-yellow font-semibold border-l-4 border-yellow pl-2 bg-[#1A1A1A]"
+                      : "text-gray-400 hover:text-yellow hover:bg-[#1A1A1A]"
                   }`
                 }
               >
@@ -198,7 +194,7 @@ const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
                 setIsMobileOpen(false);
                 logout();
               }}
-              className="text-left text-red-400 hover:underline flex items-center gap-2 mt-4"
+              className="text-left text-red-400 hover:underline flex items-center gap-2 mt-6"
             >
               <FaSignOutAlt /> Logout
             </button>

@@ -105,14 +105,13 @@ const Settings = () => {
 
   return (
     <div className="min-h-screen bg-[#121212] text-white px-4 sm:px-6 py-10 max-w-2xl mx-auto space-y-10">
-      <h1 className="text-3xl font-bold">Settings</h1>
+      <h1 className="h1-teko text-yellow text-3xl tracking-wider">Settings</h1>
 
       {/* Username */}
-      <div className="bg-[#1E1E1E] border border-[#2A2A2A] p-4 rounded space-y-2">
-        <h2 className="text-xl font-semibold">Change Username</h2>
-        <label htmlFor="username" className="sr-only">
-          Username
-        </label>
+      <div className="bg-[#1E1E1E] border border-[#2A2A2A] p-4 rounded space-y-3">
+        <h2 className="h2-teko text-white text-xl tracking-wide">
+          Change Username
+        </h2>
         <input
           id="username"
           type="text"
@@ -122,10 +121,10 @@ const Settings = () => {
         />
         <button
           onClick={handleUsernameSave}
-          className="px-4 py-1 bg-cyan-500 hover:bg-cyan-600 text-white text-sm rounded flex items-center gap-2"
+          className="px-4 py-1 bg-yellow hover:bg-transparent hover:text-yellow text-black border border-yellow text-sm rounded transition-all flex items-center gap-2"
         >
           {savingUsername && (
-            <span className="animate-spin h-4 w-4 border-t-2 border-white border-opacity-50 rounded-full" />
+            <span className="animate-spin h-4 w-4 border-t-2 border-black border-opacity-50 rounded-full" />
           )}
           {savingUsername ? "Saving..." : "Save Username"}
         </button>
@@ -137,17 +136,11 @@ const Settings = () => {
       {/* Change Password */}
       <form
         onSubmit={handleChangePassword}
-        className="bg-[#1E1E1E] border border-[#2A2A2A] p-4 rounded space-y-2"
+        className="bg-[#1E1E1E] border border-[#2A2A2A] p-4 rounded space-y-3"
       >
-        <input
-          type="text"
-          name="username"
-          autoComplete="username"
-          value={user.email}
-          readOnly
-          className="sr-only"
-        />
-        <h2 className="text-xl font-semibold">Change Password</h2>
+        <h2 className="h2-teko text-white text-xl tracking-wide">
+          Change Password
+        </h2>
         <input
           type="password"
           placeholder="Current Password"
@@ -166,10 +159,10 @@ const Settings = () => {
         />
         <button
           type="submit"
-          className="px-4 py-1 bg-cyan-500 hover:bg-cyan-600 text-white text-sm rounded flex items-center gap-2"
+          className="px-4 py-1 bg-yellow hover:bg-transparent hover:text-yellow text-black border border-yellow text-sm rounded transition-all flex items-center gap-2"
         >
           {savingPassword && (
-            <span className="animate-spin h-4 w-4 border-t-2 border-white border-opacity-50 rounded-full" />
+            <span className="animate-spin h-4 w-4 border-t-2 border-black border-opacity-50 rounded-full" />
           )}
           {savingPassword ? "Saving..." : "Update Password"}
         </button>
@@ -178,14 +171,16 @@ const Settings = () => {
       </form>
 
       {/* Password Reset */}
-      <div className="bg-[#1E1E1E] border border-[#2A2A2A] p-4 rounded space-y-2">
-        <h2 className="text-xl font-semibold">Forgot Password?</h2>
+      <div className="bg-[#1E1E1E] border border-[#2A2A2A] p-4 rounded space-y-3">
+        <h2 className="h2-teko text-white text-xl tracking-wide">
+          Forgot Password?
+        </h2>
         <p className="text-sm text-gray-400">
           Send yourself a password reset email
         </p>
         <button
           onClick={handleSendResetEmail}
-          className="mt-2 px-4 py-1 text-sm rounded bg-cyan-500 hover:bg-cyan-600 text-white"
+          className="px-4 py-1 bg-yellow hover:bg-transparent hover:text-yellow text-black border border-yellow text-sm rounded transition-all flex items-center gap-2"
         >
           Send Password Reset Email
         </button>
@@ -197,17 +192,9 @@ const Settings = () => {
       {/* Delete Account */}
       <form
         onSubmit={handleDeleteAccount}
-        className="bg-[#1E1E1E] border border-red-800 p-4 rounded space-y-2"
+        className="bg-[#1E1E1E] border border-red-800 p-4 rounded space-y-3"
       >
-        <input
-          type="text"
-          name="username"
-          autoComplete="username"
-          value={user.email}
-          readOnly
-          className="sr-only"
-        />
-        <h2 className="text-xl font-semibold text-red-500">
+        <h2 className="h2-teko text-red-500 text-xl tracking-wide">
           Danger Zone: Delete Account
         </h2>
         <p className="text-sm text-red-400">
@@ -232,7 +219,7 @@ const Settings = () => {
         <button
           type="submit"
           disabled={!deleteConfirmed || deleting}
-          className="px-4 py-1 bg-red-600 hover:bg-red-700 text-white text-sm rounded disabled:opacity-50 flex items-center gap-2"
+          className="px-4 py-1 bg-red-600 hover:bg-red-700 text-white text-sm rounded disabled:opacity-50 flex items-center gap-2 transition"
         >
           {deleting && (
             <span className="animate-spin h-4 w-4 border-t-2 border-white border-opacity-50 rounded-full" />
