@@ -1,12 +1,13 @@
-import React from 'react'
+// Pricing.jsx
+import React from "react";
 import PurchaseAccess from "../components/PurchaseAccess";
 
 const Pricing = () => {
   return (
-    <div>
-        <PurchaseAccess />
+    <div className="">
+      <PurchaseAccess />
     </div>
-  )
-}
+  );
+};
 
-export default Pricing
+export default Pricing;

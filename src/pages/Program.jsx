@@ -1,18 +1,12 @@
 import React, { useState } from "react";
-// import icon
 import { FaCheck } from "react-icons/fa6";
 import { GrAchievement } from "react-icons/gr";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-// import banners
 import Banners from "../components/Banners";
 import MobileBanners from "../components/MobileBanners";
-// Hooks
 import { useGlowEffect } from "../Hooks/useGlowEffect";
-// Importing FAQ and program details from data.js
 import { faqData, programDetails } from "../data/data";
-// Image Paths
 import Reviews from "../components/Reviews";
-
 import { Link } from "react-router-dom";
 
 const Trainer = "/img/profilepicture.png";
@@ -30,16 +24,21 @@ const wordDefinitions = {
 const Program = () => {
   const { animate, elementRef } = useGlowEffect();
   const [hoveredWord, setHoveredWord] = useState(null);
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openProgramIndex, setOpenProgramIndex] = useState(null);
+  const [openFAQIndex, setOpenFAQIndex] = useState(null);
 
-  const toggle = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
+  const toggleProgram = (index) => {
+    setOpenProgramIndex(openProgramIndex === index ? null : index);
+  };
+
+  const toggleFAQ = (index) => {
+    setOpenFAQIndex(openFAQIndex === index ? null : index);
   };
 
   return (
-    <div>
-      {/* hero */}
-      <section className="section flex flex-col justify-center items-start">
+    <div className="pt-10">
+      {/* Hero section (unchanged) */}
+      <section className="section flex flex-col justify-center items-start md:mb-20">
         <div className="flex flex-col justify-start items-start pl-20 lg:pl-60">
           <p className="h2 animate-fade-in">The</p>
           <h1 className="text-yellow font-primary text-[35px] md:text-[100px] font-medium uppercase leading-[120%] tracking-wider animate-slide-in-left">
@@ -59,13 +58,15 @@ const Program = () => {
         </div>
       </section>
 
-      {/* details */}
-      <section className="w-screen p-10 lg:px-20">
-        <header className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4 tracking-wider text-white">
-          {/* program overview */}
-          <div className="bg-primary py-6 md:p-10 rounded-lg shadow-lg">
-            <h2 className="h2-teko text-yellow my-10">PROGRAM OVERVIEW</h2>
-            <p className="text-sm lg:text-base font-thin text-white text-justify">
+      {/* Program Content */}
+      <section className="w-full px-5 sm:px-10 lg:px-20">
+        <header className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 tracking-wider text-white max-w-7xl mx-auto">
+          {/* Overview */}
+          <div className="bg-primary p-6 md:p-10 rounded-xl shadow-lg">
+            <h2 className="h2-teko text-yellow mb-5 text-center">
+              PROGRAM OVERVIEW
+            </h2>
+            <p className="text-sm lg:text-base font-thin text-white text-justify mb-4">
               Mission Movement's elite military preparation program, honed from
               20+ years of elite service, goes beyond. It's for those seeking a
               higher purpose, aiming for the special operator lifestyle in the
@@ -74,30 +75,26 @@ const Program = () => {
               <br />
               Our program consists of 5 sub-programs.
             </p>
-
             {programDetails.map((item, index) => (
               <div
                 key={index}
-                className="my-4 bg-brown rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:bg-opacity-80"
+                className="mb-4 bg-brown rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:bg-opacity-80"
               >
-                {/* Clickable Title */}
                 <button
-                  onClick={() => toggle(index)}
+                  onClick={() => toggleProgram(index)}
                   className="w-full flex justify-between items-center p-4 text-left text-brown font-medium tracking-wider uppercase bg-primary hover:text-yellow transition duration-300"
+                  aria-expanded={openProgramIndex === index}
                 >
                   {item.title}
-                  {openIndex === index ? (
-                    <FaChevronUp className="text-yellow transition-transform duration-300" />
+                  {openProgramIndex === index ? (
+                    <FaChevronUp className="text-yellow" />
                   ) : (
-                    <FaChevronDown className="text-yellow transition-transform duration-300" />
+                    <FaChevronDown className="text-yellow" />
                   )}
                 </button>
-
-                {/* Expandable Content */}
                 <div
-                  className={`overflow-hidden transition-all duration-500 
-                  ${
-                    openIndex === index
+                  className={`overflow-hidden transition-all duration-500 ${
+                    openProgramIndex === index
                       ? "max-h-40 opacity-100 p-4"
                       : "max-h-0 opacity-0"
                   }`}
@@ -110,79 +107,52 @@ const Program = () => {
             ))}
           </div>
 
-          {/* requirements & skills you'll learn*/}
-          <div className="flex flex-col py-6 md:p-10">
-            {/* requirements */}
-            <div>
-              <h1 className="h2-teko text-yellow mt-10 mb-5">Requirements</h1>
-              <div className="grid grid-cols-2 gap-4 font-thin text-xs lg:text-base">
-                <div className="flex flex-row gap-2 hover:opacity-70">
-                  <FaCheck />
-                  <p>Mindset and attitude</p>
-                </div>
-                <div className="flex flex-row gap-2 hover:opacity-70">
-                  <FaCheck />
-                  <p>Physical fitness baseline</p>
-                </div>
-                <div className="flex flex-row gap-2 hover:opacity-70">
-                  <FaCheck />
-                  <p>Access to training equipment</p>
-                </div>
-                <div className="flex flex-row gap-2 hover:opacity-70">
-                  <FaCheck />
-                  <p>Commitment level</p>
-                </div>
-                <div className="flex flex-row gap-2 hover:opacity-70">
-                  <FaCheck />
-                  <p>Time commitment</p>
-                </div>
-                <div className="flex flex-row gap-2 hover:opacity-70">
-                  <FaCheck />
-                  <p>No medical concerns</p>
-                </div>
-              </div>
+          {/* Requirements + Skills */}
+          <div className="flex flex-col p-6 md:p-10">
+            <div className="mb-10">
+              <h1 className="h2-teko text-yellow mb-4">Requirements</h1>
+              <ul className="grid grid-cols-2 gap-3 text-sm lg:text-base font-thin">
+                {[
+                  "Mindset and attitude",
+                  "Physical fitness baseline",
+                  "Access to training equipment",
+                  "Commitment level",
+                  "Time commitment",
+                  "No medical concerns",
+                ].map((req, i) => (
+                  <li key={i} className="flex items-center gap-2">
+                    <FaCheck />
+                    {req}
+                  </li>
+                ))}
+              </ul>
             </div>
-            {/* skills you'll learn */}
-            <div className="flex flex-col">
-              <h1 className="h2-teko text-yellow mt-10 mb-5">
-                Skills you'll learn
-              </h1>
-              <div className="grid grid-cols-3 gap-4 text-white font-thin text-xs lg:text-base">
-                <div className="flex flex-row gap-2 items-center hover:opacity-70">
-                  <GrAchievement />
-                  <p>Physical readiness</p>
-                </div>
-                <div className="flex flex-row gap-2 items-center hover:opacity-70">
-                  <GrAchievement />
-                  <p>Specialised techniques</p>
-                </div>
-                <div className="flex flex-row gap-2 items-center hover:opacity-70">
-                  <GrAchievement />
-                  <p>Mental resilience</p>
-                </div>
-                <div className="flex flex-row gap-2 items-center hover:opacity-70">
-                  <GrAchievement />
-                  <p>Discipline</p>
-                </div>
-                <div className="flex flex-row gap-2 items-center hover:opacity-70">
-                  <GrAchievement />
-                  <p>Adaptability</p>
-                </div>
-                <div className="flex flex-row gap-2 items-center hover:opacity-70">
-                  <GrAchievement />
-                  <p>grit</p>
-                </div>
-              </div>
+
+            <div>
+              <h1 className="h2-teko text-yellow mb-4">Skills You'll Learn</h1>
+              <ul className="grid grid-cols-2 gap-3 text-sm lg:text-base font-thin">
+                {[
+                  "Physical readiness",
+                  "Specialised techniques",
+                  "Mental resilience",
+                  "Discipline",
+                  "Adaptability",
+                  "Grit",
+                ].map((skill, i) => (
+                  <li key={i} className="flex items-center gap-2">
+                    <GrAchievement />
+                    {skill}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
-          {/* what to know before joining */}
-          <div className="flex flex-col bg-primary py-6 md:p-10 rounded-lg shadow-lg">
-            <h1 className="h2-teko text-yellow text-center mb-4">
+          {/* FAQ Section */}
+          <div className="bg-primary p-6 md:p-10 rounded-xl shadow-lg mb-10">
+            <h2 className="h2-teko text-yellow text-center mb-6">
               What to Know Before Joining
-            </h1>
-
-            {/* Added Intro */}
+            </h2>
             <p className="text-sm lg:text-base font-thin text-white mb-6 text-justify">
               Have questions? Here are the most common things people ask before
               signing up. If you need more details, feel free to reach out!
@@ -191,26 +161,25 @@ const Program = () => {
             {faqData.map((faq, index) => (
               <div
                 key={index}
-                className="my-4 bg-brown rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:bg-opacity-80"
+                className="mb-4 bg-brown rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:bg-opacity-80"
               >
-                {/* Clickable Question */}
                 <button
-                  onClick={() => toggle(index)}
-                  className="w-full flex justify-between items-center p-5 text-left text-brown font-medium tracking-wider uppercase bg-primary hover:text-yellow transition duration-300"
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full flex justify-between items-center p-4 text-left text-brown font-medium tracking-wider uppercase bg-primary hover:text-yellow"
+                  aria-expanded={openFAQIndex === index}
                 >
                   {faq.question}
-                  {openIndex === index ? (
-                    <FaChevronUp className="text-yellow transition-transform duration-300" />
+                  {openFAQIndex === index ? (
+                    <FaChevronUp className="text-yellow" />
                   ) : (
-                    <FaChevronDown className="text-yellow transition-transform duration-300" />
+                    <FaChevronDown className="text-yellow" />
                   )}
                 </button>
 
-                {/* Answer Section (Smoother Expansion) */}
                 <div
                   className={`overflow-hidden transition-all duration-700 ${
-                    openIndex === index
-                      ? "max-h-[100px] opacity-100 p-5"
+                    openFAQIndex === index
+                      ? "max-h-[100px] opacity-100 p-4"
                       : "max-h-0 opacity-0"
                   }`}
                 >
@@ -222,24 +191,21 @@ const Program = () => {
             ))}
           </div>
 
-          {/* button */}
-          {/* image + button */}
-          <div className="flex flex-col justify-center items-center">
+          {/* Image + Enroll Button */}
+          <div className="flex flex-col justify-center items-center py-10">
             <img
               src={Bundle}
-              alt="projectbundlecover"
-              className="h-[400px] w-[250px]"
+              alt="program bundle"
+              className="h-[400px] w-[250px] rounded-lg shadow-lg hover:scale-[1.03] transition-transform"
             />
-            {/* button */}
-            <div className="flex justify-center items-center mt-5">
-              <Link to="/pricing">
-                <button className="btn lg:btn-lg">Enroll</button>
-              </Link>
-            </div>
+            <Link to="/pricing">
+              <button className="btn lg:btn-lg mt-8">Enroll</button>
+            </Link>
           </div>
         </header>
       </section>
-      {/* course banners */}
+
+      {/* Banners */}
       <div className="hidden lg:flex">
         <Banners />
       </div>
@@ -248,115 +214,86 @@ const Program = () => {
       </div>
 
       {/* trainers */}
-      <section className="w-screen">
-        <h1 className="h1-teko text-yellow text-center p-20">Trainers</h1>
-        <div className="flex flex-col lg:flex-row py-10">
-          {/* text left side */}
-          <div className="lg:w-1/2 px-10">
-            <h2
-              className="mb-6 text-brown font-secondary text-[25px] md:text-[50px]
-      font-light uppercase leading-[120%] tracking-wide"
-            >
+      {/* Trainer Section */}
+      <section className="w-full bg-black py-20">
+        <h1 className="h1-teko text-yellow text-center mb-16">Trainers</h1>
+
+        <div className="flex flex-col lg:flex-row gap-10 px-5 lg:px-20 max-w-screen-xl mx-auto">
+          {/* Text Content */}
+          <div className="lg:w-1/2 space-y-6">
+            <h2 className="text-brown font-secondary text-[26px] md:text-[40px] lg:text-[50px] uppercase font-light leading-tight tracking-wide">
               Justin Peeters, Founder of Mission Movement
             </h2>
-            <p className="text-white font-light text-justify">
+            <p className="text-white font-light text-justify leading-relaxed lg:text-lg tracking-wide">
               With a decade of elite service in the Royal Marine Corps,
               including four years in the esteemed MARSOC units, Justin brings
-              battle-tested expertise to Mission Movement. Transitioning from
-              military service, Justin spent five years owning and running a
-              personal training gym, honing skills in physical conditioning and
-              mental resilience.
+              battle-tested expertise to Mission Movement.
               <br />
               <br />
-              As a seasoned coach for nine years, Justin amalgamates military
-              precision with coaching finesse. His dedication extends beyond
-              conventional training, advocating a holistic approach to fitness,
-              integrating mountain climbs, surfing, and gym sessions for a
-              well-rounded experience.
+              Transitioning from military service, he spent five years owning
+              and running a personal training gym, honing skills in physical
+              conditioning and mental resilience.
               <br />
               <br />
-              Justin's commitment to preventing injuries and guiding individuals
-              toward optimal fitness is remarkable. His insights, drawn from
-              personal experiences, underscore the crucial need for proper
-              physical preparation, particularly in demanding roles like special
-              forces. He ensures individuals have the tools and training for
-              safe, enduring careers, emphasising the value of departing on
-              one's terms, not due to preventable injuries.
+              As a seasoned coach for nine years, Justin blends military
+              precision with coaching finesse. His holistic approach integrates
+              mountain climbs, surfing, and gym sessions for a well-rounded
+              fitness journey.
               <br />
               <br />
-              This ethos drives Justin's focus on comprehensive and mindful
-              training regimens at Mission Movement.
+              His commitment to injury prevention and longevity in high-demand
+              careers drives his mission. Justin ensures individuals are
+              prepared both physically and mentally, leaving on their terms —
+              not due to avoidable setbacks.
             </p>
           </div>
-          {/* image right side */}
-          <div className="lg:w-1/2 flex flex-col px-10 py-10 lg:py-0 justify-center items-center">
-            {/* image and text div */}
-            <div>
-              <img
-                src={Trainer}
-                alt="profilepicture"
-                className="lg:h-[350px] lg:w-[290px]"
-              />
-              <div className="mt-10">
-                <h2 className="mb-2 text-brown font-secondary text-[25px] md:text-[50px] font-light uppercase leading-[120%] tracking-wide">
-                  statistics
-                </h2>
-                <div className="grid grid-cols-2 gap-1 font-light">
-                  <div className="flex flex-row gap-2 text-white">
-                    <FaCheck />
-                    <p>10 years Royal Marine corps</p>
+
+          {/* Image + Stats */}
+          <div className="lg:w-1/2 flex flex-col items-center">
+            <img
+              src={Trainer}
+              alt="Justin Peeters"
+              className="w-[260px] h-[340px] object-cover rounded-xl shadow-lg"
+            />
+
+            <div className="mt-10 w-full px-4">
+              <h3 className="text-brown font-secondary text-[22px] md:text-[32px] uppercase mb-4">
+                Stats
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 text-white text-sm lg:text-base font-light">
+                {[
+                  "10 years Royal Marine Corps",
+                  "4 years MARSOC",
+                  "9 years of personal training",
+                  "Tested",
+                  "Commitment to lift others",
+                  "Always there to help out",
+                ].map((stat, index) => (
+                  <div key={index} className="flex items-center gap-2">
+                    <FaCheck className="text-yellow" />
+                    <p>{stat}</p>
                   </div>
-                  <div className="flex flex-row gap-2 text-white pl-2">
-                    <FaCheck />
-                    <p>4 years MARSOC</p>
-                  </div>
-                  <div className="flex flex-row gap-2 text-white">
-                    <FaCheck />
-                    <p>9 years of personal training</p>
-                  </div>
-                  <div className="flex flex-row gap-2 text-white pl-2">
-                    <FaCheck />
-                    <p>Tested</p>
-                  </div>
-                  <div className="flex flex-row gap-2 text-white">
-                    <FaCheck />
-                    <p>Commitment to lift others</p>
-                  </div>
-                  <div className="flex flex-row gap-2 text-white pl-2">
-                    <FaCheck />
-                    <p>Always there to help out</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
-      {/* Reviews  */}
+
       <Reviews />
 
-      {/* link to program */}
-      <section
-        className="w-screen
-    flex flex-col lg:flex-row py-20 p-10
-    justify-between items-center lg:items-start lg:mt-20
-    "
-      >
-        {/* text */}
+      <section className="w-screen flex flex-col lg:flex-row py-20 p-10 justify-between items-center lg:items-start lg:mt-20">
         <div className="md:w-1/2 flex flex-col font-light px-5 lg:px-28">
-          <h5
-            className="font-secondary text-[30px] lg:text-[50px]
-      tracking-wider text-brown lg:text-left text-center"
-          >
+          <h5 className="font-secondary text-[30px] lg:text-[50px] tracking-wider text-brown lg:text-left text-center">
             <span className="text-yellow">Ready? </span>
             Sign up for our program and transform your mind and body into a
             powerful force to be reckoned with.
           </h5>
-          {/* Sentence with word hover */}
           <div
             ref={elementRef}
-            className={`font-secondary text-brown uppercase lg:py-20 pt-10 pb-20 text-center lg:text-left tracking-widest cursor-pointer
-          ${animate ? "animate-light-sweep" : ""}`}
+            className={`font-secondary text-brown uppercase lg:py-20 pt-10 pb-20 text-center lg:text-left tracking-widest cursor-pointer ${
+              animate ? "animate-light-sweep" : ""
+            }`}
           >
             {["Discipline", "|", "Commitment", "|", "Determination"].map(
               (word, index) => (
@@ -377,15 +314,13 @@ const Program = () => {
             )}
           </div>
         </div>
-        {/* image + button */}
         <div className="flex flex-col justify-center items-center lg:w-1/2">
           <img
             src={Bundle}
             alt="projectbundlecover"
             className="h-[400px] w-[250px]"
           />
-          {/* button */}
-          <div className="flex justify-center items-center mt-5">
+          <div className="flex justify-center items-center mt-10">
             <Link to="/pricing">
               <button className="btn lg:btn-lg">Enroll</button>
             </Link>

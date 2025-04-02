@@ -36,15 +36,16 @@ const Reviews = () => {
         {...handlers}
         ref={scrollRef}
         className="w-full flex overflow-x-auto scrollbar-visible snap-x snap-mandatory space-x-5 p-5"
-        >
-
+      >
         {reviews.map((review, index) => (
           <div
             key={index}
             className="flex-shrink-0 w-full md:w-[48%] lg:w-[45%] p-5 border border-brown shadow-lg bg-primary snap-center"
           >
             <h2 className="h2-teko mb-2">{review.name}</h2>
-            <p className="text-white font-light tracking-wider">{review.text}</p>
+            <p className="text-white font-light tracking-wider">
+              {review.text}
+            </p>
           </div>
         ))}
       </div>

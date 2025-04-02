@@ -1,5 +1,6 @@
+// PurchaseAccess.jsx
 import React, { useState } from "react";
-import Reviews from "../components/Reviews"; // Adjust if needed
+import Reviews from "../components/Reviews";
 import VideoPreview from "./VideoPreview";
 
 const PurchaseAccess = () => {
@@ -26,7 +27,6 @@ const PurchaseAccess = () => {
         setError("Something went wrong. Please try again.");
       }
     } catch (err) {
-      setError("Failed to connect to payment service.");
       console.error(err);
       setError("Failed to connect to payment service.");
     } finally {
@@ -36,12 +36,12 @@ const PurchaseAccess = () => {
 
   return (
     <>
-      {/* Access Purchase Section */}
-      <div className="min-h-[calc(100vh-80px)] bg-[#121212] flex flex-col justify-center items-center px-6 md:px-10 text-center md:text-left">
+      {/* Purchase Section */}
+      <section className="min-h-[calc(100vh-80px)] bg-[#121212] pt-24 px-6 md:px-10 flex flex-col items-center">
         <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Left Side */}
+          {/* Left Column */}
           <div className="flex flex-col gap-8">
-            {/* Testimonial */}
+            {/* Quote */}
             <div className="animate-slide-in-left">
               <p className="italic text-gray-500 text-sm md:text-lg font-light max-w-md">
                 "After following this program, I not only passed my selection —
@@ -52,12 +52,12 @@ const PurchaseAccess = () => {
               </p>
             </div>
 
-            {/* Headline & Description */}
+            {/* Headline + Summary */}
             <div className="space-y-4">
               <h1 className="h1 animate-fade-in">Unlock Full Access</h1>
-              <p className="text-white text-sm md:text-base font-light font-primary max-w-md">
-                Get lifetime access to all our training programs, video library,
-                coaching features, and weekly check-ins.
+              <p className="text-white text-sm md:text-base font-light max-w-md">
+                Gain lifetime access to every program, video walkthroughs,
+                weekly coaching check-ins, and our mission-tested resources.
               </p>
               <p className="text-gray-400 text-xs uppercase tracking-wider">
                 One-time payment of{" "}
@@ -66,19 +66,19 @@ const PurchaseAccess = () => {
             </div>
           </div>
 
-          {/* Right Side */}
-          <div className="flex flex-col items-center gap-6">
+          {/* Right Column */}
+          <div className="flex flex-col items-center gap-6 animate-fade-in">
             <img
               src="/img/bundle.png"
               alt="Military Preparation Program"
-              className="w-[220px] md:w-[300px] shadow-md rounded"
+              className="w-[220px] md:w-[300px] rounded shadow-md"
             />
             <button
               onClick={handleCheckout}
               disabled={loading}
-              className="btn-lg"
+              className="btn-lg w-full md:w-auto"
             >
-              {loading ? "Processing..." : "purchase"}
+              {loading ? "Processing..." : "Purchase"}
             </button>
 
             {error && (
@@ -88,9 +88,10 @@ const PurchaseAccess = () => {
             )}
           </div>
         </div>
-      </div>
-      {/* Video Section */}
-      <section className="w-full bg-[#101010] py-20 px-4 flex flex-col items-center justify-center">
+      </section>
+
+      {/* Video Preview */}
+      <section className="w-full bg-[#101010] py-20 px-4 flex flex-col items-center">
         <h2 className="text-yellow text-xl md:text-3xl font-secondary tracking-widest uppercase mb-6 text-center">
           Preview the Training Experience
         </h2>
@@ -98,7 +99,8 @@ const PurchaseAccess = () => {
           <VideoPreview />
         </div>
       </section>
-      {/* Reviews */}
+
+      {/* Testimonials */}
       <Reviews />
     </>
   );

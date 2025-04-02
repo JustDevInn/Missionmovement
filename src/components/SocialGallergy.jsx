@@ -20,7 +20,7 @@ const SocialGallery = () => {
     <div className="w-screen">
       {/* Social Header */}
       <section className="px-10 flex flex-col justify-center items-center">
-        <h1 className="h1-teko pt-20 pb-10 lg:pt-40 lg:pb-20">Social</h1>
+        <h1 className="h1-teko py-20 lg:pt-40 lg:pb-20">Social</h1>
         <motion.a
           variants={fadeIn("up")}
           initial="hidden"
@@ -46,21 +46,20 @@ const SocialGallery = () => {
           className="mb-8 lg:mb-20"
         >
           <PhotoAlbum
-  photos={galleryData.images}
-  layout="rows"
-  renderPhoto={({ photo, imageProps }) => (
-    <img
-      {...imageProps}
-      className="w-full h-full object-cover bg-center"
-      alt="photoalbum"
-    />
-  )}
-  onClick={({ index }) => {
-    setIndex(index);
-    setOpen(true);
-  }}
-/>
-
+            photos={galleryData.images}
+            layout="rows"
+            renderPhoto={({ photo, imageProps }) => (
+              <img
+                {...imageProps}
+                className="w-full h-full object-cover bg-center"
+                alt="photoalbum"
+              />
+            )}
+            onClick={({ index }) => {
+              setIndex(index);
+              setOpen(true);
+            }}
+          />
         </motion.div>
       </section>
 

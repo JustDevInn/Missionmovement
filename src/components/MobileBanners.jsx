@@ -1,42 +1,43 @@
 import React from "react";
 
 const MobileBanners = () => {
+  const bannerData = [
+    {
+      bg: "marsenopleiding",
+      title: "MILITARY PROGRAM 01: BASIC REQUIREMENTS",
+      text: "Whether you're looking to join the military, are already in the service, or need a physical and mental push — this program prepares you for all physical aspects of military service.",
+    },
+    {
+      bg: "marsof",
+      title: "MILITARY PROGRAM 02: FOUNDATIONAL STRENGTH",
+      text: "Reach your full potential. Develop strength, grit, and mental clarity. Build the base required to thrive in the military — and in life.",
+    },
+    {
+      bg: "spelioladder",
+      title: "MILITARY PROGRAM 03: SWIM OR SINK",
+      text: "A full-spectrum 6-week program focused on swimming, breath control, mobility, and confidence in the water. Structured and progressive.",
+    },
+    {
+      bg: "hlo",
+      title: "MILITARY PROGRAM 04/05: SUPPORT",
+      text: "Support systems matter. This program focuses on injury prevention, mental health, and recovery strategies to build long-term resilience.",
+    },
+  ];
+
   return (
     <div>
-      {[
-        {
-          bg: "marsenopleiding",
-          title: "MILITARY PROGRAM 01: BASIC REQUIREMENTS",
-          text: "Whether you are looking to join the military, are already in the service or looking for a physical and mental push, our program is designed to help you meet the physical challenges of the job. We cover all physical aspects of military service.",
-        },
-        {
-          bg: "marsof",
-          title: "MILITARY PROGRAM 02: FOUNDATIONAL STRENGTH",
-          text: "Our mission is to help you reach your full potential and achieve your dreams of serving in the military. We provide the tools and training you need to succeed, physically and mentally.",
-        },
-        {
-          bg: "spelioladder",
-          title: "MILITARY PROGRAM 03: SWIM OR SINK",
-          text: "Efficient, expertly designed training. 6-week program covering military basics, fitness, nutrition, mental health. Personalised reviews ensure optimal prep. Sessions include key subjects like mobility, breath work, and more for comprehensive preparation.",
-        },
-        {
-          bg: "hlo",
-          title: "MILITARY PROGRAM 04/05: SUPPORT",
-          text: "Our mission is to help you reach your full potential and achieve your dreams of serving in the military. By providing the tools and training you need to succeed, we help you physically and mentally become the best version of yourself.",
-        },
-      ].map((item, index) => (
+      {bannerData.map((item, index) => (
         <section
           key={index}
-          className="relative min-h-screen w-screen flex flex-col justify-end text-left px-10 pb-20 text-white bg-fixed bg-cover bg-center mb-10 last:mb-0"
+          className="relative min-h-screen w-screen flex flex-col justify-end text-left px-6 sm:px-10 pb-20 text-white bg-fixed bg-cover bg-center mb-10 last:mb-0"
           style={{ backgroundImage: `url('/img/${item.bg}.jpg')` }}
         >
-          {/* Overlay for readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
-
-          {/* Content */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
           <div className="relative z-10 max-w-2xl">
-            <h2 className="h2-teko text-yellow mb-5">{item.title}</h2>
-            <p className="text-lg font-light tracking-wider text-justify">{item.text}</p>
+            <h2 className="h2-teko text-yellow mb-4">{item.title}</h2>
+            <p className="text-lg font-light tracking-wider text-justify">
+              {item.text}
+            </p>
           </div>
         </section>
       ))}

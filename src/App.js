@@ -17,6 +17,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Success from './pages/Success';
 import Cancel from './pages/Cancel';
+import Blogs from './pages/Blogs.jsx';
 
 // Auth
 import { AuthProvider } from "./context/AuthContext";
@@ -106,6 +107,7 @@ const MainRoutes = () => {
         <Route path="/program" element={<Program />} />
         <Route path="/about" element={<About />} />
         <Route path="/resources" element={<Resources />} />
+        <Route path="/blogs" element={<Blogs />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/login" element={<Login />} />
