@@ -8,8 +8,9 @@ import { useGlowEffect } from "../Hooks/useGlowEffect";
 import { faqData, programDetails } from "../data/data";
 import Reviews from "../components/Reviews";
 import { Link } from "react-router-dom";
+import TrainerCard from "../components/TrainerCard";
+import QuoteBlock from "../components/QuoteBlock";
 
-const Trainer = "/img/profilepicture.png";
 const Bundle = "/img/bundle.png";
 
 const wordDefinitions = {
@@ -62,11 +63,11 @@ const Program = () => {
       <section className="w-full px-5 sm:px-10 lg:px-20">
         <header className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 tracking-wider text-white max-w-7xl mx-auto">
           {/* Overview */}
-          <div className="bg-primary p-6 md:p-10 rounded-xl shadow-lg">
-            <h2 className="h2-teko text-yellow mb-5 text-center">
-              PROGRAM OVERVIEW
-            </h2>
-            <p className="text-sm lg:text-base font-thin text-white text-justify mb-4">
+          <div className="bg-primary p-4 md:p-6 lg:p-8 rounded-xl shadow-lg">
+            <h1 className="text-yellow text-xl md:text-4xl font-secondary uppercase mb-4 text-center border-b border-yellow pb-2">
+              Program Overview
+            </h1>
+            <p className="text-xs md:text-sm font-light text-white text-justify leading-relaxed mb-4">
               Mission Movement's elite military preparation program, honed from
               20+ years of elite service, goes beyond. It's for those seeking a
               higher purpose, aiming for the special operator lifestyle in the
@@ -78,11 +79,11 @@ const Program = () => {
             {programDetails.map((item, index) => (
               <div
                 key={index}
-                className="mb-4 bg-brown rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:bg-opacity-80"
+                className="mb-3 bg-brown rounded-md overflow-hidden transition-all duration-300 hover:scale-[1.01] hover:bg-opacity-80"
               >
                 <button
                   onClick={() => toggleProgram(index)}
-                  className="w-full flex justify-between items-center p-4 text-left text-brown font-medium tracking-wider uppercase bg-primary hover:text-yellow transition duration-300"
+                  className="w-full flex justify-between items-center px-3 py-2 text-left text-brown text-xs md:text-sm font-medium uppercase bg-primary hover:text-yellow transition duration-300"
                   aria-expanded={openProgramIndex === index}
                 >
                   {item.title}
@@ -95,11 +96,11 @@ const Program = () => {
                 <div
                   className={`overflow-hidden transition-all duration-500 ${
                     openProgramIndex === index
-                      ? "max-h-40 opacity-100 p-4"
+                      ? "max-h-40 opacity-100 px-3 py-2"
                       : "max-h-0 opacity-0"
                   }`}
                 >
-                  <p className="text-white text-sm leading-[160%]">
+                  <p className="text-white text-xs leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -107,11 +108,14 @@ const Program = () => {
             ))}
           </div>
 
-          {/* Requirements + Skills */}
-          <div className="flex flex-col p-6 md:p-10">
-            <div className="mb-10">
-              <h1 className="h2-teko text-yellow mb-4">Requirements</h1>
-              <ul className="grid grid-cols-2 gap-3 text-sm lg:text-base font-thin">
+          {/* Requirements + Skills + Who It's For (fit in one screen) */}
+          <div className="flex flex-col p-4 md:p-6 lg:p-8 gap-8 lg:gap-10">
+            {/* Requirements */}
+            <div>
+              <h1 className="text-yellow font-secondary text-xl md:text-2xl uppercase mb-3">
+                Requirements
+              </h1>
+              <ul className="grid grid-cols-2 gap-2 text-xs md:text-sm font-light">
                 {[
                   "Mindset and attitude",
                   "Physical fitness baseline",
@@ -121,16 +125,19 @@ const Program = () => {
                   "No medical concerns",
                 ].map((req, i) => (
                   <li key={i} className="flex items-center gap-2">
-                    <FaCheck />
+                    <FaCheck className="text-yellow text-sm" />
                     {req}
                   </li>
                 ))}
               </ul>
             </div>
 
+            {/* Skills You'll Learn */}
             <div>
-              <h1 className="h2-teko text-yellow mb-4">Skills You'll Learn</h1>
-              <ul className="grid grid-cols-2 gap-3 text-sm lg:text-base font-thin">
+              <h1 className="text-yellow font-secondary text-xl md:text-2xl uppercase mb-3">
+                Skills You'll Learn
+              </h1>
+              <ul className="grid grid-cols-2 gap-2 text-xs md:text-sm font-light">
                 {[
                   "Physical readiness",
                   "Specialised techniques",
@@ -140,8 +147,30 @@ const Program = () => {
                   "Grit",
                 ].map((skill, i) => (
                   <li key={i} className="flex items-center gap-2">
-                    <GrAchievement />
+                    <GrAchievement className="text-yellow text-sm" />
                     {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Who It's For */}
+            <div>
+              <h1 className="text-yellow font-secondary text-xl md:text-2xl uppercase mb-3">
+                Who It's For
+              </h1>
+              <ul className="grid grid-cols-2 gap-2 text-xs md:text-sm font-light">
+                {[
+                  "Aspiring military candidates preparing for selection",
+                  "Active service members needing structured reset",
+                  "Athletes seeking elite conditioning",
+                  "Fitness-minded individuals craving challenge",
+                  "Anyone committed to growth through discipline",
+                  "People seeking physical & mental resilience",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-2">
+                    <FaCheck className="text-yellow text-sm" />
+                    {item}
                   </li>
                 ))}
               </ul>
@@ -149,46 +178,47 @@ const Program = () => {
           </div>
 
           {/* FAQ Section */}
-          <div className="bg-primary p-6 md:p-10 rounded-xl shadow-lg mb-10">
-            <h2 className="h2-teko text-yellow text-center mb-6">
+          <div className="bg-primary p-6 md:p-10 rounded-xl shadow-lg mb-10 min-h-[350px] md:h-full w-full flex flex-col justify-start">
+            <h2 className="text-yellow font-secondary text-xl md:text-2xl lg:text-3xl uppercase text-center mb-4 border-b border-yellow pb-2 tracking-widest">
               What to Know Before Joining
             </h2>
-            <p className="text-sm lg:text-base font-thin text-white mb-6 text-justify">
+            <p className="text-xs md:text-sm font-light text-white mb-6 text-justify leading-relaxed max-w-xl mx-auto">
               Have questions? Here are the most common things people ask before
               signing up. If you need more details, feel free to reach out!
             </p>
 
-            {faqData.map((faq, index) => (
-              <div
-                key={index}
-                className="mb-4 bg-brown rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:bg-opacity-80"
-              >
-                <button
-                  onClick={() => toggleFAQ(index)}
-                  className="w-full flex justify-between items-center p-4 text-left text-brown font-medium tracking-wider uppercase bg-primary hover:text-yellow"
-                  aria-expanded={openFAQIndex === index}
-                >
-                  {faq.question}
-                  {openFAQIndex === index ? (
-                    <FaChevronUp className="text-yellow" />
-                  ) : (
-                    <FaChevronDown className="text-yellow" />
-                  )}
-                </button>
-
+            <div className="space-y-3">
+              {faqData.map((faq, index) => (
                 <div
-                  className={`overflow-hidden transition-all duration-700 ${
-                    openFAQIndex === index
-                      ? "max-h-[100px] opacity-100 p-4"
-                      : "max-h-0 opacity-0"
-                  }`}
+                  key={index}
+                  className="bg-brown rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.01] hover:bg-opacity-90"
                 >
-                  <p className="text-white text-sm leading-[160%]">
-                    {faq.answer}
-                  </p>
+                  <button
+                    onClick={() => toggleFAQ(index)}
+                    className="w-full flex justify-between items-center p-3 text-left text-brown font-medium tracking-wide uppercase bg-primary hover:text-yellow text-xs md:text-sm"
+                    aria-expanded={openFAQIndex === index}
+                  >
+                    {faq.question}
+                    {openFAQIndex === index ? (
+                      <FaChevronUp className="text-yellow" />
+                    ) : (
+                      <FaChevronDown className="text-yellow" />
+                    )}
+                  </button>
+                  <div
+                    className={`overflow-hidden transition-all duration-500 ${
+                      openFAQIndex === index
+                        ? "max-h-[200px] opacity-100 px-4 pb-4"
+                        : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <p className="text-white text-sm font-light leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
           {/* Image + Enroll Button */}
@@ -205,6 +235,13 @@ const Program = () => {
         </header>
       </section>
 
+      <QuoteBlock
+        quote="My mission is to build unshakable humans — physically capable and
+              mentally stable. This program is the guidance I wish I had when I
+              started."
+        author="Justin Peeters"
+      />
+
       {/* Banners */}
       <div className="hidden lg:flex">
         <Banners />
@@ -213,75 +250,16 @@ const Program = () => {
         <MobileBanners />
       </div>
 
-      {/* trainers */}
       {/* Trainer Section */}
-      <section className="w-full bg-black py-20">
-        <h1 className="h1-teko text-yellow text-center mb-16">Trainers</h1>
+      <TrainerCard />
 
-        <div className="flex flex-col lg:flex-row gap-10 px-5 lg:px-20 max-w-screen-xl mx-auto">
-          {/* Text Content */}
-          <div className="lg:w-1/2 space-y-6">
-            <h2 className="text-brown font-secondary text-[26px] md:text-[40px] lg:text-[50px] uppercase font-light leading-tight tracking-wide">
-              Justin Peeters, Founder of Mission Movement
-            </h2>
-            <p className="text-white font-light text-justify leading-relaxed lg:text-lg tracking-wide">
-              With a decade of elite service in the Royal Marine Corps,
-              including four years in the esteemed MARSOC units, Justin brings
-              battle-tested expertise to Mission Movement.
-              <br />
-              <br />
-              Transitioning from military service, he spent five years owning
-              and running a personal training gym, honing skills in physical
-              conditioning and mental resilience.
-              <br />
-              <br />
-              As a seasoned coach for nine years, Justin blends military
-              precision with coaching finesse. His holistic approach integrates
-              mountain climbs, surfing, and gym sessions for a well-rounded
-              fitness journey.
-              <br />
-              <br />
-              His commitment to injury prevention and longevity in high-demand
-              careers drives his mission. Justin ensures individuals are
-              prepared both physically and mentally, leaving on their terms —
-              not due to avoidable setbacks.
-            </p>
-          </div>
-
-          {/* Image + Stats */}
-          <div className="lg:w-1/2 flex flex-col items-center">
-            <img
-              src={Trainer}
-              alt="Justin Peeters"
-              className="w-[260px] h-[340px] object-cover rounded-xl shadow-lg"
-            />
-
-            <div className="mt-10 w-full px-4">
-              <h3 className="text-brown font-secondary text-[22px] md:text-[32px] uppercase mb-4">
-                Stats
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 text-white text-sm lg:text-base font-light">
-                {[
-                  "10 years Royal Marine Corps",
-                  "4 years MARSOC",
-                  "9 years of personal training",
-                  "Tested",
-                  "Commitment to lift others",
-                  "Always there to help out",
-                ].map((stat, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <FaCheck className="text-yellow" />
-                    <p>{stat}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      {/* Reviews */}
       <Reviews />
 
+      <QuoteBlock
+        quote="Hard times don’t build character. They reveal it."
+        author="Justin Peeters"
+      />
       <section className="w-screen flex flex-col lg:flex-row py-20 p-10 justify-between items-center lg:items-start lg:mt-20">
         <div className="md:w-1/2 flex flex-col font-light px-5 lg:px-28">
           <h5 className="font-secondary text-[30px] lg:text-[50px] tracking-wider text-brown lg:text-left text-center">

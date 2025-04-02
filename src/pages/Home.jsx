@@ -7,7 +7,7 @@ const Home = () => {
   const { ref, isVisible } = useInView();
 
   return (
-    <div className="pt-10">
+    <div className="">
       {/* Hero */}
       <header
         className="section flex justify-center items-center bg-royalmarine bg-bottom bg-no-repeat bg-cover relative"
