@@ -1,40 +1,40 @@
 import React, { useState } from "react";
-import { auth, db } from "../firebase"; // ✅ make sure db is here
+import { auth, db } from "../firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc, serverTimestamp, Timestamp } from "firebase/firestore";
 import { useNavigate, Link as RouterLink } from "react-router-dom";
-import { serverTimestamp } from "firebase/firestore";
-import { Timestamp } from "firebase/firestore";
+import Spinner from "../components/Spinner";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Signup = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
   const [username, setUsername] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [showSpinner, setShowSpinner] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
 
   const handleSignup = async (e) => {
     e.preventDefault();
     setError("");
+    setLoading(true);
+    setShowSpinner(false);
 
     if (!username.trim()) {
       setError("Please enter a username.");
+      setLoading(false);
       return;
     }
 
+    const spinnerTimeout = setTimeout(() => setShowSpinner(true), 300);
+
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      await updateProfile(userCredential.user, { displayName: username });
 
-      // ✅ Set displayName in Firebase Auth
-      try {
-        await updateProfile(userCredential.user, {
-          displayName: username,
-        });
-      } catch (profileErr) {
-        console.warn("Display name could not be set:", profileErr.message);
-      }
-
-      // ✅ Write to Firestore
       await setDoc(doc(db, "users", userCredential.user.uid), {
         displayName: username,
         email: userCredential.user.email,
@@ -42,19 +42,17 @@ const Signup = () => {
         hasPaid: false,
         paymentInfo: {
           method: "Stripe",
-          date: Timestamp,
-          amount: 39
+          date: Timestamp.now(),
+          amount: 39,
         },
         role: "user",
       });
 
-      // ✅ Delay redirect slightly to ensure context has synced
-      setTimeout(() => {
-        navigate("/dashboard");
-      }, 500);
+      clearTimeout(spinnerTimeout);
+      setTimeout(() => navigate("/dashboard"), 500);
     } catch (err) {
+      clearTimeout(spinnerTimeout);
       console.error("Signup error:", err);
-
       if (err.code === "auth/email-already-in-use") {
         setError("This email is already registered. Try logging in instead.");
       } else if (err.code === "auth/invalid-email") {
@@ -64,46 +62,100 @@ const Signup = () => {
       } else {
         setError("Failed to create account. Try again.");
       }
+      setLoading(false);
+      setShowSpinner(false);
     }
   };
 
   return (
-    <form
-      onSubmit={handleSignup}
-      className="p-6 bg-gray-800 text-white rounded max-w-md mx-auto mt-20 shadow-md"
-    >
-      <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
-      {error && <p className="text-red-500">{error}</p>}
-      <input
-        type="text"
-        placeholder="Username"
-        className="w-full p-2 my-2 rounded bg-gray-900"
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="email"
-        placeholder="Email"
-        className="w-full p-2 my-2 rounded bg-gray-900"
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        className="w-full p-2 my-2 rounded bg-gray-900"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <div className="mt-4">
-        <button className="bg-yellow text-black p-2 rounded w-full font-semibold">
-          Sign Up
-        </button>
+    <div className="bg-[#0a0a0a] min-h-[calc(100vh-90px)] flex items-center justify-center px-4 pt-24 sm:pt-0">
+      <div className="w-full max-w-md flex flex-col items-center gap-6">
+        {/* 💬 Quote */}
+        <p className="text-gray-400 text-center font-light text-sm tracking-wide max-w-xs leading-relaxed">
+          <span className="italic text-white">
+            "Discipline is doing what needs to be done, even when you don’t feel like doing it."
+          </span>
+        </p>
+
+        {/* Signup Form */}
+        <form
+          onSubmit={handleSignup}
+          className="bg-[#1A1A1A] border border-yellow w-full rounded-xl px-8 py-8 shadow-lg"
+        >
+          <h2 className="text-yellow font-secondary text-3xl mb-6 tracking-wider uppercase text-center">
+            Sign Up
+          </h2>
+
+          {error && (
+            <p className="text-red-500 bg-red-900 bg-opacity-20 px-4 py-2 rounded text-sm mb-4 text-center">
+              {error}
+            </p>
+          )}
+
+          <div className="space-y-4">
+            <input
+              type="text"
+              placeholder="Username"
+              className="w-full bg-[#121212] text-white placeholder-gray-400 px-4 py-3 rounded-md outline-none focus:ring-2 focus:ring-yellow transition"
+              onChange={(e) => setUsername(e.target.value)}
+              disabled={loading}
+              required
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              autoComplete="email"
+              className="w-full bg-[#121212] text-white placeholder-gray-400 px-4 py-3 rounded-md outline-none focus:ring-2 focus:ring-yellow transition"
+              onChange={(e) => setEmail(e.target.value)}
+              disabled={loading}
+              required
+            />
+            <div className="relative">
+  <input
+    type={showPassword ? "text" : "password"}
+    placeholder="Password"
+    autoComplete="new-password" // for signup — change to "current-password" for login
+    className="w-full bg-[#121212] text-white placeholder-gray-400 px-4 py-3 pr-10 rounded-md outline-none focus:ring-2 focus:ring-yellow transition"
+    onChange={(e) => setPassword(e.target.value)}
+    disabled={loading}
+    required
+  />
+  <button
+    type="button"
+    onClick={() => setShowPassword(!showPassword)}
+    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-yellow"
+  >
+    {showPassword ? <FaEyeSlash /> : <FaEye />}
+  </button>
+</div>
+
+          </div>
+
+          <div className="mt-6">
+            {showSpinner ? (
+              <div className="flex justify-center">
+                <Spinner />
+              </div>
+            ) : (
+              <button
+                type="submit"
+                disabled={loading}
+                className="bg-yellow text-black font-semibold py-3 w-full rounded-md hover:bg-opacity-90 transition tracking-wide disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                Sign Up
+              </button>
+            )}
+          </div>
+
+          <p className="text-center text-sm text-gray-400 mt-6">
+            Already have an account?{" "}
+            <RouterLink to="/login" className="text-yellow hover:underline">
+              Log in
+            </RouterLink>
+          </p>
+        </form>
       </div>
-      <div className="mt-4 text-center text-sm text-gray-400">
-        Already have an account?{" "}
-        <RouterLink to="/login" className="text-yellow hover:underline">
-          Log in
-        </RouterLink>
-      </div>
-    </form>
+    </div>
   );
 };
 

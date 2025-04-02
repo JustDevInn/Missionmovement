@@ -16,10 +16,9 @@ import {
   FaTimes,
   FaChevronLeft,
   FaChevronRight,
+  FaLock,
 } from "react-icons/fa";
 import { useAuth } from "../context/AuthContext";
-
-// ... all imports stay the same
 
 const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
   const { logout, hasPaid } = useAuth();
@@ -28,35 +27,68 @@ const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
   const startX = useRef(null);
 
   const links = [
-    { to: "/dashboard", label: "Overview", icon: <FaHome /> },
     {
-      to: hasPaid ? "/trainingprogram" : "/pricing",
+      to: "/dashboard",
+      label: "Overview",
+      icon: <FaHome />,
+      requiresPayment: false,
+    },
+    {
+      to: "/trainingprogram",
       label: "My Program",
       icon: <FaDownload />,
+      requiresPayment: true,
     },
     {
-      to: hasPaid ? "/trainingschedule" : "/pricing",
+      to: "/trainingschedule",
       label: "Training Schedule",
       icon: <FaCalendarAlt />,
+      requiresPayment: true,
     },
     {
-      to: hasPaid ? "/check-in" : "/pricing",
+      to: "/check-in",
       label: "Check-In",
       icon: <FaBrain />,
+      requiresPayment: true,
     },
     {
-      to: hasPaid ? "/library" : "/pricing",
+      to: "/library",
       label: "Library",
       icon: <FaBook />,
+      requiresPayment: true,
     },
-    { to: "/stopwatch", label: "Stopwatch", icon: <FaStopwatch /> },
-    { to: "/nutrition", label: "Nutrition", icon: <FaLeaf /> },
-    { to: "/progress", label: "Progress", icon: <FaChartBar /> },
-    { to: "/messages", label: "Messages", icon: <FaComments /> },
-    { to: "/settings", label: "Settings", icon: <FaCog /> },
+    {
+      to: "/stopwatch",
+      label: "Stopwatch",
+      icon: <FaStopwatch />,
+      requiresPayment: false,
+    },
+    {
+      to: "/nutrition",
+      label: "Nutrition",
+      icon: <FaLeaf />,
+      requiresPayment: false,
+    },
+    {
+      to: "/progress",
+      label: "Progress",
+      icon: <FaChartBar />,
+      requiresPayment: true,
+    },
+    {
+      to: "/messages",
+      label: "Messages",
+      icon: <FaComments />,
+      requiresPayment: true,
+    },
+    {
+      to: "/settings",
+      label: "Settings",
+      icon: <FaCog />,
+      requiresPayment: false,
+    },
   ];
 
-  // Swipe logic unchanged
   useEffect(() => {
     const handleTouchStart = (e) => (startX.current = e.touches[0].clientX);
     const handleTouchMove = (e) => {
@@ -82,6 +114,39 @@ const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
     };
   }, []);
 
+  const renderLink = ({ to, label, icon, requiresPayment }) => {
+    const isLocked = requiresPayment && !hasPaid;
+
+    if (isLocked) {
+      return (
+        <div
+          key={to}
+          className="flex items-center gap-3 px-3 py-2 rounded-md text-gray-600 cursor-not-allowed opacity-50"
+        >
+          <FaLock className="text-yellow" />
+          {!isCollapsed && label}
+        </div>
+      );
+    }
+
+    return (
+      <NavLink
+        key={to}
+        to={to}
+        className={({ isActive }) =>
+          `flex items-center gap-3 px-3 py-2 rounded-md transition-all ${
+            isActive
+              ? "text-yellow font-semibold border-l-4 border-yellow pl-2 bg-[#1A1A1A]"
+              : "text-gray-400 hover:text-yellow hover:bg-[#1A1A1A]"
+          }`
+        }
+      >
+        {icon}
+        {!isCollapsed && label}
+      </NavLink>
+    );
+  };
+
   return (
     <>
       {/* Mobile hamburger */}
@@ -94,8 +159,7 @@ const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
 
       {/* Desktop Sidebar */}
       <aside
-        className={`hidden md:flex flex-col bg-[#101010] border-r border-[#2A2A2A] sticky top-0 h-screen transition-all duration-300 
-        font-primary ${
+        className={`hidden md:flex flex-col bg-[#101010] border-r border-[#2A2A2A] sticky top-0 h-screen transition-all duration-300 font-primary ${
           isCollapsed ? "w-16 px-2" : "w-64 px-6"
         } py-6 text-white`}
       >
@@ -116,24 +180,7 @@ const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
         </div>
 
         <nav className="flex flex-col gap-3 text-sm font-primary tracking-widest uppercase">
-          {links.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              end
-              className={({ isActive }) =>
-                `flex items-center gap-3 px-3 py-2 rounded-md transition-all ${
-                  isActive
-                    ? "text-yellow font-semibold border-l-4 border-yellow pl-2 bg-[#1A1A1A]"
-                    : "text-gray-400 hover:text-yellow hover:bg-[#1A1A1A]"
-                }`
-              }
-            >
-              {link.icon}
-              {!isCollapsed && link.label}
-            </NavLink>
-          ))}
-
+          {links.map(renderLink)}
           <button
             onClick={logout}
             className={`text-left text-red-400 hover:underline flex items-center gap-2 mt-6 ${
@@ -171,23 +218,34 @@ const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
           </h2>
 
           <nav className="flex flex-col gap-4 text-sm font-primary tracking-widest uppercase">
-            {links.map((link) => (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                end
-                onClick={() => setIsMobileOpen(false)}
-                className={({ isActive }) =>
-                  `flex items-center gap-2 px-3 py-2 rounded-md transition ${
-                    isActive
-                      ? "text-yellow font-semibold border-l-4 border-yellow pl-2 bg-[#1A1A1A]"
-                      : "text-gray-400 hover:text-yellow hover:bg-[#1A1A1A]"
-                  }`
-                }
-              >
-                {link.icon} {link.label}
-              </NavLink>
-            ))}
+            {links.map((link) => {
+              const isLocked = link.requiresPayment && !hasPaid;
+
+              return isLocked ? (
+                <div
+                  key={link.to}
+                  className="flex items-center gap-2 px-3 py-2 rounded-md text-gray-600 bg-[#0f0f0f] cursor-not-allowed"
+                >
+                  <FaLock className="text-yellow" /> {link.label}
+                </div>
+              ) : (
+                <NavLink
+                  key={link.to}
+                  to={link.to}
+                  end
+                  onClick={() => setIsMobileOpen(false)}
+                  className={({ isActive }) =>
+                    `flex items-center gap-2 px-3 py-2 rounded-md transition ${
+                      isActive
+                        ? "text-yellow font-semibold border-l-4 border-yellow pl-2 bg-[#1A1A1A]"
+                        : "text-gray-400 hover:text-yellow hover:bg-[#1A1A1A]"
+                    }`
+                  }
+                >
+                  {link.icon} {link.label}
+                </NavLink>
+              );
+            })}
 
             <button
               onClick={() => {

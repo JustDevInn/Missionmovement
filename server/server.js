@@ -15,7 +15,7 @@ app.post("/create-checkout-session", async (req, res) => {
 
   try {
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ["card"],
+      payment_method_types: ["card", "ideal"],
       mode: "payment",
       line_items: [
         {
@@ -25,7 +25,7 @@ app.post("/create-checkout-session", async (req, res) => {
               name: "Mission Movement Access",
               description: "One-time payment for lifetime program access",
             },
-            unit_amount: 70, // €0.10
+            unit_amount: 1990000, // €0.10
           },
           quantity: 1,
         },
