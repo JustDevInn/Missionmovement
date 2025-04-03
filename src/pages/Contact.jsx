@@ -1,14 +1,40 @@
 import React, { useState } from "react";
 import FloatingCTA from "../components/FloatingCTA";
 import Spinner from "../components/Spinner";
+import { functions } from "../firebase";
+import { httpsCallable } from "firebase/functions";
 
 const Contact = () => {
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setLoading(true);
-    // Allow default form submission to Getform
-    // Spinner will show while it's submitting
+
+    const form = e.target;
+    const formData = {
+      name: form.name.value,
+      email: form.email.value,
+      subject: form.subject.value,
+      message: form.message.value,
+    };
+
+    try {
+      const sendEmail = httpsCallable(functions, "sendContactEmail");
+      const res = await sendEmail(formData);
+      console.log("Email sent:", res.data);
+
+      // Optional: Reset form
+      form.reset();
+
+      // Optional: Show custom success message
+      alert("Your message was sent successfully!");
+    } catch (error) {
+      console.error("Email sending failed:", error);
+      alert("Something went wrong. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -18,7 +44,7 @@ const Contact = () => {
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative z-10 w-full flex justify-center items-center pt-20 px-5 lg:px-20">
           <h1 className="text-yellow font-primary text-[35px] md:text-[60px] font-medium uppercase tracking-wider text-center">
-            Contact Us
+            Report In
           </h1>
         </div>
       </section>
@@ -28,11 +54,10 @@ const Contact = () => {
       {/* Take the First Step */}
       <section className="w-full px-5 sm:px-10 lg:px-20 py-20 flex flex-col justify-center items-center">
         <h1 className="text-yellow font-secondary text-[35px] md:text-[70px] uppercase leading-[120%] tracking-wide font-extralight mb-6 text-center">
-          Take the First Step
+          This Is the First Move
         </h1>
         <p className="text-brown font-light uppercase tracking-widest text-sm md:text-lg text-center max-w-2xl">
-          Fill out the form below to start your journey toward the future you
-          want.
+          Ready to step up? Drop your details — we’ll take it from there.
         </p>
       </section>
 
@@ -40,15 +65,10 @@ const Contact = () => {
       <section className="w-full px-5 py-20 lg:py-32 flex justify-center items-center">
         <div className="w-full max-w-2xl bg-primary p-6 md:p-10 rounded-xl shadow-lg animate-fade-in">
           <h2 className="h2-teko text-yellow text-center mb-10">
-            Get in Touch
+            Send Your Signal
           </h2>
 
-          <form
-            action="https://getform.io/f/19890081-7383-4319-832f-c7a6294b1408"
-            method="POST"
-            onSubmit={handleSubmit}
-            className="flex flex-col gap-y-6"
-          >
+          <form onSubmit={handleSubmit} className="flex flex-col gap-y-6">
             {/* Name & Email */}
             <div className="flex flex-col md:flex-row gap-6">
               <input
@@ -99,6 +119,9 @@ const Contact = () => {
               )}
             </button>
           </form>
+          <p className="text-center text-xs text-gray-500 mt-6">
+            No spam. No automation. Just a real response from our team.
+          </p>
         </div>
       </section>
     </div>

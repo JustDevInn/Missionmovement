@@ -17,7 +17,8 @@ const About = () => {
               The Story
             </h1>
             <p className="text-white mt-2 font-secondary text-sm md:text-base tracking-widest">
-              Behind every mission is a reason.
+              Every mission starts with why. This one started with experience
+              earned the hard way.
             </p>
           </div>
         </div>
@@ -33,43 +34,35 @@ const About = () => {
             The story
           </h5>
           <p className="font-light tracking-wider text-white lg:text-xl leading-relaxed">
-            With a foundation rooted in a decade of elite service within the{" "}
-            <span className="text-yellow">Royal Marine Corps</span>, including
-            four years in the esteemed{" "}
-            <span className="text-yellow">MARSOC</span> units, Mission Movement
-            brings battle-tested expertise to the forefront. Transitioning from
-            military service, our team spent five years spearheading a{" "}
-            <span className="text-yellow">personal training</span> gym, honing
-            skills in physical conditioning and mental resilience.
+            Built on a decade of elite service in the Royal Marine Corps,
+            including four years in MARSOC, Mission Movement delivers real-world
+            preparation from those who’ve lived it. After leaving the military,
+            we ran a private training facility for five years — not just
+            training bodies, but building unbreakable mindsets.
             <br />
             <br />
-            As seasoned coaches for nine years, our team amalgamates military
-            precision with coaching finesse, advocating for a{" "}
-            <span className="text-yellow">holistic</span> approach to fitness.
-            Embracing mountain climbs, surfing, and gym sessions, we craft a
-            comprehensive fitness experience.
+            With nine years of coaching experience, our team blends military
+            precision with real-world coaching. Whether it’s mountain climbs,
+            gym sessions, or surf training — we’ve lived every rep we teach.
             <br />
             <br />
-            Our primary aim is to sculpt future military operators, equipping
-            them with the essential support and tools needed for their journey.
-            Insights derived from personal experiences underscore the necessity
-            for proper physical preparation, particularly in demanding roles
-            like special forces.
+            Our mission is simple: prepare future operators. From fitness to
+            mindset, we equip you with the tools we wish we had — especially for
+            elite units where failure isn’t an option.
             <br />
             <br />
-            <span className="text-yellow">At Mission Movement</span>, our focus
-            prioritises sculpting resilient individuals for safe, enduring
-            careers, empowering them to shape their future in the military
-            forces.
+            Mission Movement exists to forge resilient humans — not just for the
+            military, but for life. If you’re ready to commit, we’re ready to
+            lead.
           </p>
         </div>
       </section>
 
       {/* Inspirational Quote Divider */}
       <section className="relative bg-fixed bg-cover bg-center bg-heigendhert h-[300px] flex items-center justify-center">
-        <div className="bg-black/60 p-6 rounded text-yellow text-center max-w-3xl">
-          <h2 className="text-xl md:text-3xl font-secondary italic">
-            “Discipline is the bridge between goals and accomplishment.”
+        <div className="bg-black/70 px-6 py-4 border-l-4 border-yellow max-w-4xl">
+          <h2 className="text-yellow text-lg md:text-2xl uppercase tracking-widest font-secondary text-center">
+            Discipline is the bridge between goals and accomplishment.
           </h2>
         </div>
       </section>
@@ -81,14 +74,13 @@ const About = () => {
           {/* Mission */}
           <div className="w-full md:w-1/3 p-5 bg-primary/10 rounded-xl">
             <h5 className="font-secondary text-yellow uppercase text-[22px] md:text-2xl mb-2">
-              Mission:
+              Our Mission:
             </h5>
-            <p className="font-light tracking-wider text-white lg:text-xl leading-relaxed">
-              At Mission Movement, our mission is clear: to sculpt future
-              military operators by providing the necessary support and tools
-              for their journey. We're committed to empowering individuals with
-              the resilience and readiness required to excel in elite forces,
-              ensuring safe, enduring careers.
+            <p className="font-light tracking-wider text-white lg:text-xl space-y-4 leading-relaxed">
+              We're here to sculpt future military operators. That means
+              preparing bodies, sharpening minds, and instilling a level of
+              discipline most people never reach. If you want to serve — truly
+              serve — this is where it begins.
             </p>
           </div>
 
@@ -102,24 +94,21 @@ const About = () => {
                 <span className="text-brown uppercase font-secondary">
                   Discipline:
                 </span>{" "}
-                We embody structured training, fostering mental resilience and
-                cultivating habits crucial for military preparedness.
+                Not motivation. Habit. Structure. Relentless self-respect.
               </p>
               <p>
                 <span className="text-brown uppercase font-secondary">
                   Commitment:
                 </span>{" "}
-                Our dedication extends beyond training; it signifies resilience
-                amid challenges, staying devoted to the journey toward elite
-                forces.
+                We show up. Every day. Especially when it’s hard.
               </p>
               <p>
                 <span className="text-brown uppercase font-secondary">
                   Determination:
                 </span>{" "}
-                We believe in an unwavering spirit to overcome obstacles, pursue
-                goals, and push boundaries. This mindset fuels perseverance.
+                We don’t hope for progress — we fight for it. One rep at a time.
               </p>
+
               <p>
                 These core values anchor our coaching philosophy, fostering a
                 holistic and enduring approach to elite preparation.
@@ -131,16 +120,16 @@ const About = () => {
 
       {/* CTA Ending Section */}
       <section className="w-full py-20 text-center px-5 flex flex-col justify-center items-center">
-        <h2 className="h2-teko text-yellow mb-5">Think you're ready?</h2>
+        <h2 className="h2-teko text-yellow mb-5">
+          You’ve read the story. Now decide your role in it.
+        </h2>
         <p className="text-white font-light max-w-2xl mx-auto mb-8">
-          Take the first step towards your transformation. Whether you're
-          preparing for special forces or seeking personal growth, we’ve got the
-          tools to guide your mission.
+          Most talk about change. Few do what it takes. Whether you're chasing
+          the uniform or your potential, we’ll show you the way — and push you
+          through it.
         </p>
         <Link to="/program">
-          <button className="btn btn-lg min-w-[300px]">
-            Explore the Program
-          </button>
+          <button className="btn btn-lg min-w-[300px]">Enrol & Earn It</button>
         </Link>
       </section>
 

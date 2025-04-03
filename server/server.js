@@ -25,7 +25,7 @@ app.post("/create-checkout-session", async (req, res) => {
               name: "Mission Movement Access",
               description: "One-time payment for lifetime program access",
             },
-            unit_amount: 1990000, // €0.10
+            unit_amount: 19900, // €0.10
           },
           quantity: 1,
         },

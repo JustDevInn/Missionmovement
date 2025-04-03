@@ -300,7 +300,9 @@ const Program = () => {
           />
           <div className="flex justify-center items-center mt-10">
             <Link to="/pricing">
-              <button className="btn lg:btn-lg">Enroll</button>
+              <button className="btn-lg !min-w-0 !h-auto px-10 py-4 text-center whitespace-nowrap">
+                Enrol — You Know Why You’re Here
+              </button>
             </Link>
           </div>
         </div>

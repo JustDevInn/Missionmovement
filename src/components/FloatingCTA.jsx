@@ -10,7 +10,7 @@ const FloatingCTA = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 1500);
+    }, 6500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -26,7 +26,7 @@ const FloatingCTA = () => {
         to="/program"
         className="flex items-center gap-2 font-bold tracking-wider uppercase hover:underline"
       >
-        Join Now <FaArrowRight className="text-black" size={12} />
+        Start Your Mission <FaArrowRight className="text-black" size={12} />
       </Link>
       <button
         onClick={() => setDismissed(true)}

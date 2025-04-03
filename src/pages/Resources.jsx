@@ -20,7 +20,7 @@ const Resources = () => {
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         <div className="relative h-full w-full flex justify-center lg:justify-end items-center pt-20 px-5 lg:px-20">
           <h1 className="text-yellow font-primary text-[35px] md:text-[60px] font-medium uppercase tracking-wider text-center lg:text-right">
-            Resources
+            Prepare With Purpose.
           </h1>
         </div>
       </section>
@@ -29,7 +29,7 @@ const Resources = () => {
       {/* FAQ Section */}
       <section className="w-screen px-10 py-20 lg:pt-40 lg:pb-20 flex flex-col justify-center items-center">
         <h1 className="text-yellow font-secondary text-[30px] md:text-[60px] lg:text-[90px] font-light uppercase leading-[120%] tracking-wide">
-          Frequently Asked Questions
+          What You Need to Know
         </h1>
       </section>
 
@@ -38,13 +38,14 @@ const Resources = () => {
         <header className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4 tracking-wider text-white">
           <div className="flex flex-col bg-primary px-4 py-6 md:p-10 rounded-lg shadow-lg">
             <h1 className="h2-teko text-yellow text-center mb-4">
-              What to Know Before Joining
+              No fluff. Just facts.
             </h1>
 
             {/* Added Intro */}
             <p className="text-sm lg:text-base font-thin text-white text-justify mb-6">
-              Have questions? Here are the most common things people ask before
-              signing up. If you need more details, feel free to reach out!
+              You’re not alone. Here’s what most people ask before committing to
+              the Mission. Need more details? Reach out anytime — no fluff, just
+              facts.
             </p>
 
             {faqData.map((faq, index) => (
@@ -92,24 +93,24 @@ const Resources = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {[
             {
-              title: "Article about training",
-              desc: "Here are some things you might want to know before you take the next step.",
-              link: "/",
+              title: "Training That Translates",
+              desc: "How to turn effort into operational readiness. Structured progress for real-world performance.",
+              link: "/article-training",
             },
             {
-              title: "General physical preparedness",
-              desc: "You can always reach out to us via the contact form for more specific details.",
-              link: "/",
+              title: "GPP: General Physical Preparedness",
+              desc: "Why foundational strength matters more than flashy movements. Build the base before the battle.",
+              link: "/article-gpp",
             },
             {
-              title: "Mental fortitude",
-              desc: "Developing mental strength for high-performance challenges.",
-              link: "/",
+              title: "Mental Fortitude Under Fire",
+              desc: "You don’t rise to the occasion. You fall to the level of your training. Let’s raise that level.",
+              link: "/article-mindset",
             },
             {
-              title: "Nutritional values",
-              desc: "Optimizing your nutrition for peak military performance.",
-              link: "/",
+              title: "Eat to Endure",
+              desc: "You can’t out-train poor fuel. Build a combat-ready body from the inside out.",
+              link: "/article-nutrition",
             },
           ].map((article, index) => (
             <div
@@ -135,6 +136,12 @@ const Resources = () => {
 
       {/* Social */}
       <SocialGallery />
+      <h2 className="text-yellow text-xl md:text-3xl font-secondary uppercase tracking-widest mb-10 text-center">
+        Real People. Real Progress.
+      </h2>
+      <p className="text-sm text-white italic text-center mb-4">
+        See what’s possible when commitment meets the right tools.
+      </p>
     </div>
   );
 };

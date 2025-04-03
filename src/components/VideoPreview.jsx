@@ -2,7 +2,7 @@ import React from "react";
 
 const VideoPreview = ({ videoId = "YHffzTVE_9Q" }) => {
   return (
-    <div className="w-full max-w-5xl aspect-video rounded-lg overflow-hidden border border-[#2A2A2A] shadow-xl bg-black">
+    <div className="w-full max-w-3xl aspect-video rounded-lg overflow-hidden border border-[#2A2A2A] shadow-xl bg-black">
       <iframe
         className="w-full h-full"
         src={`https://www.youtube.com/embed/${videoId}?rel=0`}

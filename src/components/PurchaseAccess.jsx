@@ -2,10 +2,13 @@
 import React, { useState } from "react";
 import Reviews from "../components/Reviews";
 import VideoPreview from "./VideoPreview";
+import QuoteBlock from "../components/QuoteBlock";
+import { useFadeIn } from "../Hooks/useFadeIn";
 
 const PurchaseAccess = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const { ref: enlistRef, visible: enlistVisible } = useFadeIn();
 
   const handleCheckout = async () => {
     setLoading(true);
@@ -44,8 +47,8 @@ const PurchaseAccess = () => {
             {/* Quote */}
             <div className="animate-slide-in-left">
               <p className="italic text-gray-500 text-sm md:text-lg font-light max-w-md">
-                "After following this program, I not only passed my selection —
-                I became the strongest and most confident version of myself."
+                "This wasn’t just a program — it rewired how I train, think, and
+                live. I didn’t just pass my selection. I became unshakable."
               </p>
               <p className="text-yellow text-xs md:text-sm mt-2 tracking-wider uppercase">
                 – Former Marine Prep Client
@@ -53,15 +56,17 @@ const PurchaseAccess = () => {
             </div>
 
             {/* Headline + Summary */}
-            <div className="space-y-4">
-              <h1 className="h1 animate-fade-in">Unlock Full Access</h1>
+            <div className="space-y-4 ">
+              <h1 className="h1 animate-fade-in">Own the Standard</h1>
               <p className="text-white text-sm md:text-base font-light max-w-md">
-                Gain lifetime access to every program, video walkthroughs,
-                weekly coaching check-ins, and our mission-tested resources.
+                Step beyond fitness. This is elite preparation — a complete
+                system to forge your body, sharpen your mind, and prepare for
+                the life few dare to lead.
               </p>
+
               <p className="text-gray-400 text-xs uppercase tracking-wider">
-                One-time payment of{" "}
-                <span className="text-yellow font-bold">€49.99</span>
+                One-time investment:{" "}
+                <span className="text-yellow font-bold">€199.00</span>
               </p>
             </div>
           </div>
@@ -132,23 +137,24 @@ const PurchaseAccess = () => {
             </h3>
             <ul className="list-none space-y-2">
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> Interactive training
-                schedule
+                <span className="text-yellow mt-1">•</span> Daily structure
+                built for results
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> Weekly check-ins
+                <span className="text-yellow mt-1">•</span> Accountability, just
+                like the real thing
               </li>
               <li className="flex gap-2 items-start">
                 <span className="text-yellow mt-1">•</span> Downloadable PDFs of
                 all programs
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> Exercise library
-                with videos & descriptions
+                <span className="text-yellow mt-1">•</span> Tactical movement
+                mastery with videos & descriptions
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> Direct messaging
-                with your coach
+                <span className="text-yellow mt-1">•</span> Real guidance, not
+                generic plans
               </li>
               <li className="flex gap-2 items-start">
                 <span className="text-yellow mt-1">•</span> Nutrition guidance
@@ -157,16 +163,36 @@ const PurchaseAccess = () => {
           </div>
         </div>
       </section>
+      <QuoteBlock
+        quote="Most never feel what it's like to earn a place in something greater. You can."
+        author="Mission Movement"
+      />
 
       {/* Video Preview */}
       <section className="w-full bg-[#101010] py-20 px-4 flex flex-col items-center">
         <h2 className="text-yellow text-xl md:text-3xl font-secondary tracking-widest uppercase mb-6 text-center">
-          Preview the Training Experience
+          A glimpse into the grind. Watch what you're stepping into.
         </h2>
-        <div className="w-full max-w-5xl md:h-[80vh] rounded-lg overflow-hidden">
-          <VideoPreview />
+        <div className="w-full flex justify-center">
+          <div className="w-full flex justify-center">
+            <div className="w-full max-w-3xl aspect-video rounded-lg overflow-hidden border border-yellow/20 shadow-xl bg-black">
+              <VideoPreview />
+            </div>
+          </div>
         </div>
       </section>
+
+      {/* CTA Quote below video */}
+      <p
+        ref={enlistRef}
+        className={`mt-16 mb-10 text-yellow text-center text-base md:text-lg tracking-wide font-secondary italic transition-all duration-1000 ease-out ${
+          enlistVisible
+            ? "opacity-100 translate-y-0 blur-0 scale-100"
+            : "opacity-0 translate-y-4 blur-sm scale-95"
+        }`}
+      >
+        “Enlist now. The mission begins the moment you commit.”
+      </p>
 
       {/* Testimonials */}
       <Reviews />

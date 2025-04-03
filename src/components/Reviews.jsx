@@ -29,7 +29,7 @@ const Reviews = () => {
 
   return (
     <section className="w-screen flex flex-col justify-center items-center p-10 text-justify">
-      <h2 className="h1-teko text-center py-20">SUCCESS STORIES</h2>
+      <h2 className="h1-teko text-center py-20">Those Who’ve Earned It</h2>
 
       {/* Swipeable Scrollable Reviews */}
       <div

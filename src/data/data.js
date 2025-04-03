@@ -102,35 +102,43 @@ export const programDetails = [
 
 export const reviews = [
   {
-    name: "Hendriks, J",
-    text: "As a seasoned coach for nine years, Justin amalgamates military precision with coaching beyond conventional training, advocating a holistic approach to fitness, integrating mountain climbs, surfing, and gym sessions for a well-rounded experience.",
+    name: "Luc, V",
+    text: "I never thought online coaching could get this real. The discipline I’ve built here rivals what I saw in active duty.",
   },
   {
-    name: "V.D Werf, J",
-    text: "Justin's mission is to help you reach your full potential and achieve your dreams of serving in the military. He provides the tools and training you need to succeed, physically and mentally.",
+    name: "Milan, V",
+    text: "Every session felt like it had purpose. I didn’t just get fitter — I found direction again.",
   },
   {
-    name: "Trommels, E",
-    text: "Efficient, expertly designed training. A 6-week program covering military basics, fitness, nutrition, mental health, and key subjects like mobility, breathwork, and endurance for comprehensive preparation.",
+    name: "Jules, J",
+    text: "This program pushed me mentally harder than any gym routine ever has. It made me feel ready to serve again.",
   },
   {
-    name: "Eline, T",
-    text: "Efficient, expertly designed training. A 6-week program covering military basics, fitness, nutrition, mental health, and key subjects like mobility, breathwork, and endurance for comprehensive preparation.",
+    name: "Daan, K",
+    text: "There’s no fluff. Just structure, intensity, and results. I came here to prepare — I left transformed.",
   },
   {
-    name: "Hendriks, J",
-    text: "As a seasoned coach for nine years, Justin amalgamates military precision with coaching beyond conventional training, advocating a holistic approach to fitness, integrating mountain climbs, surfing, and gym sessions for a well-rounded experience.",
+    name: "Bo, L",
+    text: "I was doubting if I still had it in me. This proved I did. And more.",
   },
   {
-    name: "V.D Werf, J",
-    text: "Justin's mission is to help you reach your full potential and achieve your dreams of serving in the military. He provides the tools and training you need to succeed, physically and mentally.",
+    name: "Jules, L",
+    text: "I joined looking for strength. What I found was identity, discipline, and a new fire.",
   },
   {
-    name: "Trommels, E",
-    text: "Efficient, expertly designed training. A 6-week program covering military basics, fitness, nutrition, mental health, and key subjects like mobility, breathwork, and endurance for comprehensive preparation.",
+    name: "Milan, H",
+    text: "After just two weeks, I realized this was unlike anything I’d trained with before. It’s built different.",
   },
   {
-    name: "Eline, T",
-    text: "Efficient, expertly designed training. A 6-week program covering military basics, fitness, nutrition, mental health, and key subjects like mobility, breathwork, and endurance for comprehensive preparation.",
+    name: "Liam, K",
+    text: "My confidence is back. My body’s sharper. My mindset’s dialed in. That’s what Mission Movement gave me.",
+  },
+  {
+    name: "Tom, R",
+    text: "The coaching speaks to who you want to become. It’s more than reps and sets — it’s a mentality shift.",
+  },
+  {
+    name: "Bo, B",
+    text: "I’ve trained CrossFit, group classes, military — nothing came close to this level of clarity and challenge.",
   },
 ];
