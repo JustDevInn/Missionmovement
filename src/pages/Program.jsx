@@ -10,6 +10,7 @@ import Reviews from "../components/Reviews";
 import { Link } from "react-router-dom";
 import TrainerCard from "../components/TrainerCard";
 import QuoteBlock from "../components/QuoteBlock";
+import { Helmet } from "react-helmet-async";
 
 const Bundle = "/img/bundle.png";
 
@@ -38,6 +39,28 @@ const Program = () => {
 
   return (
     <div className="pt-10">
+      <Helmet>
+        <title>About | Mission Movement</title>
+        <meta
+          name="description"
+          content="Discover the story behind Mission Movement and the journey from elite forces to elite coaching."
+        />
+        <meta property="og:title" content="About Mission Movement" />
+        <meta
+          property="og:description"
+          content="From the Royal Marines to the modern warrior — this is our story."
+        />
+        <meta
+          property="og:image"
+          content="https://missionmovement.vercel.app/img/milprep.png"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          property="og:url"
+          content="https://missionmovement.vercel.app/about"
+        />
+      </Helmet>
       {/* Hero section (unchanged) */}
       <section className="section flex flex-col justify-center items-start md:mb-20">
         <div className="flex flex-col justify-start items-start pl-20 lg:pl-60">

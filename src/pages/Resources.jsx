@@ -5,6 +5,7 @@ import { faqData } from "../data/data.js";
 // Icons
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import FloatingCTA from "../components/FloatingCTA.jsx";
+import { Helmet } from "react-helmet-async";
 
 const Resources = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -14,6 +15,29 @@ const Resources = () => {
 
   return (
     <div className="pt-10">
+      <Helmet>
+        <title>Resources | Mission Movement</title>
+        <meta
+          name="description"
+          content="Explore expert guidance, training articles, and resources built to prepare you for real-world demands."
+        />
+        <meta property="og:title" content="Mission Movement Resources" />
+        <meta
+          property="og:description"
+          content="Level up with curated knowledge, FAQs, and tactical insights from the field."
+        />
+        <meta
+          property="og:image"
+          content="https://missionmovement.vercel.app/img/preparewithpurpose.png"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          property="og:url"
+          content="https://missionmovement.vercel.app/resources"
+        />
+      </Helmet>
+
       {/* Resources */}
       <section className="section flex justify-center items-center bg-hlo bg-center bg-no-repeat bg-cover relative bg-fixed">
         {/* Background Overlay for Better Readability */}

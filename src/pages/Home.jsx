@@ -4,6 +4,7 @@ import FloatingCTA from "../components/FloatingCTA";
 import { useInView } from "../Hooks/useGlowEffect";
 import QuoteBlock from "../components/QuoteBlock";
 import VideoPreview from "../components/VideoPreview";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const { ref, isVisible } = useInView();
@@ -18,6 +19,26 @@ const Home = () => {
 
   return (
     <div className="pt-20 md:pt-0">
+      <Helmet>
+        <title>Mission Movement | Elite Military Prep Training</title>
+        <meta
+          name="description"
+          content="Train with structure, discipline, and purpose. Mission Movement prepares you for the world of elite forces — physically, mentally, and emotionally."
+        />
+        <meta property="og:title" content="Mission Movement" />
+        <meta
+          property="og:description"
+          content="A complete system to forge your body, sharpen your mind, and prepare for the life few dare to lead."
+        />
+        <meta
+          property="og:image"
+          content="https://missionmovement.vercel.app/img/milprepcourse.png"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:url" content="https://missionmovement.vercel.app" />
+      </Helmet>
+
       {/* Hero */}
       <header
         className="section flex justify-center items-center bg-royalmarine bg-bottom bg-no-repeat bg-cover relative "

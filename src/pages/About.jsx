@@ -1,10 +1,33 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import FloatingCTA from "../components/FloatingCTA";
+import { Helmet } from "react-helmet-async";
 
 const About = () => {
   return (
     <div className="pt-10">
+      <Helmet>
+        <title>About | Mission Movement</title>
+        <meta
+          name="description"
+          content="Discover the story behind Mission Movement and the journey from elite forces to elite coaching."
+        />
+        <meta property="og:title" content="About Mission Movement" />
+        <meta
+          property="og:description"
+          content="From the Royal Marines to the modern warrior — this is our story."
+        />
+        <meta
+          property="og:image"
+          content="https://missionmovement.vercel.app/img/thestory.png"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          property="og:url"
+          content="https://missionmovement.vercel.app/about"
+        />
+      </Helmet>
       {/* Hero Section: The Story */}
       <section
         className="relative section flex justify-center items-center bg-parajumping bg-bottom bg-no-repeat bg-cover"

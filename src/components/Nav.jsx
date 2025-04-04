@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { FaUser, FaPlus, FaMinus } from "react-icons/fa";
+import { FaPlus, FaMinus } from "react-icons/fa";
 import { Link as RouterLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { MdClose } from "react-icons/md";
@@ -113,7 +113,7 @@ const Nav = () => {
                   links: [{ title: "Program", path: "/program" }],
                 },
                 {
-                  name: "Multimedia",
+                  name: "Resources",
                   links: [
                     { title: "Resources", path: "/resources" },
                     {
@@ -309,7 +309,7 @@ const Nav = () => {
                 {/* Multimedia Section */}
                 <div>
                   <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">
-                    Multimedia
+                    Resources
                   </h3>
                   <div className="border-t border-gray-400 w-20 my-2"></div>
                   <RouterLink

@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import ScrollToTop from './utils/ScrollToTop';
+import { HelmetProvider } from "react-helmet-async";
 
 // Components
 import Nav from './components/Nav';
@@ -127,11 +128,14 @@ const MainRoutes = () => {
 const App = () => {
   return (
     <AuthProvider>
-      <Router>
-        <MainRoutes />
-      </Router>
+      <HelmetProvider>
+        <Router>
+          <MainRoutes />
+        </Router>
+      </HelmetProvider>
     </AuthProvider>
   );
 };
+
 
 export default App;

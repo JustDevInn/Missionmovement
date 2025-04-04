@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FloatingCTA from "../components/FloatingCTA";
 import Spinner from "../components/Spinner";
+import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
   const [loading, setLoading] = useState(false);
@@ -11,6 +12,29 @@ const Contact = () => {
 
   return (
     <div className="pt-10">
+      <Helmet>
+        <title>Contact | Mission Movement</title>
+        <meta
+          name="description"
+          content="Reach out to Mission Movement. Ask questions, get support, and take the first step toward elite-level preparation."
+        />
+        <meta property="og:title" content="Contact Mission Movement" />
+        <meta
+          property="og:description"
+          content="Report in. We’re here to support your mission."
+        />
+        <meta
+          property="og:image"
+          content="https://missionmovement.vercel.app/img/contactus.png"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          property="og:url"
+          content="https://missionmovement.vercel.app/contact"
+        />
+      </Helmet>
+
       {/* Hero Section */}
       <section className="section flex justify-center items-center bg-takethestep bg-center bg-no-repeat bg-cover relative bg-fixed">
         <div className="absolute inset-0 bg-black/50"></div>

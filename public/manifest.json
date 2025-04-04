@@ -1,9 +1,20 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "start_url": ".",
+  "short_name": "Mission",
+  "name": "Mission Movement",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48 72x72 96x96 144x144 192x192 512x512",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/fingerprintlogo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
-

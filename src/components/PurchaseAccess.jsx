@@ -4,6 +4,7 @@ import Reviews from "../components/Reviews";
 import VideoPreview from "./VideoPreview";
 import QuoteBlock from "../components/QuoteBlock";
 import { useFadeIn } from "../Hooks/useFadeIn";
+import { Helmet } from "react-helmet-async";
 
 const PurchaseAccess = () => {
   const [loading, setLoading] = useState(false);
@@ -39,6 +40,34 @@ const PurchaseAccess = () => {
 
   return (
     <>
+      <Helmet>
+        <title>6-Week Military Prep Program | Mission Movement</title>
+        <meta
+          name="description"
+          content="Access the complete 6-week program designed for military preparation. Strength, mindset, swimming, recovery, and more — built by a former Royal Marine."
+        />
+        <meta
+          property="og:title"
+          content="6-Week Military Prep Program | Mission Movement"
+        />
+        <meta
+          property="og:description"
+          content="Elite-level preparation. Physical, mental, and tactical training based on real military experience."
+        />
+        <meta
+          property="og:image"
+          content="https://missionmovement.vercel.app/img/mmvmtlogo.png"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          property="og:url"
+          content="https://missionmovement.vercel.app/pricing"
+        />
+        <meta property="og:type" content="product" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+
       {/* Purchase Section */}
       <section className="min-h-[calc(100vh-80px)] bg-[#121212] pt-24 md:pt-3 px-6 md:px-10 flex flex-col items-center">
         <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
