@@ -1,40 +1,12 @@
 import React, { useState } from "react";
 import FloatingCTA from "../components/FloatingCTA";
 import Spinner from "../components/Spinner";
-import { functions } from "../firebase";
-import { httpsCallable } from "firebase/functions";
 
 const Contact = () => {
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    const form = e.target;
-    const formData = {
-      name: form.name.value,
-      email: form.email.value,
-      subject: form.subject.value,
-      message: form.message.value,
-    };
-
-    try {
-      const sendEmail = httpsCallable(functions, "sendContactEmail");
-      const res = await sendEmail(formData);
-      console.log("Email sent:", res.data);
-
-      // Optional: Reset form
-      form.reset();
-
-      // Optional: Show custom success message
-      alert("Your message was sent successfully!");
-    } catch (error) {
-      console.error("Email sending failed:", error);
-      alert("Something went wrong. Please try again later.");
-    } finally {
-      setLoading(false);
-    }
+  const handleSubmit = () => {
+    setLoading(true); // Just show spinner while submitting
   };
 
   return (
@@ -51,7 +23,7 @@ const Contact = () => {
 
       <FloatingCTA />
 
-      {/* Take the First Step */}
+      {/* Step Section */}
       <section className="w-full px-5 sm:px-10 lg:px-20 py-20 flex flex-col justify-center items-center">
         <h1 className="text-yellow font-secondary text-[35px] md:text-[70px] uppercase leading-[120%] tracking-wide font-extralight mb-6 text-center">
           This Is the First Move
@@ -68,7 +40,13 @@ const Contact = () => {
             Send Your Signal
           </h2>
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-y-6">
+          <form
+            action="https://getform.io/f/19890081-7383-4319-832f-c7a6294b1408"
+            method="POST"
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-y-6"
+            autoComplete="off"
+          >
             {/* Name & Email */}
             <div className="flex flex-col md:flex-row gap-6">
               <input
@@ -76,14 +54,14 @@ const Contact = () => {
                 name="name"
                 placeholder="Your name"
                 required
-                className="bg-transparent border-b border-b-brown rounded-md h-[50px] outline-none font-light w-full px-3 placeholder:text-brown text-white focus:border-yellow focus:ring-1 focus:ring-yellow transition duration-200"
+                className="bg-transparent border-b border-b-brown rounded-md h-[50px] outline-none font-light w-full px-3 placeholder:text-brown text-white focus:border-yellow focus:ring-1 focus:ring-yellow transition duration-200 autofill:!bg-black autofill:!text-white"
               />
               <input
                 type="email"
                 name="email"
                 placeholder="Email address"
                 required
-                className="bg-transparent border-b border-b-brown rounded-md h-[50px] outline-none font-light w-full px-3 placeholder:text-brown text-white focus:border-yellow focus:ring-1 focus:ring-yellow transition duration-200"
+                className="bg-transparent border-b border-b-brown rounded-md h-[50px] outline-none font-light w-full px-3 placeholder:text-brown text-white focus:border-yellow focus:ring-1 focus:ring-yellow transition duration-200 autofill:!bg-black autofill:!text-white"
               />
             </div>
 
@@ -93,7 +71,7 @@ const Contact = () => {
               name="subject"
               placeholder="Subject"
               required
-              className="bg-transparent border-b border-b-brown rounded-md h-[50px] outline-none font-light w-full px-3 placeholder:text-brown text-white focus:border-yellow focus:ring-1 focus:ring-yellow transition duration-200"
+              className="bg-transparent border-b border-b-brown rounded-md h-[50px] outline-none font-light w-full px-3 placeholder:text-brown text-white focus:border-yellow focus:ring-1 focus:ring-yellow transition duration-200 autofill:!bg-black autofill:!text-white"
             />
 
             {/* Message */}
@@ -101,10 +79,10 @@ const Contact = () => {
               name="message"
               placeholder="Type your message..."
               required
-              className="bg-transparent border-b border-b-brown rounded-md h-[150px] outline-none font-light w-full px-3 placeholder:text-brown text-white focus:border-yellow focus:ring-1 focus:ring-yellow transition duration-200 resize-none"
+              className="bg-transparent border-b border-b-brown rounded-md h-[150px] outline-none font-light w-full px-3 placeholder:text-brown text-white focus:border-yellow focus:ring-1 focus:ring-yellow transition duration-200 resize-none autofill:!bg-black autofill:!text-white"
             />
 
-            {/* Submit */}
+            {/* Submit Button */}
             <button
               type="submit"
               disabled={loading}
@@ -119,6 +97,7 @@ const Contact = () => {
               )}
             </button>
           </form>
+
           <p className="text-center text-xs text-gray-500 mt-6">
             No spam. No automation. Just a real response from our team.
           </p>

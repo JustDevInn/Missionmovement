@@ -44,6 +44,24 @@ const PurchaseAccess = () => {
         <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left Column */}
           <div className="flex flex-col gap-8">
+            {/* Headline + Summary */}
+            <div className="space-y-4 ">
+              <h1 className="h1 animate-fade-in">
+                FULL PROGRAM ACCESS — 6 WEEKS
+              </h1>
+              <p className="text-white text-sm md:text-base font-light max-w-md">
+                Train with purpose. This 6-week course is built to prepare you
+                physically and mentally for military selection — or any
+                challenge that demands discipline, resilience, and strength.
+                Includes complete strength & conditioning, swimming, running,
+                mindset work, and recovery protocols.
+              </p>
+
+              <p className="text-gray-400 text-xs uppercase tracking-wider">
+                One-time investment:{" "}
+                <span className="text-yellow font-bold">€199,-</span>
+              </p>
+            </div>
             {/* Quote */}
             <div className="animate-slide-in-left">
               <p className="italic text-gray-500 text-sm md:text-lg font-light max-w-md">
@@ -52,21 +70,6 @@ const PurchaseAccess = () => {
               </p>
               <p className="text-yellow text-xs md:text-sm mt-2 tracking-wider uppercase">
                 – Former Marine Prep Client
-              </p>
-            </div>
-
-            {/* Headline + Summary */}
-            <div className="space-y-4 ">
-              <h1 className="h1 animate-fade-in">Own the Standard</h1>
-              <p className="text-white text-sm md:text-base font-light max-w-md">
-                Step beyond fitness. This is elite preparation — a complete
-                system to forge your body, sharpen your mind, and prepare for
-                the life few dare to lead.
-              </p>
-
-              <p className="text-gray-400 text-xs uppercase tracking-wider">
-                One-time investment:{" "}
-                <span className="text-yellow font-bold">€199.00</span>
               </p>
             </div>
           </div>
