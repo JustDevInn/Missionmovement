@@ -299,9 +299,17 @@ const Program = () => {
             className="h-[400px] w-[250px]"
           />
           <div className="flex justify-center items-center mt-10">
-            <Link to="/pricing">
+            {/* Desktop Button */}
+            <Link to="/pricing" className="hidden md:block">
               <button className="btn-lg !min-w-0 !h-auto px-10 py-4 text-center whitespace-nowrap">
                 Enrol — You Know Why You’re Here
+              </button>
+            </Link>
+
+            {/* Mobile Button */}
+            <Link to="/pricing" className="block md:hidden">
+              <button className="btn-lg !min-w-0 !h-auto px-6 py-3 text-center whitespace-nowrap">
+                Enrol
               </button>
             </Link>
           </div>
