@@ -11,6 +11,7 @@ import {
   FaChevronRight,
   FaListAlt,
   FaComments,
+  FaAlignJustify,
 } from "react-icons/fa";
 
 const AdminSidebar = ({ isCollapsed, setIsCollapsed }) => {
@@ -33,6 +34,12 @@ const AdminSidebar = ({ isCollapsed, setIsCollapsed }) => {
       label: "Upload Program",
       icon: <FaUpload />,
     },
+    {
+      path: "/admin/manage-blog",
+      label: "Manage Blog",
+      icon: <FaAlignJustify />,
+    },
+    { path: "/admin/upload-blog", label: "Upload Blog", icon: <FaUpload /> },
     { path: "/admin/messagesadmin", label: "Messages", icon: <FaComments /> },
   ];
 

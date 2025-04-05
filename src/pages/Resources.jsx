@@ -60,6 +60,7 @@ const Resources = () => {
       {/* FAQ container */}
       <section className="w-full px-4 sm:px-6 md:px-10 lg:px-20">
         <header className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4 tracking-wider text-white">
+          {/* FAQ Content */}
           <div className="flex flex-col bg-primary px-4 py-6 md:p-10 rounded-lg shadow-lg">
             <h1 className="h2-teko text-yellow text-center mb-4">
               No fluff. Just facts.
@@ -105,54 +106,92 @@ const Resources = () => {
               </div>
             ))}
           </div>
+          {/* Matching Image */}
+          <div className="relative w-full h-full rounded-lg shadow-lg overflow-hidden">
+            <img
+              src="/img/toepad120.jpg"
+              alt="Training Footage"
+              className="w-full h-full object-cover"
+            />
+            {/* Dark overlay */}
+            <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+          </div>
         </header>
       </section>
+
       {/* ARTICLES's */}
       <section className="w-screen px-10 py-20 lg:pt-40 lg:pb-20 flex flex-col justify-center items-center">
         <h1 className="h1-teko">Articles</h1>
       </section>
-      {/* article container */}
       {/* Article Container */}
       <section className="w-full px-4 sm:px-6 md:px-10 lg:px-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
             {
               title: "Training That Translates",
-              desc: "How to turn effort into operational readiness. Structured progress for real-world performance.",
-              link: "/article-training",
+              summary:
+                "How to turn effort into operational readiness. Structured progress for real-world performance.",
+              author: "Justin P",
+              date: "05 Apr 2025",
+              slug: "training-that-translates",
+              pinned: false,
+              thumbnail: "/img/blog-thumbnails/training-translates.jpg", // Replace with actual path
             },
             {
               title: "GPP: General Physical Preparedness",
-              desc: "Why foundational strength matters more than flashy movements. Build the base before the battle.",
-              link: "/article-gpp",
+              summary:
+                "Why foundational strength matters more than flashy movements. Build the base before the battle.",
+              author: "Justin P",
+              date: "05 Apr 2025",
+              slug: "gpp-general-physical-preparedness",
+              pinned: true,
+              thumbnail: "/img/blog-thumbnails/gpp.jpg",
             },
             {
               title: "Mental Fortitude Under Fire",
-              desc: "You don’t rise to the occasion. You fall to the level of your training. Let’s raise that level.",
-              link: "/article-mindset",
+              summary:
+                "You don’t rise to the occasion. You fall to the level of your training. Let’s raise that level.",
+              author: "Justin P",
+              date: "06 Apr 2025",
+              slug: "mental-fortitude-under-fire",
+              pinned: false,
+              thumbnail: "/img/blog-thumbnails/mental-fortitude.jpg",
             },
             {
               title: "Eat to Endure",
-              desc: "You can’t out-train poor fuel. Build a combat-ready body from the inside out.",
-              link: "/article-nutrition",
+              summary:
+                "You can’t out-train poor fuel. Build a combat-ready body from the inside out.",
+              author: "Justin P",
+              date: "05 Apr 2025",
+              slug: "eat-to-endure",
+              pinned: false,
+              thumbnail: "/img/blog-thumbnails/eat-to-endure.jpg",
             },
-          ].map((article, index) => (
+          ].map((blog, index) => (
             <div
               key={index}
-              className="p-6 bg-primary rounded-lg shadow-lg hover:scale-[1.02] transition-all duration-300"
+              className="bg-primary rounded-xl overflow-hidden shadow-lg hover:scale-[1.02] transition-transform duration-300"
             >
-              <h2 className="mb-3 text-brown font-secondary text-[25px] md:text-[40px] font-light uppercase leading-[120%] tracking-wide">
-                {article.title}
-              </h2>
-              <p className="text-white text-sm lg:text-lg font-thin tracking-wider mb-5">
-                {article.desc}
-              </p>
-              <a
-                href={article.link}
-                className="inline-block mt-5 bg-yellow text-black px-4 py-2 text-sm font-bold uppercase tracking-wider hover:bg-transparent hover:text-yellow border border-yellow transition duration-300"
-              >
-                Read More
-              </a>
+              <img
+                src={blog.thumbnail}
+                alt={blog.title}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-4 space-y-2">
+                <h2 className="text-yellow text-lg font-bold uppercase">
+                  {blog.title}
+                </h2>
+                <p className="text-sm italic text-gray-400">
+                  by {blog.author} • {blog.date}
+                </p>
+                <p className="text-white text-sm">{blog.summary}</p>
+                <a
+                  href={`/blogs/${blog.slug}`}
+                  className="inline-block mt-3 bg-yellow text-black font-bold text-sm px-4 py-2 uppercase tracking-wide hover:bg-transparent hover:text-yellow border border-yellow transition-all"
+                >
+                  Read More →
+                </a>
+              </div>
             </div>
           ))}
         </div>

@@ -226,7 +226,7 @@ const Home = () => {
             </p>
             <div className="w-full flex justify-start">
               <Link to="about">
-                <button className="btn md:btn-lg my-5">about</button>
+                <button className="btn md:btn-lg my-5">More..</button>
               </Link>
             </div>
           </div>
@@ -253,6 +253,11 @@ const Home = () => {
               fitness to mental resilience. Step into a rigorous curriculum
               tailored to equip you with the skills and mindset for success.
             </p>
+            <div className="w-full flex justify-start">
+              <Link to="program">
+                <button className="btn md:btn-lg my-5">Program</button>
+              </Link>
+            </div>
           </div>
         </article>
 
@@ -312,7 +317,7 @@ const Home = () => {
               Few get to live this. Fewer still earn it.
             </p>
 
-            <Link to="/program">
+            <Link to="/pricing">
               <button className="btn lg:btn-lg my-7 md:my-10">enrol</button>
             </Link>
           </div>

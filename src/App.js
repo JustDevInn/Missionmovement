@@ -19,6 +19,7 @@ import Signup from './pages/Signup';
 import Success from './pages/Success';
 import Cancel from './pages/Cancel';
 import Blogs from './pages/Blogs.jsx';
+import SingleBlog from './pages/blogs/SingleBlog';
 
 // Auth
 import { AuthProvider } from "./context/AuthContext";
@@ -46,6 +47,8 @@ import ManageUsers from "./admin/ManageUsers";
 import ManageTrainingProgram from './admin/ManageTrainingProgram';
 import UploadTrainingProgram from './admin/UploadTrainingProgram';
 import MessagesAdmin from './admin/MessagesAdmin.jsx';
+import UploadBlog from './admin/UploadBlog.jsx';
+import ManageBlog from './admin/ManageBlog.jsx';
 
 // Layout
 import DashboardLayout from "./layouts/DashboardLayout";
@@ -95,6 +98,8 @@ const MainRoutes = () => {
   <Route path="manage-users" element={<ManageUsers />} />
   <Route path="manage-program" element={<ManageTrainingProgram />} />
   <Route path="upload-program" element={<UploadTrainingProgram />} />
+  <Route path="manage-blog" element={<ManageBlog />} />
+  <Route path="upload-blog" element={<UploadBlog />} />
   <Route path="messagesadmin" element={<MessagesAdmin />} />
 </Route>
 
@@ -109,6 +114,7 @@ const MainRoutes = () => {
         <Route path="/about" element={<About />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blogs/:slug" element={<SingleBlog />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/login" element={<Login />} />
