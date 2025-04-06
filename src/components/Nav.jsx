@@ -102,15 +102,15 @@ const Nav = () => {
               {[
                 {
                   name: "About",
-                  links: [
-                    { title: "Who We Are", path: "/about" },
-                    // { title: "What is Mission Movement?", path: "/mission" },
-                  ],
+                  links: [{ title: "Our story", path: "/about" }],
                 },
-                { name: "News", links: [{ title: "Blog", path: "/blogs" }] },
                 {
                   name: "Program",
                   links: [{ title: "Program", path: "/program" }],
+                },
+                {
+                  name: "Articles",
+                  links: [{ title: "Articles", path: "/blogs" }],
                 },
                 {
                   name: "Resources",
@@ -124,12 +124,12 @@ const Nav = () => {
                   ],
                 },
                 {
-                  name: "Contact",
-                  links: [{ title: "Get in Touch", path: "/contact" }],
-                },
-                {
                   name: "Pricing",
                   links: [{ title: "View Pricing", path: "/pricing" }],
+                },
+                {
+                  name: "Contact",
+                  links: [{ title: "Get in Touch", path: "/contact" }],
                 },
               ].map(({ name, links }) => (
                 <div key={name}>
@@ -262,29 +262,7 @@ const Nav = () => {
                     className="block text-gray-300 hover:text-yellow py-1"
                     onClick={() => setNav(false)}
                   >
-                    Who are we?
-                  </RouterLink>
-                  <RouterLink
-                    to="/mission"
-                    className="block text-gray-300 hover:text-yellow py-1"
-                    onClick={() => setNav(false)}
-                  >
-                    What is Mission Movement?
-                  </RouterLink>
-                </div>
-
-                {/* News Section */}
-                <div>
-                  <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">
-                    News
-                  </h3>
-                  <div className="border-t border-gray-400 w-20 my-2"></div>
-                  <RouterLink
-                    to="/blogs"
-                    className="block text-gray-300 hover:text-yellow py-1"
-                    onClick={() => setNav(false)}
-                  >
-                    Blog
+                    Our story
                   </RouterLink>
                 </div>
 
@@ -300,6 +278,21 @@ const Nav = () => {
                     onClick={() => setNav(false)}
                   >
                     Program Details
+                  </RouterLink>
+                </div>
+
+                {/* News Section */}
+                <div>
+                  <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">
+                    Articles
+                  </h3>
+                  <div className="border-t border-gray-400 w-20 my-2"></div>
+                  <RouterLink
+                    to="/blogs"
+                    className="block text-gray-300 hover:text-yellow py-1"
+                    onClick={() => setNav(false)}
+                  >
+                    Articles
                   </RouterLink>
                 </div>
               </div>
@@ -330,6 +323,21 @@ const Nav = () => {
                   </a>
                 </div>
 
+                {/* Pricing Section */}
+                <div>
+                  <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">
+                    Pricing
+                  </h3>
+                  <div className="border-t border-gray-400 w-20 my-2"></div>
+                  <RouterLink
+                    to="/pricing"
+                    className="block text-gray-300 hover:text-yellow py-1"
+                    onClick={() => setNav(false)}
+                  >
+                    Pricing
+                  </RouterLink>
+                </div>
+
                 {/* Get in Contact Section */}
                 <div>
                   <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">
@@ -342,21 +350,6 @@ const Nav = () => {
                     onClick={() => setNav(false)}
                   >
                     Contact Us
-                  </RouterLink>
-                </div>
-
-                {/* Pricing Section */}
-                <div>
-                  <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">
-                    Pricing
-                  </h3>
-                  <div className="border-t border-gray-400 w-20 my-2"></div>
-                  <RouterLink
-                    to="/pricing"
-                    className="block text-gray-300 hover:text-yellow py-1"
-                    onClick={() => setNav(false)}
-                  >
-                    View Pricing
                   </RouterLink>
                 </div>
               </div>
