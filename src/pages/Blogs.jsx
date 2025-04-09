@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Spinner from "../components/Spinner";
 import { format } from "date-fns";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -101,18 +102,25 @@ const Blogs = () => {
             setCurrentPage(1);
           }}
         />
-        <select
-          value={sortBy}
-          onChange={(e) => setSortBy(e.target.value)}
-          className="px-4 py-2 bg-black border border-yellow text-yellow rounded text-sm"
-        >
-          <option value="newest">Sort: Newest</option>
-          <option value="title">Sort: Title (A-Z)</option>
-        </select>
+        <div className="relative">
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value)}
+            className="appearance-none px-4 py-2 pr-6 bg-black border border-yellow text-yellow rounded text-sm w-full"
+          >
+            <option value="newest">Sort: Newest</option>
+            <option value="title">Sort: Title (A-Z)</option>
+          </select>
+
+          {/* Custom arrow */}
+          <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-yellow text-sm">
+            <MdKeyboardArrowDown />
+          </div>
+        </div>
       </div>
 
-      {/* Horizontal Tag Filter */}
-      <div className="overflow-x-auto whitespace-nowrap hide-scrollbar mb-6 pb-2 border-b border-yellow">
+      {/* Tag Filter */}
+      <div className="overflow-x-auto whitespace-nowrap hide-scrollbar mb-10 pb-2 border-b border-yellow">
         <div className="inline-flex gap-2">
           {allTags.map((tag) => (
             <button
@@ -143,15 +151,15 @@ const Blogs = () => {
           {currentBlogs.map((blog) => (
             <div
               key={blog.id}
-              className="bg-primary rounded-xl shadow-md hover:scale-[1.02] transition-transform"
+              className="bg-primary rounded-xl shadow-md hover:scale-[1.02] transition-transform flex flex-col"
             >
               <img
                 src={blog.thumbnail}
                 alt={blog.title}
                 className="rounded-t-xl h-48 w-full object-cover"
               />
-              <div className="p-6 flex flex-col gap-3">
-                <div className="flex items-center justify-between">
+              <div className="p-6 flex flex-col flex-grow">
+                <div className="flex items-center justify-between mb-2">
                   <h2 className="text-yellow text-xl font-bold uppercase tracking-wider">
                     {blog.title}
                   </h2>
@@ -162,7 +170,7 @@ const Blogs = () => {
                   )}
                 </div>
 
-                <p className="text-white text-sm italic">
+                <p className="text-white text-sm italic mb-2">
                   by {blog.author} •{" "}
                   {blog.createdAt?.seconds &&
                     format(
@@ -171,15 +179,18 @@ const Blogs = () => {
                     )}
                 </p>
 
-                <p className="text-white text-sm font-light leading-relaxed line-clamp-3">
+                <p className="text-white text-sm font-light leading-relaxed line-clamp-3 mb-6">
                   {blog.summary}
                 </p>
-                <Link
-                  to={`/blogs/${blog.slug}`}
-                  className="text-sm text-black bg-yellow font-bold tracking-wide px-4 py-2 w-max uppercase hover:bg-transparent hover:text-yellow border border-yellow transition-all"
-                >
-                  Read More →
-                </Link>
+
+                <div className="mt-auto">
+                  <Link
+                    to={`/blogs/${blog.slug}`}
+                    className="text-sm text-black bg-yellow font-bold tracking-wide px-4 py-2 w-max uppercase hover:bg-transparent hover:text-yellow border border-yellow transition-all"
+                  >
+                    Read More →
+                  </Link>
+                </div>
               </div>
             </div>
           ))}

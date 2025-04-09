@@ -197,7 +197,7 @@ const SingleBlog = () => {
         </p>
         <Link
           to="/program"
-          className="mb-16 inline-block bg-yellow text-black font-bold px-6 py-3 rounded-full uppercase tracking-wider hover:bg-transparent hover:text-yellow border border-yellow transition"
+          className="mb-16 inline-block bg-yellow text-black font-bold px-6 py-3 uppercase tracking-wider hover:bg-transparent hover:text-yellow border border-yellow transition"
         >
           See Training Program →
         </Link>

@@ -27,7 +27,7 @@ ChartJS.register(
 const Progress = () => {
   const { user, hasPaid } = useAuth();
   const [loading, setLoading] = useState(true);
-  const [progressData, setProgressData] = useState({});
+  // const [progressData, setProgressData] = useState({});
   const [startingScores, setStartingScores] = useState({});
   const [editMode, setEditMode] = useState(false);
   const [scoresDraft, setScoresDraft] = useState({});
@@ -85,7 +85,7 @@ const Progress = () => {
           });
         }
 
-        setProgressData(training);
+        // setProgressData(training);
         setStartingScores(scores);
         setScoresDraft(scores);
         setSavedAt(timestamp?.toDate());
