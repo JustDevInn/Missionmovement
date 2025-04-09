@@ -18,8 +18,7 @@ const QuoteBlock = ({ quote, author }) => {
 
 export default QuoteBlock;
 
-{
-  /* <section className="py-20 bg-[#101010]">
+/* <section className="py-20 bg-[#101010]">
   <h2 className="text-yellow text-center text-2xl md:text-4xl font-secondary uppercase mb-10">
     Words to Live By
   </h2>
@@ -42,4 +41,3 @@ export default QuoteBlock;
     />
   </div>
 </section> */
-}

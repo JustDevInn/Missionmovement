@@ -54,7 +54,6 @@ const Blogs = () => {
       const matchesSearch =
         blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         blog.summary.toLowerCase().includes(searchTerm.toLowerCase());
-
       return matchesTag && matchesSearch;
     })
     .sort((a, b) => {
@@ -84,19 +83,6 @@ const Blogs = () => {
           name="description"
           content="Explore tactical training articles, real-world lessons, and expert insights from Mission Movement."
         />
-        <meta property="og:title" content="Blog | Mission Movement" />
-        <meta
-          property="og:description"
-          content="Level up your training with elite tactical articles and proven methods."
-        />
-        <meta
-          property="og:image"
-          content="https://missionmovement.vercel.app/img/preparewithpurpose.png"
-        />
-        <meta
-          property="og:url"
-          content="https://missionmovement.vercel.app/blogs"
-        />
       </Helmet>
 
       <h1 className="h1-teko text-yellow text-center mb-10 uppercase">
@@ -115,7 +101,6 @@ const Blogs = () => {
             setCurrentPage(1);
           }}
         />
-
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
@@ -126,24 +111,26 @@ const Blogs = () => {
         </select>
       </div>
 
-      {/* Tag Filter */}
-      <div className="flex flex-wrap gap-3 mb-10 justify-center">
-        {allTags.map((tag) => (
-          <button
-            key={tag}
-            onClick={() => {
-              setSelectedTag(tag);
-              setCurrentPage(1);
-            }}
-            className={`uppercase px-4 py-2 text-sm border rounded-full transition-all ${
-              selectedTag === tag
-                ? "bg-yellow text-black font-bold"
-                : "border-yellow text-yellow hover:bg-yellow hover:text-black"
-            }`}
-          >
-            {tag}
-          </button>
-        ))}
+      {/* Horizontal Tag Filter */}
+      <div className="overflow-x-auto whitespace-nowrap hide-scrollbar mb-6 pb-2 border-b border-yellow">
+        <div className="inline-flex gap-2">
+          {allTags.map((tag) => (
+            <button
+              key={tag}
+              onClick={() => {
+                setSelectedTag(tag);
+                setCurrentPage(1);
+              }}
+              className={`uppercase px-4 py-1 text-xs md:text-sm border rounded-full transition-all whitespace-nowrap ${
+                selectedTag === tag
+                  ? "bg-yellow text-black font-bold"
+                  : "border-yellow text-yellow hover:bg-yellow hover:text-black"
+              }`}
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Blog Cards */}
@@ -184,7 +171,7 @@ const Blogs = () => {
                     )}
                 </p>
 
-                <p className="text-white text-sm font-light leading-relaxed">
+                <p className="text-white text-sm font-light leading-relaxed line-clamp-3">
                   {blog.summary}
                 </p>
                 <Link

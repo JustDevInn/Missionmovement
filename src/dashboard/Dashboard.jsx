@@ -90,7 +90,9 @@ const Dashboard = () => {
             Welcome, {username || user.displayName || user.email}!
           </h1>
           <p className="text-gray-400 font-light text-sm mt-1">
-            Your journey starts here. Let’s get to work.
+            {hasPaid
+              ? "You said yes to discomfort, to resilience, to something greater."
+              : "Your journey starts here. Let’s get to work."}
           </p>
         </div>
         <FaUserCircle className="text-5xl text-yellow self-start sm:self-center" />
@@ -98,60 +100,62 @@ const Dashboard = () => {
 
       {/* Grid of Feature Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {featureCards.map((card, index) => {
-          const isLocked = card.locked && !hasPaid;
+        {featureCards
+          .filter((card) => !(hasPaid && card.title === "Get Full Access"))
+          .map((card, index) => {
+            const isLocked = card.locked && !hasPaid;
 
-          const content = (
-            <>
-              <div
-                className="h-40 md:h-44 bg-cover relative"
-                style={{
-                  backgroundImage: `url('${card.image}')`,
-                  backgroundPosition: card.bgPosition || "center",
-                }}
-              >
-                <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                  <h3 className="text-white font-secondary text-lg md:text-xl uppercase tracking-widest text-center px-2">
-                    {card.title}
-                  </h3>
+            const content = (
+              <>
+                <div
+                  className="h-40 md:h-44 bg-cover relative"
+                  style={{
+                    backgroundImage: `url('${card.image}')`,
+                    backgroundPosition: card.bgPosition || "center",
+                  }}
+                >
+                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                    <h3 className="text-white font-secondary text-lg md:text-xl uppercase tracking-widest text-center px-2">
+                      {card.title}
+                    </h3>
+                  </div>
                 </div>
-              </div>
-              <div className="p-4 flex justify-between items-center">
-                {isLocked ? (
-                  <span className="text-yellow flex items-center gap-2 font-semibold uppercase text-sm">
-                    <FaLock /> Upgrade to Unlock
-                  </span>
-                ) : card.cta ? (
-                  <span className="text-yellow font-semibold uppercase text-sm hover:text-white transition">
-                    {card.cta}
-                  </span>
-                ) : (
-                  <span className="text-yellow uppercase text-sm tracking-widest hover:text-white transition">
-                    ➔ Go to {card.title}
-                  </span>
-                )}
-              </div>
-            </>
-          );
+                <div className="p-4 flex justify-between items-center">
+                  {isLocked ? (
+                    <span className="text-yellow flex items-center gap-2 font-semibold uppercase text-sm">
+                      <FaLock /> Upgrade to Unlock
+                    </span>
+                  ) : card.cta ? (
+                    <span className="text-yellow font-semibold uppercase text-sm hover:text-white transition">
+                      {card.cta}
+                    </span>
+                  ) : (
+                    <span className="text-yellow uppercase text-sm tracking-widest hover:text-white transition">
+                      ➔ Go to {card.title}
+                    </span>
+                  )}
+                </div>
+              </>
+            );
 
-          return isLocked ? (
-            <div
-              key={index}
-              onClick={() => setShowModal(true)}
-              className="bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow overflow-hidden opacity-70 cursor-pointer hover:brightness-110 transition flex flex-col"
-            >
-              {content}
-            </div>
-          ) : (
-            <Link
-              key={index}
-              to={card.route}
-              className="bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow hover:shadow-lg transition overflow-hidden flex flex-col"
-            >
-              {content}
-            </Link>
-          );
-        })}
+            return isLocked ? (
+              <div
+                key={index}
+                onClick={() => setShowModal(true)}
+                className="bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow overflow-hidden opacity-70 cursor-pointer hover:brightness-110 transition flex flex-col"
+              >
+                {content}
+              </div>
+            ) : (
+              <Link
+                key={index}
+                to={card.route}
+                className="bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow hover:shadow-lg transition overflow-hidden flex flex-col"
+              >
+                {content}
+              </Link>
+            );
+          })}
       </div>
 
       {/* 🔐 Locked Feature Modal */}

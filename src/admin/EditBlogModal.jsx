@@ -10,22 +10,39 @@ const EditBlogModal = ({ blog, onClose, onSave }) => {
     summary: blog.summary || "",
     slug: blog.slug || "",
     pinned: blog.pinned || false,
-    tags: blog.tags || [],
+    tags: blog.tags?.join(", ") || "",
     thumbnail: blog.thumbnail || "",
     quote: blog.content?.quote || "",
     paragraphs: blog.content?.paragraphs || [],
     images: blog.content?.images || [],
   });
+
   const [saving, setSaving] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
   };
 
   const handleArrayChange = (e, index, field) => {
     const updated = [...formData[field]];
     updated[index] = e.target.value;
+    setFormData((prev) => ({ ...prev, [field]: updated }));
+  };
+
+  const addField = (field) => {
+    setFormData((prev) => ({
+      ...prev,
+      [field]: [...prev[field], ""],
+    }));
+  };
+
+  const removeField = (field, index) => {
+    const updated = [...formData[field]];
+    updated.splice(index, 1);
     setFormData((prev) => ({ ...prev, [field]: updated }));
   };
 
@@ -39,7 +56,7 @@ const EditBlogModal = ({ blog, onClose, onSave }) => {
         summary: formData.summary,
         slug: formData.slug,
         pinned: formData.pinned,
-        tags: formData.tags,
+        tags: formData.tags.split(",").map((tag) => tag.trim()),
         thumbnail: formData.thumbnail,
         content: {
           quote: formData.quote,
@@ -110,26 +127,76 @@ const EditBlogModal = ({ blog, onClose, onSave }) => {
             placeholder="Quote"
             className="w-full p-2 rounded bg-black border border-cyan-600"
           />
+          <input
+            name="tags"
+            value={formData.tags}
+            onChange={handleChange}
+            placeholder="Tags (comma-separated)"
+            className="w-full p-2 rounded bg-black border border-cyan-600"
+          />
+
+          <label className="flex items-center gap-2 text-sm mt-1">
+            <input
+              type="checkbox"
+              name="pinned"
+              checked={formData.pinned}
+              onChange={handleChange}
+            />
+            Feature this post
+          </label>
 
           {/* Paragraphs */}
+          <h4 className="text-cyan-500 mt-4 font-semibold">Paragraphs</h4>
           {formData.paragraphs.map((para, i) => (
-            <textarea
-              key={i}
-              value={para}
-              onChange={(e) => handleArrayChange(e, i, "paragraphs")}
-              className="w-full p-2 rounded bg-black border border-cyan-600"
-            />
+            <div key={i} className="relative">
+              <textarea
+                value={para}
+                onChange={(e) => handleArrayChange(e, i, "paragraphs")}
+                className="w-full p-2 rounded bg-black border border-cyan-600 mb-1"
+                rows={3}
+              />
+              <button
+                type="button"
+                onClick={() => removeField("paragraphs", i)}
+                className="text-red-400 text-sm absolute top-1 right-1"
+              >
+                ✕
+              </button>
+            </div>
           ))}
+          <button
+            type="button"
+            onClick={() => addField("paragraphs")}
+            className="text-cyan-400 text-sm underline"
+          >
+            + Add Paragraph
+          </button>
 
           {/* Images */}
+          <h4 className="text-cyan-500 mt-4 font-semibold">Images (URLs)</h4>
           {formData.images.map((img, i) => (
-            <input
-              key={i}
-              value={img}
-              onChange={(e) => handleArrayChange(e, i, "images")}
-              className="w-full p-2 rounded bg-black border border-cyan-600"
-            />
+            <div key={i} className="relative">
+              <input
+                value={img}
+                onChange={(e) => handleArrayChange(e, i, "images")}
+                className="w-full p-2 rounded bg-black border border-cyan-600 mb-1"
+              />
+              <button
+                type="button"
+                onClick={() => removeField("images", i)}
+                className="text-red-400 text-sm absolute top-1 right-1"
+              >
+                ✕
+              </button>
+            </div>
           ))}
+          <button
+            type="button"
+            onClick={() => addField("images")}
+            className="text-cyan-400 text-sm underline"
+          >
+            + Add Image
+          </button>
         </div>
 
         <button
