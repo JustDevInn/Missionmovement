@@ -156,6 +156,7 @@ const Blogs = () => {
               <img
                 src={blog.thumbnail}
                 alt={blog.title}
+                loading="lazy"
                 className="rounded-t-xl h-48 w-full object-cover"
               />
               <div className="p-6 flex flex-col flex-grow">

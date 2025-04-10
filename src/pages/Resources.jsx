@@ -111,6 +111,7 @@ const Resources = () => {
             <img
               src="/img/toepad120.jpg"
               alt="Training Footage"
+              loading="lazy"
               className="w-full h-full object-cover"
             />
             {/* Dark overlay */}
@@ -175,6 +176,7 @@ const Resources = () => {
               <img
                 src={blog.thumbnail}
                 alt={blog.title}
+                loading="lazy"
                 className="w-full h-48 object-cover"
               />
               <div className="p-4 space-y-2">

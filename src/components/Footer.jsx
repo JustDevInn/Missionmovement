@@ -32,6 +32,7 @@ const Footer = () => {
             </h5>
             <a
               href="mailto:MissionMovement@gmail.com"
+              aria-label="email"
               className="flex justify-center md:justify-start items-center gap-2 text-gray-400 hover:text-yellow transition"
             >
               <FaEnvelope /> MissionMovement@gmail.com
@@ -45,6 +46,7 @@ const Footer = () => {
             </h5>
             <a
               href="tel:+36125183459"
+              aria-label="phone number"
               className="flex justify-center md:justify-start items-center gap-2 text-gray-400 hover:text-yellow transition"
             >
               <FaPhone /> +36 1 25 18 34 59
@@ -60,6 +62,7 @@ const Footer = () => {
               href="https://www.instagram.com/mission.movement"
               target="_blank"
               rel="noreferrer"
+              aria-label="instagram"
               className="flex justify-center md:justify-start items-center gap-2 text-gray-400 hover:text-yellow transition"
             >
               <FaInstagram /> @missionmovement

@@ -249,6 +249,7 @@ const Program = () => {
             <img
               src={Bundle}
               alt="program bundle"
+              loading="lazy"
               className="h-[400px] w-[250px] rounded-lg shadow-lg hover:scale-[1.03] transition-transform"
             />
             <Link to="/pricing">
@@ -318,6 +319,7 @@ const Program = () => {
         <div className="flex flex-col justify-center items-center lg:w-1/2">
           <img
             src={Bundle}
+            loading="lazy"
             alt="projectbundlecover"
             className="h-[400px] w-[250px]"
           />

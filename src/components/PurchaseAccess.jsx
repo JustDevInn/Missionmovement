@@ -1,7 +1,6 @@
 // PurchaseAccess.jsx
-import React, { useState } from "react";
+import React, { useState, lazy, Suspense } from "react";
 import Reviews from "../components/Reviews";
-import VideoPreview from "./VideoPreview";
 import QuoteBlock from "../components/QuoteBlock";
 import { useFadeIn } from "../Hooks/useFadeIn";
 import { Helmet } from "react-helmet-async";
@@ -10,6 +9,7 @@ const PurchaseAccess = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const { ref: enlistRef, visible: enlistVisible } = useFadeIn();
+  const VideoPreview = lazy(() => import("../components/VideoPreview"));
 
   const handleCheckout = async () => {
     setLoading(true);
@@ -107,6 +107,7 @@ const PurchaseAccess = () => {
           <div className="flex flex-col items-center gap-6 animate-fade-in">
             <img
               src="/img/bundle.png"
+              loading="lazy"
               alt="Military Preparation Program"
               className="w-[220px] md:w-[300px] rounded shadow-md"
             />
@@ -208,7 +209,13 @@ const PurchaseAccess = () => {
         <div className="w-full flex justify-center">
           <div className="w-full flex justify-center">
             <div className="w-full max-w-3xl aspect-video rounded-lg overflow-hidden border border-yellow/20 shadow-xl bg-black">
-              <VideoPreview />
+              <Suspense
+                fallback={
+                  <div className="text-gray-500">Loading preview...</div>
+                }
+              >
+                <VideoPreview videoId="YHffzTVE_9Q" />
+              </Suspense>
             </div>
           </div>
         </div>

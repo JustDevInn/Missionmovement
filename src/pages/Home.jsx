@@ -1,14 +1,13 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import FloatingCTA from "../components/FloatingCTA";
 import { useInView } from "../Hooks/useGlowEffect";
 import QuoteBlock from "../components/QuoteBlock";
-import VideoPreview from "../components/VideoPreview";
 import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const { ref, isVisible } = useInView();
-
+  const VideoPreview = lazy(() => import("../components/VideoPreview"));
   const coreValues = [
     "Discipline",
     "Brotherhood",
@@ -43,6 +42,8 @@ const Home = () => {
       <header
         className="section flex justify-center items-center bg-royalmarine bg-bottom bg-no-repeat bg-cover relative "
         role="img"
+        loading="eager"
+        fetchpriority="high"
         aria-label="Royal Marine in action"
       >
         <div className="absolute inset-0 bg-black/50"></div>
@@ -213,6 +214,7 @@ const Home = () => {
           <div
             className="order-first lg:order-last w-full lg:w-1/2 bg-fixed bg-barret bg-bottom bg-cover lg:h-full h-[450px]"
             role="img"
+            loading="lazy"
             aria-label="Military barret background image"
           ></div>
 
@@ -240,6 +242,7 @@ const Home = () => {
           <div
             className="order-first lg:order-first w-full lg:w-1/2 bg-fixed bg-marsof bg-bottom bg-cover lg:h-full h-[450px]"
             role="img"
+            loading="lazy"
             aria-label="Marsof background image"
           ></div>
 
@@ -269,6 +272,7 @@ const Home = () => {
           <div
             className="order-first lg:order-last w-full lg:w-1/2 bg-fixed bg-boatgroup bg-bottom bg-cover lg:h-full h-[450px]"
             role="img"
+            loading="lazy"
             aria-label="Group in military boat during mission"
           ></div>
 
@@ -291,7 +295,11 @@ const Home = () => {
 
         {/* Video Preview Section */}
         <section className="py-16 px-4 md:px-10 lg:px-20 flex justify-center items-center bg-[#0f0f0f] border-t border-yellow">
-          <VideoPreview videoId="YHffzTVE_9Q" />
+          <Suspense
+            fallback={<div className="text-gray-500">Loading preview...</div>}
+          >
+            <VideoPreview videoId="YHffzTVE_9Q" />
+          </Suspense>
         </section>
 
         {/* Floating CTA placed after context */}
