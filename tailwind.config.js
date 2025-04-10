@@ -26,9 +26,9 @@ module.exports = {
       },
       backgroundImage: {
         'royalmarine': "url('/public/img/royalmarines.jpg')",
-        'barret': "url('/public/img/barret.jpg')",
-        'marsof': "url('/public/img/marsof.jpg')",
-        'boatgroup': "url('/public/img/Bootgroup_carry.jpg')",
+        'barret': "url('/public/img/barret.webp')",
+        'marsof': "url('/public/img/marsof.webp')",
+        'boatgroup': "url('/public/img/Bootgroup_carry.webp')",
         'marsen': "url('/public/img/marsenopleiding.jpg')",
         'spelioladder': "url('/public/img/spelioladder.jpg')",
         'hlo': "url('/public/img/hlo.jpg')",

@@ -20,6 +20,13 @@ const Home = () => {
     <div className="pt-20 md:pt-0">
       <Helmet>
         <title>Mission Movement | Elite Military Prep Training</title>
+        <link
+          rel="preload"
+          as="image"
+          href="/img/royalmarines.webp"
+          type="image/webp"
+          fetchpriority="high"
+        />
         <meta
           name="description"
           content="Train with structure, discipline, and purpose. Mission Movement prepares you for the world of elite forces — physically, mentally, and emotionally."
@@ -43,7 +50,7 @@ const Home = () => {
         <img
           src="/img/royalmarines.webp"
           alt="Royal Marine in action"
-          className="absolute inset-0 w-full h-full object-cover object-bottom"
+          className="absolute inset-0 w-full h-full object-cover object-[center_left] md:object-bottom scale-[1.25] md:scale-100 transition-transform duration-300"
           loading="eager"
           fetchPriority="high"
         />
