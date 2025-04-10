@@ -39,15 +39,15 @@ const Home = () => {
       </Helmet>
 
       {/* Hero */}
-      <header
-        className="section flex justify-center items-center bg-royalmarine bg-bottom bg-no-repeat bg-cover relative "
-        role="img"
-        loading="eager"
-        fetchpriority="high"
-        aria-label="Royal Marine in action"
-      >
-        <div className="absolute inset-0 bg-black/50"></div>
-
+      <header className="relative w-full h-screen md:h-[600px] overflow-hidden flex items-center justify-center">
+        <img
+          src="/img/royalmarines.webp"
+          alt="Royal Marine in action"
+          className="absolute inset-0 w-full h-full object-cover object-bottom"
+          loading="eager"
+          fetchPriority="high"
+        />
+        <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 w-full max-w-4xl flex flex-col items-center text-center px-5 lg:px-0">
           <h1 className="h1 mb-4 text-yellow font-bold uppercase tracking-wider">
             Military Preparation Course
