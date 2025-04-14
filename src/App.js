@@ -20,6 +20,9 @@ import Success from './pages/Success';
 import Cancel from './pages/Cancel';
 import Blogs from './pages/Blogs.jsx';
 import SingleBlog from './pages/blogs/SingleBlog';
+import Mariniers from "./pages/units/Mariniers";
+import CommandoTroepen from "./pages/units/KorpsCommandoTroepen";
+import Luchtmobiel from "./pages/units/LuchtmobieleBrigade";
 
 // Auth
 import { AuthProvider } from "./context/AuthContext";
@@ -121,6 +124,9 @@ const MainRoutes = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/success" element={<Success />} />
         <Route path="/cancel" element={<Cancel />} />
+        <Route path="/units/mariniers" element={<Mariniers />} />
+        <Route path="/units/commandotroepen" element={<CommandoTroepen />} />
+        <Route path="/units/luchtmobiel" element={<Luchtmobiel />} />
       </Routes>
     </div>
   )}

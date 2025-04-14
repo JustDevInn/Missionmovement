@@ -65,8 +65,9 @@ const About = () => {
             <br />
             <br />
             With nine years of coaching experience, our team blends military
-            precision with real-world coaching. Whether it’s mountain climbs,
-            gym sessions, or surf training — we’ve lived every rep we teach.
+            precision with real-world coaching. Whether it’s preparing for
+            military selections, mountain climbs, , or gym sessions— we’ve lived
+            every rep we teach.
             <br />
             <br />
             Our mission is simple: prepare future operators. From fitness to

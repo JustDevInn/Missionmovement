@@ -9,7 +9,7 @@ import LockedFeatureModal from "../components/LockedFeatureModal";
 const featureCards = [
   {
     title: "Your Program",
-    image: "/img/bootgroup_carry.jpg",
+    image: "/img/bootgroup_carry.webp",
     route: "/trainingprogram",
     locked: true,
     bgPosition: "top",

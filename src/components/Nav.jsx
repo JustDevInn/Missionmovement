@@ -105,6 +105,20 @@ const Nav = () => {
                   links: [{ title: "Our story", path: "/about" }],
                 },
                 {
+                  name: "Units",
+                  links: [
+                    { title: "Korps Mariniers", path: "/units/mariniers" },
+                    {
+                      title: "Korps Commando Troepen",
+                      path: "/units/commandotroepen",
+                    },
+                    {
+                      title: "11 Luchtmobiele brigade",
+                      path: "/units/luchtmobiel",
+                    },
+                  ],
+                },
+                {
                   name: "Program",
                   links: [{ title: "Program", path: "/program" }],
                 },
@@ -263,6 +277,34 @@ const Nav = () => {
                     onClick={() => setNav(false)}
                   >
                     Our story
+                  </RouterLink>
+                </div>
+                {/* Eenheden */}
+                <div>
+                  <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">
+                    Units
+                  </h3>
+                  <div className="border-t border-gray-400 w-20 my-2"></div>
+                  <RouterLink
+                    to="/units/mariniers"
+                    className="block text-gray-300 hover:text-yellow py-1"
+                    onClick={() => setNav(false)}
+                  >
+                    Korps Mariniers
+                  </RouterLink>
+                  <RouterLink
+                    to="/units/commandotroepen"
+                    className="block text-gray-300 hover:text-yellow py-1"
+                    onClick={() => setNav(false)}
+                  >
+                    Korps Commando Troepen
+                  </RouterLink>
+                  <RouterLink
+                    to="/units/luchtmobiel"
+                    className="block text-gray-300 hover:text-yellow py-1"
+                    onClick={() => setNav(false)}
+                  >
+                    11 Luchtmobiele brigade
                   </RouterLink>
                 </div>
 
