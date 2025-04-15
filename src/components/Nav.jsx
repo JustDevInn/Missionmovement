@@ -101,11 +101,11 @@ const Nav = () => {
             <form className="px-6 py-8 space-y-4 text-[#CCCCCC]">
               {[
                 {
-                  name: "About",
-                  links: [{ title: "Our story", path: "/about" }],
+                  name: "Over ons",
+                  links: [{ title: "Het begin", path: "/about" }],
                 },
                 {
-                  name: "Units",
+                  name: "Eenheden",
                   links: [
                     { title: "Korps Mariniers", path: "/units/mariniers" },
                     {
@@ -119,17 +119,17 @@ const Nav = () => {
                   ],
                 },
                 {
-                  name: "Program",
-                  links: [{ title: "Program", path: "/program" }],
+                  name: "Programma",
+                  links: [{ title: "Het programma", path: "/program" }],
                 },
                 {
-                  name: "Articles",
-                  links: [{ title: "Articles", path: "/blogs" }],
+                  name: "Artikelen",
+                  links: [{ title: "Lees onze artikelen", path: "/blogs" }],
                 },
                 {
-                  name: "Resources",
+                  name: "Bronnen",
                   links: [
-                    { title: "Resources", path: "/resources" },
+                    { title: "Hulpmiddelen", path: "/resources" },
                     {
                       title: "Instagram",
                       path: "https://www.instagram.com/mission.movement",
@@ -138,12 +138,12 @@ const Nav = () => {
                   ],
                 },
                 {
-                  name: "Pricing",
-                  links: [{ title: "View Pricing", path: "/pricing" }],
+                  name: "Prijzen",
+                  links: [{ title: "Bekijk ons aanbod", path: "/pricing" }],
                 },
                 {
                   name: "Contact",
-                  links: [{ title: "Get in Touch", path: "/contact" }],
+                  links: [{ title: "Kom in contact", path: "/contact" }],
                 },
               ].map(({ name, links }) => (
                 <div key={name}>
@@ -259,7 +259,7 @@ const Nav = () => {
           {/* Desktop Dropdown Menu */}
           <div
             className={`absolute top-full left-0 w-full bg-primary border-t-2 border-yellow transition-all duration-300 ${
-              nav ? "h-[70vh] opacity-100" : "h-0 opacity-0 pointer-events-none"
+              nav ? "h-[80vh] opacity-100" : "h-0 opacity-0 pointer-events-none"
             } overflow-hidden`}
           >
             <div className="grid grid-cols-2 gap-10 px-20 py-10">
@@ -268,7 +268,7 @@ const Nav = () => {
                 {/* About Section */}
                 <div>
                   <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">
-                    About
+                    Over ons
                   </h3>
                   <div className="border-t border-gray-400 w-20 my-2"></div>
                   <RouterLink
@@ -276,13 +276,13 @@ const Nav = () => {
                     className="block text-gray-300 hover:text-yellow py-1"
                     onClick={() => setNav(false)}
                   >
-                    Our story
+                    Het begin
                   </RouterLink>
                 </div>
                 {/* Eenheden */}
                 <div>
                   <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">
-                    Units
+                    Eenheden
                   </h3>
                   <div className="border-t border-gray-400 w-20 my-2"></div>
                   <RouterLink
@@ -311,7 +311,7 @@ const Nav = () => {
                 {/* Program Section */}
                 <div>
                   <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">
-                    Program
+                    Programma
                   </h3>
                   <div className="border-t border-gray-400 w-20 my-2"></div>
                   <RouterLink
@@ -319,14 +319,14 @@ const Nav = () => {
                     className="block text-gray-300 hover:text-yellow py-1"
                     onClick={() => setNav(false)}
                   >
-                    Program Details
+                    Het programma
                   </RouterLink>
                 </div>
 
                 {/* News Section */}
                 <div>
                   <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">
-                    Articles
+                    Artikelen
                   </h3>
                   <div className="border-t border-gray-400 w-20 my-2"></div>
                   <RouterLink
@@ -334,7 +334,7 @@ const Nav = () => {
                     className="block text-gray-300 hover:text-yellow py-1"
                     onClick={() => setNav(false)}
                   >
-                    Articles
+                    Lees onze artikelen
                   </RouterLink>
                 </div>
               </div>
@@ -344,7 +344,7 @@ const Nav = () => {
                 {/* Multimedia Section */}
                 <div>
                   <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">
-                    Resources
+                    Bronnen
                   </h3>
                   <div className="border-t border-gray-400 w-20 my-2"></div>
                   <RouterLink
@@ -352,7 +352,7 @@ const Nav = () => {
                     className="block text-gray-300 hover:text-yellow py-1"
                     onClick={() => setNav(false)}
                   >
-                    Resources
+                    Hulpmiddelen
                   </RouterLink>
                   <a
                     href="https://www.instagram.com/mission.movement"
@@ -368,7 +368,7 @@ const Nav = () => {
                 {/* Pricing Section */}
                 <div>
                   <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">
-                    Pricing
+                    Prijzen
                   </h3>
                   <div className="border-t border-gray-400 w-20 my-2"></div>
                   <RouterLink
@@ -376,14 +376,14 @@ const Nav = () => {
                     className="block text-gray-300 hover:text-yellow py-1"
                     onClick={() => setNav(false)}
                   >
-                    Pricing
+                    Bekijk ons aanbod
                   </RouterLink>
                 </div>
 
                 {/* Get in Contact Section */}
                 <div>
                   <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">
-                    Get in Contact
+                    contact
                   </h3>
                   <div className="border-t border-gray-400 w-20 my-2"></div>
                   <RouterLink
@@ -391,7 +391,7 @@ const Nav = () => {
                     className="block text-gray-300 hover:text-yellow py-1"
                     onClick={() => setNav(false)}
                   >
-                    Contact Us
+                    Kom in contact
                   </RouterLink>
                 </div>
               </div>

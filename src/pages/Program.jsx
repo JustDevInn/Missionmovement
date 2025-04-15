@@ -5,7 +5,7 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import Banners from "../components/Banners";
 import MobileBanners from "../components/MobileBanners";
 import { useGlowEffect } from "../Hooks/useGlowEffect";
-import { faqData, programDetails } from "../data/data";
+import { faqDataNL, programDetails } from "../data/data";
 import Reviews from "../components/Reviews";
 import { Link } from "react-router-dom";
 import TrainerCard from "../components/TrainerCard";
@@ -16,11 +16,11 @@ const Bundle = "/img/bundle.png";
 
 const wordDefinitions = {
   Discipline:
-    "The practice of training people to obey rules or a code of behavior, using punishment to correct disobedience.",
+    "De kunst van het consequent trainen van gedrag en gewoontes, niet afhankelijk van motivatie, maar van structuur.",
   Commitment:
-    "The state or quality of being dedicated to a cause, activity, or purpose.",
+    "De bereidheid om er elke dag te staan, juist wanneer het zwaar is.",
   Determination:
-    "Firmness of purpose; resoluteness. The quality of being determined to do or achieve something.",
+    "Vastberadenheid en doorzettingsvermogen. Niet hopen op vooruitgang, maar ervoor vechten.",
 };
 
 const Program = () => {
@@ -33,22 +33,18 @@ const Program = () => {
     setOpenProgramIndex(openProgramIndex === index ? null : index);
   };
 
-  const toggleFAQ = (index) => {
-    setOpenFAQIndex(openFAQIndex === index ? null : index);
-  };
-
   return (
     <div className="pt-10">
       <Helmet>
-        <title>About | Mission Movement</title>
+        <title>Programma | Mission Movement</title>
         <meta
           name="description"
-          content="Discover the story behind Mission Movement and the journey from elite forces to elite coaching."
+          content="Ontdek het Military Preparation Program van Mission Movement — gebouwd vanuit ervaring met special forces en een decennium aan coaching."
         />
-        <meta property="og:title" content="About Mission Movement" />
+        <meta property="og:title" content="Programma | Mission Movement" />
         <meta
           property="og:description"
-          content="From the Royal Marines to the modern warrior — this is our story."
+          content="Van het Korps Mariniers tot moderne krijger — dit programma geeft je wat je nodig hebt om te slagen."
         />
         <meta
           property="og:image"
@@ -61,43 +57,43 @@ const Program = () => {
           content="https://missionmovement.vercel.app/about"
         />
       </Helmet>
-      {/* Hero section (unchanged) */}
+
+      {/* Hero sectie */}
       <section className="section flex flex-col justify-center items-start md:mb-20">
-        <div className="flex flex-col justify-start items-start pl-20 lg:pl-60">
-          <p className="h2 animate-fade-in">The</p>
+        <div className="flex flex-col justify-start items-start pl-10 lg:pl-60">
+          <p className="h2 animate-fade-in">Het</p>
           <h1 className="text-yellow font-primary text-[35px] md:text-[100px] font-medium uppercase leading-[120%] tracking-wider animate-slide-in-left">
-            military
+            Militaraire
           </h1>
           <h1 className="text-yellow font-primary text-[35px] md:text-[100px] font-medium uppercase leading-[120%] tracking-wider animate-slide-in-left">
-            preparation
+            Voorbereidings
           </h1>
-          <p className="h2 animate-fade-in">program</p>
+          <p className="h2 animate-fade-in">Programma</p>
         </div>
         <div className="w-full flex flex-row justify-center mt-10 lg:mt-20 text-xs lg:text-2xl tracking-widest">
           <p className="text-brown px-2 lg:px-5">discipline</p>
           <p className="text-brown">|</p>
-          <p className="text-brown px-2 lg:px-5">commitment</p>
+          <p className="text-brown px-2 lg:px-5">vastberadenheid</p>
           <p className="text-brown">|</p>
-          <p className="text-brown px-2 lg:px-5">determination</p>
+          <p className="text-brown px-2 lg:px-5">toewijding</p>
         </div>
       </section>
 
-      {/* Program Content */}
+      {/* Programma overzicht */}
       <section className="w-full px-5 sm:px-10 lg:px-20">
         <header className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 tracking-wider text-white max-w-7xl mx-auto">
-          {/* Overview */}
           <div className="bg-primary p-4 md:p-6 lg:p-8 rounded-xl shadow-lg">
             <h1 className="text-yellow text-xl md:text-4xl font-secondary uppercase mb-4 text-center border-b border-yellow pb-2">
-              Program Overview
+              Programma Overzicht
             </h1>
             <p className="text-xs md:text-sm font-light text-white text-justify leading-relaxed mb-4">
-              Mission Movement's elite military preparation program, honed from
-              20+ years of elite service, goes beyond. It's for those seeking a
-              higher purpose, aiming for the special operator lifestyle in the
-              military forces.
+              Het Military Preparation Program van Mission Movement is gebouwd
+              op meer dan 20 jaar ervaring binnen elite eenheden. Het gaat
+              verder dan fitness — het is voor wie een hoger doel nastreeft.
+              Voor wie klaar is voor het leven van een special operator.
               <br />
               <br />
-              Our program consists of 5 sub-programs.
+              Het programma bestaat uit 5 deeltrajecten.
             </p>
             {programDetails.map((item, index) => (
               <div
@@ -131,21 +127,20 @@ const Program = () => {
             ))}
           </div>
 
-          {/* Requirements + Skills + Who It's For (fit in one screen) */}
+          {/* Vereisten + Skills + Voor wie */}
           <div className="flex flex-col p-4 md:p-6 lg:p-8 gap-8 lg:gap-10">
-            {/* Requirements */}
             <div>
               <h1 className="text-yellow font-secondary text-xl md:text-2xl uppercase mb-3">
-                Requirements
+                Vereisten
               </h1>
               <ul className="grid grid-cols-2 gap-2 text-xs md:text-sm font-light">
                 {[
-                  "Mindset and attitude",
-                  "Physical fitness baseline",
-                  "Access to training equipment",
-                  "Commitment level",
-                  "Time commitment",
-                  "No medical concerns",
+                  "Mindset en houding",
+                  "Fysieke basisconditie",
+                  "Toegang tot trainingsmateriaal",
+                  "Niveau van toewijding",
+                  "Tijdsinvestering",
+                  "Geen medische belemmeringen",
                 ].map((req, i) => (
                   <li key={i} className="flex items-center gap-2">
                     <FaCheck className="text-yellow text-sm" />
@@ -155,19 +150,18 @@ const Program = () => {
               </ul>
             </div>
 
-            {/* Skills You'll Learn */}
             <div>
               <h1 className="text-yellow font-secondary text-xl md:text-2xl uppercase mb-3">
-                Skills You'll Learn
+                Wat Je Leert
               </h1>
               <ul className="grid grid-cols-2 gap-2 text-xs md:text-sm font-light">
                 {[
-                  "Physical readiness",
-                  "Specialised techniques",
-                  "Mental resilience",
+                  "Fysieke paraatheid",
+                  "Gespecialiseerde technieken",
+                  "Mentale weerbaarheid",
                   "Discipline",
-                  "Adaptability",
-                  "Grit",
+                  "Aanpassingsvermogen",
+                  "Doorzettingsvermogen",
                 ].map((skill, i) => (
                   <li key={i} className="flex items-center gap-2">
                     <GrAchievement className="text-yellow text-sm" />
@@ -177,19 +171,18 @@ const Program = () => {
               </ul>
             </div>
 
-            {/* Who It's For */}
             <div>
               <h1 className="text-yellow font-secondary text-xl md:text-2xl uppercase mb-3">
-                Who It's For
+                Voor Wie
               </h1>
               <ul className="grid grid-cols-2 gap-2 text-xs md:text-sm font-light">
                 {[
-                  "Aspiring military candidates preparing for selection",
-                  "Active service members needing structured reset",
-                  "Athletes seeking elite conditioning",
-                  "Fitness-minded individuals craving challenge",
-                  "Anyone committed to growth through discipline",
-                  "People seeking physical & mental resilience",
+                  "Toekomstige militairen die zich voorbereiden op selectie",
+                  "Actieve militairen die structuur zoeken",
+                  "Atleten die elite fitheid nastreven",
+                  "Sporters die mentale uitdaging zoeken",
+                  "Mensen toegewijd aan persoonlijke groei",
+                  "Iedereen die fysieke & mentale weerbaarheid wil opbouwen",
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-2">
                     <FaCheck className="text-yellow text-sm" />
@@ -199,74 +192,78 @@ const Program = () => {
               </ul>
             </div>
           </div>
-
-          {/* FAQ Section */}
-          <div className="bg-primary p-6 md:p-10 rounded-xl shadow-lg mb-10 min-h-[350px] md:h-full w-full flex flex-col justify-start">
-            <h2 className="text-yellow font-secondary text-xl md:text-2xl lg:text-3xl uppercase text-center mb-4 border-b border-yellow pb-2 tracking-widest">
-              What to Know Before Joining
-            </h2>
-            <p className="text-xs md:text-sm font-light text-white mb-6 text-justify leading-relaxed max-w-xl mx-auto">
-              Have questions? Here are the most common things people ask before
-              signing up. If you need more details, feel free to reach out!
-            </p>
-
-            <div className="space-y-3">
-              {faqData.map((faq, index) => (
-                <div
-                  key={index}
-                  className="bg-brown rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.01] hover:bg-opacity-90"
-                >
-                  <button
-                    onClick={() => toggleFAQ(index)}
-                    className="w-full flex justify-between items-center p-3 text-left text-brown font-medium tracking-wide uppercase bg-primary hover:text-yellow text-xs md:text-sm"
-                    aria-expanded={openFAQIndex === index}
-                  >
-                    {faq.question}
-                    {openFAQIndex === index ? (
-                      <FaChevronUp className="text-yellow" />
-                    ) : (
-                      <FaChevronDown className="text-yellow" />
-                    )}
-                  </button>
-                  <div
-                    className={`overflow-hidden transition-all duration-500 ${
-                      openFAQIndex === index
-                        ? "max-h-[200px] opacity-100 px-4 pb-4"
-                        : "max-h-0 opacity-0"
-                    }`}
-                  >
-                    <p className="text-white text-sm font-light leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </div>
-                </div>
-              ))}
+          {/* Begin FAQ & bundle — zelfde grid en header als erboven */}
+          <div className="col-span-1 lg:col-span-2 grid grid-cols-1 lg:grid-cols-2 gap-10">
+            {/* FAQ sectie */}
+            <div className="bg-primary p-4 md:p-6 lg:p-8 rounded-xl shadow-lg">
+              <h2 className="text-yellow font-secondary text-xl md:text-4xl uppercase text-center mb-4 border-b border-yellow pb-2">
+                Veelgestelde Vragen
+              </h2>
+              <p className="text-xs md:text-sm font-light text-white mb-6 text-justify leading-relaxed">
+                Nog vragen? Hieronder vind je de meest gestelde vragen vóór
+                inschrijving. Staat jouw vraag er niet tussen? Neem gerust
+                contact op.
+              </p>
+              <div className="space-y-3">
+                {faqDataNL.map((faq, index) => {
+                  const isOpen = openFAQIndex === index;
+                  return (
+                    <div
+                      key={index}
+                      className="bg-brown rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.01] hover:bg-opacity-90"
+                    >
+                      <button
+                        onClick={() => setOpenFAQIndex(isOpen ? null : index)}
+                        className="w-full flex justify-between items-center p-3 text-left text-brown font-medium tracking-wide uppercase bg-primary hover:text-yellow text-xs md:text-sm"
+                        aria-expanded={isOpen}
+                      >
+                        {faq.vraag}
+                        {isOpen ? (
+                          <FaChevronUp className="text-yellow" />
+                        ) : (
+                          <FaChevronDown className="text-yellow" />
+                        )}
+                      </button>
+                      <div
+                        className={`overflow-hidden transition-all duration-500 ${
+                          isOpen
+                            ? "max-h-[500px] opacity-100 px-4 pb-4"
+                            : "max-h-0 opacity-0"
+                        }`}
+                      >
+                        <p className="text-white text-sm font-light leading-relaxed">
+                          {faq.antwoord}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          </div>
 
-          {/* Image + Enroll Button */}
-          <div className="flex flex-col justify-center items-center py-10">
-            <img
-              src={Bundle}
-              alt="program bundle"
-              loading="lazy"
-              className="h-[400px] w-[250px] rounded-lg shadow-lg hover:scale-[1.03] transition-transform"
-            />
-            <Link to="/pricing">
-              <button className="btn lg:btn-lg mt-8">Enroll</button>
-            </Link>
+            {/* Bundle image + button */}
+            <div className="flex flex-col justify-center items-center p-4 md:p-6 lg:p-8">
+              <img
+                src={Bundle}
+                alt="Programma bundle"
+                loading="lazy"
+                className="h-[400px] w-[250px] rounded-lg shadow-lg hover:scale-[1.03] transition-transform"
+              />
+              <Link to="/pricing" className="mt-8">
+                <button className="btn lg:btn-lg w-[250px]">
+                  Start Voorbereiding
+                </button>
+              </Link>
+            </div>
           </div>
         </header>
       </section>
 
       <QuoteBlock
-        quote="My mission is to build unshakable humans — physically capable and
-              mentally stable. This program is the guidance I wish I had when I
-              started."
+        quote="Mijn missie is het bouwen van onverwoestbare mensen — fysiek capabel en mentaal stabiel. Dit programma is wat ik zelf nodig had aan het begin."
         author="Justin Peeters"
       />
 
-      {/* Banners */}
       <div className="hidden lg:flex">
         <Banners />
       </div>
@@ -274,22 +271,21 @@ const Program = () => {
         <MobileBanners />
       </div>
 
-      {/* Trainer Section */}
       <TrainerCard />
 
-      {/* Reviews */}
       <Reviews />
 
       <QuoteBlock
-        quote="Hard times don’t build character. They reveal it."
+        quote="Zware tijden bouwen geen karakter. Ze onthullen het."
         author="Justin Peeters"
       />
+
       <section className="w-screen flex flex-col lg:flex-row py-20 p-10 justify-between items-center lg:items-start lg:mt-20">
         <div className="md:w-1/2 flex flex-col font-light px-5 lg:px-28">
           <h5 className="font-secondary text-[30px] lg:text-[50px] tracking-wider text-brown lg:text-left text-center">
-            <span className="text-yellow">Ready? </span>
-            Sign up for our program and transform your mind and body into a
-            powerful force to be reckoned with.
+            <span className="text-yellow">Klaar? </span>
+            Schrijf je in en verander je lijf en geest in een kracht waar niet
+            mee te spotten valt.
           </h5>
           <div
             ref={elementRef}
@@ -297,7 +293,7 @@ const Program = () => {
               animate ? "animate-light-sweep" : ""
             }`}
           >
-            {["Discipline", "|", "Commitment", "|", "Determination"].map(
+            {["Discipline", "|", "Toewijding", "|", "Vastberadenheid"].map(
               (word, index) => (
                 <span
                   key={index}
@@ -316,6 +312,7 @@ const Program = () => {
             )}
           </div>
         </div>
+
         <div className="flex flex-col justify-center items-center lg:w-1/2">
           <img
             src={Bundle}
@@ -324,17 +321,14 @@ const Program = () => {
             className="h-[400px] w-[250px]"
           />
           <div className="flex justify-center items-center mt-10">
-            {/* Desktop Button */}
             <Link to="/pricing" className="hidden md:block">
               <button className="btn-lg !min-w-0 !h-auto px-10 py-4 text-center whitespace-nowrap">
-                Enrol — You Know Why You’re Here
+                Start — Jij weet waarom je hier bent
               </button>
             </Link>
-
-            {/* Mobile Button */}
             <Link to="/pricing" className="block md:hidden">
               <button className="btn-lg !min-w-0 !h-auto px-6 py-3 text-center whitespace-nowrap">
-                Enrol
+                Start Nu
               </button>
             </Link>
           </div>

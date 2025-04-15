@@ -53,92 +53,105 @@ export const galleryData = {
 };
 
 // FAQ Data
-export const faqData = [
+// src/data/data.js
+
+export const faqDataNL = [
   {
-    question: "What can I do if I don't meet the eligibility requirements to join?",
-    answer: "If you don't meet the eligibility criteria, we recommend following a preliminary training plan to prepare yourself for the requirements.",
+    vraag: "Moet ik al superfit zijn om te beginnen?",
+    antwoord:
+      "Nee. Je hoeft geen topatleet te zijn, maar zonder basisconditie en gerichte voorbereiding loop je het risico op blessures of uitval. Dit programma bouwt je stap voor stap op — fysiek én mentaal.",
   },
   {
-    question: "Can I get a refund after purchase?",
-    answer: "Refunds are handled on a case-by-case basis. If you have any concerns, please reach out to our support team.",
+    vraag: "Kan ik dit combineren met werk of school?",
+    antwoord:
+      "Ja. Je traint zelfstandig op jouw eigen tijd. De sessies zijn functioneel opgebouwd zodat je consistent kunt blijven, ook met een drukke agenda. Verwacht wél toewijding — juist dat maakt het waardevol.",
   },
   {
-    question: "How does the remote coaching work?",
-    answer: "Remote coaching includes personalized guidance, feedback on workouts, and structured training plans designed for your goals.",
+    vraag: "Wat als ik twijfels heb of ik geschikt ben?",
+    antwoord:
+      "Twijfel is normaal. Juist daarom is dit programma waardevol. Het geeft je een eerlijke inkijk in de eisen, zodat je kunt voelen of je écht klaar bent voor deze stap.",
   },
   {
-    question: "How many hours per week is the program?",
-    answer: "The program typically requires 5-10 hours per week, depending on your starting level and goals.",
+    vraag: "Ik sport al — heb ik dit programma wel nodig?",
+    antwoord:
+      "Zelf trainen is goed, maar militaire voorbereiding vraagt meer: presteren onder druk, omgaan met vermoeidheid, herstel en mentale focus. Dit programma voorkomt dat je traint zonder richting.",
+  },
+  {
+    vraag: "Is dit ook geschikt voor vrouwen?",
+    antwoord:
+      "Zeker. Steeds meer vrouwen kiezen bewust voor fysieke en mentale uitdaging. Dit programma is ontworpen voor iedereen met discipline, focus en drive — ongeacht geslacht.",
   },
 ];
+
 
 // program details
 export const programDetails = [
   {
     title: "Military Coaching Guide",
-    description: "Overview, crucial insights for special forces.",
+    description: "Overzicht en essentiële inzichten voor special forces.",
   },
   {
     title: "01 Basic Requirements",
-    description: "Progressive strength & endurance training tailored for military selection.",
+    description: "Progressieve kracht- en uithoudingstraining gericht op militaire selectie.",
   },
   {
     title: "02 Foundational Strength",
-    description: "Sustained readiness during service.",
+    description: "Duurzame paraatheid tijdens actieve dienst.",
   },
   {
     title: "03 Swimming Practice",
-    description: "Mastery in key strokes, optimized techniques for selection tests.",
+    description: "Beheersing van belangrijke slagen en geoptimaliseerde technieken voor selectietests.",
   },
   {
     title: "04/05 Support",
-    description: "Exercise library, mobility guides for comprehensive readiness.",
+    description: "Oefenbibliotheek en mobiliteitsgidsen voor volledige paraatheid.",
   },
   {
     title: "Including REMOTE COACHING",
-    description: "We will review your exercises and questions to help you stay on track.",
+    description: "We beoordelen je oefeningen en vragen om je gefocust en op koers te houden.",
   },
 ];
+
 
 export const reviews = [
   {
     name: "Luc, V",
-    text: "I never thought online coaching could get this real. The discipline I’ve built here rivals what I saw in active duty.",
+    text: "Ik dacht nooit dat online coaching zo écht kon aanvoelen. De discipline die ik hier heb opgebouwd, doet niet onder voor mijn actieve diensttijd.",
   },
   {
     name: "Milan, V",
-    text: "Every session felt like it had purpose. I didn’t just get fitter — I found direction again.",
+    text: "Elke sessie had een doel. Ik werd niet alleen fitter — ik vond opnieuw richting.",
   },
   {
     name: "Jules, J",
-    text: "This program pushed me mentally harder than any gym routine ever has. It made me feel ready to serve again.",
+    text: "Dit programma daagde me mentaal meer uit dan welk sportschema dan ook. Het gaf me het gevoel weer klaar te zijn om te dienen.",
   },
   {
     name: "Daan, K",
-    text: "There’s no fluff. Just structure, intensity, and results. I came here to prepare — I left transformed.",
+    text: "Geen onzin. Alleen structuur, intensiteit en resultaat. Ik kwam om me voor te bereiden — ik vertrok als een ander mens.",
   },
   {
     name: "Bo, L",
-    text: "I was doubting if I still had it in me. This proved I did. And more.",
+    text: "Ik twijfelde of ik het nog in me had. Dit bewees van wel. En nog veel meer.",
   },
   {
     name: "Jules, L",
-    text: "I joined looking for strength. What I found was identity, discipline, and a new fire.",
+    text: "Ik zocht kracht. Wat ik vond was identiteit, discipline en een nieuw vuur.",
   },
   {
     name: "Milan, H",
-    text: "After just two weeks, I realized this was unlike anything I’d trained with before. It’s built different.",
+    text: "Na slechts twee weken wist ik: dit is totaal anders dan alles wat ik eerder heb getraind. Het is écht anders gebouwd.",
   },
   {
     name: "Liam, K",
-    text: "My confidence is back. My body’s sharper. My mindset’s dialed in. That’s what Mission Movement gave me.",
+    text: "Mijn zelfvertrouwen is terug. Mijn lijf scherper. Mijn mindset gefocust. Dat is wat Mission Movement mij gaf.",
   },
   {
     name: "Tom, R",
-    text: "The coaching speaks to who you want to become. It’s more than reps and sets — it’s a mentality shift.",
+    text: "De coaching spreekt tot wie je wilt worden. Het is meer dan herhalingen en sets — het is een mindset shift.",
   },
   {
     name: "Bo, B",
-    text: "I’ve trained CrossFit, group classes, military — nothing came close to this level of clarity and challenge.",
+    text: "Ik heb getraind met CrossFit, groepslessen, militaire schema’s — niets kwam in de buurt van deze helderheid en uitdaging.",
   },
 ];

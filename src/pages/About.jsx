@@ -7,15 +7,15 @@ const About = () => {
   return (
     <div className="pt-10">
       <Helmet>
-        <title>About | Mission Movement</title>
+        <title>Over Ons | Mission Movement</title>
         <meta
           name="description"
-          content="Discover the story behind Mission Movement and the journey from elite forces to elite coaching."
+          content="Ontdek het verhaal achter Mission Movement en de reis van elite-eenheid naar elite coaching."
         />
-        <meta property="og:title" content="About Mission Movement" />
+        <meta property="og:title" content="Over Mission Movement" />
         <meta
           property="og:description"
-          content="From the Royal Marines to the modern warrior — this is our story."
+          content="Van het Korps Mariniers naar de moderne krijger — dit is ons verhaal."
         />
         <meta
           property="og:image"
@@ -28,6 +28,7 @@ const About = () => {
           content="https://missionmovement.vercel.app/about"
         />
       </Helmet>
+
       {/* Hero Section: The Story */}
       <section
         className="relative section flex justify-center items-center bg-parajumping bg-bottom bg-no-repeat bg-cover"
@@ -37,11 +38,11 @@ const About = () => {
         <div className="relative z-10 h-full w-full flex justify-center lg:justify-end items-center pt-32 px-5 lg:px-20">
           <div className="text-center lg:text-right">
             <h1 className="text-yellow font-primary text-[35px] md:text-[60px] font-medium uppercase tracking-wider">
-              The Story
+              Het Verhaal
             </h1>
             <p className="text-white mt-2 font-secondary text-sm md:text-base tracking-widest">
-              Every mission starts with why. This one started with experience
-              earned the hard way.
+              Elke missie begint met een waarom. Deze begon met ervaring —
+              verdiend op de harde manier.
             </p>
           </div>
         </div>
@@ -51,33 +52,34 @@ const About = () => {
 
       {/* Foundations Section */}
       <section className="w-full px-5 sm:px-10 lg:px-20 py-20 flex flex-col justify-center items-center text-left">
-        <h1 className="h1-teko pb-10">Foundations</h1>
+        <h1 className="h1-teko pb-10">Grondslagen</h1>
         <div className="max-w-5xl pt-5 text-justify">
           <h5 className="mb-5 text-yellow font-secondary text-[25px] md:text-[50px] font-light uppercase leading-[120%] tracking-wide">
-            The story
+            Ons verhaal
           </h5>
           <p className="font-light tracking-wider text-white lg:text-xl leading-relaxed">
-            Built on a decade of elite service in the Royal Marine Corps,
-            including four years in MARSOC, Mission Movement delivers real-world
-            preparation from those who’ve lived it. After leaving the military,
-            we ran a private training facility for five years — not just
-            training bodies, but building unbreakable mindsets.
+            Gebouwd op een decennium aan dienst binnen het Korps Mariniers,
+            inclusief vier jaar in MARSOC, brengt Mission Movement
+            praktijkgerichte voorbereiding vanuit echte ervaring. Na de
+            militaire carrière runden we vijf jaar lang een privé
+            trainingsruimte — waar we niet alleen lichamen trainden, maar vooral
+            onbreekbare mindsets bouwden.
             <br />
             <br />
-            With nine years of coaching experience, our team blends military
-            precision with real-world coaching. Whether it’s preparing for
-            military selections, mountain climbs, , or gym sessions— we’ve lived
-            every rep we teach.
+            Met negen jaar coachingervaring combineren we militaire precisie met
+            persoonlijke begeleiding. Of het nu gaat om selectietrainingen,
+            bergexpedities of sportschoolklanten — we hebben elke herhaling die
+            we aanleren zelf doorleefd.
             <br />
             <br />
-            Our mission is simple: prepare future operators. From fitness to
-            mindset, we equip you with the tools we wish we had — especially for
-            elite units where failure isn’t an option.
+            Onze missie is simpel: toekomstige operators voorbereiden. Van
+            fysiek tot mentaal — we geven je de tools die we zelf graag eerder
+            hadden gehad. Vooral wanneer falen geen optie is.
             <br />
             <br />
-            Mission Movement exists to forge resilient humans — not just for the
-            military, but for life. If you’re ready to commit, we’re ready to
-            lead.
+            Mission Movement is er om veerkrachtige mensen te vormen. Niet
+            alleen voor het leger, maar voor het leven. Als jij bereid bent je
+            te committeren, leiden wij de weg.
           </p>
         </div>
       </section>
@@ -86,56 +88,58 @@ const About = () => {
       <section className="relative bg-fixed bg-cover bg-center bg-heigendhert h-[300px] flex items-center justify-center">
         <div className="bg-black/70 px-6 py-4 border-l-4 border-yellow max-w-4xl">
           <h2 className="text-yellow text-lg md:text-2xl uppercase tracking-widest font-secondary text-center">
-            Discipline is the bridge between goals and accomplishment.
+            Discipline is de brug tussen doelen en verwezenlijking.
           </h2>
         </div>
       </section>
 
       {/* Mission & Values */}
       <section className="w-full px-5 sm:px-10 lg:px-20 py-20 flex flex-col justify-center items-center">
-        <h1 className="h1-teko py-10">Mission & Values</h1>
+        <h1 className="h1-teko py-10">Missie & Waarden</h1>
         <div className="flex flex-col md:flex-row w-full max-w-6xl gap-10 text-justify">
-          {/* Mission */}
+          {/* Missie */}
           <div className="w-full md:w-1/3 p-5 bg-primary/10 rounded-xl">
             <h5 className="font-secondary text-yellow uppercase text-[22px] md:text-2xl mb-2">
-              Our Mission:
+              Onze Missie:
             </h5>
             <p className="font-light tracking-wider text-white lg:text-xl space-y-4 leading-relaxed">
-              We're here to sculpt future military operators. That means
-              preparing bodies, sharpening minds, and instilling a level of
-              discipline most people never reach. If you want to serve — truly
-              serve — this is where it begins.
+              Wij vormen de operators van morgen. Dat betekent: lichamen
+              voorbereiden, minds aanscherpen, en een niveau van discipline
+              installeren dat maar weinigen ooit bereiken. Wil je dienen — écht
+              dienen — dan begint het hier.
             </p>
           </div>
 
-          {/* Core Values */}
+          {/* Waarden */}
           <div className="w-full md:w-2/3 p-5 bg-primary/10 rounded-xl">
             <h5 className="font-secondary text-yellow text-[22px] md:text-2xl mb-2">
-              Core Values:
+              Kernwaarden:
             </h5>
             <div className="font-light tracking-wider text-white lg:text-xl space-y-4 leading-relaxed">
               <p>
                 <span className="text-brown uppercase font-secondary">
                   Discipline:
                 </span>{" "}
-                Not motivation. Habit. Structure. Relentless self-respect.
+                Geen motivatie. Structuur. Gewoontes. Zelfrespect zonder
+                concessies.
               </p>
               <p>
                 <span className="text-brown uppercase font-secondary">
                   Commitment:
                 </span>{" "}
-                We show up. Every day. Especially when it’s hard.
+                Wij verschijnen. Elke dag. Juist wanneer het zwaar is.
               </p>
               <p>
                 <span className="text-brown uppercase font-secondary">
-                  Determination:
+                  Doorzettingsvermogen:
                 </span>{" "}
-                We don’t hope for progress — we fight for it. One rep at a time.
+                We hopen niet op vooruitgang — we vechten ervoor. Eén herhaling
+                tegelijk.
               </p>
 
               <p>
-                These core values anchor our coaching philosophy, fostering a
-                holistic and enduring approach to elite preparation.
+                Deze waarden vormen het fundament van onze aanpak — gericht op
+                duurzame, mentale én fysieke voorbereiding.
               </p>
             </div>
           </div>
@@ -145,15 +149,17 @@ const About = () => {
       {/* CTA Ending Section */}
       <section className="w-full py-20 text-center px-5 flex flex-col justify-center items-center">
         <h2 className="h2-teko text-yellow mb-5">
-          You’ve read the story. Now decide your role in it.
+          Je kent nu het verhaal. Wat wordt jouw rol?
         </h2>
         <p className="text-white font-light max-w-2xl mx-auto mb-8">
-          Most talk about change. Few do what it takes. Whether you're chasing
-          the uniform or your potential, we’ll show you the way — and push you
-          through it.
+          Veel mensen praten over verandering. Weinig doen wat nodig is. Of je
+          nu droomt van een uniform of je potentieel wilt waarmaken — wij wijzen
+          je de weg en duwen je erdoorheen.
         </p>
         <Link to="/program">
-          <button className="btn btn-lg min-w-[300px]">Enrol & Earn It</button>
+          <button className="btn btn-lg min-w-[300px]">
+            Start jouw traject
+          </button>
         </Link>
       </section>
 

@@ -73,7 +73,7 @@ const Signup = () => {
         {/* 💬 Quote */}
         <p className="text-gray-400 text-center font-light text-sm tracking-wide max-w-xs leading-relaxed">
           <span className="italic text-white">
-            "Discipline is doing what needs to be done, even when you don’t feel like doing it."
+          "Discipline is doen wat gedaan moet worden, ook wanneer je er geen zin in hebt."
           </span>
         </p>
 
@@ -83,7 +83,7 @@ const Signup = () => {
           className="bg-[#1A1A1A] border border-yellow w-full rounded-xl px-8 py-8 shadow-lg"
         >
           <h2 className="text-yellow font-secondary text-3xl mb-6 tracking-wider uppercase text-center">
-            Sign Up
+            Account aanmaken
           </h2>
 
           {error && (
@@ -95,7 +95,7 @@ const Signup = () => {
           <div className="space-y-4">
             <input
               type="text"
-              placeholder="Username"
+              placeholder="Gebruikersnaam"
               className="w-full bg-[#121212] text-white placeholder-gray-400 px-4 py-3 rounded-md outline-none focus:ring-2 focus:ring-yellow transition"
               onChange={(e) => setUsername(e.target.value)}
               disabled={loading}
@@ -113,7 +113,7 @@ const Signup = () => {
             <div className="relative">
   <input
     type={showPassword ? "text" : "password"}
-    placeholder="Password"
+    placeholder="Wachtwoord"
     autoComplete="new-password" // for signup — change to "current-password" for login
     className="w-full bg-[#121212] text-white placeholder-gray-400 px-4 py-3 pr-10 rounded-md outline-none focus:ring-2 focus:ring-yellow transition"
     onChange={(e) => setPassword(e.target.value)}
@@ -142,13 +142,13 @@ const Signup = () => {
                 disabled={loading}
                 className="bg-yellow text-black font-semibold py-3 w-full rounded-md hover:bg-opacity-90 transition tracking-wide disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Sign Up
+                Creëer account
               </button>
             )}
           </div>
 
           <p className="text-center text-sm text-gray-400 mt-6">
-            Already have an account?{" "}
+            Heb je al een account?{" "}
             <RouterLink to="/login" className="text-yellow hover:underline">
               Log in
             </RouterLink>

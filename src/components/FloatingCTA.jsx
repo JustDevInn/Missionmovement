@@ -26,7 +26,7 @@ const FloatingCTA = () => {
         to="/program"
         className="flex items-center gap-2 font-bold tracking-wider uppercase hover:underline"
       >
-        Start Your Mission <FaArrowRight className="text-black" size={12} />
+        Start Jouw Mission <FaArrowRight className="text-black" size={12} />
       </Link>
       <button
         onClick={() => setDismissed(true)}

@@ -79,7 +79,7 @@ const Blogs = () => {
   return (
     <div className="pt-20 px-6 md:px-10 lg:px-20 bg-[#0b0b0b] min-h-screen">
       <Helmet>
-        <title>Blog | Mission Movement</title>
+        <title>Artikelen | Mission Movement</title>
         <meta
           name="description"
           content="Explore tactical training articles, real-world lessons, and expert insights from Mission Movement."
@@ -87,7 +87,7 @@ const Blogs = () => {
       </Helmet>
 
       <h1 className="h1-teko text-yellow text-center mb-10 uppercase">
-        Mission Blog
+        Mission Artikelen
       </h1>
 
       {/* Search & Sort */}
@@ -108,8 +108,8 @@ const Blogs = () => {
             onChange={(e) => setSortBy(e.target.value)}
             className="appearance-none px-4 py-2 pr-6 bg-black border border-yellow text-yellow rounded text-sm w-full"
           >
-            <option value="newest">Sort: Newest</option>
-            <option value="title">Sort: Title (A-Z)</option>
+            <option value="newest">Sorteer: Nieuwste</option>
+            <option value="title">Sorteer: Titel (A-Z)</option>
           </select>
 
           {/* Custom arrow */}
@@ -166,13 +166,13 @@ const Blogs = () => {
                   </h2>
                   {blog.pinned && (
                     <span className="text-xs text-black bg-yellow px-2 py-1 rounded-full font-bold uppercase">
-                      Featured
+                      aanbevolen
                     </span>
                   )}
                 </div>
 
                 <p className="text-white text-sm italic mb-2">
-                  by {blog.author} •{" "}
+                  door {blog.author} •{" "}
                   {blog.createdAt?.seconds &&
                     format(
                       new Date(blog.createdAt.seconds * 1000),
@@ -189,7 +189,7 @@ const Blogs = () => {
                     to={`/blogs/${blog.slug}`}
                     className="text-sm text-black bg-yellow font-bold tracking-wide px-4 py-2 w-max uppercase hover:bg-transparent hover:text-yellow border border-yellow transition-all"
                   >
-                    Read More →
+                    Lees meer →
                   </Link>
                 </div>
               </div>
@@ -197,7 +197,7 @@ const Blogs = () => {
           ))}
         </div>
       ) : (
-        <p className="text-white text-center mt-10">No blogs found.</p>
+        <p className="text-white text-center mt-10">Geen artikelen gevonden.</p>
       )}
 
       {/* Pagination */}

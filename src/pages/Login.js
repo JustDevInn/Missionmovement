@@ -40,7 +40,7 @@ const Login = () => {
 
   return user ? (
     <div className="text-center mt-32 text-white text-xl">
-      Already logged in. Redirecting...
+      Je bent al ingelogd. We verwijzen je nu...
     </div>
   ) : (
     <div className="min-h-[calc(100vh-90px)] bg-[#0a0a0a] flex justify-center items-center px-4">
@@ -49,7 +49,7 @@ const Login = () => {
         className="bg-[#1A1A1A] border border-yellow w-full max-w-md rounded-xl px-8 py-10 shadow-lg"
       >
         <h2 className="text-yellow font-secondary text-3xl mb-6 tracking-wider uppercase text-center">
-          Login
+          Log in
         </h2>
 
         {error && (
@@ -99,15 +99,15 @@ const Login = () => {
               disabled={loading}
               className="bg-yellow text-black font-semibold py-3 w-full rounded-md hover:bg-opacity-90 transition tracking-wide disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Login
+              Log in
             </button>
           )}
         </div>
 
         <p className="text-center text-sm text-gray-400 mt-6">
-          New here?{" "}
+          Niew hier?{" "}
           <RouterLink to="/signup" className="text-yellow hover:underline">
-            Create an account
+          Creëer een account
           </RouterLink>
         </p>
       </form>

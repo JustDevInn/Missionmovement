@@ -2,55 +2,110 @@ import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
-const accordionData = [
+const lmbSpecialisaties = [
+  {
+    title: "Specialisaties & Doorgroeimogelijkheden",
+    image: "/img/luchtmobiel-doorgroei.jpg",
+    objectPosition: "object-[center_40%]",
+    content: `Binnen 11 Luchtmobiele Brigade zijn er volop mogelijkheden om je verder te specialiseren of door te groeien naar zwaardere rollen. Na het behalen van je rode baret begin je als luchtmobiel infanterist, maar afhankelijk van je inzet, capaciteiten en ambities kun je doorgroeien naar o.a.:
+  
+  - Pathfinder: Vooruitsturende eenheden die landing zones verkennen, markeren en tactisch voorbereiden voor helikopterinzet.
+  - Sniper of Verkenner: Gericht op stealth, observatie en precisieoptreden in kleine zelfstandige teams.
+  - Medic: Gevechtsverpleger die zelfstandig medische hulp verleent in het veld.
+  - JTAC: Joint Terminal Attack Controller — specialist in het coördineren van luchtsteun vanuit de grond.
+  - Air Assault Instructeur: Training geven in het tactisch inzetten van eenheden via helikopters.
+  
+  Daarnaast is er ruimte voor:
+  
+  - Internationale samenwerking: Via uitzendingen, trainingen of de Division Schnelle Kräfte (DSK) werk je intensief samen met buitenlandse eenheden.
+  - Overstap naar special forces: Ervaren luchtmobiele militairen kunnen geselecteerd worden voor de opleiding tot commando (KCT) — mits ze voldoen aan de vereisten. De AMOL vormt hiervoor een stevige basis.
+  
+  Deze doorgroeimogelijkheden vragen discipline, betrouwbaarheid onder druk en de wil om jezelf te blijven ontwikkelen — fysiek, mentaal en tactisch.`,
+  },
+];
+
+const luchtmobielAccordionData = [
   {
     title: "Ontstaan & Missie",
     image: "/img/luchtmobiel.jpg",
     objectPosition: "object-[center_20%]",
     content:
-      "De 11 Luchtmobiele Brigade is een snel inzetbare eenheid van de Koninklijke Landmacht, opgericht in 1992. De eenheid is gespecialiseerd in luchtverplaatsbare operaties en vormt samen met het Korps Mariniers de Nederlandse bijdrage aan de snelle interventiemacht van de NAVO.",
+      "De 11 Luchtmobiele Brigade is een snel inzetbare infanterie-eenheid van de Koninklijke Landmacht. De eenheid werd opgericht in 1992 en is gespecialiseerd in luchtverplaatsbare operaties. Militairen van deze brigade worden via helikopters of vliegtuigen direct ingezet in gebieden waar snelheid en mobiliteit cruciaal zijn. De brigade vormt samen met het Korps Mariniers de Nederlandse bijdrage aan de snelle interventiemacht van de NAVO.",
   },
   {
     title: "Inzet & Specialisaties",
     image: "/img/luchtmobiel.jpg",
     objectPosition: "object-top",
     content:
-      "De brigade wordt ingezet voor nationale en internationale missies waarbij snelheid, precisie en mobiliteit cruciaal zijn. Specialisaties zijn o.a. pathfinder, medic, JTAC, sniper, verkenner en air assault.",
+      "De Luchtmobiele Brigade wordt wereldwijd ingezet voor missies waarbij snelheid en flexibiliteit essentieel zijn — zoals humanitaire operaties, evacuaties en gevechtsinzet. De eenheid opereert vaak in kleine groepen en is getraind op snel reageren in complexe omstandigheden. Luchtmobiel optreden vraagt om fysieke weerbaarheid, mentale veerkracht en nauwe samenwerking.",
   },
   {
     title: "Structuur & Locaties",
     image: "/img/luchtmobiel.jpg",
     objectPosition: "object-top",
     content:
-      "De 11 Luchtmobiele Brigade heeft kazernes in Schaarsbergen en Assen. De eenheid bestaat uit infanteriecompagnieën, ondersteunende eenheden en helikoptercapaciteit via samenwerking met de luchtmacht.",
+      "De 11 Luchtmobiele Brigade is gestationeerd op twee hoofdlocaties: de Oranjekazerne in Schaarsbergen en de Johan Willem Frisokazerne in Assen. De brigade bestaat uit infanteriecompagnieën, ondersteunende gevechtseenheden en logistieke afdelingen. Voor luchtverplaatsing werkt de eenheid nauw samen met de Koninklijke Luchtmacht, met inzet van transporthelikopters en vliegtuigen.",
   },
   {
     title: "Keuring & Slagingskans",
     image: "/img/luchtmobiel.jpg",
     objectPosition: "object-top",
     content:
-      "De AMOL-opleiding voor luchtmobiel is fysiek zwaar. Na de algemene keuring volg je een luchtmobiele AMOL waarin fysieke en mentale weerbaarheid centraal staan. De slagingskans ligt gemiddeld rond de 40–50%.",
+      "Toelating tot de Luchtmobiele Brigade begint met de algemene keuring van Defensie. Na goedkeuring volg je de AMOL-opleiding (Algemene Militaire Opleiding Landmacht) met een luchtmobiel profiel. Deze opleiding is fysiek en mentaal uitdagend, met nadruk op duurvermogen, groepsdruk en het functioneren onder belasting. Ongeveer 40–50% van de kandidaten rondt de opleiding succesvol af.",
   },
   {
     title: "Fysieke Eisen",
     image: "/img/luchtmobiel.jpg",
     objectPosition: "object-top",
     content:
-      "Je moet onder andere voldoen aan:\n- 6+ pull-ups\n- 30 sit-ups in 2 minuten\n- 2.800 meter in 12 minuten\n- 100 meter zwemmen met kledij\n\nDaarnaast moet je presteren onder stress, gewicht dragen en teamwork tonen.",
+      "Om toegelaten te worden, moet je voldoen aan minimale fysieke eisen zoals:\n\n- 6 of meer pull-ups\n- 30 sit-ups in 2 minuten\n- 2.800 meter hardlopen in 12 minuten\n- 100 meter zwemmen met kleding\n\nDaarbovenop wordt je getest op het vermogen om gewicht te dragen over langere afstanden, uithoudingsvermogen onder groepsdruk en mentale weerbaarheid. Teamwork speelt een grote rol in de selectie en opleiding.",
   },
   {
     title: "Carrièrepad & Doorstroom",
     image: "/img/luchtmobiel.jpg",
     objectPosition: "object-top",
     content:
-      "Je kunt doorgroeien naar groepscommandant, instructeur, of doorstromen naar het KCT, Luchtmacht of internationale eenheden. Ook functies als pathfinder of luchtmobiele verkenner behoren tot de opties.",
+      "Na het afronden van de opleiding start je als luchtmobiele infanterist. Vanuit deze basisrol kun je doorgroeien naar leidinggevende functies of deelnemen aan aanvullende trainingen en cursussen. Doorstroom naar andere onderdelen binnen Defensie is ook mogelijk — zoals het Korps Commandotroepen (KCT), de Koninklijke Luchtmacht of internationale eenheden. Specialisaties en doorgroei worden verder toegelicht onderaan deze pagina.",
   },
   {
-    title: "Waarom Voorbereiding Essentieel Is",
+    title: "Voorbereiding & Uitvalrisico",
     image: "/img/luchtmobiel.jpg",
     objectPosition: "object-top",
     content:
-      "Fysieke achterstand, blessuregevoeligheid en onderschatting zorgen voor uitval. Mission Movement helpt je met een gefaseerde voorbereiding die je fit, weerbaar en klaar voor inzet maakt.",
+      "De luchtmobiele opleiding vraagt meer dan alleen motivatie. Fysieke achterstand, blessures door overbelasting en onderschatting van mentale druk zorgen voor veel uitval. Een gestructureerde voorbereiding — met aandacht voor conditie, herstel, krachtuithouding en samenwerken — is essentieel voor wie deze stap serieus neemt.",
+  },
+];
+
+const lmbVeelgesteldevragen = [
+  {
+    title: "Is luchtmobiel net zo zwaar als het KCT?",
+    content:
+      "Nee. De opleiding en selectie bij 11 Luchtmobiele Brigade zijn fysiek zwaar en mentaal veeleisend, maar minder extreem dan het traject van het Korps Commandotroepen. Dat neemt niet weg dat je moet beschikken over een uitstekende conditie, discipline, en de mentale capaciteit om onder druk te functioneren. Verwacht geen gemak — alleen een andere vorm van intensiteit.",
+  },
+  {
+    title: "Is dit programma ook geschikt voor vrouwen?",
+    content:
+      "Zeker. Steeds meer vrouwen ronden de luchtmobiele opleiding succesvol af. Het traject stelt dezelfde eisen aan iedereen — ongeacht geslacht. Dit programma focust op functionele kracht, uithoudingsvermogen, herstel en mentale weerbaarheid. Vrouwen zijn volwaardig inzetbaar binnen de eenheid, mits ze voldoen aan de standaard — net als ieder ander.",
+  },
+  {
+    title: "Hoe combineer ik training met werk of school?",
+    content:
+      "De voorbereiding is flexibel op te bouwen en zelfstandig uit te voeren. Elke week heb je duidelijke trainingsdoelen, maar het is aan jou om je tijd goed te plannen. Verwacht wel een hoge mate van consistentie — de opleiding vraagt straks ook om discipline naast slaaptekort, groepsdruk en fysieke vermoeidheid. Hoe beter je nu leert plannen, hoe sterker je instroom wordt.",
+  },
+  {
+    title: "Wat als ik twijfel of ik geschikt ben?",
+    content:
+      "Twijfel is normaal — zeker als je iets aangaat dat groter is dan jezelf. De enige manier om daarachter te komen is door actie te ondernemen. Een gerichte voorbereiding helpt je testen waar je staat: fysiek, mentaal en qua mindset. Niet iedereen hoeft militair te worden — maar als het in je hoofd speelt, verdien je het om er serieus achter te komen of dit bij je past.",
+  },
+  {
+    title: "Ik sport al — waarom zou ik dit nodig hebben?",
+    content:
+      "Zelf trainen is goed. Maar luchtmobiel vraagt om specifieke vaardigheden: lopen met bepakking, presteren onder groepsdruk, herstel onder vermoeidheid, werken binnen hiërarchie. Een doelgericht trainingsplan voorkomt overbelasting, leert je omgaan met belasting, en bouwt vertrouwen op vóór je begint. De AMOL is geen plek om dingen nog uit te zoeken — dat doe je nu.",
+  },
+  {
+    title: "Wat leer je tijdens de AMOL voor luchtmobiel?",
+    content:
+      "De AMOL (Algemene Militaire Opleiding Landmacht) met luchtmobiel profiel duurt gemiddeld 24 weken. Je leert onder andere militair gedrag, kaartlezen, schieten, marsen met bepakking, samenwerken onder druk, camoufleren, slaapdeprivatie en basisveldhandelingen. Richting het einde van de opleiding volgen luchtmobiele veldoefeningen met helikopterinzet. Zowel fysiek als mentaal vraagt dit traject alles van je. Een goede voorbereiding is geen luxe — het is noodzakelijk.",
   },
 ];
 
@@ -81,9 +136,9 @@ const LuchtmobieleBrigade = () => {
       {/* Hero */}
       <section className="relative h-[400px] md:h-[500px] w-full overflow-hidden">
         <img
-          src="/img/luchtmobiel.jpg"
+          src="/img/eenheden/lmb_wide.jpg"
           alt="Luchtmobiele Brigade"
-          className="absolute inset-0 w-full h-full object-cover object-center scale-110"
+          className="absolute inset-0 w-full h-full object-cover object-[center_80%] scale-110"
         />
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative z-10 h-full w-full flex flex-col justify-center items-center text-center px-6">
@@ -101,7 +156,7 @@ const LuchtmobieleBrigade = () => {
         <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
           <div className="flex-shrink-0 flex items-center justify-center h-[160px] md:h-[220px]">
             <img
-              src="/img/lmb_embleem.png"
+              src="/img/eenheden/lmb_embleem.png"
               alt="Luchtmobiele Embleem"
               className="h-full w-auto object-contain"
             />
@@ -111,13 +166,18 @@ const LuchtmobieleBrigade = () => {
               Wat is 11 Luchtmobiele Brigade?
             </h2>
             <p className="text-gray-300 font-light leading-relaxed text-base md:text-lg">
-              Deze brigade is snel, wendbaar en inzetbaar via helikopters of
-              vliegtuigen. Je wordt getraind op mobiliteit, samenwerking en
-              uithoudingsvermogen. Missies zijn fysiek zwaar en vaak intensief.
+              11 Luchtmobiele Brigade is een snel inzetbare infanterie-eenheid
+              van de Koninklijke Landmacht. De eenheid specialiseert zich in
+              operaties waarbij militairen via helikopters of vliegtuigen direct
+              in actie worden gebracht. De nadruk ligt op snelheid, wendbaarheid
+              en opereren in kleine teams achter de linies.
               <br className="hidden md:block" />
               <br />
-              Mission Movement helpt je voorbereid binnenkomen — niet gokken,
-              maar weten waar je aan begint.
+              Als luchtmobiel militair word je getraind op uithoudingsvermogen,
+              navigatie, samenwerking en het langdurig functioneren onder
+              fysieke en mentale druk. Missies kunnen variëren van
+              gevechtsacties tot humanitaire ondersteuning, maar vragen altijd
+              om een hoog basisniveau van fitheid en discipline.
             </p>
           </div>
         </div>
@@ -125,7 +185,7 @@ const LuchtmobieleBrigade = () => {
 
       {/* Accordion */}
       <section className="px-4 md:px-10 max-w-5xl mx-auto py-16 space-y-4">
-        {accordionData.map((item, index) => {
+        {luchtmobielAccordionData.map((item, index) => {
           const isOpen = activeIndex === index;
           return (
             <div
@@ -166,6 +226,23 @@ const LuchtmobieleBrigade = () => {
         })}
       </section>
 
+      {/* LMB specialisaties*/}
+      <section className="px-4 md:px-10 max-w-5xl mx-auto pb-16">
+        <h2 className="text-yellow text-2xl md:text-3xl font-secondary uppercase tracking-widest mb-6">
+          Specialisaties binnen de Luchtmobiele brigade
+        </h2>
+        {lmbSpecialisaties.map((item, index) => (
+          <div key={index} className="mb-6">
+            <h3 className="text-yellow font-semibold text-lg mb-2">
+              {item.title}
+            </h3>
+            <p className="text-gray-300 font-light text-sm md:text-base whitespace-pre-line">
+              {item.content}
+            </p>
+          </div>
+        ))}
+      </section>
+
       {/* CTA */}
       <section className="relative bg-yellow text-black py-12 my-10 px-6 text-center shadow-lg overflow-hidden">
         <div className="max-w-3xl mx-auto">
@@ -173,11 +250,15 @@ const LuchtmobieleBrigade = () => {
             Luchtmobiel Voorbereiding
           </p>
           <h3 className="text-3xl md:text-4xl font-bold tracking-wide mb-3">
-            Jouw inzet begint hier.
+            Wil je dit echt, dan moet je voorbereid starten.
           </h3>
           <p className="text-base md:text-lg mb-6">
-            Vergroot je slagingskans bij Luchtmobiel met ons gestructureerde
-            trainingsprogramma.
+            De luchtmobiele opleiding is fysiek zwaar en mentaal veeleisend. Eén
+            poging, geen ruimte voor gokken. Dit programma helpt je gericht
+            toewerken naar een sterke en realistische start.{" "}
+            <br className="hidden md:block" />
+            <br />
+            Ook steeds meer vrouwen bewijzen dat ze hier thuishoren.
           </p>
           <Link to="/pricing" className="flex justify-center items-center">
             <button className="btn-lg bg-black text-yellow hover:bg-yellow hover:text-black border border-black">
@@ -193,12 +274,29 @@ const LuchtmobieleBrigade = () => {
           Voor wie is dit geschikt?
         </h2>
         <ul className="list-disc pl-6 text-gray-300 font-light space-y-2">
-          <li>Je wilt deel uitmaken van een snelle interventie-eenheid.</li>
-          <li>Je zoekt fysieke uitdaging én kameraadschap.</li>
-          <li>Je wilt de AMOL met vertrouwen en kracht starten.</li>
           <li>
-            Je wilt tactisch en fysiek voorbereid zijn op missies over de hele
-            wereld.
+            Je wilt deel uitmaken van een snelle, internationale
+            interventie-eenheid die optreedt onder druk.
+          </li>
+          <li>
+            Je zoekt niet alleen fysieke uitdaging, maar ook teamverband, ritme
+            en mentale groei.
+          </li>
+          <li>
+            Je wilt niet twijfelend beginnen aan de AMOL — maar voorbereid,
+            hersteld en met een sterk fundament.
+          </li>
+          <li>
+            Je weet dat snelheid, samenwerking en draagvermogen net zo
+            belangrijk zijn als brute kracht.
+          </li>
+          <li>
+            Je bent vrouw of man — en klaar om jezelf te bewijzen in een
+            omgeving waar inzet zwaarder telt dan geslacht.
+          </li>
+          <li>
+            Je neemt deze kans serieus en kiest voor gerichte opbouw in plaats
+            van 'even kijken of je het haalt'.
           </li>
         </ul>
       </section>
@@ -210,10 +308,11 @@ const LuchtmobieleBrigade = () => {
         </h2>
         <ol className="relative border-l border-yellow pl-6 space-y-6 text-gray-300 font-light text-sm md:text-base">
           {[
-            "Aanmelding via werkenbijdefensie.nl",
-            "Voorlichting en sportkeuring",
-            "Start AMOL luchtmobiel",
-            "Afsluiten luchtmobiele opleiding",
+            "Voorbereiding — fysiek",
+            "Oriëntatie en aanmelding via Defensie",
+            "Kennismakingsdag en keuringen",
+            "Start van de AMOL met luchtmobiel profiel",
+            "Afronding luchtmobiele opleiding & toewijzing eenheid",
             "Inzet als luchtmobiel militair",
           ].map((step, i) => (
             <li key={i}>
@@ -224,34 +323,49 @@ const LuchtmobieleBrigade = () => {
         </ol>
       </section>
 
-      {/* FAQ */}
-      <section className="py-16 px-6 md:px-10 max-w-5xl mx-auto text-left border-t border-yellow">
+      {/* FAQ Accordion */}
+      <section className="px-4 md:px-10 max-w-5xl mx-auto py-16 space-y-4 border-t border-yellow">
         <h2 className="text-yellow text-2xl md:text-3xl font-secondary uppercase tracking-widest mb-6">
           Veelgestelde Vragen
         </h2>
-        <div className="space-y-6">
-          {[
-            {
-              q: "Is luchtmobiel net zo zwaar als KCT?",
-              a: "Nee, het is minder extreem, maar nog steeds fysiek pittig. Je moet inzet tonen, discipline hebben en goed kunnen samenwerken.",
-            },
-            {
-              q: "Is dit programma ook geschikt voor vrouwen?",
-              a: "Zeker. Veel vrouwen zijn succesvol bij Luchtmobiel. Onze aanpak richt zich op functionele kracht en mentale weerbaarheid — ongeacht geslacht.",
-            },
-            {
-              q: "Hoe train ik naast werk of school?",
-              a: "Je volgt onze training zelfstandig. Je hebt elke week duidelijke doelen en richtlijnen, afgestemd op jouw schema.",
-            },
-          ].map((faq, i) => (
-            <div key={i}>
-              <h3 className="text-yellow font-semibold text-lg mb-2">
-                {faq.q}
-              </h3>
-              <p className="text-gray-300 font-light">{faq.a}</p>
+
+        {lmbVeelgesteldevragen.map((item, index) => {
+          const isOpen =
+            activeIndex === index + luchtmobielAccordionData.length;
+          return (
+            <div
+              key={index}
+              className={`border border-yellow/20 rounded-lg transition-all duration-300 ${
+                isOpen ? "bg-[#111111] border-yellow" : "bg-[#0a0a0a]"
+              }`}
+            >
+              <button
+                onClick={() =>
+                  setActiveIndex(
+                    isOpen ? null : index + luchtmobielAccordionData.length
+                  )
+                }
+                className="w-full flex justify-between items-center px-6 py-4 text-left"
+              >
+                <span className="text-yellow font-secondary text-base md:text-lg tracking-widest uppercase">
+                  {item.title}
+                </span>
+                <span className="text-yellow text-xl">
+                  {isOpen ? "−" : "+"}
+                </span>
+              </button>
+              <div
+                className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                  isOpen ? "max-h-[1000px] py-4 px-6" : "max-h-0"
+                }`}
+              >
+                <p className="whitespace-pre-line text-gray-300 font-light leading-relaxed text-sm md:text-base">
+                  {item.content}
+                </p>
+              </div>
             </div>
-          ))}
-        </div>
+          );
+        })}
       </section>
 
       {/* Mobile Sticky CTA */}
