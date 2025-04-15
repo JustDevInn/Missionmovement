@@ -60,7 +60,7 @@ const Program = () => {
 
       {/* Hero sectie */}
       <section className="section flex flex-col justify-center items-start md:mb-20">
-        <div className="flex flex-col justify-start items-start pl-10 lg:pl-60">
+        <div className="flex flex-col justify-start items-start pl-8 lg:pl-60">
           <p className="h2 animate-fade-in">Het</p>
           <h1 className="text-yellow font-primary text-[35px] md:text-[100px] font-medium uppercase leading-[120%] tracking-wider animate-slide-in-left">
             Militaraire
