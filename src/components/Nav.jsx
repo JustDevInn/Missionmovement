@@ -156,7 +156,7 @@ const Nav = () => {
                   />
                   <label
                     htmlFor={`menu-${name}`}
-                    className="flex justify-between items-center text-[#CCCCCC] hover:text-yellow uppercase text-lg font-bold py-3 border-b border-white/50 cursor-pointer"
+                    className="flex justify-between items-center text-[#CCCCCC] hover:text-yellow uppercase text-lg font-bold py-3 border-b border-white/50 cursor-pointer "
                   >
                     {name}
                     <span>
@@ -262,7 +262,7 @@ const Nav = () => {
               nav ? "h-[80vh] opacity-100" : "h-0 opacity-0 pointer-events-none"
             } overflow-hidden`}
           >
-            <div className="grid grid-cols-2 gap-10 px-20 py-10">
+            <div className="grid grid-cols-3 gap-10 px-20 py-10">
               {/* First Column */}
               <div className="flex flex-col space-y-8">
                 {/* About Section */}
@@ -322,7 +322,10 @@ const Nav = () => {
                     Het programma
                   </RouterLink>
                 </div>
+              </div>
 
+              {/* Second Column */}
+              <div className="flex flex-col space-y-8">
                 {/* News Section */}
                 <div>
                   <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">
@@ -337,10 +340,6 @@ const Nav = () => {
                     Lees onze artikelen
                   </RouterLink>
                 </div>
-              </div>
-
-              {/* Second Column */}
-              <div className="flex flex-col space-y-8">
                 {/* Multimedia Section */}
                 <div>
                   <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">
@@ -379,11 +378,14 @@ const Nav = () => {
                     Bekijk ons aanbod
                   </RouterLink>
                 </div>
+              </div>
 
+              {/* Third Column */}
+              <div className="flex flex-col space-y-8">
                 {/* Get in Contact Section */}
                 <div>
                   <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">
-                    contact
+                    Contact
                   </h3>
                   <div className="border-t border-gray-400 w-20 my-2"></div>
                   <RouterLink
@@ -393,6 +395,15 @@ const Nav = () => {
                   >
                     Kom in contact
                   </RouterLink>
+                </div>
+
+                {/* Image Fill */}
+                <div className="mt-auto">
+                  <img
+                    src="/img/tryme.png"
+                    alt="Military Prep"
+                    className="w-[250px] h-[300px] object-cover rounded-lg shadow-md"
+                  />
                 </div>
               </div>
             </div>

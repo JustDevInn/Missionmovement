@@ -13,7 +13,6 @@ const SingleBlog = () => {
   const [loading, setLoading] = useState(true);
   const [showToast, setShowToast] = useState(false);
 
-  // Fetch all blogs for nav
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -56,7 +55,7 @@ const SingleBlog = () => {
     } else {
       navigator.clipboard.writeText(url);
       setShowToast(true);
-      setTimeout(() => setShowToast(false), 2500); // Hide after 2.5s
+      setTimeout(() => setShowToast(false), 2500);
     }
   };
 
@@ -73,7 +72,7 @@ const SingleBlog = () => {
   }
 
   return (
-    <div className="min-h-screen pt-20 px-5 md:px-10 lg:px-20 bg-[#0b0b0b] text-white animate-fadein">
+    <div className="min-h-screen pt-20 px-5 md:px-10 bg-[#0b0b0b] text-white animate-fadein">
       <Helmet>
         <title>{blog.title} | Mission Movement</title>
         <meta name="description" content={blog.summary} />
@@ -89,125 +88,124 @@ const SingleBlog = () => {
         />
       </Helmet>
 
-      <Link
-        to="/blogs"
-        className="text-yellow text-sm font-semibold uppercase tracking-wide hover:underline mb-6 inline-block"
-      >
-        ← Terug
-      </Link>
-
-      <h1 className="h1-teko text-yellow text-4xl md:text-6xl mb-4">
-        {blog.title}
-      </h1>
-
-      <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400 mb-6">
-        <span>Door {blog.author}</span>
-        <span>•</span>
-        <span>
-          {blog.createdAt?.seconds &&
-            format(new Date(blog.createdAt.seconds * 1000), "dd MMM yyyy")}
-        </span>
-        <span>•</span>
-        <span>{getReadingTime()}</span>
-        <button
-          onClick={handleShare}
-          className="ml-auto text-yellow text-xs border border-yellow px-3 py-1 rounded hover:bg-yellow hover:text-black transition"
-        >
-          Deel dit artikel
-        </button>
-      </div>
-
-      {/* Tags */}
-      {blog.tags?.length > 0 && (
-        <div className="flex gap-2 flex-wrap mt-2 mb-4">
-          {blog.tags.map((tag, i) => (
-            <span
-              key={i}
-              className="bg-yellow text-black text-xs px-2 py-1 rounded-full font-semibold uppercase"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      )}
-
-      <img
-        src={blog.thumbnail}
-        alt={blog.title}
-        className="w-full rounded-xl max-h-[500px] object-cover mb-10 shadow-md"
-      />
-
-      {blog.content?.quote && (
-        <blockquote className="bg-[#1a1a1a] border-l-4 border-yellow p-6 italic text-lg font-light mb-10 rounded-lg text-gray-200 shadow">
-          “{blog.content.quote}”
-        </blockquote>
-      )}
-
-      <div className="space-y-6 text-white font-light leading-relaxed text-justify md:px-20">
-        {blog.content?.paragraphs?.map((para, index) => (
-          <p key={index} className="text-sm md:text-base">
-            {para}
-          </p>
-        ))}
-      </div>
-
-      {blog.content?.images?.length > 1 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
-          {blog.content.images.slice(1).map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              alt={`Visual ${i + 2}`}
-              className="rounded-lg shadow-md"
-            />
-          ))}
-        </div>
-      )}
-
-      {/* Navigation Buttons */}
-      <div className="flex justify-between items-center mt-16">
-        {prevBlog ? (
-          <Link
-            to={`/blogs/${prevBlog.slug}`}
-            className="text-yellow text-sm hover:underline"
-          >
-            ← {prevBlog.title}
-          </Link>
-        ) : (
-          <span />
-        )}
-        {nextBlog && (
-          <Link
-            to={`/blogs/${nextBlog.slug}`}
-            className="text-yellow text-sm hover:underline ml-auto"
-          >
-            {nextBlog.title} →
-          </Link>
-        )}
-      </div>
-
-      {/* CTA */}
-      <div className="mt-20 text-center">
-        <h2 className="text-yellow text-2xl font-secondary uppercase tracking-widest mb-3">
-          Vond je dit interessant?
-        </h2>
-        <p className="text-gray-400 mb-6 text-sm">
-          Ontdek meer training inzichten of bekijk onze programma’s die zijn
-          ontworpen om jouw veerkracht naar een elitair niveau te tillen.
-        </p>
+      <div className="max-w-3xl mx-auto">
         <Link
-          to="/program"
-          className="mb-16 inline-block bg-yellow text-black font-bold px-6 py-3 uppercase tracking-wider hover:bg-transparent hover:text-yellow border border-yellow transition"
+          to="/blogs"
+          className="text-yellow text-sm font-semibold uppercase tracking-wide hover:underline mb-6 inline-block"
         >
-          Bekijk Trainingsprogramma →
+          ← Terug
         </Link>
-      </div>
-      {/* Copy Link Toast */}
-      {showToast && (
-        <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-yellow text-black px-4 py-2 rounded shadow-lg text-sm font-bold z-50 animate-fadein">
-          Link gekopieerd naar klembord!
+
+        <h1 className="h1-teko text-yellow text-4xl md:text-6xl mb-4">
+          {blog.title}
+        </h1>
+
+        <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400 mb-6">
+          <span>Door {blog.author}</span>
+          <span>•</span>
+          <span>
+            {blog.createdAt?.seconds &&
+              format(new Date(blog.createdAt.seconds * 1000), "dd MMM yyyy")}
+          </span>
+          <span>•</span>
+          <span>{getReadingTime()}</span>
+          <button
+            onClick={handleShare}
+            className="ml-auto text-yellow text-xs border border-yellow px-3 py-1 rounded hover:bg-yellow hover:text-black transition"
+          >
+            Deel dit artikel
+          </button>
         </div>
-      )}
+
+        {blog.tags?.length > 0 && (
+          <div className="flex gap-2 flex-wrap mt-2 mb-4">
+            {blog.tags.map((tag, i) => (
+              <span
+                key={i}
+                className="bg-yellow text-black text-xs px-2 py-1 rounded-full font-semibold uppercase"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+
+        <img
+          src={blog.thumbnail}
+          alt={blog.title}
+          className="w-full rounded-xl max-h-[500px] object-cover mb-10 shadow-md"
+        />
+
+        {blog.content?.quote && (
+          <blockquote className="bg-[#1a1a1a] border-l-4 border-yellow p-6 italic text-lg font-light mb-10 rounded-lg text-gray-200 shadow">
+            “{blog.content.quote}”
+          </blockquote>
+        )}
+
+        <div className="space-y-6 text-white font-light leading-relaxed md:px-4 bg-[#101010] border border-yellow/10 rounded-lg p-5 shadow-md">
+          {blog.content?.paragraphs?.map((para, index) => (
+            <div key={index} className=" text-sm md:text-base">
+              <p>{para}</p>
+            </div>
+          ))}
+        </div>
+
+        {blog.content?.images?.length > 1 && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+            {blog.content.images.slice(1).map((img, i) => (
+              <img
+                key={i}
+                src={img}
+                alt={`Visual ${i + 2}`}
+                className="rounded-lg shadow-md"
+              />
+            ))}
+          </div>
+        )}
+
+        <div className="flex justify-between items-center mt-16">
+          {prevBlog ? (
+            <Link
+              to={`/blogs/${prevBlog.slug}`}
+              className="text-yellow text-sm hover:underline"
+            >
+              ← {prevBlog.title}
+            </Link>
+          ) : (
+            <span />
+          )}
+          {nextBlog && (
+            <Link
+              to={`/blogs/${nextBlog.slug}`}
+              className="text-yellow text-sm hover:underline ml-auto"
+            >
+              {nextBlog.title} →
+            </Link>
+          )}
+        </div>
+
+        <div className="mt-20 text-center">
+          <h2 className="text-yellow text-2xl font-secondary uppercase tracking-widest mb-3">
+            Vond je dit interessant?
+          </h2>
+          <p className="text-gray-400 mb-6 text-sm">
+            Ontdek meer training inzichten of bekijk onze programma’s die zijn
+            ontworpen om jouw veerkracht naar een elitair niveau te tillen.
+          </p>
+          <Link
+            to="/program"
+            className="mb-16 inline-block bg-yellow text-black font-bold px-6 py-3 uppercase tracking-wider hover:bg-transparent hover:text-yellow border border-yellow transition"
+          >
+            Bekijk Trainingsprogramma →
+          </Link>
+        </div>
+
+        {showToast && (
+          <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-yellow text-black px-4 py-2 rounded shadow-lg text-sm font-bold z-50 animate-fadein">
+            Link gekopieerd naar klembord!
+          </div>
+        )}
+      </div>
     </div>
   );
 };

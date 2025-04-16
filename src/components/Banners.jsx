@@ -5,12 +5,12 @@ const Banners = () => {
     {
       bg: "marsenopleiding",
       title: "MILITAIR PROGRAMMA 01: BASISVEREISTEN",
-      text: "Of je nu het leger in wilt, al in dienst bent, of een fysieke en mentale boost nodig hebt — dit programma bereidt je voor op alle fysieke aspecten van militaire dienst.",
+      text: "Of je nu het leger in wilt, al in dienst bent, of een fysieke en mentale boost nodig hebt - dit programma bereidt je voor op alle fysieke aspecten van militaire dienst.",
     },
     {
       bg: "marsof",
       title: "MILITAIR PROGRAMMA 02: FUNDAMENTELE KRACHT",
-      text: "Bereik je volledige potentieel. Ontwikkel kracht, doorzettingsvermogen en mentale helderheid. Bouw de basis die nodig is om te floreren in het leger — en in het leven.",
+      text: "Bereik je volledige potentieel. Ontwikkel kracht, doorzettingsvermogen en mentale helderheid. Bouw de basis die nodig is om sterk te staan in het leger - en in het leven.",
     },
     {
       bg: "spelioladder",

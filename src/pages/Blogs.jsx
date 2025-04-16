@@ -149,9 +149,10 @@ const Blogs = () => {
       ) : currentBlogs.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {currentBlogs.map((blog) => (
-            <div
+            <Link
+              to={`/blogs/${blog.slug}`}
               key={blog.id}
-              className="bg-primary rounded-xl shadow-md hover:scale-[1.02] transition-transform flex flex-col"
+              className="group bg-primary rounded-xl shadow-md hover:scale-[1.02] transition-transform flex flex-col"
             >
               <img
                 src={blog.thumbnail}
@@ -185,15 +186,12 @@ const Blogs = () => {
                 </p>
 
                 <div className="mt-auto">
-                  <Link
-                    to={`/blogs/${blog.slug}`}
-                    className="text-sm text-black bg-yellow font-bold tracking-wide px-4 py-2 w-max uppercase hover:bg-transparent hover:text-yellow border border-yellow transition-all"
-                  >
+                  <div className="text-sm text-black bg-yellow font-bold tracking-wide px-4 py-2 w-max uppercase border border-yellow transition-all group-hover:bg-transparent group-hover:text-yellow">
                     Lees meer →
-                  </Link>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       ) : (

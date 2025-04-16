@@ -15,12 +15,12 @@ import { Helmet } from "react-helmet-async";
 const Bundle = "/img/bundle.png";
 
 const wordDefinitions = {
-  Discipline:
-    "De kunst van het consequent trainen van gedrag en gewoontes, niet afhankelijk van motivatie, maar van structuur.",
-  Commitment:
-    "De bereidheid om er elke dag te staan, juist wanneer het zwaar is.",
-  Determination:
-    "Vastberadenheid en doorzettingsvermogen. Niet hopen op vooruitgang, maar ervoor vechten.",
+  Verbondenheid:
+    "Een diepe, wederzijdse band tussen mensen gebaseerd op vertrouwen, respect en gedeelde doelen.",
+  Kracht:
+    "Het vermogen om fysieke, mentale of emotionele weerstand te bieden en actie te ondernemen — zelfs onder druk.",
+  Toewijding:
+    "De bereidheid en het doorzettingsvermogen om jezelf volledig in te zetten voor een doel, dag in dag uit.",
 };
 
 const Program = () => {
@@ -59,23 +59,23 @@ const Program = () => {
       </Helmet>
 
       {/* Hero sectie */}
-      <section className="section flex flex-col justify-center items-start md:mb-20">
-        <div className="flex flex-col justify-start items-start pl-8 lg:pl-60">
+      <section className="section flex flex-col justify-center items-center md:mb-20">
+        <div className="flex flex-col justify-start items-start">
           <p className="h2 animate-fade-in">Het</p>
           <h1 className="text-yellow font-primary text-[35px] md:text-[100px] font-medium uppercase leading-[120%] tracking-wider animate-slide-in-left">
             Militaraire
           </h1>
           <h1 className="text-yellow font-primary text-[35px] md:text-[100px] font-medium uppercase leading-[120%] tracking-wider animate-slide-in-left">
-            Voorbereidings
+            Voorbereidings-
           </h1>
           <p className="h2 animate-fade-in">Programma</p>
         </div>
         <div className="w-full flex flex-row justify-center mt-10 lg:mt-20 text-xs lg:text-2xl tracking-widest">
-          <p className="text-brown px-2 lg:px-5">discipline</p>
+          <p className="text-brown px-2 lg:px-5">Verbondenheid</p>
           <p className="text-brown">|</p>
-          <p className="text-brown px-2 lg:px-5">vastberadenheid</p>
+          <p className="text-brown px-2 lg:px-5">Kracht</p>
           <p className="text-brown">|</p>
-          <p className="text-brown px-2 lg:px-5">toewijding</p>
+          <p className="text-brown px-2 lg:px-5">Toewijding</p>
         </div>
       </section>
 
@@ -87,10 +87,11 @@ const Program = () => {
               Programma Overzicht
             </h1>
             <p className="text-xs md:text-sm font-light text-white text-justify leading-relaxed mb-4">
-              Het Military Preparation Program van Mission Movement is gebouwd
-              op meer dan 20 jaar ervaring binnen elite eenheden. Het gaat
-              verder dan fitness — het is voor wie een hoger doel nastreeft.
-              Voor wie klaar is voor het leven van een special operator.
+              Het Militaire voorbereidingsprogramma van Mission Movement is
+              gebouwd op meer dan 10 jaar ervaring binnen elite eenheden en 10
+              jaar in de sport branche. Het gaat verder dan fitness — het is
+              voor wie een hoger doel nastreeft. Voor wie klaar is voor het
+              leven van een special operator.
               <br />
               <br />
               Het programma bestaat uit 5 deeltrajecten.
@@ -293,7 +294,7 @@ const Program = () => {
               animate ? "animate-light-sweep" : ""
             }`}
           >
-            {["Discipline", "|", "Toewijding", "|", "Vastberadenheid"].map(
+            {["Verbondenheid", "|", "Kracht", "|", "Toewijding"].map(
               (word, index) => (
                 <span
                   key={index}
