@@ -94,7 +94,7 @@ const Blogs = () => {
       <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
         <input
           type="text"
-          placeholder="Search blogs..."
+          placeholder="Zoek artikelen..."
           className="w-full md:max-w-sm px-4 py-2 text-sm rounded border border-yellow bg-transparent text-white placeholder-gray-400"
           value={searchTerm}
           onChange={(e) => {

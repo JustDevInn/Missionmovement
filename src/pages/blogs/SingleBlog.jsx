@@ -40,7 +40,7 @@ const SingleBlog = () => {
 
   const getReadingTime = () => {
     const words = blog?.content?.paragraphs?.join(" ").split(" ").length || 0;
-    return `${Math.ceil(words / 200)} min read`;
+    return `${Math.ceil(words / 200)} min lezen`;
   };
 
   const handleShare = () => {
@@ -93,7 +93,7 @@ const SingleBlog = () => {
         to="/blogs"
         className="text-yellow text-sm font-semibold uppercase tracking-wide hover:underline mb-6 inline-block"
       >
-        ← Back to Blog
+        ← Terug
       </Link>
 
       <h1 className="h1-teko text-yellow text-4xl md:text-6xl mb-4">
@@ -101,7 +101,7 @@ const SingleBlog = () => {
       </h1>
 
       <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400 mb-6">
-        <span>by {blog.author}</span>
+        <span>Door {blog.author}</span>
         <span>•</span>
         <span>
           {blog.createdAt?.seconds &&
@@ -113,7 +113,7 @@ const SingleBlog = () => {
           onClick={handleShare}
           className="ml-auto text-yellow text-xs border border-yellow px-3 py-1 rounded hover:bg-yellow hover:text-black transition"
         >
-          Share This Post
+          Deel dit artikel
         </button>
       </div>
 
@@ -189,23 +189,23 @@ const SingleBlog = () => {
       {/* CTA */}
       <div className="mt-20 text-center">
         <h2 className="text-yellow text-2xl font-secondary uppercase tracking-widest mb-3">
-          Enjoyed this?
+          Vond je dit interessant?
         </h2>
         <p className="text-gray-400 mb-6 text-sm">
-          Explore more training insights or check out our programs designed to
-          build elite resilience.
+          Ontdek meer training inzichten of bekijk onze programma’s die zijn
+          ontworpen om jouw veerkracht naar een elitair niveau te tillen.
         </p>
         <Link
           to="/program"
           className="mb-16 inline-block bg-yellow text-black font-bold px-6 py-3 uppercase tracking-wider hover:bg-transparent hover:text-yellow border border-yellow transition"
         >
-          See Training Program →
+          Bekijk Trainingsprogramma →
         </Link>
       </div>
       {/* Copy Link Toast */}
       {showToast && (
         <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-yellow text-black px-4 py-2 rounded shadow-lg text-sm font-bold z-50 animate-fadein">
-          Link copied to clipboard!
+          Link gekopieerd naar klembord!
         </div>
       )}
     </div>
