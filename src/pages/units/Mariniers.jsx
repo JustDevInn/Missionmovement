@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import SubNav from "../../components/SubNav";
 
 const marsofAccordion = [
   {
@@ -217,6 +218,10 @@ const Mariniers = () => {
           </p>
         </div>
       </section>
+
+      {/* Subnavigatie */}
+
+      <SubNav />
       {/* Intro */}
       <section className="bg-[#0a0a0a] py-16 px-6 md:px-10 lg:px-20 max-w-5xl mx-auto">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-6">

@@ -28,11 +28,11 @@ const PurchaseAccess = () => {
       if (data.url) {
         window.location.href = data.url;
       } else {
-        setError("Something went wrong. Please try again.");
+        setError("Er is iets fout gegaan, probeer het opnieuw.");
       }
     } catch (err) {
       console.error(err);
-      setError("Failed to connect to payment service.");
+      setError("Verbinding met de betaaldienst mislukt.");
     } finally {
       setLoading(false);
     }
@@ -41,18 +41,20 @@ const PurchaseAccess = () => {
   return (
     <>
       <Helmet>
-        <title>6-Week Military Prep Program | Mission Movement</title>
+        <title>
+          6-Weekse Militaire Voorbereidingsprogramma | Mission Movement
+        </title>
         <meta
           name="description"
-          content="Access the complete 6-week program designed for military preparation. Strength, mindset, swimming, recovery, and more — built by a former Royal Marine."
+          content="Krijg toegang tot het volledige 6-weekse programma gericht op militaire voorbereiding. Kracht, mindset, zwemmen, herstel en meer — ontwikkeld door een voormalig marinier."
         />
         <meta
           property="og:title"
-          content="6-Week Military Prep Program | Mission Movement"
+          content="6-Weekse Militaire Voorbereidingsprogramma | Mission Movement"
         />
         <meta
           property="og:description"
-          content="Elite-level preparation. Physical, mental, and tactical training based on real military experience."
+          content="Voorbereiding op elite-niveau. Fysieke, mentale en tactische training gebaseerd op echte militaire ervaring."
         />
         <meta
           property="og:image"
@@ -76,29 +78,30 @@ const PurchaseAccess = () => {
             {/* Headline + Summary */}
             <div className="space-y-4 ">
               <h1 className="h1 animate-fade-in">
-                FULL PROGRAM ACCESS — 6 WEEKS
+                VOLLEDIG PROGRAMMA — 6 WEKEN
               </h1>
               <p className="text-white text-sm md:text-base font-light max-w-md">
-                Train with purpose. This 6-week course is built to prepare you
-                physically and mentally for military selection — or any
-                challenge that demands discipline, resilience, and strength.
-                Includes complete strength & conditioning, swimming, running,
-                mindset work, and recovery protocols.
+                Train met een doel. Deze 6-weekse cursus is ontworpen om je
+                fysiek én mentaal voor te bereiden op militaire selectie — of
+                elke uitdaging die discipline, veerkracht en kracht vereist.
+                Inclusief volledige strength & conditioning, zwemmen, hardlopen,
+                mindsettraining en herstelprotocollen.
               </p>
 
               <p className="text-gray-400 text-xs uppercase tracking-wider">
-                One-time investment:{" "}
+                Eenmalige investering:{" "}
                 <span className="text-yellow font-bold">€199,-</span>
               </p>
             </div>
             {/* Quote */}
             <div className="animate-slide-in-left">
               <p className="italic text-gray-500 text-sm md:text-lg font-light max-w-md">
-                "This wasn’t just a program — it rewired how I train, think, and
-                live. I didn’t just pass my selection. I became unshakable."
+                "Dit was niet zomaar een programma — het heeft veranderd hoe ik
+                train, denk en leef. Ik heb niet alleen mijn selectie gehaald.
+                Ik ben onverzettelijk geworden."
               </p>
               <p className="text-yellow text-xs md:text-sm mt-2 tracking-wider uppercase">
-                – Former Marine Prep Client
+                – Voormalige strijder
               </p>
             </div>
           </div>
@@ -116,7 +119,7 @@ const PurchaseAccess = () => {
               disabled={loading}
               className="btn-lg w-full md:w-auto"
             >
-              {loading ? "Processing..." : "Purchase"}
+              {loading ? "Bezig met verwerken..." : "Aanschaffen"}
             </button>
 
             {error && (
@@ -130,35 +133,35 @@ const PurchaseAccess = () => {
 
       <section className="w-full bg-[#101010] py-20 px-6 md:px-20 flex flex-col items-center">
         <h2 className="text-yellow text-2xl md:text-4xl font-secondary uppercase tracking-widest text-center mb-12 border-b border-yellow pb-4 w-full max-w-4xl">
-          What You Get
+          Wat je krijgt
         </h2>
 
         <div className="grid md:grid-cols-2 gap-10 w-full max-w-5xl text-white font-light text-sm md:text-base">
           {/* Left Column - Program Overview */}
           <div className="space-y-4 bg-[#121212] rounded-lg p-6 border border-yellow/20 shadow-md">
             <h3 className="text-yellow font-semibold uppercase tracking-wider mb-2">
-              Full Program Access
+              Volledige toegang tot het programma
             </h3>
             <ul className="list-none space-y-2">
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> Program 01: Basic
-                Requirements
+                <span className="text-yellow mt-1">•</span> Programma 01:
+                Basisvereisten
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> Program 02:
-                Foundational Strength
+                <span className="text-yellow mt-1">•</span> Programma 02:
+                Fundamentele Kracht
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> Program 03: Swim or
-                Sink
+                <span className="text-yellow mt-1">•</span> Programma 03:
+                Zwemmen of Zinken
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> Program 04/05:
-                Support (Mobility + Exercise Library)
+                <span className="text-yellow mt-1">•</span> Programma 04/05:
+                Ondersteuning (Mobiliteit + Oefenbibliotheek)
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> 6-Week Structured
-                Training Plan
+                <span className="text-yellow mt-1">•</span> 6-Weeks
+                Gestructureerd Trainingsplan Training Plan
               </li>
             </ul>
           </div>
@@ -166,52 +169,52 @@ const PurchaseAccess = () => {
           {/* Right Column - Web App Access */}
           <div className="space-y-4 bg-[#121212] rounded-lg p-6 border border-yellow/20 shadow-md">
             <h3 className="text-yellow font-semibold uppercase tracking-wider mb-2">
-              Inside the Web App
+              In de app
             </h3>
             <ul className="list-none space-y-2">
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> Daily structure
-                built for results
+                <span className="text-yellow mt-1">•</span> Dagelijkse structuur
+                gericht op resultaat
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> Accountability, just
-                like the real thing
+                <span className="text-yellow mt-1">•</span> Verantwoording,
+                zoals in het echt
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> Downloadable PDFs of
-                all programs
+                <span className="text-yellow mt-1">•</span> Downloadbare PDF’s
+                van alle programma’s
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> Tactical movement
-                mastery with videos & descriptions
+                <span className="text-yellow mt-1">•</span> Beheersing van
+                tactische bewegingen met video’s en uitleg
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> Real guidance, not
-                generic plans
+                <span className="text-yellow mt-1">•</span> Echte begeleiding,
+                geen generieke schema’s
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> Nutrition guidance
+                <span className="text-yellow mt-1">•</span> Voedingsrichtlijnen
               </li>
             </ul>
           </div>
         </div>
       </section>
       <QuoteBlock
-        quote="Most never feel what it's like to earn a place in something greater. You can."
+        quote="De meeste mensen zullen nooit voelen hoe het is om een plek te verdienen binnen iets groters. Jij wel."
         author="Mission Movement"
       />
 
       {/* Video Preview */}
       <section className="w-full bg-[#101010] py-20 px-4 flex flex-col items-center">
         <h2 className="text-yellow text-xl md:text-3xl font-secondary tracking-widest uppercase mb-6 text-center">
-          A glimpse into the grind. Watch what you're stepping into.
+          Een glimp van de grind. Kijk goed waar je instapt.
         </h2>
         <div className="w-full flex justify-center">
           <div className="w-full flex justify-center">
             <div className="w-full max-w-3xl aspect-video rounded-lg overflow-hidden border border-yellow/20 shadow-xl bg-black">
               <Suspense
                 fallback={
-                  <div className="text-gray-500">Loading preview...</div>
+                  <div className="text-gray-500">Voorbeeld laden...</div>
                 }
               >
                 <VideoPreview videoId="YHffzTVE_9Q" />
@@ -230,7 +233,7 @@ const PurchaseAccess = () => {
             : "opacity-0 translate-y-4 blur-sm scale-95"
         }`}
       >
-        “Enlist now. The mission begins the moment you commit.”
+        “Meld je aan. De missie begint op het moment dat jij je toelegt.”
       </p>
 
       {/* Testimonials */}

@@ -38,7 +38,7 @@ const Contact = () => {
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative z-10 w-full flex justify-center items-center pt-20 px-5 lg:px-20">
           <h1 className="text-yellow font-primary text-[35px] md:text-[60px] font-medium uppercase tracking-wider text-center">
-            Meld je aan
+            Vragen?
           </h1>
         </div>
       </section>

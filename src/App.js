@@ -57,6 +57,8 @@ import ManageBlog from './admin/ManageBlog.jsx';
 import DashboardLayout from "./layouts/DashboardLayout";
 import Stopwatch from './dashboard/stopwatch/StopWatch';
 
+import { AnimatePresence } from "framer-motion";
+import PageWrapper from "./components/PageWrapper"; 
 
 const MainRoutes = () => {
   const location = useLocation();
@@ -110,7 +112,8 @@ const MainRoutes = () => {
     </Routes>
   ) : (
     <div className="pt-18 md:pt-20">
-      <Routes>
+      <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
         {/* Public Pages */}
         <Route path="/" element={<Home />} />
         <Route path="/program" element={<Program />} />
@@ -124,10 +127,11 @@ const MainRoutes = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/success" element={<Success />} />
         <Route path="/cancel" element={<Cancel />} />
-        <Route path="/units/mariniers" element={<Mariniers />} />
-        <Route path="/units/commandotroepen" element={<CommandoTroepen />} />
-        <Route path="/units/luchtmobiel" element={<Luchtmobiel />} />
+        <Route path="/units/mariniers" element={<PageWrapper><Mariniers /></PageWrapper>} />
+        <Route path="/units/commandotroepen" element={<PageWrapper><CommandoTroepen /></PageWrapper>} />
+        <Route path="/units/luchtmobiel" element={<PageWrapper><Luchtmobiel /></PageWrapper>} />
       </Routes>
+      </AnimatePresence>
     </div>
   )}
 

@@ -4,23 +4,23 @@ const Banners = () => {
   const bannerData = [
     {
       bg: "marsenopleiding",
-      title: "MILITARY PROGRAM 01: BASIC REQUIREMENTS",
-      text: "Whether you're looking to join the military, are already in the service, or need a physical and mental push — this program prepares you for all physical aspects of military service.",
+      title: "MILITAIR PROGRAMMA 01: BASISVEREISTEN",
+      text: "Of je nu het leger in wilt, al in dienst bent, of een fysieke en mentale boost nodig hebt — dit programma bereidt je voor op alle fysieke aspecten van militaire dienst.",
     },
     {
       bg: "marsof",
-      title: "MILITARY PROGRAM 02: FOUNDATIONAL STRENGTH",
-      text: "Reach your full potential. Develop strength, grit, and mental clarity. Build the base required to thrive in the military — and in life.",
+      title: "MILITAIR PROGRAMMA 02: FUNDAMENTELE KRACHT",
+      text: "Bereik je volledige potentieel. Ontwikkel kracht, doorzettingsvermogen en mentale helderheid. Bouw de basis die nodig is om te floreren in het leger — en in het leven.",
     },
     {
       bg: "spelioladder",
-      title: "MILITARY PROGRAM 03: SWIM OR SINK",
-      text: "A full-spectrum 6-week program focused on swimming, breath control, mobility, and confidence in the water. Structured and progressive.",
+      title: "MILITAIR PROGRAMMA 03: ZWEMMEN OF ZINKEN",
+      text: "Een volledig 6-weeks programma gericht op zwemmen, ademcontrole, mobiliteit en zelfvertrouwen in het water. Gestructureerd en progressief.",
     },
     {
       bg: "hlo",
-      title: "MILITARY PROGRAM 04/05: SUPPORT",
-      text: "Support systems matter. This program focuses on injury prevention, mental health, and recovery strategies to build long-term resilience.",
+      title: "MILITAIR PROGRAMMA 04/05: ONDERSTEUNING",
+      text: "Ondersteunende systemen zijn essentieel. Dit programma richt zich op blessurepreventie, mentale gezondheid en herstelstrategieën voor langdurige weerbaarheid.",
     },
   ];
 
