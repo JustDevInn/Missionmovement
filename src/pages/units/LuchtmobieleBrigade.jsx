@@ -28,50 +28,50 @@ const lmbSpecialisaties = [
 const luchtmobielAccordionData = [
   {
     title: "Ontstaan & Missie",
-    image: "/img/luchtmobiel.jpg",
-    objectPosition: "object-[center_20%]",
+    image: "/img/lmb/ontstaan.jpeg",
+    objectPosition: "bottom",
     content:
       "De 11 Luchtmobiele Brigade is een snel inzetbare infanterie-eenheid van de Koninklijke Landmacht. De eenheid werd opgericht in 1992 en is gespecialiseerd in luchtverplaatsbare operaties. Militairen van deze brigade worden via helikopters of vliegtuigen direct ingezet in gebieden waar snelheid en mobiliteit cruciaal zijn. De brigade vormt samen met het Korps Mariniers de Nederlandse bijdrage aan de snelle interventiemacht van de NAVO.",
   },
   {
     title: "Inzet & Specialisaties",
-    image: "/img/luchtmobiel.jpg",
-    objectPosition: "object-top",
+    image: "/img/lmb/inzet.jpg",
+    objectPosition: "center",
     content:
       "De Luchtmobiele Brigade wordt wereldwijd ingezet voor missies waarbij snelheid en flexibiliteit essentieel zijn — zoals humanitaire operaties, evacuaties en gevechtsinzet. De eenheid opereert vaak in kleine groepen en is getraind op snel reageren in complexe omstandigheden. Luchtmobiel optreden vraagt om fysieke weerbaarheid, mentale veerkracht en nauwe samenwerking.",
   },
   {
     title: "Structuur & Locaties",
-    image: "/img/luchtmobiel.jpg",
-    objectPosition: "object-top",
+    image: "/img/lmb/locatie.jpg",
+    objectPosition: "center",
     content:
       "De 11 Luchtmobiele Brigade is gestationeerd op twee hoofdlocaties: de Oranjekazerne in Schaarsbergen en de Johan Willem Frisokazerne in Assen. De brigade bestaat uit infanteriecompagnieën, ondersteunende gevechtseenheden en logistieke afdelingen. Voor luchtverplaatsing werkt de eenheid nauw samen met de Koninklijke Luchtmacht, met inzet van transporthelikopters en vliegtuigen.",
   },
   {
     title: "Keuring & Slagingskans",
-    image: "/img/luchtmobiel.jpg",
-    objectPosition: "object-top",
+    image: "/img/lmb/keuring.webp",
+    objectPosition: "center",
     content:
       "Toelating tot de Luchtmobiele Brigade begint met de algemene keuring van Defensie. Na goedkeuring volg je de AMOL-opleiding (Algemene Militaire Opleiding Landmacht) met een luchtmobiel profiel. Deze opleiding is fysiek en mentaal uitdagend, met nadruk op duurvermogen, groepsdruk en het functioneren onder belasting. Ongeveer 40–50% van de kandidaten rondt de opleiding succesvol af.",
   },
   {
     title: "Fysieke Eisen",
-    image: "/img/luchtmobiel.jpg",
-    objectPosition: "object-top",
+    image: "/img/lmb/fysiek.webp",
+    objectPosition: "center",
     content:
       "Om toegelaten te worden, moet je voldoen aan minimale fysieke eisen zoals:\n\n- 6 of meer pull-ups\n- 30 sit-ups in 2 minuten\n- 2.800 meter hardlopen in 12 minuten\n- 100 meter zwemmen met kleding\n\nDaarbovenop wordt je getest op het vermogen om gewicht te dragen over langere afstanden, uithoudingsvermogen onder groepsdruk en mentale weerbaarheid. Teamwork speelt een grote rol in de selectie en opleiding.",
   },
   {
     title: "Carrièrepad & Doorstroom",
-    image: "/img/luchtmobiel.jpg",
-    objectPosition: "object-top",
+    image: "/img/lmb/pathfinders.jpg",
+    objectPosition: "top",
     content:
       "Na het afronden van de opleiding start je als luchtmobiele infanterist. Vanuit deze basisrol kun je doorgroeien naar leidinggevende functies of deelnemen aan aanvullende trainingen en cursussen. Doorstroom naar andere onderdelen binnen Defensie is ook mogelijk — zoals het Korps Commandotroepen (KCT), de Koninklijke Luchtmacht of internationale eenheden. Specialisaties en doorgroei worden verder toegelicht onderaan deze pagina.",
   },
   {
     title: "Voorbereiding & Uitvalrisico",
-    image: "/img/luchtmobiel.jpg",
-    objectPosition: "object-top",
+    image: "/img/lmb/barret.jpeg",
+    objectPosition: "top",
     content:
       "De luchtmobiele opleiding vraagt meer dan alleen motivatie. Fysieke achterstand, blessures door overbelasting en onderschatting van mentale druk zorgen voor veel uitval. Een gestructureerde voorbereiding — met aandacht voor conditie, herstel, krachtuithouding en samenwerken — is essentieel voor wie deze stap serieus neemt.",
   },
@@ -170,18 +170,24 @@ const LuchtmobieleBrigade = () => {
               Wat is 11 Luchtmobiele Brigade?
             </h2>
             <p className="text-gray-300 font-light leading-relaxed text-base md:text-lg">
-              11 Luchtmobiele Brigade is een snel inzetbare infanterie-eenheid
-              van de Koninklijke Landmacht. De eenheid specialiseert zich in
-              operaties waarbij militairen via helikopters of vliegtuigen direct
-              in actie worden gebracht. De nadruk ligt op snelheid, wendbaarheid
-              en opereren in kleine teams achter de linies.
+              Na de val van de Berlijnse Muur in 1989 veranderde de wereldwijde
+              veiligheidssituatie ingrijpend. Nederland zag de noodzaak voor een
+              snel inzetbare eenheid die wereldwijd flexibel kon opereren binnen
+              het volledige geweldsspectrum. Dit leidde in 1992 tot de
+              oprichting van 11 Luchtmobiele Brigade. Deze brigade is een
+              hoogwaardige infanterie-eenheid van de Koninklijke Landmacht,
+              gespecialiseerd in snelle inzet via helikopters of
+              transportvliegtuigen. De nadruk ligt op snelheid, wendbaarheid en
+              het opereren in kleine, zelfstandige teams – vaak diep achter
+              vijandelijke linies.
               <br className="hidden md:block" />
               <br />
-              Als luchtmobiel militair word je getraind op uithoudingsvermogen,
-              navigatie, samenwerking en het langdurig functioneren onder
-              fysieke en mentale druk. Missies kunnen variëren van
-              gevechtsacties tot humanitaire ondersteuning, maar vragen altijd
-              om een hoog basisniveau van fitheid en discipline.
+              Als luchtmobiel militair word je opgeleid om langdurig te
+              presteren onder fysieke en mentale druk. Je traint intensief op
+              uithoudingsvermogen, oriëntatievermogen en samenwerking onder
+              stress. De missies zijn uiteenlopend – van gevechtsoperaties tot
+              humanitaire inzet – maar vragen altijd een hoog niveau van
+              discipline, fitheid en paraatheid.{" "}
             </p>
           </div>
         </div>
@@ -220,9 +226,8 @@ const LuchtmobieleBrigade = () => {
                 <img
                   src={item.image}
                   alt={`${item.title} visual`}
-                  className={`w-full max-h-[300px] rounded-md shadow-md object-cover ${
-                    item.objectPosition || "object-center"
-                  }`}
+                  className="w-full max-h-[300px] rounded-md shadow-md object-cover"
+                  style={{ objectPosition: item.objectPosition || "center" }}
                 />
               </div>
             </div>
