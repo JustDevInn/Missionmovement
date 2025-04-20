@@ -144,7 +144,7 @@ const Program = () => {
                   "Geen medische belemmeringen",
                 ].map((req, i) => (
                   <li key={i} className="flex items-center gap-2">
-                    <FaCheck className="text-yellow text-sm" />
+                    <FaCheck className="text-yellow min-w-[16px] h-[16px] md:min-w-[20px] md:h-[20px]" />
                     {req}
                   </li>
                 ))}
@@ -165,7 +165,7 @@ const Program = () => {
                   "Doorzettingsvermogen",
                 ].map((skill, i) => (
                   <li key={i} className="flex items-center gap-2">
-                    <GrAchievement className="text-yellow text-sm" />
+                    <GrAchievement className="text-yellow min-w-[16px] h-[16px] md:min-w-[20px] md:h-[20px]" />
                     {skill}
                   </li>
                 ))}
@@ -186,7 +186,7 @@ const Program = () => {
                   "Iedereen die fysieke & mentale weerbaarheid wil opbouwen",
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-2">
-                    <FaCheck className="text-yellow text-sm" />
+                    <FaCheck className="text-yellow min-w-[16px] h-[16px] md:min-w-[20px] md:h-[20px]" />
                     {item}
                   </li>
                 ))}
