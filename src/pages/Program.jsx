@@ -161,8 +161,8 @@ const Program = () => {
                   "Gespecialiseerde technieken",
                   "Mentale weerbaarheid",
                   "Discipline",
-                  "Aanpassingsvermogen",
-                  "Doorzettingsvermogen",
+                  "Aanpassings- vermogen",
+                  "Doorzettings- vermogen",
                 ].map((skill, i) => (
                   <li key={i} className="flex items-center gap-2">
                     <GrAchievement className="text-yellow min-w-[16px] h-[16px] md:min-w-[20px] md:h-[20px]" />
