@@ -233,13 +233,21 @@ const TrainingSchedule = () => {
                           </p>
                         )}
 
-                        <ul className="text-sm text-white space-y-2 list-inside">
+                        <ul className="text-sm text-white space-y-2">
                           {block.items.map((item, i) => {
                             const text =
                               typeof item === "string" ? item : item.text;
+                            const subnote =
+                              typeof item === "object" && item.note;
+
                             return (
                               <li key={i} className="list-disc ml-2">
-                                {text}
+                                <div>{text}</div>
+                                {subnote && (
+                                  <div className="text-gray-400 italic text-xs mt-1 ml-2">
+                                    {subnote}
+                                  </div>
+                                )}
                               </li>
                             );
                           })}
