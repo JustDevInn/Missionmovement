@@ -207,7 +207,7 @@ const TrainingSchedule = () => {
                         }`}
                       >
                         <div className="flex items-center justify-between">
-                          <h3 className="font-semibold text-lg text-brown">
+                          <h3 className="font-semibold text-lg text-brown uppercase">
                             {block.title}
                           </h3>
                           <label className="flex items-center gap-2 text-sm text-gray-400">
