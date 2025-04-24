@@ -14,7 +14,7 @@ root.render(
 window.onload = () => {
   const preloader = document.getElementById('preloader');
   if (preloader) {
-    preloader.style.transition = 'opacity 0.3s ease';
+    preloader.style.transition = 'opacity 0.5s ease-in-out';
     preloader.style.opacity = '0';
     setTimeout(() => preloader.remove(), 1000);
   }
