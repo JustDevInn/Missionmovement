@@ -54,6 +54,27 @@
 
   <body>
     <noscript>Je moet JavaScript inschakelen om deze applicatie te gebruiken.</noscript>
+    <!-- 🔄 Preloader (before React mounts) -->
+<div id="preloader" style="
+background: #121212;
+color: #FFD700;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+font-family: 'Teko', sans-serif;
+font-weight: 600;
+font-size: 1.8rem;
+letter-spacing: 0.05em;
+position: fixed;
+inset: 0;
+z-index: 9999;
+text-align: center;
+">
+<div>MISSION MOVEMENT</div>
+<div style="font-size: 1rem; margin-top: 0.3em;">Laden...</div>
+</div>
+
     <div id="root"></div>
   </body>
 </html>

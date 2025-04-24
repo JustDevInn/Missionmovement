@@ -10,6 +10,8 @@ root.render(
     <App />
   </React.StrictMode>
 );
+// 🧹 Remove the preloader once React has mounted
+document.getElementById('preloader')?.remove();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
