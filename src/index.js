@@ -11,7 +11,15 @@ root.render(
   </React.StrictMode>
 );
 // 🧹 Remove the preloader once React has mounted
-document.getElementById('preloader')?.remove();
+window.onload = () => {
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    preloader.style.transition = 'opacity 0.3s ease';
+    preloader.style.opacity = '0';
+    setTimeout(() => preloader.remove(), 300);
+  }
+};
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
