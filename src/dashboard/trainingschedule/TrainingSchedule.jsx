@@ -217,7 +217,7 @@ const TrainingSchedule = () => {
                               onChange={() => handleBlockCheckbox(day, idx)}
                               className="form-checkbox h-4 w-4 text-yellow"
                             />
-                            Complete
+                            <span className="hidden md:block">Complete</span>
                           </label>
                         </div>
 
