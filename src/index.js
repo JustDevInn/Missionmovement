@@ -16,7 +16,7 @@ window.onload = () => {
   if (preloader) {
     preloader.style.transition = 'opacity 0.3s ease';
     preloader.style.opacity = '0';
-    setTimeout(() => preloader.remove(), 300);
+    setTimeout(() => preloader.remove(), 1000);
   }
 };
 
