@@ -74,8 +74,8 @@ const Nav = () => {
             className="flex flex-col items-center uppercase text-center text-sm font-bold tracking-widest relative px-4"
             onClick={() => setNav(false)}
           >
-            <span className="">Mission</span>
-            <span className="">Movement</span>
+            <span>Mission</span>
+            <span>Movement</span>
           </RouterLink>
 
           <div className="cursor-pointer">
@@ -99,107 +99,76 @@ const Nav = () => {
             style={{ fontFamily: "Overpass, sans-serif" }}
           >
             <form className="px-6 py-8 space-y-4 text-[#CCCCCC]">
+              {/* Direct links */}
               {[
-                {
-                  name: "Over ons",
-                  links: [{ title: "Het begin", path: "/about" }],
-                },
-                {
-                  name: "Eenheden",
-                  links: [
+                { title: "Over ons", path: "/about" },
+                { title: "Programma", path: "/program" },
+                { title: "Artikelen", path: "/blogs" },
+                { title: "Bronnen", path: "/resources" },
+                { title: "Prijzen", path: "/pricing" },
+                { title: "Contact", path: "/contact" },
+              ].map(({ title, path }) => (
+                <RouterLink
+                  key={title}
+                  to={path}
+                  onClick={() => setNav(false)}
+                  className="block text-lg font-bold uppercase text-[#CCCCCC] hover:text-yellow py-3 border-b border-white/50"
+                >
+                  {title}
+                </RouterLink>
+              ))}
+
+              {/* Only Eenheden expandable */}
+              <div>
+                <input
+                  type="checkbox"
+                  id="menu-Eenheden"
+                  className="hidden"
+                  checked={dropdown["Eenheden"] || false}
+                  onChange={() => toggleDropdown("Eenheden")}
+                />
+                <label
+                  htmlFor="menu-Eenheden"
+                  className="flex justify-between items-center text-[#CCCCCC] hover:text-yellow uppercase text-lg font-bold py-3 border-b border-white/50 cursor-pointer"
+                >
+                  Eenheden
+                  <span>
+                    {dropdown["Eenheden"] ? (
+                      <FaMinus size={16} />
+                    ) : (
+                      <FaPlus size={16} />
+                    )}
+                  </span>
+                </label>
+                <ul
+                  className={`pl-4 py-2 space-y-1 overflow-hidden transition-all duration-300 ease-in-out ${
+                    dropdown["Eenheden"]
+                      ? "max-h-96 opacity-100"
+                      : "max-h-0 opacity-0"
+                  }`}
+                >
+                  {[
                     { title: "Korps Mariniers", path: "/units/mariniers" },
                     {
                       title: "Korps Commando Troepen",
                       path: "/units/commandotroepen",
                     },
                     {
-                      title: "11 Luchtmobiele brigade",
+                      title: "11 Luchtmobiele Brigade",
                       path: "/units/luchtmobiel",
                     },
-                  ],
-                },
-                {
-                  name: "Programma",
-                  links: [{ title: "Het programma", path: "/program" }],
-                },
-                {
-                  name: "Artikelen",
-                  links: [{ title: "Lees onze artikelen", path: "/blogs" }],
-                },
-                {
-                  name: "Bronnen",
-                  links: [
-                    { title: "Hulpmiddelen", path: "/resources" },
-                    {
-                      title: "Instagram",
-                      path: "https://www.instagram.com/mission.movement",
-                      external: true,
-                    },
-                  ],
-                },
-                {
-                  name: "Prijzen",
-                  links: [{ title: "Bekijk ons aanbod", path: "/pricing" }],
-                },
-                {
-                  name: "Contact",
-                  links: [{ title: "Kom in contact", path: "/contact" }],
-                },
-              ].map(({ name, links }) => (
-                <div key={name}>
-                  <input
-                    type="checkbox"
-                    id={`menu-${name}`}
-                    className="hidden"
-                    checked={dropdown[name] || false}
-                    onChange={() => toggleDropdown(name)}
-                  />
-                  <label
-                    htmlFor={`menu-${name}`}
-                    className="flex justify-between items-center text-[#CCCCCC] hover:text-yellow uppercase text-lg font-bold py-3 border-b border-white/50 cursor-pointer "
-                  >
-                    {name}
-                    <span>
-                      {dropdown[name] ? (
-                        <FaMinus size={16} />
-                      ) : (
-                        <FaPlus size={16} />
-                      )}
-                    </span>
-                  </label>
-                  <ul
-                    className={`pl-4 py-2 space-y-1 overflow-hidden transition-all duration-300 ease-in-out ${
-                      dropdown[name]
-                        ? "max-h-96 opacity-100"
-                        : "max-h-0 opacity-0"
-                    }`}
-                  >
-                    {links.map(({ title, path, external }) => (
-                      <li key={title}>
-                        {external ? (
-                          <a
-                            href={path}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block text-sm text-gray-300 hover:text-yellow"
-                            onClick={() => setNav(false)}
-                          >
-                            {title}
-                          </a>
-                        ) : (
-                          <RouterLink
-                            to={path}
-                            className="block text-sm text-gray-300 hover:text-yellow"
-                            onClick={() => setNav(false)}
-                          >
-                            {title}
-                          </RouterLink>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+                  ].map(({ title, path }) => (
+                    <RouterLink
+                      key={title}
+                      to={path}
+                      onClick={() => setNav(false)}
+                      className="block text-sm text-gray-300 hover:text-yellow"
+                    >
+                      {title}
+                    </RouterLink>
+                  ))}
+                </ul>
+              </div>
             </form>
           </div>
         </>
@@ -259,7 +228,7 @@ const Nav = () => {
           {/* Desktop Dropdown Menu */}
           <div
             className={`absolute top-full left-0 w-full bg-primary border-t-2 border-yellow transition-all duration-300 ${
-              nav ? "h-[80vh] opacity-100" : "h-0 opacity-0 pointer-events-none"
+              nav ? "h-[60vh] opacity-100" : "h-0 opacity-0 pointer-events-none"
             } overflow-hidden`}
           >
             <div className="grid grid-cols-3 gap-10 px-20 py-10">
@@ -267,24 +236,21 @@ const Nav = () => {
               <div className="flex flex-col space-y-8">
                 {/* About Section */}
                 <div>
-                  <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">
-                    Over ons
-                  </h3>
-                  <div className="border-t border-gray-400 w-20 my-2"></div>
                   <RouterLink
                     to="/about"
-                    className="block text-gray-300 hover:text-yellow py-1"
+                    className="text-gray-300 hover:text-yellow text-2xl uppercase tracking-wider font-bold"
                     onClick={() => setNav(false)}
                   >
-                    Het begin
+                    Over ons
                   </RouterLink>
+                  <div className="border-t border-gray-400 w-40 my-2"></div>
                 </div>
                 {/* Eenheden */}
                 <div>
-                  <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">
+                  <h3 className="text-gray-300 text-2xl uppercase tracking-wider font-bold">
                     Eenheden
                   </h3>
-                  <div className="border-t border-gray-400 w-20 my-2"></div>
+                  <div className="border-t border-gray-400 w-40 my-2"></div>
                   <RouterLink
                     to="/units/mariniers"
                     className="block text-gray-300 hover:text-yellow py-1"
@@ -310,17 +276,14 @@ const Nav = () => {
 
                 {/* Program Section */}
                 <div>
-                  <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">
-                    Programma
-                  </h3>
-                  <div className="border-t border-gray-400 w-20 my-2"></div>
                   <RouterLink
                     to="/program"
-                    className="block text-gray-300 hover:text-yellow py-1"
+                    className="text-gray-300 hover:text-yellow text-2xl uppercase tracking-wider font-bold"
                     onClick={() => setNav(false)}
                   >
                     Het programma
                   </RouterLink>
+                  <div className="border-t border-gray-400 w-60 my-2"></div>
                 </div>
               </div>
 
@@ -328,32 +291,26 @@ const Nav = () => {
               <div className="flex flex-col space-y-8">
                 {/* News Section */}
                 <div>
-                  <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">
-                    Artikelen
-                  </h3>
-                  <div className="border-t border-gray-400 w-20 my-2"></div>
                   <RouterLink
                     to="/blogs"
-                    className="block text-gray-300 hover:text-yellow py-1"
+                    className="text-gray-300 hover:text-yellow text-2xl uppercase tracking-wider font-bold"
                     onClick={() => setNav(false)}
                   >
-                    Lees onze artikelen
+                    Artikelen
                   </RouterLink>
+                  <div className="border-t border-gray-400 w-40 my-2"></div>
                 </div>
                 {/* Multimedia Section */}
                 <div>
-                  <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">
-                    Bronnen
-                  </h3>
-                  <div className="border-t border-gray-400 w-20 my-2"></div>
                   <RouterLink
                     to="/resources"
-                    className="block text-gray-300 hover:text-yellow py-1"
+                    className="text-gray-300 hover:text-yellow text-2xl uppercase tracking-wider font-bold"
                     onClick={() => setNav(false)}
                   >
-                    Hulpmiddelen
+                    Bronnen
                   </RouterLink>
-                  <a
+                  <div className="border-t border-gray-400 w-40 my-2"></div>
+                  {/* <a
                     href="https://www.instagram.com/mission.movement"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -361,42 +318,35 @@ const Nav = () => {
                     onClick={() => setNav(false)}
                   >
                     Instagram
-                  </a>
+                  </a> */}
                 </div>
 
                 {/* Pricing Section */}
                 <div>
-                  <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">
-                    Prijzen
-                  </h3>
-                  <div className="border-t border-gray-400 w-20 my-2"></div>
                   <RouterLink
                     to="/pricing"
-                    className="block text-gray-300 hover:text-yellow py-1"
+                    className="text-gray-300 hover:text-yellow text-2xl uppercase tracking-wider font-bold"
                     onClick={() => setNav(false)}
                   >
                     Bekijk ons aanbod
                   </RouterLink>
+                  <div className="border-t border-gray-400 w-40 my-2"></div>
+                </div>
+                {/* Get in Contact Section */}
+                <div>
+                  <RouterLink
+                    to="/contact"
+                    className="text-gray-300 hover:text-yellow text-2xl uppercase tracking-wider font-bold"
+                    onClick={() => setNav(false)}
+                  >
+                    Contact
+                  </RouterLink>
+                  <div className="border-t border-gray-400 w-40 my-2"></div>
                 </div>
               </div>
 
               {/* Third Column */}
-              <div className="flex flex-col space-y-8">
-                {/* Get in Contact Section */}
-                <div>
-                  <h3 className="text-yellow text-2xl uppercase tracking-wider font-bold">
-                    Contact
-                  </h3>
-                  <div className="border-t border-gray-400 w-20 my-2"></div>
-                  <RouterLink
-                    to="/contact"
-                    className="block text-gray-300 hover:text-yellow py-1"
-                    onClick={() => setNav(false)}
-                  >
-                    Kom in contact
-                  </RouterLink>
-                </div>
-
+              <div className="flex flex-col space-y-8 justify-center items-center">
                 {/* Image Fill */}
                 <div className="mt-auto">
                   <img

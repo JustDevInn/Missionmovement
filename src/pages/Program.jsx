@@ -33,6 +33,14 @@ const Program = () => {
     setOpenProgramIndex(openProgramIndex === index ? null : index);
   };
 
+  const coreValues = [
+    "Discipline",
+    "Broederschap",
+    "Doelgerichtheid",
+    "Eer",
+    "Structuur",
+  ];
+
   return (
     <div className="pt-10">
       <Helmet>
@@ -70,12 +78,21 @@ const Program = () => {
           </h1>
           <p className="h2 animate-fade-in">Programma</p>
         </div>
-        <div className="w-full flex flex-row justify-center mt-10 lg:mt-20 text-xs lg:text-2xl tracking-widest">
-          <p className="text-brown px-2 lg:px-5">Verbondenheid</p>
-          <p className="text-brown">|</p>
-          <p className="text-brown px-2 lg:px-5">Kracht</p>
-          <p className="text-brown">|</p>
-          <p className="text-brown px-2 lg:px-5">Toewijding</p>
+      </section>
+
+      <section className="bg-[#121212] py-4 border-t border-b border-yellow w-full text-center mb-20">
+        <div className="text-brown font-secondary tracking-widest uppercase text-md md:text-lg flex flex-wrap justify-center gap-4 px-4">
+          {coreValues.map((value, index) => (
+            <React.Fragment key={index}>
+              <span className="px-1 hover:text-yellow transition duration-200">
+                {value}
+              </span>
+
+              {index < coreValues.length - 1 && (
+                <span className="text-yellow">|</span>
+              )}
+            </React.Fragment>
+          ))}
         </div>
       </section>
 
@@ -86,7 +103,7 @@ const Program = () => {
             <h1 className="text-yellow text-xl md:text-4xl font-secondary uppercase mb-4 text-center border-b border-yellow pb-2">
               Programma Overzicht
             </h1>
-            <p className="text-xs md:text-sm font-light text-white text-justify leading-relaxed mb-4">
+            <p className="text-xs md:text-sm font-normal text-white text-justify leading-relaxed mb-4">
               Het Militaire voorbereidingsprogramma van Mission Movement is
               gebouwd op meer dan 10 jaar ervaring binnen elite eenheden en 10
               jaar in de sport branche. Het gaat verder dan fitness — het is
@@ -200,7 +217,7 @@ const Program = () => {
               <h2 className="text-yellow font-secondary text-xl md:text-4xl uppercase text-center mb-4 border-b border-yellow pb-2">
                 Veelgestelde Vragen
               </h2>
-              <p className="text-xs md:text-sm font-light text-white mb-6 text-justify leading-relaxed">
+              <p className="text-xs md:text-sm font-normal text-white mb-6 text-justify leading-relaxed">
                 Nog vragen? Hieronder vind je de meest gestelde vragen vóór
                 inschrijving. Staat jouw vraag er niet tussen? Neem gerust
                 contact op.
@@ -251,9 +268,7 @@ const Program = () => {
                 className="h-[400px] w-[250px] rounded-lg shadow-lg hover:scale-[1.03] transition-transform"
               />
               <Link to="/pricing" className="mt-8">
-                <button className="btn lg:btn-lg w-[250px]">
-                  Start Voorbereiding
-                </button>
+                <button className="btn lg:btn-lg w-[250px]">Start nu</button>
               </Link>
             </div>
           </div>
@@ -323,12 +338,12 @@ const Program = () => {
           />
           <div className="flex justify-center items-center mt-10">
             <Link to="/pricing" className="hidden md:block">
-              <button className="btn-lg !min-w-0 !h-auto px-10 py-4 text-center whitespace-nowrap">
-                Start — Jij weet waarom je hier bent
+              <button className="btn-lg !min-w-0 !h-auto px-10 py-4 text-center whitespace-nowrap w-[250px]">
+                Start nu
               </button>
             </Link>
             <Link to="/pricing" className="block md:hidden">
-              <button className="btn-lg !min-w-0 !h-auto px-6 py-3 text-center whitespace-nowrap">
+              <button className="btn-lg !min-w-0 !h-auto px-6 py-3 text-center whitespace-nowrap w-[250px]">
                 Start Nu
               </button>
             </Link>

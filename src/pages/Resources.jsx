@@ -44,7 +44,7 @@ const Resources = () => {
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         <div className="relative h-full w-full flex justify-center lg:justify-end items-center pt-20 px-5 lg:px-20">
           <h1 className="text-yellow font-primary text-[35px] md:text-[60px] font-medium uppercase tracking-wider text-center lg:text-right">
-            Voorbereiden met een doel.
+            Voorbereiden met een doel
           </h1>
         </div>
       </section>
@@ -67,10 +67,10 @@ const Resources = () => {
             </h1>
 
             {/* Added Intro */}
-            <p className="text-sm lg:text-base font-thin text-white text-justify mb-6">
+            <p className="text-sm lg:text-base font-normal text-white text-justify mb-6">
               Je staat er niet alleen voor. Dit zijn de vragen die de meeste
               mensen stellen voordat ze zich toewijden aan de Missie. Meer
-              weten? Neem gerust contact op — geen verkooppraatjes, alleen de
+              weten? Neem gerust contact op - geen verkooppraatjes, alleen de
               feiten.
             </p>
 
@@ -202,12 +202,9 @@ const Resources = () => {
 
       {/* Social */}
       <SocialGallery />
-      <h2 className="text-yellow text-xl md:text-3xl font-secondary uppercase tracking-widest mb-10 text-center">
-        Real People. Real Progress.
+      <h2 className="text-brown text-xl md:text-3xl font-secondary uppercase tracking-widest mb-10 text-center">
+        Echte mensen. Echte progressie.
       </h2>
-      <p className="text-sm text-white italic text-center mb-4">
-        See what’s possible when commitment meets the right tools.
-      </p>
     </div>
   );
 };

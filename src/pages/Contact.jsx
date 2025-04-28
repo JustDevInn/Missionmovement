@@ -50,7 +50,7 @@ const Contact = () => {
         <h1 className="text-yellow font-secondary text-[35px] md:text-[70px] uppercase leading-[120%] tracking-wide font-extralight mb-6 text-center">
           Jouw Eerste Stap
         </h1>
-        <p className="text-brown font-light uppercase tracking-widest text-sm md:text-lg text-center max-w-2xl">
+        <p className="text-brown font-normal uppercase tracking-widest text-sm md:text-lg text-center max-w-2xl">
           Klaar om het serieus aan te pakken? Laat je gegevens achter — wij
           nemen contact op.
         </p>
@@ -74,7 +74,7 @@ const Contact = () => {
             <select
               name="intentie"
               required
-              className="bg-transparent border-b border-b-brown rounded-md h-[50px] outline-none font-light text-white px-3 placeholder:text-brown focus:border-yellow focus:ring-1 focus:ring-yellow transition duration-200"
+              className="bg-transparent border-b border-b-brown rounded-md h-[50px] outline-none font-normal text-gray-300 px-3 placeholder:text-brown focus:border-yellow focus:ring-1 focus:ring-yellow transition duration-200"
             >
               <option value="">Waarvoor neem je contact op?</option>
               <option value="Voorbereiding Mariniers">
@@ -94,16 +94,16 @@ const Contact = () => {
               <input
                 type="text"
                 name="name"
-                placeholder="Jouw naam"
+                placeholder="Naam"
                 required
-                className="bg-transparent border-b border-b-brown rounded-md h-[50px] outline-none font-light w-full px-3 placeholder:text-brown text-white focus:border-yellow focus:ring-1 focus:ring-yellow transition duration-200"
+                className="bg-transparent border-b border-b-brown rounded-md h-[50px] outline-none font-normal w-full px-3 placeholder:text-brown text-white focus:border-yellow focus:ring-1 focus:ring-yellow transition duration-200"
               />
               <input
                 type="email"
                 name="email"
                 placeholder="E-mailadres"
                 required
-                className="bg-transparent border-b border-b-brown rounded-md h-[50px] outline-none font-light w-full px-3 placeholder:text-brown text-white focus:border-yellow focus:ring-1 focus:ring-yellow transition duration-200"
+                className="bg-transparent border-b border-b-brown rounded-md h-[50px] outline-none font-normal w-full px-3 placeholder:text-brown text-white focus:border-yellow focus:ring-1 focus:ring-yellow transition duration-200"
               />
             </div>
 
@@ -113,7 +113,7 @@ const Contact = () => {
               name="subject"
               placeholder="Onderwerp"
               required
-              className="bg-transparent border-b border-b-brown rounded-md h-[50px] outline-none font-light w-full px-3 placeholder:text-brown text-white focus:border-yellow focus:ring-1 focus:ring-yellow transition duration-200"
+              className="bg-transparent border-b border-b-brown rounded-md h-[50px] outline-none font-normal w-full px-3 placeholder:text-brown text-white focus:border-yellow focus:ring-1 focus:ring-yellow transition duration-200"
             />
 
             {/* Bericht */}
@@ -121,7 +121,7 @@ const Contact = () => {
               name="message"
               placeholder="Typ je bericht..."
               required
-              className="bg-transparent border-b border-b-brown rounded-md h-[150px] outline-none font-light w-full px-3 placeholder:text-brown text-white focus:border-yellow focus:ring-1 focus:ring-yellow transition duration-200 resize-none"
+              className="bg-transparent border-b border-b-brown rounded-md h-[150px] outline-none font-normal w-full px-3 placeholder:text-brown text-white focus:border-yellow focus:ring-1 focus:ring-yellow transition duration-200 resize-none"
             />
 
             {/* Verstuur */}

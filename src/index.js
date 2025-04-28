@@ -10,7 +10,7 @@ root.render(
     <App />
   </React.StrictMode>
 );
-// 🧹 Remove the preloader once React has mounted
+// Removes the preloader once React has mounted
 window.onload = () => {
   const preloader = document.getElementById('preloader');
   if (preloader) {

@@ -15,7 +15,7 @@ const About = () => {
         <meta property="og:title" content="Over Mission Movement" />
         <meta
           property="og:description"
-          content="Van het Korps Mariniers naar de moderne krijger — dit is ons verhaal."
+          content="Van het Korps Mariniers naar de moderne krijger - dit is ons verhaal."
         />
         <meta
           property="og:image"
@@ -35,13 +35,13 @@ const About = () => {
         aria-hidden="true"
       >
         <div className="absolute inset-0 bg-black/60 z-0" />
-        <div className="relative z-10 h-full w-full flex justify-center lg:justify-end items-center pt-32 px-5 lg:px-20">
-          <div className="text-center lg:text-right">
+        <div className="relative z-10 h-full w-full flex justify-center lg:justify-center items-center pt-32 px-5 lg:px-20">
+          <div className="text-center lg:text-center">
             <h1 className="text-yellow font-primary text-[35px] md:text-[60px] font-medium uppercase tracking-wider">
               Het Verhaal
             </h1>
             <p className="text-white mt-2 font-secondary text-sm md:text-base tracking-widest">
-              Elke missie begint met een waarom. Deze begon met ervaring —
+              Elke missie begint met een waarom. Deze begon met ervaring -
               verdiend op de harde manier.
             </p>
           </div>
@@ -62,18 +62,18 @@ const About = () => {
             inclusief vier jaar in MARSOC, brengt Mission Movement
             praktijkgerichte voorbereiding vanuit echte ervaring. Na de
             militaire carrière runden we vijf jaar lang een privé
-            trainingsruimte — waar we niet alleen lichamen trainden, maar vooral
+            trainingsruimte - waar we niet alleen lichamen trainden, maar vooral
             onbreekbare mindsets bouwden.
             <br />
             <br />
             Met negen jaar coachingervaring combineren we militaire precisie met
             persoonlijke begeleiding. Of het nu gaat om selectietrainingen,
-            bergexpedities of sportschoolklanten — we hebben elke herhaling die
+            bergexpedities of sportschoolklanten - we hebben elke herhaling die
             we aanleren zelf doorleefd.
             <br />
             <br />
             Onze missie is simpel: toekomstige operators voorbereiden. Van
-            fysiek tot mentaal — we geven je de tools die we zelf graag eerder
+            fysiek tot mentaal - we geven je de tools die we zelf graag eerder
             hadden gehad. Vooral wanneer falen geen optie is.
             <br />
             <br />
@@ -105,8 +105,8 @@ const About = () => {
             <p className="font-light tracking-wider text-white lg:text-xl space-y-4 leading-relaxed">
               Wij vormen de operators van morgen. Dat betekent: lichamen
               voorbereiden, minds aanscherpen, en een niveau van discipline
-              installeren dat maar weinigen ooit bereiken. Wil je dienen — écht
-              dienen — dan begint het hier.
+              installeren dat maar weinigen ooit bereiken. Wil je dienen - écht
+              dienen - dan begint het hier.
             </p>
           </div>
 
@@ -117,28 +117,28 @@ const About = () => {
             </h5>
             <div className="font-light tracking-wider text-white lg:text-xl space-y-4 leading-relaxed">
               <p>
-                <span className="text-brown uppercase font-secondary">
+                <span className="text-brown uppercase font-semibold font-secondary">
                   Discipline:
                 </span>{" "}
                 Geen motivatie. Structuur. Gewoontes. Zelfrespect zonder
                 concessies.
               </p>
               <p>
-                <span className="text-brown uppercase font-secondary">
-                  Commitment:
+                <span className="text-brown uppercase font-semibold font-secondary">
+                  Vastberadenheid:
                 </span>{" "}
                 Wij verschijnen. Elke dag. Juist wanneer het zwaar is.
               </p>
               <p>
-                <span className="text-brown uppercase font-secondary">
+                <span className="text-brown uppercase font-semibold font-secondary">
                   Doorzettingsvermogen:
                 </span>{" "}
-                We hopen niet op vooruitgang — we vechten ervoor. Eén herhaling
+                We hopen niet op vooruitgang - we vechten ervoor. Eén herhaling
                 tegelijk.
               </p>
 
               <p>
-                Deze waarden vormen het fundament van onze aanpak — gericht op
+                Deze waarden vormen het fundament van onze aanpak - gericht op
                 duurzame, mentale én fysieke voorbereiding.
               </p>
             </div>
@@ -153,13 +153,11 @@ const About = () => {
         </h2>
         <p className="text-white font-light max-w-2xl mx-auto mb-8">
           Veel mensen praten over verandering. Weinig doen wat nodig is. Of je
-          nu droomt van een uniform of je potentieel wilt waarmaken — wij wijzen
+          nu droomt van een uniform of je potentieel wilt waarmaken - wij wijzen
           je de weg en duwen je erdoorheen.
         </p>
         <Link to="/program">
-          <button className="btn btn-lg min-w-[300px]">
-            Start jouw traject
-          </button>
+          <button className="btn btn-lg min-w-[200px]">Start nu</button>
         </Link>
       </section>
 

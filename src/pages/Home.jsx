@@ -51,7 +51,7 @@ const Home = () => {
           <h1 className="h1 mb-4 text-yellow font-bold uppercase tracking-wider">
             Militair Voorbereidings- traject
           </h1>
-          <p className="text-gray-300 font-light text-lg md:text-xl max-w-xl">
+          <p className="text-white font-normal text-lg md:text-xl max-w-xl">
             Een compleet 6-weeks systeem om je lichaam te versterken, je geest
             te verscherpen en je plek te verdienen.
           </p>
@@ -60,12 +60,12 @@ const Home = () => {
             <Link
               to="/program"
               role="button"
-              className="text-yellow tracking-widest lowercase text-lg md:text-xl hover:underline"
+              className="btn py-4 px-8 h-[60px] min-w-[200px] flex items-center  justify-center uppercase font-bold tracking-widest bg-transparent text-yellow hover:bg-yellow hover:text-black border border-yellow duration-300 text-xl"
             >
-              Bekijk het programma
+              Programma
             </Link>
             <Link to="/pricing">
-              <button className="btn py-4 px-8 h-[60px] min-w-[200px] flex items-center justify-center uppercase font-bold tracking-widest bg-yellow text-black hover:bg-transparent hover:text-yellow border border-yellow duration-300 text-xl">
+              <button className="btn py-4 px-8 h-[60px] min-w-[200px] flex items-center  justify-center uppercase font-bold tracking-widest bg-yellow text-black hover:bg-transparent hover:text-yellow border border-yellow duration-300 text-xl">
                 Aanmelden
               </button>
             </Link>
@@ -74,7 +74,7 @@ const Home = () => {
       </header>
 
       <section className="bg-[#121212] py-4 border-t border-b border-yellow w-full text-center">
-        <div className="text-brown font-secondary tracking-widest uppercase text-xs md:text-sm flex flex-wrap justify-center gap-4 px-4">
+        <div className="text-brown font-secondary tracking-widest uppercase text-md md:text-lg flex flex-wrap justify-center gap-4 px-4">
           {coreValues.map((value, index) => (
             <React.Fragment key={index}>
               <span className="px-1 hover:text-yellow transition duration-200">
@@ -94,7 +94,7 @@ const Home = () => {
           Wat Je Krijgt
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-10 w-full max-w-5xl text-white font-light text-sm md:text-base">
+        <div className="grid md:grid-cols-2 gap-10 w-full max-w-5xl text-white font-normal text-sm md:text-base">
           {/* Linkerkant - Wat je krijgt */}
           <div className="space-y-4 bg-[#121212] rounded-lg p-6 border border-yellow/20 shadow-md">
             <h3 className="text-yellow font-semibold uppercase tracking-wider mb-2">
@@ -220,8 +220,8 @@ const Home = () => {
 
           <div className="w-full lg:w-1/2 px-10 lg:px-20 py-20 flex flex-col justify-center items-start text-left relative">
             <h2 className="h2-teko mb-5">Over Mission Movement</h2>
-            <p className="text-white text-lg font-thin tracking-wider text-justify">
-              Dit is geen standaard trainingsschema — dit is transformatie.
+            <p className="text-white text-lg font-normal tracking-wider text-justify">
+              Dit is geen standaard trainingsschema - dit is transformatie.
               Mission Movement bereidt jou voor op een leven met doel, druk en
               prestaties op het hoogste niveau. Dit is jouw toegang tot een
               wereld van structuur, strijdlust en onverbrekelijke broederschap.
@@ -229,8 +229,8 @@ const Home = () => {
             </p>
             <div className="w-full flex justify-start">
               <Link to="about">
-                <button className="btn md:btn-lg my-5 h-auto">
-                  Lees verder
+                <button className="btn md:btn-lg my-5 h-auto md:w-[250px]">
+                  Lees meer →
                 </button>
               </Link>
             </div>
@@ -251,19 +251,19 @@ const Home = () => {
 
           <div className="w-full lg:w-1/2 px-10 lg:px-20 py-20 flex flex-col justify-center items-start text-left">
             <h2 className="h2-teko mb-5">Het Programma</h2>
-            <p className="text-white text-lg font-thin tracking-wider text-justify">
-              Stap in een zesweekse transformatie — ontwikkeld voor wie
+            <p className="text-white text-lg font-normal tracking-wider text-justify">
+              Stap in een zesweekse transformatie - ontwikkeld voor wie
               elitevoorbereiding serieus neemt.
               <br />
               Dit coachingtraject behandelt alles: van fysieke kracht tot
               mentale weerbaarheid. Je stapt in een gestructureerd systeem
-              waarmee jij je voorbereidt op de eisen van de praktijk — militair
+              waarmee jij je voorbereidt op de eisen van de praktijk - militair
               of anders.
             </p>
             <div className="w-full flex justify-start">
               <Link to="program">
                 <button className="btn md:btn-lg my-5 h-auto w-[150px]">
-                  Bekijk Programma
+                  Programma
                 </button>
               </Link>
             </div>
@@ -284,7 +284,7 @@ const Home = () => {
 
           <div className="w-full lg:w-1/2 px-10 lg:px-20 py-20 flex flex-col justify-center items-start text-left">
             <h2 className="h2-teko mb-5">Zij die het verdiend hebben</h2>
-            <p className="text-white text-lg font-thin tracking-wider text-justify">
+            <p className="text-white text-lg font-normal tracking-wider text-justify">
               Ontdek verhalen van deelnemers die hun leven hebben veranderd met
               Mission Movement. Lees hun ervaringen, hun doorbraken, en hoe dit
               programma hen hielp richting special forces of een sterker leven.
@@ -333,7 +333,7 @@ const Home = () => {
             </p>
 
             <Link to="/pricing">
-              <button className="btn lg:btn-lg my-7 md:my-10">Start Nu</button>
+              <button className="btn lg:btn-lg my-7 md:my-10">Start</button>
             </Link>
           </div>
         </section>

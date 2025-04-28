@@ -80,7 +80,7 @@ const PurchaseAccess = () => {
               <h1 className="h1 animate-fade-in">
                 VOLLEDIG PROGRAMMA — 6 WEKEN
               </h1>
-              <p className="text-white text-sm md:text-base font-light max-w-md">
+              <p className="text-white text-sm md:text-base font-normal max-w-md">
                 Train met een doel. Deze 6-weekse cursus is ontworpen om je
                 fysiek én mentaal voor te bereiden op militaire selectie — of
                 elke uitdaging die discipline, veerkracht en kracht vereist.
@@ -95,7 +95,7 @@ const PurchaseAccess = () => {
             </div>
             {/* Quote */}
             <div className="animate-slide-in-left">
-              <p className="italic text-gray-500 text-sm md:text-lg font-light max-w-md">
+              <p className="italic text-gray-300 text-sm md:text-lg font-normal max-w-md">
                 "Dit was niet zomaar een programma — het heeft veranderd hoe ik
                 train, denk en leef. Ik heb niet alleen mijn selectie gehaald.
                 Ik ben onverzettelijk geworden."
@@ -117,9 +117,9 @@ const PurchaseAccess = () => {
             <button
               onClick={handleCheckout}
               disabled={loading}
-              className="btn-lg w-full md:w-auto"
+              className="btn-lg w-full md:w-[300px]"
             >
-              {loading ? "Bezig met verwerken..." : "Aanschaffen"}
+              {loading ? "Bezig met verwerken..." : "Start nu"}
             </button>
 
             {error && (
@@ -136,7 +136,7 @@ const PurchaseAccess = () => {
           Wat je krijgt
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-10 w-full max-w-5xl text-white font-light text-sm md:text-base">
+        <div className="grid md:grid-cols-2 gap-10 w-full max-w-5xl text-white font-normal text-sm md:text-base">
           {/* Left Column - Program Overview */}
           <div className="space-y-4 bg-[#121212] rounded-lg p-6 border border-yellow/20 shadow-md">
             <h3 className="text-yellow font-semibold uppercase tracking-wider mb-2">

@@ -5,18 +5,18 @@ const Footer = () => {
   return (
     <footer className="w-full px-6 md:px-16 pt-20 pb-12 bg-[#101010] text-white">
       {/* CTA Sectie */}
-      <div className="text-center pb-10">
+      <div className="text-center">
         <h2 className="h2-teko text-yellow tracking-widest">Neem Contact Op</h2>
-        <p className="mt-4 md:text-lg font-light max-w-xl mx-auto">
-          Klaar om serieus aan de slag te gaan? Stuur een bericht — ik help je
-          op weg.
+        <p className="mt-4 md:text-lg font-normal max-w-xl mx-auto">
+          Klaar om serieus aan de slag te gaan? <br />
+          Stuur een bericht - ik help je op weg.
         </p>
       </div>
 
       {/* Footer Inhoud */}
-      <div className="flex flex-col items-center md:flex-row md:justify-between md:items-start gap-10 md:gap-20">
+      <div className="flex flex-col items-center md:flex-row md:justify-between md:items-start gap-10 md:gap-20 h-[250px]">
         {/* Branding */}
-        <div className="text-center md:text-left">
+        <div className="text-center md:text-left md:h-full md:flex md:items-end">
           <h1 className="text-yellow font-primary text-[32px] md:text-[60px] lg:text-[80px] font-medium uppercase leading-[100%] tracking-wider">
             Mission
             <br />
