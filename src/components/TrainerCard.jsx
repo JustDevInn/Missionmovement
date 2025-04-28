@@ -7,7 +7,9 @@ const TrainerCard = () => {
     <>
       {/* Trainer Section */}
       <section className="w-full bg-black py-12 min-h-screen flex flex-col justify-center">
-        <h1 className="h1-teko text-yellow text-center mb-10">Trainers</h1>
+        <h1 className="h1-teko text-yellow text-center mb-10 tracking-wider">
+          Trainers
+        </h1>
 
         <div className="flex flex-col lg:flex-row gap-10 px-5 lg:px-20 max-w-screen-xl mx-auto">
           {/* Text Content */}

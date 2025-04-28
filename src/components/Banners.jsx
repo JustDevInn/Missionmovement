@@ -34,7 +34,9 @@ const Banners = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
             <div className="relative z-10 max-w-2xl">
-              <h2 className="h2-teko text-yellow mb-4">{item.title}</h2>
+              <h2 className="h2-teko text-yellow mb-4 tracking-wider">
+                {item.title}
+              </h2>
               <p className="text-lg font-light tracking-wider text-white text-justify">
                 {item.text}
               </p>

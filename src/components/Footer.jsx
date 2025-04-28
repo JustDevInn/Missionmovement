@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="w-full px-6 md:px-16 pt-20 pb-12 bg-[#101010] text-white">
       {/* CTA Sectie */}
-      <div className="text-center">
+      <div className="text-center mb-10">
         <h2 className="h2-teko text-yellow tracking-widest">Neem Contact Op</h2>
         <p className="mt-4 md:text-lg font-normal max-w-xl mx-auto">
           Klaar om serieus aan de slag te gaan? <br />

@@ -57,13 +57,6 @@ const Home = () => {
           </p>
 
           <div className="flex flex-col-reverse md:flex-row items-center gap-4 mt-6">
-            <Link
-              to="/program"
-              role="button"
-              className="btn py-4 px-8 h-[60px] min-w-[200px] flex items-center  justify-center uppercase font-bold tracking-widest bg-transparent text-yellow hover:bg-yellow hover:text-black border border-yellow duration-300 text-xl"
-            >
-              Programma
-            </Link>
             <Link to="/pricing">
               <button className="btn py-4 px-8 h-[60px] min-w-[200px] flex items-center  justify-center uppercase font-bold tracking-widest bg-yellow text-black hover:bg-transparent hover:text-yellow border border-yellow duration-300 text-xl">
                 Aanmelden
@@ -97,7 +90,7 @@ const Home = () => {
         <div className="grid md:grid-cols-2 gap-10 w-full max-w-5xl text-white font-normal text-sm md:text-base">
           {/* Linkerkant - Wat je krijgt */}
           <div className="space-y-4 bg-[#121212] rounded-lg p-6 border border-yellow/20 shadow-md">
-            <h3 className="text-yellow font-semibold uppercase tracking-wider mb-2">
+            <h3 className="text-yellow font-semibold uppercase tracking-widest mb-2">
               Dit zit erin:
             </h3>
             <ul className="list-none space-y-2">
@@ -133,7 +126,7 @@ const Home = () => {
 
           {/* Rechterkant - Wat je eruit haalt */}
           <div className="space-y-4 bg-[#121212] rounded-lg p-6 border border-yellow/20 shadow-md">
-            <h3 className="text-yellow font-semibold uppercase tracking-wider mb-2">
+            <h3 className="text-yellow font-semibold uppercase tracking-widest mb-2">
               Wat je eraan overhoudt:
             </h3>
             <ul className="list-none space-y-2">
@@ -170,13 +163,20 @@ const Home = () => {
         </div>
 
         {/* CTA */}
-        <div className="mt-16">
-          <a
-            href="/pricing"
-            className="text-yellow text-sm md:text-base font-semibold tracking-wide hover:underline transition"
-          >
-            Klaar om te starten? Bekijk het programma →
-          </a>
+        <div className="flex flex-row justify-center items-center mt-16 gap-10">
+          <h2 className="text-yellow text-md md:text-lg font-semibold tracking-wider uppercase md:text-center">
+            Klaar om te starten? <br />
+            <span className="text-gray-300 lowercase">
+              Bekijk het programma
+            </span>
+          </h2>
+          <div className="flex justify-center items-center my-10">
+            <Link to="/pricing">
+              <button className="btn py-4 px-8 h-[60px] min-w-[200px] flex items-center  justify-center uppercase font-bold tracking-widest bg-yellow text-black hover:bg-transparent hover:text-yellow border border-yellow duration-300 text-xl">
+                Programma
+              </button>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -227,9 +227,9 @@ const Home = () => {
               wereld van structuur, strijdlust en onverbrekelijke broederschap.
               Het burgerleven stopt hier. Jouw missie begint.
             </p>
-            <div className="w-full flex justify-start">
+            <div className="w-full flex md:justify-start justify-center">
               <Link to="about">
-                <button className="btn md:btn-lg my-5 h-auto md:w-[250px]">
+                <button className="btn btn-lg h-[60px] my-5 w-[250px]">
                   Lees meer →
                 </button>
               </Link>
@@ -260,9 +260,9 @@ const Home = () => {
               waarmee jij je voorbereidt op de eisen van de praktijk - militair
               of anders.
             </p>
-            <div className="w-full flex justify-start">
+            <div className="w-full flex justify-center md:justify-start">
               <Link to="program">
-                <button className="btn md:btn-lg my-5 h-auto w-[150px]">
+                <button className="btn btn-lg my-5 h-auto w-[250px]">
                   Programma
                 </button>
               </Link>
@@ -333,7 +333,7 @@ const Home = () => {
             </p>
 
             <Link to="/pricing">
-              <button className="btn lg:btn-lg my-7 md:my-10">Start</button>
+              <button className="btn btn-lg my-7 md:my-10">Start</button>
             </Link>
           </div>
         </section>

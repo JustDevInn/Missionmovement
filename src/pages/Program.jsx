@@ -100,7 +100,7 @@ const Program = () => {
       <section className="w-full px-5 sm:px-10 lg:px-20">
         <header className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 tracking-wider text-white max-w-7xl mx-auto">
           <div className="bg-primary p-4 md:p-6 lg:p-8 rounded-xl shadow-lg">
-            <h1 className="text-yellow text-xl md:text-4xl font-secondary uppercase mb-4 text-center border-b border-yellow pb-2">
+            <h1 className="text-yellow text-xl md:text-4xl font-secondary tracking-widest uppercase mb-4 text-center border-b border-yellow pb-2">
               Programma Overzicht
             </h1>
             <p className="text-xs md:text-sm font-normal text-white text-justify leading-relaxed mb-4">
@@ -148,7 +148,7 @@ const Program = () => {
           {/* Vereisten + Skills + Voor wie */}
           <div className="flex flex-col p-4 md:p-6 lg:p-8 gap-8 lg:gap-10">
             <div>
-              <h1 className="text-yellow font-secondary text-xl md:text-2xl uppercase mb-3">
+              <h1 className="text-yellow font-secondary text-xl md:text-2xl tracking-widest uppercase mb-3">
                 Vereisten
               </h1>
               <ul className="grid grid-cols-2 gap-2 text-xs md:text-sm font-light">
@@ -169,7 +169,7 @@ const Program = () => {
             </div>
 
             <div>
-              <h1 className="text-yellow font-secondary text-xl md:text-2xl uppercase mb-3">
+              <h1 className="text-yellow font-secondary text-xl md:text-2xl tracking-widest uppercase mb-3">
                 Wat Je Leert
               </h1>
               <ul className="grid grid-cols-2 gap-2 text-xs md:text-sm font-light">
@@ -190,7 +190,7 @@ const Program = () => {
             </div>
 
             <div>
-              <h1 className="text-yellow font-secondary text-xl md:text-2xl uppercase mb-3">
+              <h1 className="text-yellow font-secondary text-xl md:text-2xl uppercase tracking-widest mb-3">
                 Voor Wie
               </h1>
               <ul className="grid grid-cols-2 gap-2 text-xs md:text-sm font-light">
@@ -214,7 +214,7 @@ const Program = () => {
           <div className="col-span-1 lg:col-span-2 grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* FAQ sectie */}
             <div className="bg-primary p-4 md:p-6 lg:p-8 rounded-xl shadow-lg">
-              <h2 className="text-yellow font-secondary text-xl md:text-4xl uppercase text-center mb-4 border-b border-yellow pb-2">
+              <h2 className="text-yellow font-secondary text-xl md:text-4xl uppercase text-center tracking-widest mb-4 border-b border-yellow pb-2">
                 Veelgestelde Vragen
               </h2>
               <p className="text-xs md:text-sm font-normal text-white mb-6 text-justify leading-relaxed">
@@ -268,7 +268,7 @@ const Program = () => {
                 className="h-[400px] w-[250px] rounded-lg shadow-lg hover:scale-[1.03] transition-transform"
               />
               <Link to="/pricing" className="mt-8">
-                <button className="btn lg:btn-lg w-[250px]">Start nu</button>
+                <button className="btn btn-lg w-[250px]">Start nu</button>
               </Link>
             </div>
           </div>
@@ -298,8 +298,8 @@ const Program = () => {
 
       <section className="w-screen flex flex-col lg:flex-row py-20 p-10 justify-between items-center lg:items-start lg:mt-20">
         <div className="md:w-1/2 flex flex-col font-light px-5 lg:px-28">
-          <h5 className="font-secondary text-[30px] lg:text-[50px] tracking-wider text-brown lg:text-left text-center">
-            <span className="text-yellow">Klaar? </span>
+          <h5 className="font-secondary text-[30px] lg:text-[50px] tracking-wider text-gray-300 lg:text-left text-center">
+            <span className="text-yellow tracking-wider">Klaar? </span>
             Schrijf je in en verander je lijf en geest in een kracht waar niet
             mee te spotten valt.
           </h5>
@@ -309,23 +309,27 @@ const Program = () => {
               animate ? "animate-light-sweep" : ""
             }`}
           >
-            {["Verbondenheid", "|", "Kracht", "|", "Toewijding"].map(
-              (word, index) => (
-                <span
-                  key={index}
-                  onMouseEnter={() => word !== "|" && setHoveredWord(word)}
-                  onMouseLeave={() => setHoveredWord(null)}
-                  className="relative inline-block px-2 transition duration-200 hover:text-yellow"
-                >
-                  {word}
-                  {hoveredWord === word && (
-                    <div className="absolute left-1/2 transform -translate-x-1/2 top-10 bg-black text-white text-sm rounded-md px-4 py-3 shadow-md w-[220px] transition-opacity duration-300">
-                      {wordDefinitions[word]}
-                    </div>
-                  )}
-                </span>
-              )
-            )}
+            {[
+              "Verbondenheid",
+              <span className="text-yellow">|</span>,
+              "Kracht",
+              <span className="text-yellow">|</span>,
+              "Toewijding",
+            ].map((word, index) => (
+              <span
+                key={index}
+                onMouseEnter={() => word !== "|" && setHoveredWord(word)}
+                onMouseLeave={() => setHoveredWord(null)}
+                className="relative inline-block px-2 transition duration-200 hover:text-yellow text-brown tracking-wider text-lg"
+              >
+                {word}
+                {hoveredWord === word && (
+                  <div className="absolute left-1/2 transform -translate-x-1/2 top-10 bg-black text-white text-lg rounded-md px-4 py-3 shadow-md w-[220px] transition-opacity duration-300">
+                    {wordDefinitions[word]}
+                  </div>
+                )}
+              </span>
+            ))}
           </div>
         </div>
 

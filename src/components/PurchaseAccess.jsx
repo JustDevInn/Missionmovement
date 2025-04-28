@@ -117,7 +117,7 @@ const PurchaseAccess = () => {
             <button
               onClick={handleCheckout}
               disabled={loading}
-              className="btn-lg w-full md:w-[300px]"
+              className="btn-lg md:w-[300px]"
             >
               {loading ? "Bezig met verwerken..." : "Start nu"}
             </button>
@@ -139,7 +139,7 @@ const PurchaseAccess = () => {
         <div className="grid md:grid-cols-2 gap-10 w-full max-w-5xl text-white font-normal text-sm md:text-base">
           {/* Left Column - Program Overview */}
           <div className="space-y-4 bg-[#121212] rounded-lg p-6 border border-yellow/20 shadow-md">
-            <h3 className="text-yellow font-semibold uppercase tracking-wider mb-2">
+            <h3 className="text-yellow font-semibold uppercase tracking-widest mb-2">
               Volledige toegang tot het programma
             </h3>
             <ul className="list-none space-y-2">
@@ -168,7 +168,7 @@ const PurchaseAccess = () => {
 
           {/* Right Column - Web App Access */}
           <div className="space-y-4 bg-[#121212] rounded-lg p-6 border border-yellow/20 shadow-md">
-            <h3 className="text-yellow font-semibold uppercase tracking-wider mb-2">
+            <h3 className="text-yellow font-semibold uppercase tracking-widest mb-2">
               In de app
             </h3>
             <ul className="list-none space-y-2">
