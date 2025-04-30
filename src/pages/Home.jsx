@@ -310,7 +310,7 @@ const Home = () => {
         </section>
 
         {/* Floating CTA */}
-        <FloatingCTA />
+        {/* <FloatingCTA /> */}
 
         {/* Laatste Call to Action */}
         <section className="h-[350px] md:h-[600px] w-screen flex justify-center items-center px-10">
