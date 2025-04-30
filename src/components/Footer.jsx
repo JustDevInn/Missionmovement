@@ -14,7 +14,7 @@ const Footer = () => {
       </div>
 
       {/* Footer Inhoud */}
-      <div className="flex flex-col items-center md:flex-row md:justify-between md:items-start gap-10 md:gap-20 h-[250px]">
+      <div className="flex flex-col items-center md:flex-row md:justify-between md:items-end gap-10 md:gap-20 h-[250px]">
         {/* Branding */}
         <div className="text-center md:text-left md:h-full md:flex md:items-end">
           <h1 className="text-yellow font-primary text-[32px] md:text-[60px] lg:text-[80px] font-medium uppercase leading-[100%] tracking-wider">
@@ -26,25 +26,11 @@ const Footer = () => {
 
         {/* Contactgegevens */}
         <div className="flex flex-col items-center md:items-start gap-6 text-sm md:text-lg text-center md:text-left w-full md:w-auto">
-          {/* E-mail */}
-          <div>
-            <h5 className="text-yellow font-semibold uppercase tracking-wider mb-1">
-              E-mail
-            </h5>
-            <a
-              href="mailto:MissionMovement@gmail.com"
-              aria-label="e-mail"
-              className="flex justify-center md:justify-start items-center gap-2 text-gray-400 hover:text-yellow transition"
-            >
-              <FaEnvelope /> MissionMovement@gmail.com
-            </a>
-          </div>
-
           {/* Telefoon */}
           <div>
-            <h5 className="text-yellow font-semibold uppercase tracking-wider mb-1">
+            {/* <h5 className="text-yellow font-semibold uppercase tracking-wider mb-1">
               Telefoon
-            </h5>
+            </h5> */}
             <a
               href="tel:+36125183459"
               aria-label="telefoonnummer"
@@ -56,9 +42,9 @@ const Footer = () => {
 
           {/* Socials */}
           <div>
-            <h5 className="text-yellow font-semibold uppercase tracking-wider mb-1">
+            {/* <h5 className="text-yellow font-semibold uppercase tracking-wider mb-1">
               Instagram
-            </h5>
+            </h5> */}
             <a
               href="https://www.instagram.com/mission.movement"
               target="_blank"
@@ -67,6 +53,20 @@ const Footer = () => {
               className="flex justify-center md:justify-start items-center gap-2 text-gray-400 hover:text-yellow transition"
             >
               <FaInstagram /> @missionmovement
+            </a>
+          </div>
+
+          {/* E-mail */}
+          <div>
+            {/* <h5 className="text-yellow font-semibold uppercase tracking-wider mb-1">
+              E-mail
+            </h5> */}
+            <a
+              href="mailto:MissionMovement@gmail.com"
+              aria-label="e-mail"
+              className="flex justify-center md:justify-start items-center gap-2 text-gray-400 hover:text-yellow transition"
+            >
+              <FaEnvelope /> MissionMovement@gmail.com
             </a>
           </div>
         </div>
