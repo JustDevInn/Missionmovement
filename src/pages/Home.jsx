@@ -67,10 +67,10 @@ const Home = () => {
       </header>
 
       <section className="bg-[#121212] py-4 border-t border-b border-yellow w-full text-center">
-        <div className="text-brown font-secondary tracking-widest uppercase text-md md:text-lg flex flex-wrap justify-center gap-4 px-4">
+        <div className="text-gray-300 font-secondary tracking-widest uppercase text-md md:text-lg flex flex-wrap justify-center gap-4 px-4">
           {coreValues.map((value, index) => (
             <React.Fragment key={index}>
-              <span className="px-1 hover:text-yellow transition duration-200">
+              <span className="px-1 hover:text-brown transition duration-200">
                 {value}
               </span>
 

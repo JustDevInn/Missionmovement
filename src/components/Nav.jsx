@@ -71,6 +71,7 @@ const Nav = () => {
 
           <RouterLink
             to="/"
+            alt="to-homepage"
             className="flex flex-col items-center uppercase text-center text-sm font-bold tracking-widest relative px-4"
             onClick={() => setNav(false)}
           >
@@ -80,11 +81,11 @@ const Nav = () => {
 
           <div className="cursor-pointer">
             {!user ? (
-              <RouterLink to="/login">
+              <RouterLink to="/login" alt="to-login-page">
                 <MdLogin className="text-2xl hover:scale-105 duration-300 text-white hover:text-yellow" />
               </RouterLink>
             ) : (
-              <RouterLink to="/dashboard">
+              <RouterLink to="/dashboard" alt="to-dashboard">
                 <GiRank3 size={28} className="text-gold" />
               </RouterLink>
             )}
@@ -199,7 +200,11 @@ const Nav = () => {
           <div className="flex gap-4 text-white text-sm md:text-lg">
             {!user ? (
               <>
-                <RouterLink to="/login" className="hover:text-yellow">
+                <RouterLink
+                  to="/login"
+                  className="hover:text-yellow"
+                  alt="to-login-page"
+                >
                   <MdLogin className="text-2xl hover:scale-105 duration-300" />
                 </RouterLink>
               </>
@@ -207,6 +212,7 @@ const Nav = () => {
               <>
                 <RouterLink
                   to="/dashboard"
+                  alt="to-dashboard"
                   className="hover:text-yellow flex justify-center items-center"
                 >
                   <MdOutlineSpaceDashboard />
