@@ -118,7 +118,7 @@ const Home = () => {
               </li>
               <li className="flex gap-2 items-start">
                 <span className="text-yellow mt-1">•</span>
-                Ontwikkeld door een voormalig marinier — geen theorie, maar
+                Ontwikkeld door een voormalig marinier - geen theorie, maar
                 praktijk
               </li>
             </ul>
@@ -141,7 +141,7 @@ const Home = () => {
               </li>
               <li className="flex gap-2 items-start">
                 <span className="text-yellow mt-1">•</span>
-                Diepgeworteld zelfvertrouwen — omdat je het écht hebt verdiend
+                Diepgeworteld zelfvertrouwen - omdat je het écht hebt verdiend
               </li>
               <li className="flex gap-2 items-start">
                 <span className="text-yellow mt-1">•</span>
