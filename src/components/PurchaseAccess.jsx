@@ -82,7 +82,7 @@ const PurchaseAccess = () => {
               </h1>
               <p className="text-white text-sm md:text-base font-normal max-w-md">
                 Train met een doel. Deze 6-weekse cursus is ontworpen om je
-                fysiek én mentaal voor te bereiden op militaire selectie — of
+                fysiek én mentaal voor te bereiden op de militaire selectie - of
                 elke uitdaging die discipline, veerkracht en kracht vereist.
                 Inclusief volledige strength & conditioning, zwemmen, hardlopen,
                 mindsettraining en herstelprotocollen.
@@ -96,7 +96,7 @@ const PurchaseAccess = () => {
             {/* Quote */}
             <div className="animate-slide-in-left">
               <p className="italic text-gray-300 text-sm md:text-lg font-normal max-w-md">
-                "Dit was niet zomaar een programma — het heeft veranderd hoe ik
+                "Dit was niet zomaar een programma - het heeft veranderd hoe ik
                 train, denk en leef. Ik heb niet alleen mijn selectie gehaald.
                 Ik ben onverzettelijk geworden."
               </p>
