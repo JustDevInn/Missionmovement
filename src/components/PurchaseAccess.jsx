@@ -78,7 +78,7 @@ const PurchaseAccess = () => {
             {/* Headline + Summary */}
             <div className="space-y-4 ">
               <h1 className="h1 animate-fade-in">
-                VOLLEDIG PROGRAMMA — 6 WEKEN
+                VOLLEDIG PROGRAMMA - 6 WEKEN
               </h1>
               <p className="text-white text-sm md:text-base font-normal max-w-md">
                 Train met een doel. Deze 6-weekse cursus is ontworpen om je
