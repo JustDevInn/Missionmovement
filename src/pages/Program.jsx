@@ -106,7 +106,7 @@ const Program = () => {
             <p className="text-xs md:text-sm font-normal text-white text-justify leading-relaxed mb-4">
               Het Militaire voorbereidingsprogramma van Mission Movement is
               gebouwd op meer dan 10 jaar ervaring binnen elite eenheden en 10
-              jaar in de sport branche. Het gaat verder dan fitness — het is
+              jaar in de sport branche. Het gaat verder dan fitness - het is
               voor wie een hoger doel nastreeft. Voor wie klaar is voor het
               leven van een special operator.
               <br />
@@ -276,7 +276,7 @@ const Program = () => {
       </section>
 
       <QuoteBlock
-        quote="Mijn missie is het bouwen van onverwoestbare mensen — fysiek capabel en mentaal stabiel. Dit programma is wat ik zelf nodig had aan het begin."
+        quote="Mijn missie is het bouwen van onverwoestbare mensen - fysiek capabel en mentaal stabiel. Dit programma is wat ik zelf nodig had aan het begin."
         author="Justin Peeters"
       />
 

@@ -59,12 +59,12 @@ export const faqDataNL = [
   {
     vraag: "Moet ik al superfit zijn om te beginnen?",
     antwoord:
-      "Nee. Je hoeft geen topatleet te zijn, maar zonder basisconditie en gerichte voorbereiding loop je het risico op blessures of uitval. Dit programma bouwt je stap voor stap op — fysiek én mentaal.",
+      "Nee. Je hoeft geen topatleet te zijn, maar zonder basisconditie en gerichte voorbereiding loop je het risico op blessures of uitval. Dit programma bouwt je stap voor stap op - fysiek én mentaal.",
   },
   {
     vraag: "Kan ik dit combineren met werk of school?",
     antwoord:
-      "Ja. Je traint zelfstandig op jouw eigen tijd. De sessies zijn functioneel opgebouwd zodat je consistent kunt blijven, ook met een drukke agenda. Verwacht wél toewijding — juist dat maakt het waardevol.",
+      "Ja. Je traint zelfstandig op jouw eigen tijd. De sessies zijn functioneel opgebouwd zodat je consistent kunt blijven, ook met een drukke agenda. Verwacht wél toewijding - juist dat maakt het waardevol.",
   },
   {
     vraag: "Wat als ik twijfels heb of ik geschikt ben?",
@@ -72,14 +72,14 @@ export const faqDataNL = [
       "Twijfel is normaal. Juist daarom is dit programma waardevol. Het geeft je een eerlijke inkijk in de eisen, zodat je kunt voelen of je écht klaar bent voor deze stap.",
   },
   {
-    vraag: "Ik sport al — heb ik dit programma wel nodig?",
+    vraag: "Ik sport al - heb ik dit programma wel nodig?",
     antwoord:
       "Zelf trainen is goed, maar militaire voorbereiding vraagt meer: presteren onder druk, omgaan met vermoeidheid, herstel en mentale focus. Dit programma voorkomt dat je traint zonder richting.",
   },
   {
     vraag: "Is dit ook geschikt voor vrouwen?",
     antwoord:
-      "Zeker. Steeds meer vrouwen kiezen bewust voor fysieke en mentale uitdaging. Dit programma is ontworpen voor iedereen met discipline, focus en drive — ongeacht geslacht.",
+      "Zeker. Steeds meer vrouwen kiezen bewust voor fysieke en mentale uitdaging. Dit programma is ontworpen voor iedereen met discipline, focus en drive - ongeacht geslacht.",
   },
 ];
 
@@ -120,7 +120,7 @@ export const reviews = [
   },
   {
     name: "Milan, V",
-    text: "Elke sessie had een doel. Ik werd niet alleen fitter — ik vond opnieuw richting.",
+    text: "Elke sessie had een doel. Ik werd niet alleen fitter - ik vond opnieuw richting.",
   },
   {
     name: "Jules, J",
@@ -128,7 +128,7 @@ export const reviews = [
   },
   {
     name: "Daan, K",
-    text: "Geen onzin. Alleen structuur, intensiteit en resultaat. Ik kwam om me voor te bereiden — ik vertrok als een ander mens.",
+    text: "Geen onzin. Alleen structuur, intensiteit en resultaat. Ik kwam om me voor te bereiden - ik vertrok als een ander mens.",
   },
   {
     name: "Bo, L",
@@ -148,10 +148,10 @@ export const reviews = [
   },
   {
     name: "Tom, R",
-    text: "De coaching spreekt tot wie je wilt worden. Het is meer dan herhalingen en sets — het is een mindset shift.",
+    text: "De coaching spreekt tot wie je wilt worden. Het is meer dan herhalingen en sets - het is een mindset shift.",
   },
   {
     name: "Bo, B",
-    text: "Ik heb getraind met CrossFit, groepslessen, militaire schema’s — niets kwam in de buurt van deze helderheid en uitdaging.",
+    text: "Ik heb getraind met CrossFit, groepslessen, militaire schema’s - niets kwam in de buurt van deze helderheid en uitdaging.",
   },
 ];

@@ -7,7 +7,7 @@ const QuoteBlock = ({ quote, author }) => {
         “{quote}”
       </p>
       <p className="text-yellow text-sm md:text-base font-secondary tracking-wider mt-4 text-left group-hover:translate-x-1 transition-transform duration-300">
-        — {author}
+        - {author}
       </p>
 
       {/* Glowing accent */}
