@@ -48,7 +48,7 @@ const Home = () => {
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 w-full max-w-4xl flex flex-col items-center text-center px-5 lg:px-0">
-          <h1 className="h1 mb-4 text-yellow font-bold uppercase tracking-wider">
+          <h1 className="text-3xl md:h1 mb-4 text-yellow font-bold uppercase tracking-wider">
             Militair Voorbereidings- traject
           </h1>
           <p className="text-white font-normal text-lg md:text-xl max-w-xl">
@@ -163,7 +163,7 @@ const Home = () => {
         </div>
 
         {/* CTA */}
-        <div className="flex flex-row justify-center items-center mt-16 gap-10">
+        <div className="flex flex-col md:flex-row justify-center items-center mt-16 gap-10">
           <h2 className="text-yellow text-md md:text-lg font-semibold tracking-wider uppercase md:text-center">
             Klaar om te starten? <br />
             <span className="text-gray-300 lowercase">
