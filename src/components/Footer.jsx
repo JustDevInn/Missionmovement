@@ -77,9 +77,7 @@ const Footer = () => {
         <p>© 2024 Mission Movement. Alle rechten voorbehouden.</p>
         <p>
           KVK:{" "}
-          <span className="font-medium">
-            Justin Peeters Coaching 89798690899
-          </span>
+          <span className="font-medium">Justin Peeters Coaching 85486205</span>
         </p>
       </div>
     </footer>
