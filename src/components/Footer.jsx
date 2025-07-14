@@ -36,7 +36,7 @@ const Footer = () => {
               aria-label="telefoonnummer"
               className="flex justify-center md:justify-start items-center gap-2 text-gray-400 hover:text-yellow transition"
             >
-              <FaPhone /> +31 6 25 18 34 59
+              <FaPhone /> +31 6 49 17 16 84
             </a>
           </div>
 
