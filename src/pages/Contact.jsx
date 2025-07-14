@@ -150,7 +150,7 @@ const Contact = () => {
               Liever direct contact? Stuur ons gerust een WhatsApp-bericht.
             </p>
             <a
-              href="https://wa.me/31625183459"
+              href="https://wa.me/31649171684"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-4 py-2 border border-yellow text-yellow hover:bg-yellow hover:text-black rounded transition-all"
@@ -162,7 +162,7 @@ const Contact = () => {
       </section>
       {/* Floating WhatsApp knop (alleen mobiel) */}
       <a
-        href="https://wa.me/31625183459"
+        href="https://wa.me/31649171684"
         target="_blank"
         rel="noopener noreferrer"
         className="md:hidden fixed bottom-4 right-4 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg p-4 transition-all"
