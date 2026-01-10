@@ -9,7 +9,7 @@ const Nutrition = () => {
         <h1 className="text-3xl md:text-4xl font-bold text-yellow tracking-wide uppercase">
           Nutrition Hub Coming Soon
         </h1>
-        <p className="text-gray-300 text-sm md:text-base font-light">
+        <p className="text-gray-300 font-light text-base md:text-lg">
           This section will soon include personalized nutrition guides, sample
           meal plans, and practical advice for fueling your training.
         </p>

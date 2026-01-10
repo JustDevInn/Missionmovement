@@ -200,7 +200,7 @@ const UploadBlog = () => {
       <div className="mt-12 border-t border-cyan-800 pt-6">
         <h2 className="text-2xl font-bold text-cyan-500 mb-4">Live Preview</h2>
         <h3 className="text-yellow text-3xl font-bold mb-2">{form.title}</h3>
-        <p className="text-sm italic text-gray-400 mb-2">by {form.author}</p>
+        <p className="italic text-gray-400 mb-2 text-base md:text-lg">by {form.author}</p>
         {form.thumbnail && (
           <img
             src={form.thumbnail}

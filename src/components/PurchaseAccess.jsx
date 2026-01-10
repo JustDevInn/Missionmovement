@@ -46,7 +46,7 @@ const PurchaseAccess = () => {
         </title>
         <meta
           name="description"
-          content="Krijg toegang tot het volledige 6-weekse programma gericht op militaire voorbereiding. Kracht, mindset, zwemmen, herstel en meer — ontwikkeld door een voormalig marinier."
+          content="Krijg toegang tot het volledige 6-weekse programma gericht op militaire voorbereiding. Kracht, mindset, zwemmen, herstel en meer, ontwikkeld door een voormalig marinier."
         />
         <meta
           property="og:title"
@@ -80,7 +80,7 @@ const PurchaseAccess = () => {
               <h1 className="h1 animate-fade-in">
                 VOLLEDIG PROGRAMMA - 6 WEKEN
               </h1>
-              <p className="text-white text-sm md:text-base font-normal max-w-md">
+              <p className="text-white font-normal max-w-md text-base md:text-lg">
                 Train met een doel. Deze 6-weekse cursus is ontworpen om je
                 fysiek én mentaal voor te bereiden op de militaire selectie - of
                 elke uitdaging die discipline, veerkracht en kracht vereist.
@@ -95,13 +95,13 @@ const PurchaseAccess = () => {
             </div>
             {/* Quote */}
             <div className="animate-slide-in-left">
-              <p className="italic text-gray-300 text-sm md:text-lg font-normal max-w-md">
+              <p className="italic text-gray-300 md:text-lg font-normal max-w-md text-base">
                 "Dit was niet zomaar een programma - het heeft veranderd hoe ik
                 train, denk en leef. Ik heb niet alleen mijn selectie gehaald.
                 Ik ben onverzettelijk geworden."
               </p>
               <p className="text-yellow text-xs md:text-sm mt-2 tracking-wider uppercase">
-                – Voormalige strijder
+                - Voormalige strijder
               </p>
             </div>
           </div>
@@ -123,7 +123,7 @@ const PurchaseAccess = () => {
             </button>
 
             {error && (
-              <p className="text-red-400 font-secondary text-sm text-center">
+              <p className="text-red-400 font-secondary text-center text-base md:text-lg">
                 {error}
               </p>
             )}

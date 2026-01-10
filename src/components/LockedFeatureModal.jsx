@@ -38,7 +38,7 @@ const LockedFeatureModal = ({ isOpen, onClose }) => {
         <h2 className="text-yellow text-2xl font-secondary uppercase tracking-widest mb-4">
           Premium Feature
         </h2>
-        <p className="text-gray-300 font-light text-sm leading-relaxed mb-6">
+        <p className="text-gray-300 font-light leading-relaxed mb-6 text-base md:text-lg">
           This section is part of the full program. Purchase access to unlock
           all features and begin your transformation.
         </p>

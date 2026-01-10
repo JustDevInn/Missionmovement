@@ -14,7 +14,6 @@ import { toast } from "react-hot-toast";
 
 const Settings = () => {
   const { user, logout } = useAuth();
-  const [username, setUsername] = useState("");
   const [newUsername, setNewUsername] = useState("");
   const [usernameSaved, setUsernameSaved] = useState(false);
   const [savingUsername, setSavingUsername] = useState(false);
@@ -38,7 +37,6 @@ const Settings = () => {
       const snap = await getDoc(userRef);
       if (snap.exists()) {
         const data = snap.data();
-        setUsername(data.username || "");
         setNewUsername(data.username || "");
       }
     };
@@ -49,7 +47,6 @@ const Settings = () => {
     setSavingUsername(true);
     const userRef = doc(db, "users", user.uid);
     await updateDoc(userRef, { username: newUsername });
-    setUsername(newUsername);
     setUsernameSaved(true);
     setSavingUsername(false);
     setTimeout(() => setUsernameSaved(false), 2000);
@@ -129,7 +126,7 @@ const Settings = () => {
           {savingUsername ? "Saving..." : "Save Username"}
         </button>
         {usernameSaved && (
-          <p className="text-green-400 text-sm mt-1">✅ Saved!</p>
+          <p className="text-green-400 mt-1 text-base md:text-lg">✅ Saved!</p>
         )}
       </div>
 
@@ -166,8 +163,8 @@ const Settings = () => {
           )}
           {savingPassword ? "Saving..." : "Update Password"}
         </button>
-        {pwSuccess && <p className="text-green-400 text-sm">{pwSuccess}</p>}
-        {pwError && <p className="text-red-400 text-sm">{pwError}</p>}
+        {pwSuccess && <p className="text-green-400 text-base md:text-lg">{pwSuccess}</p>}
+        {pwError && <p className="text-red-400 text-base md:text-lg">{pwError}</p>}
       </form>
 
       {/* Password Reset */}
@@ -175,7 +172,7 @@ const Settings = () => {
         <h2 className="h2-teko text-white text-xl tracking-wide">
           Forgot Password?
         </h2>
-        <p className="text-sm text-gray-400">
+        <p className="text-gray-400 text-base md:text-lg">
           Send yourself a password reset email
         </p>
         <button
@@ -185,7 +182,7 @@ const Settings = () => {
           Send Password Reset Email
         </button>
         {resetEmailSent && (
-          <p className="text-green-400 text-sm mt-1">✅ Email sent!</p>
+          <p className="text-green-400 mt-1 text-base md:text-lg">✅ Email sent!</p>
         )}
       </div>
 
@@ -197,7 +194,7 @@ const Settings = () => {
         <h2 className="h2-teko text-red-500 text-xl tracking-wide">
           Danger Zone: Delete Account
         </h2>
-        <p className="text-sm text-red-400">
+        <p className="text-red-400 text-base md:text-lg">
           This action is permanent and cannot be undone.
         </p>
         <label className="flex items-center space-x-2 text-sm text-gray-300">
@@ -227,7 +224,7 @@ const Settings = () => {
           {deleting ? "Deleting..." : "Delete My Account"}
         </button>
         {deleteError && (
-          <p className="text-red-400 text-sm mt-1">{deleteError}</p>
+          <p className="text-red-400 mt-1 text-base md:text-lg">{deleteError}</p>
         )}
       </form>
     </div>

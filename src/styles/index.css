@@ -3,8 +3,19 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --bg: #0d1624;
+    --surface: #111e30;
+    --surface-2: #17243a;
+    --text: #e6edf7;
+    --muted: #b4c1d4;
+    --border: #24344e;
+    --accent: #4aa3ff;
+    --accent-2: #7dd3fc;
+  }
+
   body {
-    @apply font-primary bg-[#101010];
+    @apply font-primary bg-[#101010] text-[16px] md:text-[18px] font-normal leading-relaxed;
   }
   .h1-header {
     @apply text-yellow font-primary text-[20px] md:text-[30px] lg:text-[40px] font-bold uppercase leading-[120%] tracking-widest;
@@ -162,6 +173,45 @@
 }
 
 @layer components {
+  .mm-container {
+    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .mm-section {
+    @apply bg-bg text-text py-12 md:py-16;
+  }
+
+  .mm-card {
+    @apply rounded-2xl border border-border bg-surface p-6 md:p-8 shadow-sm;
+  }
+
+  .mm-h1 {
+    @apply text-3xl md:text-5xl font-secondary uppercase tracking-widest text-accent;
+  }
+
+  .mm-h2 {
+    @apply text-xl md:text-3xl font-secondary uppercase tracking-widest text-accent;
+  }
+
+  .mm-btn {
+    @apply inline-flex items-center justify-center rounded-full border border-border px-5 py-2 text-sm font-semibold text-text transition;
+    background-color: var(--surface-2);
+  }
+
+  .mm-btn:hover {
+    background-color: var(--surface);
+  }
+
+  .mm-btn-primary {
+    @apply inline-flex items-center justify-center rounded-full border border-transparent px-5 py-2 text-sm font-semibold transition;
+    background-color: var(--accent);
+    color: #0b1422;
+  }
+
+  .mm-btn-primary:hover {
+    background-color: var(--accent-2);
+  }
+
   .admin-dark-theme {
     @apply bg-[#121212] text-white min-h-screen;
   }
@@ -196,5 +246,41 @@
 
   .admin-dark-theme .section-title {
     @apply text-lg font-bold text-cyan-400;
+  }
+}
+
+@layer utilities {
+  .bg-royalmarine {
+    background-image: url("../assets/royalmarines.jpg");
+  }
+  .bg-barret {
+    background-image: url("../assets/barret.webp");
+  }
+  .bg-marsof {
+    background-image: url("../assets/marsof.webp");
+  }
+  .bg-boatgroup {
+    background-image: url("../assets/Bootgroup_carry.webp");
+  }
+  .bg-marsen {
+    background-image: url("../assets/marsenopleiding.jpg");
+  }
+  .bg-spelioladder {
+    background-image: url("../assets/spelioladder.jpg");
+  }
+  .bg-hlo {
+    background-image: url("../assets/hlo.jpg");
+  }
+  .bg-parajumping {
+    background-image: url("../assets/parajumping.jpg");
+  }
+  .bg-heigendhert {
+    background-image: url("../assets/heigendhert.jpg");
+  }
+  .bg-friscatnight {
+    background-image: url("../assets/friscatnight.jpg");
+  }
+  .bg-takethestep {
+    background-image: url("../assets/takethestep.jpg");
   }
 }

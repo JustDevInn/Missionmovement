@@ -158,6 +158,10 @@ const Nav = () => {
                       title: "11 Luchtmobiele Brigade",
                       path: "/units/luchtmobiel",
                     },
+                    {
+                      title: "Veiligheidsdiensten",
+                      path: "/units/veiligheidsdiensten",
+                    },
                   ].map(({ title, path }) => (
                     <RouterLink
                       key={title}
@@ -277,6 +281,13 @@ const Nav = () => {
                     onClick={() => setNav(false)}
                   >
                     11 Luchtmobiele brigade
+                  </RouterLink>
+                  <RouterLink
+                    to="/units/veiligheidsdiensten"
+                    className="block text-gray-300 hover:text-yellow py-1"
+                    onClick={() => setNav(false)}
+                  >
+                    Veiligheidsdiensten
                   </RouterLink>
                 </div>
 

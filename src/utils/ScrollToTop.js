@@ -5,7 +5,12 @@ const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    const subNavPaths = ['/units/mariniers', '/units/commandotroepen', '/units/luchtmobiel'];
+    const subNavPaths = [
+      '/units/mariniers',
+      '/units/commandotroepen',
+      '/units/luchtmobiel',
+      '/units/veiligheidsdiensten',
+    ];
     const isSubNav = subNavPaths.includes(pathname);
 
     if (hash) {
@@ -13,7 +18,9 @@ const ScrollToTop = () => {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
-    } else if (!isSubNav) {
+    } else if (isSubNav) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
       window.scrollTo(0, 0);
     }
   }, [pathname, hash]);

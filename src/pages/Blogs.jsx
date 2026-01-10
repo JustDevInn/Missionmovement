@@ -172,7 +172,7 @@ const Blogs = () => {
                   )}
                 </div>
 
-                <p className="text-white text-sm italic mb-2">
+                <p className="text-white italic mb-2 text-base md:text-lg">
                   door {blog.author} •{" "}
                   {blog.createdAt?.seconds &&
                     format(
@@ -181,7 +181,7 @@ const Blogs = () => {
                     )}
                 </p>
 
-                <p className="text-white text-sm font-light leading-relaxed line-clamp-3 mb-6">
+                <p className="text-white font-light leading-relaxed line-clamp-3 mb-6 text-base md:text-lg">
                   {blog.summary}
                 </p>
 

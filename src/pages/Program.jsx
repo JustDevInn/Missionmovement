@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { FaCheck } from "react-icons/fa6";
 import { GrAchievement } from "react-icons/gr";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import Banners from "../components/Banners";
 import MobileBanners from "../components/MobileBanners";
 import { useGlowEffect } from "../Hooks/useGlowEffect";
 import { faqDataNL, programDetails } from "../data/data";
 import Reviews from "../components/Reviews";
 import { Link } from "react-router-dom";
-import TrainerCard from "../components/TrainerCard";
 import QuoteBlock from "../components/QuoteBlock";
 import { Helmet } from "react-helmet-async";
 
@@ -18,7 +16,7 @@ const wordDefinitions = {
   Verbondenheid:
     "Een diepe, wederzijdse band tussen mensen gebaseerd op vertrouwen, respect en gedeelde doelen.",
   Kracht:
-    "Het vermogen om fysieke, mentale of emotionele weerstand te bieden en actie te ondernemen — zelfs onder druk.",
+    "Het vermogen om fysieke, mentale of emotionele weerstand te bieden en actie te ondernemen, zelfs onder druk.",
   Toewijding:
     "De bereidheid en het doorzettingsvermogen om jezelf volledig in te zetten voor een doel, dag in dag uit.",
 };
@@ -47,12 +45,12 @@ const Program = () => {
         <title>Programma | Mission Movement</title>
         <meta
           name="description"
-          content="Ontdek het Military Preparation Program van Mission Movement — gebouwd vanuit ervaring met special forces en een decennium aan coaching."
+          content="Ontdek het Military Preparation Program van Mission Movement, gebouwd vanuit ervaring met special forces en een decennium aan coaching."
         />
         <meta property="og:title" content="Programma | Mission Movement" />
         <meta
           property="og:description"
-          content="Van het Korps Mariniers tot moderne krijger — dit programma geeft je wat je nodig hebt om te slagen."
+          content="Van het Korps Mariniers tot moderne krijger. Dit programma geeft je wat je nodig hebt om te slagen."
         />
         <meta
           property="og:image"
@@ -124,11 +122,9 @@ const Program = () => {
                   aria-expanded={openProgramIndex === index}
                 >
                   {item.title}
-                  {openProgramIndex === index ? (
-                    <FaChevronUp className="text-yellow" />
-                  ) : (
-                    <FaChevronDown className="text-yellow" />
-                  )}
+                  <span className="text-yellow text-xl">
+                    {openProgramIndex === index ? "−" : "+"}
+                  </span>
                 </button>
                 <div
                   className={`overflow-hidden transition-all duration-500 ${
@@ -210,53 +206,47 @@ const Program = () => {
               </ul>
             </div>
           </div>
-          {/* Begin FAQ & bundle — zelfde grid en header als erboven */}
+          {/* Begin FAQ & bundle - zelfde grid en header als erboven */}
           <div className="col-span-1 lg:col-span-2 grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* FAQ sectie */}
-            <div className="bg-primary p-4 md:p-6 lg:p-8 rounded-xl shadow-lg">
-              <h2 className="text-yellow font-secondary text-xl md:text-4xl uppercase text-center tracking-widest mb-4 border-b border-yellow pb-2">
+            <div className="space-y-4 border-t border-yellow pt-6">
+              <h2 className="text-yellow text-2xl md:text-3xl font-secondary uppercase tracking-widest mb-6">
                 Veelgestelde Vragen
               </h2>
-              <p className="text-xs md:text-sm font-normal text-white mb-6 text-justify leading-relaxed">
-                Nog vragen? Hieronder vind je de meest gestelde vragen vóór
-                inschrijving. Staat jouw vraag er niet tussen? Neem gerust
-                contact op.
-              </p>
-              <div className="space-y-3">
-                {faqDataNL.map((faq, index) => {
-                  const isOpen = openFAQIndex === index;
-                  return (
-                    <div
-                      key={index}
-                      className="bg-brown rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.01] hover:bg-opacity-90"
+
+              {faqDataNL.map((faq, index) => {
+                const isOpen = openFAQIndex === index;
+                return (
+                  <div
+                    key={index}
+                    className={`border border-yellow/20 rounded-lg transition-all duration-300 ${
+                      isOpen ? "bg-[#111111] border-yellow" : "bg-[#0a0a0a]"
+                    }`}
+                  >
+                    <button
+                      onClick={() => setOpenFAQIndex(isOpen ? null : index)}
+                      className="w-full flex justify-between items-center px-6 py-4 text-left"
+                      aria-expanded={isOpen}
                     >
-                      <button
-                        onClick={() => setOpenFAQIndex(isOpen ? null : index)}
-                        className="w-full flex justify-between items-center p-3 text-left text-brown font-medium tracking-wide uppercase bg-primary hover:text-yellow text-xs md:text-sm"
-                        aria-expanded={isOpen}
-                      >
+                      <span className="text-yellow font-secondary text-base md:text-lg tracking-widest uppercase">
                         {faq.vraag}
-                        {isOpen ? (
-                          <FaChevronUp className="text-yellow" />
-                        ) : (
-                          <FaChevronDown className="text-yellow" />
-                        )}
-                      </button>
-                      <div
-                        className={`overflow-hidden transition-all duration-500 ${
-                          isOpen
-                            ? "max-h-[500px] opacity-100 px-4 pb-4"
-                            : "max-h-0 opacity-0"
-                        }`}
-                      >
-                        <p className="text-white text-sm font-light leading-relaxed">
-                          {faq.antwoord}
-                        </p>
-                      </div>
+                      </span>
+                      <span className="text-yellow text-xl">
+                        {isOpen ? "−" : "+"}
+                      </span>
+                    </button>
+                    <div
+                      className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                        isOpen ? "max-h-[1000px] py-4 px-6" : "max-h-0"
+                      }`}
+                    >
+                      <p className="whitespace-pre-line text-gray-300 font-light leading-relaxed text-base md:text-lg">
+                        {faq.antwoord}
+                      </p>
                     </div>
-                  );
-                })}
-              </div>
+                  </div>
+                );
+              })}
             </div>
 
             {/* Bundle image + button */}
@@ -286,8 +276,6 @@ const Program = () => {
       <div className="lg:hidden">
         <MobileBanners />
       </div>
-
-      <TrainerCard />
 
       <Reviews />
 

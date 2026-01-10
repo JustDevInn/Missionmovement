@@ -157,7 +157,7 @@ const ManageVideos = () => {
             <h2 className="text-lg font-semibold mb-1 line-clamp-2 text-gray-100">
               {video.title}
             </h2>
-            <p className="text-sm text-gray-400 line-clamp-2">
+            <p className="text-gray-400 line-clamp-2 text-base md:text-lg">
               {video.description}
             </p>
             <div className="text-xs text-gray-500 my-2 min-h-[2rem]">

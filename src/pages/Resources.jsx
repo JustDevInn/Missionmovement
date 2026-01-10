@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import SocialGallery from "../components/SocialGallergy.jsx";
 import { faqDataNL } from "../data/data.js";
 // Icons
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import FloatingCTA from "../components/FloatingCTA.jsx";
 import { Helmet } from "react-helmet-async";
 
@@ -58,67 +57,41 @@ const Resources = () => {
       </section>
 
       {/* FAQ container */}
-      <section className="w-full px-4 sm:px-6 md:px-10 lg:px-20">
-        <header className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4 tracking-wider text-white">
-          {/* FAQ Content */}
-          <div className="flex flex-col bg-primary px-4 py-6 md:p-10 rounded-lg shadow-lg">
-            <h1 className="h2-teko text-yellow text-center mb-4">
-              Geen gedoe, gewoon feiten.
-            </h1>
+      <section className="px-4 md:px-10 max-w-5xl mx-auto py-16 space-y-4 border-t border-yellow">
+        <h2 className="text-yellow text-2xl md:text-3xl font-secondary uppercase tracking-widest mb-6">
+          Veelgestelde Vragen
+        </h2>
 
-            {/* Added Intro */}
-            <p className="text-sm lg:text-base font-normal text-white text-justify mb-6">
-              Je staat er niet alleen voor. Dit zijn de vragen die de meeste
-              mensen stellen voordat ze zich toewijden aan de Missie. Meer
-              weten? Neem gerust contact op - geen verkooppraatjes, alleen de
-              feiten.
-            </p>
-
-            {faqDataNL.map((faq, index) => (
-              <div
-                key={index}
-                className="md:my-4 my-2 bg-brown rounded-xl overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:bg-opacity-80"
+        {faqDataNL.map((faq, index) => {
+          const isOpen = openIndex === index;
+          return (
+            <div
+              key={index}
+              className={`border border-yellow/20 rounded-lg transition-all duration-300 ${
+                isOpen ? "bg-[#111111] border-yellow" : "bg-[#0a0a0a]"
+              }`}
+            >
+              <button
+                onClick={() => toggle(index)}
+                className="w-full flex justify-between items-center px-6 py-4 text-left"
               >
-                {/* Clickable Question */}
-                <button
-                  onClick={() => toggle(index)}
-                  className="w-full flex justify-between items-center p-5 text-left text-brown font-medium tracking-wider capitalize bg-primary hover:text-yellow transition duration-300"
-                >
+                <span className="text-yellow font-secondary text-base md:text-lg tracking-widest uppercase">
                   {faq.vraag}
-                  {openIndex === index ? (
-                    <FaChevronUp className="text-yellow transition-transform duration-300" />
-                  ) : (
-                    <FaChevronDown className="text-yellow transition-transform duration-300" />
-                  )}
-                </button>
-
-                {/* Answer Section (Smoother Expansion) */}
-                <div
-                  className={`overflow-hidden transition-all duration-700 delay-150 ${
-                    openIndex === index
-                      ? "max-h-[250px] opacity-100 px-5 pb-5 pt-2"
-                      : "max-h-0 opacity-0"
-                  }`}
-                >
-                  <p className="text-white text-sm leading-[160%]">
-                    {faq.antwoord}
-                  </p>
-                </div>
+                </span>
+                <span className="text-yellow text-xl">{isOpen ? "−" : "+"}</span>
+              </button>
+              <div
+                className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                  isOpen ? "max-h-[1000px] py-4 px-6" : "max-h-0"
+                }`}
+              >
+                <p className="whitespace-pre-line text-gray-300 font-light leading-relaxed text-base md:text-lg">
+                  {faq.antwoord}
+                </p>
               </div>
-            ))}
-          </div>
-          {/* Matching Image */}
-          <div className="relative w-full h-full rounded-lg shadow-lg overflow-hidden">
-            <img
-              src="/img/toepad120.jpg"
-              alt="Training Footage"
-              loading="lazy"
-              className="w-full h-full object-cover"
-            />
-            {/* Dark overlay */}
-            <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-          </div>
-        </header>
+            </div>
+          );
+        })}
       </section>
 
       {/* ARTICLES's */}
@@ -152,7 +125,7 @@ const Resources = () => {
             {
               title: "Mentale Weerbaarheid Onder Druk",
               summary:
-                "Je stijgt niet tot het moment — je zakt naar het niveau van je training. Laten we dat niveau verhogen.",
+                "Je stijgt niet tot het moment. Je zakt naar het niveau van je training. Laten we dat niveau verhogen.",
               author: "Justin P",
               date: "06 Apr 2025",
               slug: "mental-fortitude-under-fire",
@@ -184,10 +157,10 @@ const Resources = () => {
                 <h2 className="text-yellow text-lg font-bold uppercase">
                   {blog.title}
                 </h2>
-                <p className="text-sm italic text-gray-400">
+                <p className="italic text-gray-400 text-base md:text-lg">
                   by {blog.author} • {blog.date}
                 </p>
-                <p className="text-white text-sm">{blog.summary}</p>
+                <p className="text-white text-base md:text-lg">{blog.summary}</p>
                 <a
                   href={`/blogs/${blog.slug}`}
                   className="inline-block mt-3 bg-yellow text-black font-bold text-sm px-4 py-2 uppercase tracking-wide hover:bg-transparent hover:text-yellow border border-yellow transition-all"

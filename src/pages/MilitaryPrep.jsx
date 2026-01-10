@@ -1,0 +1,361 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+const Trainer = "/img/profilepicturehd.png";
+
+const faqItems = [
+  {
+    q: "Do I need to be fit already?",
+    a: "You don't need to be selection-ready on day one, but you do need a basic level of health and the willingness to train 3-6 times per week. We'll match the plan to your current level.",
+  },
+  {
+    q: "Can you guarantee I will pass my selection?",
+    a: "No one can honestly guarantee that. What I can guarantee is a structured plan, clear benchmarks, and honest feedback. You'll know where you stand instead of guessing.",
+  },
+  {
+    q: "What if I have old injuries or joint issues?",
+    a: "We discuss this up front. I've worked with plenty of people dealing with knee, shoulder, and back issues (including myself). We'll adapt volume and exercise selection and I'll be honest if I think your timeline is unrealistic.",
+  },
+  {
+    q: "Do I need to live in the Netherlands?",
+    a: "No. Coaching is fully online. You can prepare for selections in other countries as well. We work around your time zone and equipment.",
+  },
+];
+
+const MilitaryPrep = () => {
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
+
+  return (
+    <main className="min-h-screen bg-black text-white pt-24 pb-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+        {/* Hero */}
+        <section className="grid gap-10 lg:grid-cols-[3fr,2fr] items-center">
+          {/* Left: copy */}
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-yellow bg-yellow bg-opacity-10 px-4 py-1 text-[11px] font-semibold tracking-wide uppercase mb-4">
+              <span className="h-1.5 w-1.5 rounded-full bg-yellow" />
+              Military & Selection Prep Coaching
+            </div>
+
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight">
+              Prepare for selection like a{" "}
+              <span className="text-yellow">professional</span>, not like
+              you&apos;re guessing.
+            </h1>
+
+            <p className="mt-4 sm:text-base text-neutral-300 max-w-xl text-base md:text-lg">
+              I help you go from “I hope I&apos;m ready” to “I know I&apos;m
+              prepared” for military, police, and other service selections. No
+              fluff, no macho nonsense. Just clear training, structure, and
+              honest feedback from a former Royal Netherlands Marine.
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <a
+                href="#apply"
+                className="inline-flex items-center justify-center rounded-full bg-yellow px-6 py-2.5 text-sm font-semibold text-black shadow-lg shadow-yellow/30 hover:bg-yellow-300 transition"
+              >
+                Apply for coaching
+              </a>
+              <Link
+                to="/program"
+                className="text-sm font-medium text-neutral-200 hover:text-yellow underline underline-offset-4"
+              >
+                View my approach & philosophy
+              </Link>
+            </div>
+
+            <p className="mt-4 text-[11px] text-neutral-400 max-w-md">
+              Fully online coaching. You can be based anywhere in the world.
+              I&apos;m abroad. You don&apos;t need to be.
+            </p>
+          </div>
+
+          {/* Right: image + card */}
+          <div className="relative">
+            {/* Background image */}
+            <div className="overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900 shadow-xl shadow-black/50">
+              <img
+                src={"/img/royalmarines.jpg"} // 👉 change to whatever image you have
+                alt="Military preparation training"
+                className="h-64 w-full object-cover opacity-90"
+              />
+            </div>
+
+            {/* Info card overlay */}
+            <div className="absolute -bottom-6 left-4 right-4 rounded-2xl border border-neutral-800 bg-neutral-900/95 backdrop-blur-md p-5 shadow-xl shadow-black/60">
+              <h2 className="text-sm font-semibold mb-2">
+                8-Week Military Prep Accelerator
+              </h2>
+              <ul className="space-y-1.5 text-xs text-neutral-300">
+                <li>
+                  • Assessment of your current fitness & selection timeline
+                </li>
+                <li>
+                  • Weekly training plan (strength, conditioning, running, ruck)
+                </li>
+                <li>• Mobility & joint-care focus so you stay in one piece</li>
+                <li>• Weekly check-ins & adjustments based on real life</li>
+                <li>
+                  • Mindset & routine work so you don&apos;t fall off after week
+                  2
+                </li>
+              </ul>
+              <p className="mt-3 text-[11px] text-neutral-400">
+                Typical commitment: 3-6 sessions per week, over 8 weeks.
+                Suitable for beginners to advanced candidates.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Who it's for */}
+        <section className="grid gap-10 lg:grid-cols-2" id="who">
+          <div>
+            <h2 className="text-xl sm:text-2xl font-semibold">
+              Who this is <span className="text-yellow">designed for</span>
+            </h2>
+            <p className="mt-3 text-neutral-300 text-base md:text-lg">
+              This is for you if you&apos;re serious about a career in service
+              and want to arrive at selection prepared instead of broken.
+            </p>
+
+            <div className="mt-5 grid gap-6 sm:grid-cols-2 text-sm text-neutral-200">
+              <div className="space-y-2">
+                <h3 className="font-semibold">Roles & selections</h3>
+                <ul className="space-y-1 text-neutral-300">
+                  <li>• Marines / infantry</li>
+                  <li>• Commando / special forces tracks</li>
+                  <li>• Airborne / rapid deployment units</li>
+                  <li>• Police / KMar / firebrigade</li>
+                </ul>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="font-semibold">Typical starting point</h3>
+                <ul className="space-y-1 text-neutral-300">
+                  <li>• Motivated, but no clear plan</li>
+                  <li>• Decent base fitness, not selection-ready yet</li>
+                  <li>• Worried about running, load, or injury</li>
+                  <li>• Want honest feedback, not hype</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-neutral-800 bg-neutral-900/70 p-6">
+            <h3 className="text-sm font-semibold mb-3">
+              How you&apos;ll feel by the end
+            </h3>
+            <ul className="space-y-2 text-sm text-neutral-300">
+              <li>• Clear benchmarks: you know your numbers, not guesses</li>
+              <li>
+                • Structured weeks: training, recovery, and life fit together
+              </li>
+              <li>• Confidence in your body under load and fatigue</li>
+              <li>• A routine you can keep building on after the 8 weeks</li>
+            </ul>
+          </div>
+        </section>
+
+        {/* How it works */}
+        <section className="space-y-6" id="how-it-works">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-semibold">
+                How the <span className="text-yellow">8-Week Accelerator</span>{" "}
+                works
+              </h2>
+              <p className="mt-2 text-neutral-300 max-w-2xl text-base md:text-lg">
+                Clear steps, clear expectations. You bring effort; I bring
+                structure, experience, and honesty.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            <div className="rounded-2xl border border-neutral-800 bg-neutral-900/70 p-5">
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-yellow text-black text-sm font-bold">
+                1
+              </span>
+              <h3 className="mt-4 text-sm font-semibold">Assessment & plan</h3>
+              <p className="mt-2 text-xs text-neutral-300">
+                We go through your goals, selection timeline, current training,
+                strengths, and weak links. You get a clear 8-week structure that
+                fits reality, not fantasy.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-neutral-800 bg-neutral-900/70 p-5">
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-yellow text-black text-sm font-bold">
+                2
+              </span>
+              <h3 className="mt-4 text-sm font-semibold">Weekly execution</h3>
+              <p className="mt-2 text-xs text-neutral-300">
+                You train with clear strength, conditioning, running/ruck, and
+                mobility sessions. We adjust based on your feedback, schedule,
+                and recovery.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-neutral-800 bg-neutral-900/70 p-5">
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-yellow text-black text-sm font-bold">
+                3
+              </span>
+              <h3 className="mt-4 text-sm font-semibold">
+                Check-ins & readiness
+              </h3>
+              <p className="mt-2 text-xs text-neutral-300">
+                Weekly check-ins and benchmarks keep you accountable and show if
+                we&apos;re on track. By week 8, you&apos;ll know where you stand
+                and what your next steps are.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* About + image */}
+        <section className="grid gap-10 lg:grid-cols-[3fr,2fr]" id="about">
+          <div>
+            <h2 className="text-xl sm:text-2xl font-semibold">
+              Guidance from someone who&apos;s{" "}
+              <span className="text-yellow">actually been there</span>
+            </h2>
+            <p className="mt-3 text-neutral-300 max-w-2xl text-base md:text-lg">
+              I joined the Royal Netherlands Marine Corps as a teenager and
+              spent over a decade in infantry, operations, and leadership. Later
+              I coached civilians and athletes in CrossFit gyms and private
+              settings focused on strength, conditioning, and lifestyle.
+            </p>
+            <p className="mt-3 text-neutral-300 max-w-2xl text-base md:text-lg">
+              I know how it feels to build up to selection, to doubt if
+              you&apos;re ready, and to deal with injuries and life stress along
+              the way. This program is built to get you ready without burning
+              you out.
+            </p>
+            <p className="mt-3 text-neutral-300 max-w-2xl text-base md:text-lg">
+              My style is simple: clear expectations, honest feedback, and a
+              human approach. No shouting, no toxic macho culture. Just real
+              preparation for a life in service.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <div className="overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900 shadow-lg shadow-black/50">
+              <img
+                src={Trainer} // 👉 swap to a real portrait / training image
+                alt="Justin during military training"
+                className="h-64 w-full object-cover object-top"
+              />
+            </div>
+
+            <div className="rounded-2xl border border-neutral-800 bg-neutral-900/80 p-5">
+              <h3 className="text-sm font-semibold mb-2">
+                What I bring to your prep
+              </h3>
+              <ul className="space-y-2 text-sm text-neutral-300">
+                <li>• 10+ years Royal Netherlands Marine Corps experience</li>
+                <li>
+                  • 8+ years coaching in CrossFit and S&amp;C environments
+                </li>
+                <li>• Experience managing gyms, coaches, and programs</li>
+                <li>
+                  • First-hand understanding of discipline, burnout, recovery
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section
+          className="px-4 md:px-10 max-w-5xl mx-auto py-16 space-y-4 border-t border-yellow"
+          id="faq"
+        >
+          <h2 className="text-yellow text-2xl md:text-3xl font-secondary uppercase tracking-widest mb-6">
+            Frequently Asked Questions
+          </h2>
+
+          {faqItems.map((item, index) => {
+            const isOpen = openFaqIndex === index;
+            return (
+              <div
+                key={item.q}
+                className={`border border-yellow/20 rounded-lg transition-all duration-300 ${
+                  isOpen ? "bg-[#111111] border-yellow" : "bg-[#0a0a0a]"
+                }`}
+              >
+                <button
+                  onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                  className="w-full flex justify-between items-center px-6 py-4 text-left"
+                  aria-expanded={isOpen}
+                >
+                  <span className="text-yellow font-secondary text-base md:text-lg tracking-widest uppercase">
+                    {item.q}
+                  </span>
+                  <span className="text-yellow text-xl">
+                    {isOpen ? "−" : "+"}
+                  </span>
+                </button>
+                <div
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    isOpen ? "max-h-[1000px] py-4 px-6" : "max-h-0"
+                  }`}
+                >
+                  <p className="whitespace-pre-line text-gray-300 font-light leading-relaxed text-base md:text-lg">
+                    {item.a}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </section>
+
+        {/* Apply section */}
+        <section
+          id="apply"
+          className="rounded-2xl border border-yellow bg-yellow bg-opacity-10 px-6 py-8 sm:px-8 sm:py-10"
+        >
+          <div className="max-w-3xl space-y-4">
+            <h2 className="text-xl sm:text-2xl font-semibold text-white">
+              Ready to prepare for{" "}
+              <span className="text-yellow">the life you chose</span>?
+            </h2>
+            <p className="text-neutral-100 text-base md:text-lg">
+              Share a few details about your situation and selection timeline.
+              I&apos;ll review your application and reply personally with next
+              steps and an honest yes/no on whether this program is a good fit.
+            </p>
+
+            <div className="mt-4 space-y-3 text-xs text-neutral-100">
+              <p>When you reach out, please include:</p>
+              <ul className="grid gap-2 sm:grid-cols-2">
+                <li>• Your age &amp; country</li>
+                <li>• Which selection you&apos;re aiming for</li>
+                <li>• When your selection roughly is</li>
+                <li>• Your current training situation</li>
+              </ul>
+            </div>
+
+            <div className="mt-6 flex flex-wrap items-center gap-4">
+              <a
+                href="/contact#contact-form"
+                className="inline-flex items-center justify-center rounded-full bg-yellow px-6 py-2.5 text-sm font-semibold text-black shadow-lg shadow-yellow/30 hover:bg-yellow-300 transition"
+              >
+                Apply via contact form
+              </a>
+              <p className="text-xs text-neutral-200 max-w-sm">
+                On the contact form, mention that you&apos;re applying for{" "}
+                <span className="font-semibold">
+                  Military &amp; Selection Prep
+                </span>
+                .
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  );
+};
+
+export default MilitaryPrep;

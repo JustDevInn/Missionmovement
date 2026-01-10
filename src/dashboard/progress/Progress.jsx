@@ -171,17 +171,17 @@ const Progress = () => {
 
         {!editMode ? (
           <ul className="text-sm text-brown font-mono space-y-1">
-            <li>Pull-ups: {startingScores.pullUps || "—"}</li>
-            <li>Push-ups: {startingScores.pushUps || "—"}</li>
-            <li>Sit-ups: {startingScores.sitUps || "—"}</li>
-            <li>5K Run Time: {startingScores.run5k || "—"}</li>
+            <li>Pull-ups: {startingScores.pullUps || "N/A"}</li>
+            <li>Push-ups: {startingScores.pushUps || "N/A"}</li>
+            <li>Sit-ups: {startingScores.sitUps || "N/A"}</li>
+            <li>5K Run Time: {startingScores.run5k || "N/A"}</li>
             {savedAt && (
               <p className="text-xs text-gray-500 italic mt-2">
                 Last saved: {savedAt.toLocaleString()}
               </p>
             )}
             {showSaved && (
-              <p className="text-green-400 text-sm mt-1">✅ Saved!</p>
+              <p className="text-green-400 mt-1 text-base md:text-lg">✅ Saved!</p>
             )}
           </ul>
         ) : (
@@ -211,19 +211,19 @@ const Progress = () => {
       <div className="grid sm:grid-cols-3 gap-4">
         <div className="bg-[#1E1E1E] p-5 rounded border border-[#2A2A2A] text-center">
           <p className="text-3xl font-mono text-yellow">{totalBlocks}</p>
-          <p className="text-sm text-brown uppercase tracking-wide mt-1">
+          <p className="text-brown uppercase tracking-wide mt-1 text-base md:text-lg">
             Blocks Completed
           </p>
         </div>
         <div className="bg-[#1E1E1E] p-5 rounded border border-[#2A2A2A] text-center">
           <p className="text-3xl font-mono text-yellow">{totalReflections}</p>
-          <p className="text-sm text-brown uppercase tracking-wide mt-1">
+          <p className="text-brown uppercase tracking-wide mt-1 text-base md:text-lg">
             Reflections Written
           </p>
         </div>
         <div className="bg-[#1E1E1E] p-5 rounded border border-[#2A2A2A] text-center">
           <p className="text-3xl font-mono text-yellow">{streak}</p>
-          <p className="text-sm text-brown uppercase tracking-wide mt-1">
+          <p className="text-brown uppercase tracking-wide mt-1 text-base md:text-lg">
             Current Streak
           </p>
         </div>

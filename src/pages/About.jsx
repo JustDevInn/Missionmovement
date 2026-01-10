@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import FloatingCTA from "../components/FloatingCTA";
 import { Helmet } from "react-helmet-async";
+import TrainerCard from "../components/TrainerCard";
 
 const About = () => {
   return (
@@ -40,7 +41,7 @@ const About = () => {
             <h1 className="text-yellow font-primary text-[35px] md:text-[60px] font-medium uppercase tracking-wider">
               Het Verhaal
             </h1>
-            <p className="text-white mt-2 font-secondary text-sm md:text-base tracking-widest">
+            <p className="text-white mt-2 font-secondary tracking-widest text-base md:text-lg">
               Elke missie begint met een waarom. Deze begon met ervaring -
               verdiend op de harde manier.
             </p>
@@ -145,6 +146,9 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      {/* Trainer cards */}
+      <TrainerCard />
 
       {/* CTA Ending Section */}
       <section className="w-full py-20 text-center px-5 flex flex-col justify-center items-center">

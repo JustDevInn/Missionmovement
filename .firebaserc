@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "missionmovement-9f4ac"
-  }
+    "default": "missionmovement-9f4ac",
+    "mmvmnt": "missionmovement-9f4ac"
+  },
+  "targets": {},
+  "etags": {}
 }

@@ -23,6 +23,9 @@ import SingleBlog from './pages/blogs/SingleBlog';
 import Mariniers from "./pages/units/Mariniers";
 import CommandoTroepen from "./pages/units/KorpsCommandoTroepen";
 import Luchtmobiel from "./pages/units/LuchtmobieleBrigade";
+import Veiligheidsdiensten from "./pages/units/veiligheidsdiensten";
+import Aanbod from "./components/Aanbod.jsx";
+import MilitaryPrep from "./pages/MilitaryPrep.jsx";
 
 // Auth
 import { AuthProvider } from "./context/AuthContext";
@@ -80,20 +83,79 @@ const MainRoutes = () => {
   <ScrollToTop />
 
   {isDashboardRoute ? (
-    <Routes>
-      {/* Protected Dashboard Routes with Shared Sidebar */}
-      <Route element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>}>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/stopwatch" element={<Stopwatch />} />
-        <Route path="/trainingschedule" element={<TrainingSchedule />} />
-        <Route path="/progress" element={<Progress />} />
-        <Route path="/nutrition" element={<Nutrition />} />
-        <Route path="/messages" element={<Messages />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/check-in" element={<PaidRoute><CheckIn /></PaidRoute>} />
-        <Route path="/trainingprogram" element={<PaidRoute><TrainingProgram /></PaidRoute>} />
-        <Route path="/library" element={<PaidRoute><Library /></PaidRoute>} />
-      </Route>
+ 
+ <Routes>
+  {/* Protected Dashboard Routes with Shared Sidebar */}
+  <Route element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>}>
+
+    {/* Free Access (all users) */}
+    <Route path="/dashboard" element={<Dashboard />} />
+    <Route path="/stopwatch" element={<Stopwatch />} />
+    <Route path="/settings" element={<Settings />} />
+
+    {/* Basic+ (basic, intermediate, full, admin) */}
+    <Route
+      path="/trainingprogram"
+      element={
+        <PaidRoute requiredLevels={["basic", "intermediate", "full", "admin"]}>
+          <TrainingProgram />
+        </PaidRoute>
+      }
+    />
+
+    {/* Intermediate+ (intermediate, full, admin) */}
+    <Route
+      path="/library"
+      element={
+        <PaidRoute requiredLevels={["intermediate", "full", "admin"]}>
+          <Library />
+        </PaidRoute>
+      }
+    />
+    <Route
+      path="/trainingschedule"
+      element={
+        <PaidRoute requiredLevels={["intermediate", "full", "admin"]}>
+          <TrainingSchedule />
+        </PaidRoute>
+      }
+    />
+    <Route
+      path="/progress"
+      element={
+        <PaidRoute requiredLevels={["intermediate", "full", "admin"]}>
+          <Progress />
+        </PaidRoute>
+      }
+    />
+    <Route
+      path="/nutrition"
+      element={
+        <PaidRoute requiredLevels={["intermediate", "full", "admin"]}>
+          <Nutrition />
+        </PaidRoute>
+      }
+    />
+    <Route
+      path="/check-in"
+      element={
+        <PaidRoute requiredLevels={["intermediate", "full", "admin"]}>
+          <CheckIn />
+        </PaidRoute>
+      }
+    />
+
+    {/* Full Only (full, admin) */}
+    <Route
+      path="/messages"
+      element={
+        <PaidRoute requiredLevels={["full", "admin"]}>
+          <Messages />
+        </PaidRoute>
+      }
+    />
+  </Route>
+
 
       {/* Admin Dashboard Routes */}
       <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>}>
@@ -122,14 +184,17 @@ const MainRoutes = () => {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blogs/:slug" element={<SingleBlog />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/military-prep" element={<MilitaryPrep />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/success" element={<Success />} />
         <Route path="/cancel" element={<Cancel />} />
+           <Route path="/aanbod" element={<Aanbod />} />
         <Route path="/units/mariniers" element={<PageWrapper><Mariniers /></PageWrapper>} />
         <Route path="/units/commandotroepen" element={<PageWrapper><CommandoTroepen /></PageWrapper>} />
         <Route path="/units/luchtmobiel" element={<PageWrapper><Luchtmobiel /></PageWrapper>} />
+        <Route path="/units/veiligheidsdiensten" element={<PageWrapper><Veiligheidsdiensten /></PageWrapper>} />
       </Routes>
       </AnimatePresence>
     </div>

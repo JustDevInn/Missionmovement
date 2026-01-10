@@ -13,15 +13,15 @@ const lmbSpecialisaties = [
   - Pathfinder: Vooruitsturende eenheden die landing zones verkennen, markeren en tactisch voorbereiden voor helikopterinzet.
   - Sniper of Verkenner: Gericht op stealth, observatie en precisieoptreden in kleine zelfstandige teams.
   - Medic: Gevechtsverpleger die zelfstandig medische hulp verleent in het veld.
-  - JTAC: Joint Terminal Attack Controller — specialist in het coördineren van luchtsteun vanuit de grond.
+  - JTAC: Joint Terminal Attack Controller, specialist in het coördineren van luchtsteun vanuit de grond.
   - Air Assault Instructeur: Training geven in het tactisch inzetten van eenheden via helikopters.
   
   Daarnaast is er ruimte voor:
   
   - Internationale samenwerking: Via uitzendingen, trainingen of de Division Schnelle Kräfte (DSK) werk je intensief samen met buitenlandse eenheden.
-  - Overstap naar special forces: Ervaren luchtmobiele militairen kunnen geselecteerd worden voor de opleiding tot commando (KCT) — mits ze voldoen aan de vereisten. De AMOL vormt hiervoor een stevige basis.
+  - Overstap naar special forces: Ervaren luchtmobiele militairen kunnen geselecteerd worden voor de opleiding tot commando (KCT), mits ze voldoen aan de vereisten. De AMOL vormt hiervoor een stevige basis.
   
-  Deze doorgroeimogelijkheden vragen discipline, betrouwbaarheid onder druk en de wil om jezelf te blijven ontwikkelen — fysiek, mentaal en tactisch.`,
+  Deze doorgroeimogelijkheden vragen discipline, betrouwbaarheid onder druk en de wil om jezelf te blijven ontwikkelen op fysiek, mentaal en tactisch vlak.`,
   },
 ];
 
@@ -38,7 +38,7 @@ const luchtmobielAccordionData = [
     image: "/img/lmb/inzet.jpg",
     objectPosition: "center",
     content:
-      "De Luchtmobiele Brigade wordt wereldwijd ingezet voor missies waarbij snelheid en flexibiliteit essentieel zijn — zoals humanitaire operaties, evacuaties en gevechtsinzet. De eenheid opereert vaak in kleine groepen en is getraind op snel reageren in complexe omstandigheden. Luchtmobiel optreden vraagt om fysieke weerbaarheid, mentale veerkracht en nauwe samenwerking.",
+      "De Luchtmobiele Brigade wordt wereldwijd ingezet voor missies waarbij snelheid en flexibiliteit essentieel zijn, zoals humanitaire operaties, evacuaties en gevechtsinzet. De eenheid opereert vaak in kleine groepen en is getraind op snel reageren in complexe omstandigheden. Luchtmobiel optreden vraagt om fysieke weerbaarheid, mentale veerkracht en nauwe samenwerking.",
   },
   {
     title: "Structuur & Locaties",
@@ -52,7 +52,7 @@ const luchtmobielAccordionData = [
     image: "/img/lmb/keuring.webp",
     objectPosition: "center",
     content:
-      "Toelating tot de Luchtmobiele Brigade begint met de algemene keuring van Defensie. Na goedkeuring volg je de AMOL-opleiding (Algemene Militaire Opleiding Landmacht) met een luchtmobiel profiel. Deze opleiding is fysiek en mentaal uitdagend, met nadruk op duurvermogen, groepsdruk en het functioneren onder belasting. Ongeveer 40–50% van de kandidaten rondt de opleiding succesvol af.",
+      "Toelating tot de Luchtmobiele Brigade begint met de algemene keuring van Defensie. Na goedkeuring volg je de AMOL-opleiding (Algemene Militaire Opleiding Landmacht) met een luchtmobiel profiel. Deze opleiding is fysiek en mentaal uitdagend, met nadruk op duurvermogen, groepsdruk en het functioneren onder belasting. Ongeveer 40-50% van de kandidaten rondt de opleiding succesvol af.",
   },
   {
     title: "Fysieke Eisen",
@@ -66,14 +66,14 @@ const luchtmobielAccordionData = [
     image: "/img/lmb/pathfinders.jpg",
     objectPosition: "top",
     content:
-      "Na het afronden van de opleiding start je als luchtmobiele infanterist. Vanuit deze basisrol kun je doorgroeien naar leidinggevende functies of deelnemen aan aanvullende trainingen en cursussen. Doorstroom naar andere onderdelen binnen Defensie is ook mogelijk — zoals het Korps Commandotroepen (KCT), de Koninklijke Luchtmacht of internationale eenheden. Specialisaties en doorgroei worden verder toegelicht onderaan deze pagina.",
+      "Na het afronden van de opleiding start je als luchtmobiele infanterist. Vanuit deze basisrol kun je doorgroeien naar leidinggevende functies of deelnemen aan aanvullende trainingen en cursussen. Doorstroom naar andere onderdelen binnen Defensie is ook mogelijk, zoals het Korps Commandotroepen (KCT), de Koninklijke Luchtmacht of internationale eenheden. Specialisaties en doorgroei worden verder toegelicht onderaan deze pagina.",
   },
   {
     title: "Voorbereiding & Uitvalrisico",
     image: "/img/lmb/barret.jpeg",
     objectPosition: "top",
     content:
-      "De luchtmobiele opleiding vraagt meer dan alleen motivatie. Fysieke achterstand, blessures door overbelasting en onderschatting van mentale druk zorgen voor veel uitval. Een gestructureerde voorbereiding — met aandacht voor conditie, herstel, krachtuithouding en samenwerken — is essentieel voor wie deze stap serieus neemt.",
+      "De luchtmobiele opleiding vraagt meer dan alleen motivatie. Fysieke achterstand, blessures door overbelasting en onderschatting van mentale druk zorgen voor veel uitval. Een gestructureerde voorbereiding, met aandacht voor conditie, herstel, krachtuithouding en samenwerken, is essentieel voor wie deze stap serieus neemt.",
   },
 ];
 
@@ -81,32 +81,32 @@ const lmbVeelgesteldevragen = [
   {
     title: "Is luchtmobiel net zo zwaar als het KCT?",
     content:
-      "Nee. De opleiding en selectie bij 11 Luchtmobiele Brigade zijn fysiek zwaar en mentaal veeleisend, maar minder extreem dan het traject van het Korps Commandotroepen. Dat neemt niet weg dat je moet beschikken over een uitstekende conditie, discipline, en de mentale capaciteit om onder druk te functioneren. Verwacht geen gemak — alleen een andere vorm van intensiteit.",
+      "Nee. De opleiding en selectie bij 11 Luchtmobiele Brigade zijn fysiek zwaar en mentaal veeleisend, maar minder extreem dan het traject van het Korps Commandotroepen. Dat neemt niet weg dat je moet beschikken over een uitstekende conditie, discipline, en de mentale capaciteit om onder druk te functioneren. Verwacht geen gemak, alleen een andere vorm van intensiteit.",
   },
   {
     title: "Is dit programma ook geschikt voor vrouwen?",
     content:
-      "Zeker. Steeds meer vrouwen ronden de luchtmobiele opleiding succesvol af. Het traject stelt dezelfde eisen aan iedereen — ongeacht geslacht. Dit programma focust op functionele kracht, uithoudingsvermogen, herstel en mentale weerbaarheid. Vrouwen zijn volwaardig inzetbaar binnen de eenheid, mits ze voldoen aan de standaard — net als ieder ander.",
+      "Zeker. Steeds meer vrouwen ronden de luchtmobiele opleiding succesvol af. Het traject stelt dezelfde eisen aan iedereen, ongeacht geslacht. Dit programma focust op functionele kracht, uithoudingsvermogen, herstel en mentale weerbaarheid. Vrouwen zijn volwaardig inzetbaar binnen de eenheid, mits ze voldoen aan de standaard, net als ieder ander.",
   },
   {
     title: "Hoe combineer ik training met werk of school?",
     content:
-      "De voorbereiding is flexibel op te bouwen en zelfstandig uit te voeren. Elke week heb je duidelijke trainingsdoelen, maar het is aan jou om je tijd goed te plannen. Verwacht wel een hoge mate van consistentie — de opleiding vraagt straks ook om discipline naast slaaptekort, groepsdruk en fysieke vermoeidheid. Hoe beter je nu leert plannen, hoe sterker je instroom wordt.",
+      "De voorbereiding is flexibel op te bouwen en zelfstandig uit te voeren. Elke week heb je duidelijke trainingsdoelen, maar het is aan jou om je tijd goed te plannen. Verwacht wel een hoge mate van consistentie. De opleiding vraagt straks ook om discipline naast slaaptekort, groepsdruk en fysieke vermoeidheid. Hoe beter je nu leert plannen, hoe sterker je instroom wordt.",
   },
   {
     title: "Wat als ik twijfel of ik geschikt ben?",
     content:
-      "Twijfel is normaal — zeker als je iets aangaat dat groter is dan jezelf. De enige manier om daarachter te komen is door actie te ondernemen. Een gerichte voorbereiding helpt je testen waar je staat: fysiek, mentaal en qua mindset. Niet iedereen hoeft militair te worden — maar als het in je hoofd speelt, verdien je het om er serieus achter te komen of dit bij je past.",
+      "Twijfel is normaal, zeker als je iets aangaat dat groter is dan jezelf. De enige manier om daarachter te komen is door actie te ondernemen. Een gerichte voorbereiding helpt je testen waar je staat: fysiek, mentaal en qua mindset. Niet iedereen hoeft militair te worden, maar als het in je hoofd speelt, verdien je het om er serieus achter te komen of dit bij je past.",
   },
   {
-    title: "Ik sport al — waarom zou ik dit nodig hebben?",
+    title: "Ik sport al, waarom zou ik dit nodig hebben?",
     content:
-      "Zelf trainen is goed. Maar luchtmobiel vraagt om specifieke vaardigheden: lopen met bepakking, presteren onder groepsdruk, herstel onder vermoeidheid, werken binnen hiërarchie. Een doelgericht trainingsplan voorkomt overbelasting, leert je omgaan met belasting, en bouwt vertrouwen op vóór je begint. De AMOL is geen plek om dingen nog uit te zoeken — dat doe je nu.",
+      "Zelf trainen is goed. Maar luchtmobiel vraagt om specifieke vaardigheden: lopen met bepakking, presteren onder groepsdruk, herstel onder vermoeidheid, werken binnen hiërarchie. Een doelgericht trainingsplan voorkomt overbelasting, leert je omgaan met belasting, en bouwt vertrouwen op vóór je begint. De AMOL is geen plek om dingen nog uit te zoeken. Dat doe je nu.",
   },
   {
     title: "Wat leer je tijdens de AMOL voor luchtmobiel?",
     content:
-      "De AMOL (Algemene Militaire Opleiding Landmacht) met luchtmobiel profiel duurt gemiddeld 24 weken. Je leert onder andere militair gedrag, kaartlezen, schieten, marsen met bepakking, samenwerken onder druk, camoufleren, slaapdeprivatie en basisveldhandelingen. Richting het einde van de opleiding volgen luchtmobiele veldoefeningen met helikopterinzet. Zowel fysiek als mentaal vraagt dit traject alles van je. Een goede voorbereiding is geen luxe — het is noodzakelijk.",
+      "De AMOL (Algemene Militaire Opleiding Landmacht) met luchtmobiel profiel duurt gemiddeld 24 weken. Je leert onder andere militair gedrag, kaartlezen, schieten, marsen met bepakking, samenwerken onder druk, camoufleren, slaapdeprivatie en basisveldhandelingen. Richting het einde van de opleiding volgen luchtmobiele veldoefeningen met helikopterinzet. Zowel fysiek als mentaal vraagt dit traject alles van je. Een goede voorbereiding is geen luxe. Het is noodzakelijk.",
   },
 ];
 
@@ -147,7 +147,7 @@ const LuchtmobieleBrigade = () => {
             11 Luchtmobiele Brigade
           </h1>
           <p className="text-gray-200 max-w-xl font-light text-base md:text-lg">
-            De rode baretten van Defensie — snel, licht en altijd inzetbaar.
+            De rode baretten van Defensie: snel, licht en altijd inzetbaar.
           </p>
         </div>
       </section>
@@ -178,15 +178,15 @@ const LuchtmobieleBrigade = () => {
               hoogwaardige infanterie-eenheid van de Koninklijke Landmacht,
               gespecialiseerd in snelle inzet via helikopters of
               transportvliegtuigen. De nadruk ligt op snelheid, wendbaarheid en
-              het opereren in kleine, zelfstandige teams – vaak diep achter
+              het opereren in kleine, zelfstandige teams - vaak diep achter
               vijandelijke linies.
               <br className="hidden md:block" />
               <br />
               Als luchtmobiel militair word je opgeleid om langdurig te
               presteren onder fysieke en mentale druk. Je traint intensief op
               uithoudingsvermogen, oriëntatievermogen en samenwerking onder
-              stress. De missies zijn uiteenlopend – van gevechtsoperaties tot
-              humanitaire inzet – maar vragen altijd een hoog niveau van
+              stress. De missies zijn uiteenlopend - van gevechtsoperaties tot
+              humanitaire inzet - maar vragen altijd een hoog niveau van
               discipline, fitheid en paraatheid.{" "}
             </p>
           </div>
@@ -220,7 +220,7 @@ const LuchtmobieleBrigade = () => {
                   isOpen ? "max-h-[1000px] py-4 px-6" : "max-h-0"
                 }`}
               >
-                <p className="whitespace-pre-line text-gray-300 font-light leading-relaxed text-sm md:text-base mb-4">
+                <p className="whitespace-pre-line text-gray-300 font-light leading-relaxed mb-4 text-base md:text-lg">
                   {item.content}
                 </p>
                 <img
@@ -245,7 +245,7 @@ const LuchtmobieleBrigade = () => {
             <h3 className="text-yellow font-semibold text-lg mb-2">
               {item.title}
             </h3>
-            <p className="text-gray-300 font-light text-sm md:text-base whitespace-pre-line">
+            <p className="text-gray-300 font-light whitespace-pre-line text-base md:text-lg">
               {item.content}
             </p>
           </div>
@@ -292,7 +292,7 @@ const LuchtmobieleBrigade = () => {
             en mentale groei.
           </li>
           <li>
-            Je wilt niet twijfelend beginnen aan de AMOL — maar voorbereid,
+            Je wilt niet twijfelend beginnen aan de AMOL, maar voorbereid,
             hersteld en met een sterk fundament.
           </li>
           <li>
@@ -300,7 +300,7 @@ const LuchtmobieleBrigade = () => {
             belangrijk zijn als brute kracht.
           </li>
           <li>
-            Je bent vrouw of man — en klaar om jezelf te bewijzen in een
+            Je bent vrouw of man en klaar om jezelf te bewijzen in een
             omgeving waar inzet zwaarder telt dan geslacht.
           </li>
           <li>
@@ -317,7 +317,7 @@ const LuchtmobieleBrigade = () => {
         </h2>
         <ol className="relative border-l border-yellow pl-6 space-y-6 text-gray-300 font-light text-sm md:text-base">
           {[
-            "Voorbereiding — fysiek",
+            "Voorbereiding: fysiek",
             "Oriëntatie en aanmelding via Defensie",
             "Kennismakingsdag en keuringen",
             "Start van de AMOL met luchtmobiel profiel",
@@ -368,7 +368,7 @@ const LuchtmobieleBrigade = () => {
                   isOpen ? "max-h-[1000px] py-4 px-6" : "max-h-0"
                 }`}
               >
-                <p className="whitespace-pre-line text-gray-300 font-light leading-relaxed text-sm md:text-base">
+                <p className="whitespace-pre-line text-gray-300 font-light leading-relaxed text-base md:text-lg">
                   {item.content}
                 </p>
               </div>

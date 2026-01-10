@@ -118,9 +118,9 @@ const UploadVideo = () => {
         >
           Upload
         </button>
-        {error && <p className="text-red-400 text-sm">{error}</p>}
+        {error && <p className="text-red-400 text-base md:text-lg">{error}</p>}
         {success && (
-          <p className="text-green-400 text-sm">Video uploaded successfully!</p>
+          <p className="text-green-400 text-base md:text-lg">Video uploaded successfully!</p>
         )}
       </form>
     </div>

@@ -222,13 +222,13 @@ const TrainingSchedule = () => {
                         </div>
 
                         {block.subHeader && (
-                          <p className="text-sm text-yellow font-medium mb-2">
+                          <p className="text-yellow font-medium mb-2 text-base md:text-lg">
                             {block.subHeader}
                           </p>
                         )}
 
                         {block.blockNote && (
-                          <p className="text-white text-sm">
+                          <p className="text-white text-base md:text-lg">
                             {block.blockNote}
                           </p>
                         )}
@@ -254,7 +254,7 @@ const TrainingSchedule = () => {
                         </ul>
 
                         {block.note && (
-                          <p className="italic text-sm text-gray-500">
+                          <p className="italic text-gray-500 text-base md:text-lg">
                             {block.note}
                           </p>
                         )}

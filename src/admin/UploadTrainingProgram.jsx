@@ -270,15 +270,15 @@ const UploadTrainingProgram = () => {
               <div>
                 <h3 className="text-lg font-bold text-white">{block.title}</h3>
                 {block.subHeader && (
-                  <p className="text-sm font-semibold text-cyan-400 mb-1">
+                  <p className="font-semibold text-cyan-400 mb-1 text-base md:text-lg">
                     {block.subHeader}
                   </p>
                 )}
                 {block.blockNote && (
-                  <p className="text-sm text-white mb-2">{block.blockNote}</p>
+                  <p className="text-white mb-2 text-base md:text-lg">{block.blockNote}</p>
                 )}
                 {block.note && (
-                  <p className="text-sm text-gray-400 italic mb-2">
+                  <p className="text-gray-400 italic mb-2 text-base md:text-lg">
                     {block.note}
                   </p>
                 )}

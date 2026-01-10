@@ -107,8 +107,8 @@ const ManageBlogs = () => {
               />
               <div className="p-4 space-y-2">
                 <h2 className="text-white font-bold text-lg">{blog.title}</h2>
-                <p className="text-gray-400 text-sm italic">{blog.author}</p>
-                <p className="text-white text-sm">{blog.summary}</p>
+                <p className="text-gray-400 italic text-base md:text-lg">{blog.author}</p>
+                <p className="text-white text-base md:text-lg">{blog.summary}</p>
                 <div className="flex gap-3 mt-4">
                   <button
                     onClick={() => handleEditClick(blog)}

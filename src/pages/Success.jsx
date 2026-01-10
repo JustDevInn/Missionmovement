@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { FaCheckCircle, FaArrowRight } from "react-icons/fa";
+
+const mapAmountToAccess = (amount) => {
+  if (amount === 39) return "basic";
+  if (amount === 79) return "intermediate";
+  if (amount === 149) return "full";
+  return "free";
+};
 
 const Success = () => {
   const navigate = useNavigate();
@@ -14,13 +21,30 @@ const Success = () => {
   useEffect(() => {
     const markUserAsPaid = async () => {
       if (!user) return;
+
       try {
+        const userRef = doc(db, "users", user.uid);
+        const userSnap = await getDoc(userRef);
+
+        if (!userSnap.exists()) {
+          console.error("❌ User document not found");
+          return;
+        }
+
+        const userData = userSnap.data();
+        const amount = userData?.paymentInfo?.amount || 0;
+        const access = mapAmountToAccess(amount);
+
         await setDoc(
-          doc(db, "users", user.uid),
-          { hasPaid: true },
+          userRef,
+          {
+            hasPaid: true,
+            access,
+          },
           { merge: true }
         );
-        console.log("✅ User marked as paid in Firestore");
+
+        console.log(`✅ User marked as paid with accessLevel: ${access}`);
       } catch (error) {
         console.error("❌ Error updating Firestore:", error);
       }
@@ -51,7 +75,7 @@ const Success = () => {
         <h1 className="text-yellow text-2xl font-secondary uppercase tracking-wider mb-4">
           Payment Successful
         </h1>
-        <p className="text-gray-300 font-light text-sm leading-relaxed mb-6">
+        <p className="text-gray-300 font-light leading-relaxed mb-6 text-base md:text-lg">
           Welcome to the Mission Movement dashboard. Your transformation begins
           now.
         </p>

@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import { auth, db } from "../firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { setDoc, doc, serverTimestamp, Timestamp } from "firebase/firestore";
-import { useNavigate, Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Signup = () => {
-  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -45,11 +44,12 @@ const Signup = () => {
           date: Timestamp.now(),
           amount: 39,
         },
+        accessLevel: "free",
         role: "user",
       });
 
       clearTimeout(spinnerTimeout);
-      setTimeout(() => navigate("/dashboard"), 500);
+      setTimeout(() => window.location.assign("/pricing"), 500);
     } catch (err) {
       clearTimeout(spinnerTimeout);
       console.error("Signup error:", err);
@@ -71,9 +71,9 @@ const Signup = () => {
     <div className="bg-[#0a0a0a] min-h-[calc(100vh-90px)] flex items-center justify-center px-4 pt-24 sm:pt-0">
       <div className="w-full max-w-md flex flex-col items-center gap-6">
         {/* 💬 Quote */}
-        <p className="text-gray-400 text-center font-light text-sm tracking-wide max-w-xs leading-relaxed">
-          <span className="italic text-white">
-          "Discipline is doen wat gedaan moet worden, ook wanneer je er geen zin in hebt."
+        <p className="text-gray-400 text-center font-normal tracking-wide max-w-xs leading-relaxed text-base md:text-lg">
+          <span className="text-white">
+          "Maak een account aan of log in om dit product te kopen. Je account geeft je toegang tot de backoffice waar je het programma kunt volgen."
           </span>
         </p>
 
@@ -87,7 +87,7 @@ const Signup = () => {
           </h2>
 
           {error && (
-            <p className="text-red-500 bg-red-900 bg-opacity-20 px-4 py-2 rounded text-sm mb-4 text-center">
+            <p className="text-red-500 bg-red-900 bg-opacity-20 px-4 py-2 rounded mb-4 text-center text-base md:text-lg">
               {error}
             </p>
           )}
@@ -114,7 +114,7 @@ const Signup = () => {
   <input
     type={showPassword ? "text" : "password"}
     placeholder="Wachtwoord"
-    autoComplete="new-password" // for signup — change to "current-password" for login
+    autoComplete="new-password" // for signup - change to "current-password" for login
     className="w-full bg-[#121212] text-white placeholder-gray-400 px-4 py-3 pr-10 rounded-md outline-none focus:ring-2 focus:ring-yellow transition"
     onChange={(e) => setPassword(e.target.value)}
     disabled={loading}
@@ -147,7 +147,7 @@ const Signup = () => {
             )}
           </div>
 
-          <p className="text-center text-sm text-gray-400 mt-6">
+          <p className="text-center text-gray-400 mt-6 text-base md:text-lg">
             Heb je al een account?{" "}
             <RouterLink to="/login" className="text-yellow hover:underline">
               Log in

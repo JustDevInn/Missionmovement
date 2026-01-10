@@ -152,13 +152,13 @@ const ManageUsers = () => {
       <div className="flex flex-col gap-4 sm:hidden">
       {filteredUsers.map((user) => (
           <div key={user.id} className="border rounded-lg p-4 shadow bg-[#1E1E1E] text-white">
-            <p className="text-sm break-words">
+            <p className="break-words text-base md:text-lg">
               <span className="font-semibold">Email:</span> {user.email || "-"}
             </p>
-            <p className="text-sm">
+            <p className="text-base md:text-lg">
               <span className="font-semibold">Username:</span> {user.displayName || "-"}
             </p>
-            <p className="text-sm">
+            <p className="text-base md:text-lg">
               <span className="font-semibold">Created:</span>{" "}
               {user.createdAt
                 ? format(new Date(user.createdAt.seconds * 1000), "dd MMM yyyy")
@@ -225,7 +225,7 @@ const ManageUsers = () => {
               className="bg-[#1E1E1E] text-white w-full max-w-sm p-6 rounded-lg shadow-lg text-center"
             >
               <h2 className="text-xl font-bold mb-4">Confirm Deletion</h2>
-              <p className="text-sm text-gray-600 mb-6">
+              <p className="text-gray-600 mb-6 text-base md:text-lg">
                 Are you sure you want to delete this user? This action cannot be undone.
               </p>
               <div className="flex justify-center gap-3 flex-wrap">

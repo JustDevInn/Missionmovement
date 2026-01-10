@@ -20,7 +20,7 @@ const accordionData = [
     image: "/img/korpsmariniers/bergtraining.jpg",
     imagePosition: "bottom",
     content:
-      "Het Korps Mariniers is een snel inzetbare eenheid die wereldwijd wordt ingezet voor diverse missies, waaronder gevechtsoperaties, vredeshandhaving, humanitaire hulp en terrorismebestrijding. Mariniers zijn getraind om te opereren in uiteenlopende omgevingen zoals stedelijke gebieden, jungles, bergen en arctische gebieden. Binnen het korps bestaan verschillende specialisaties, zoals:\n\n- Scherpschutter (Sniper): Gespecialiseerd in precisieschieten over lange afstanden.\n- Verbindingsofficier (Communicatiespecialist): Verantwoordelijk voor het opzetten en onderhouden van communicatie tijdens operaties.\n- Medic: Biedt medische ondersteuning in het veld.\n- Mountain Leader: Expert in operaties in bergachtig terrein.\n- Kikvorsman: Gespecialiseerd in onderwateroperaties en duiken.\n\nDeze specialisaties stellen het korps in staat om flexibel en effectief te reageren op uiteenlopende operationele uitdagingen. Daarnaast kunnen mariniers zich — na bewezen inzet — verder ontwikkelen binnen de special forces van het korps, zoals NLMARSOF, of doorgroeien tot mountain leader, kikvorsman of instructeur. Deze opleidingen behoren tot de zwaarste trainingen binnen Defensie.",
+      "Het Korps Mariniers is een snel inzetbare eenheid die wereldwijd wordt ingezet voor diverse missies, waaronder gevechtsoperaties, vredeshandhaving, humanitaire hulp en terrorismebestrijding. Mariniers zijn getraind om te opereren in uiteenlopende omgevingen zoals stedelijke gebieden, jungles, bergen en arctische gebieden. Binnen het korps bestaan verschillende specialisaties, zoals:\n\n- Scherpschutter (Sniper): Gespecialiseerd in precisieschieten over lange afstanden.\n- Verbindingsofficier (Communicatiespecialist): Verantwoordelijk voor het opzetten en onderhouden van communicatie tijdens operaties.\n- Medic: Biedt medische ondersteuning in het veld.\n- Mountain Leader: Expert in operaties in bergachtig terrein.\n- Kikvorsman: Gespecialiseerd in onderwateroperaties en duiken.\n\nDeze specialisaties stellen het korps in staat om flexibel en effectief te reageren op uiteenlopende operationele uitdagingen. Daarnaast kunnen mariniers zich, na bewezen inzet, verder ontwikkelen binnen de special forces van het korps, zoals NLMARSOF, of doorgroeien tot mountain leader, kikvorsman of instructeur. Deze opleidingen behoren tot de zwaarste trainingen binnen Defensie.",
   },
   {
     title: "Organisatie & Internationale Partners",
@@ -34,7 +34,7 @@ const accordionData = [
     image: "/img/korpsmariniers/fysiekeeisen.jpg",
     imagePosition: "center",
     content:
-      "Het selectieproces voor het Korps Mariniers is uiterst streng en bestaat uit meerdere fasen:\n\n1. Medische keuring: Beoordeling van de algemene gezondheid en fysieke geschiktheid.\n2. Psychologisch onderzoek: Evaluatie van mentale weerbaarheid, persoonlijkheid en cognitieve capaciteiten.\n3. Sporttest: Test van fysieke vaardigheden zoals kracht, uithoudingsvermogen en snelheid.\n\nNa succesvolle afronding van deze selecties start de Algemene Militaire Opleiding voor Mariniers (AMOL), een intensieve training van ongeveer 33 weken. De slagingskans is relatief laag; historisch gezien voltooit slechts 30–40% van de kandidaten de opleiding succesvol. Dit onderstreept de hoge eisen en het uitdagende karakter van het traject.",
+      "Het selectieproces voor het Korps Mariniers is uiterst streng en bestaat uit meerdere fasen:\n\n1. Medische keuring: Beoordeling van de algemene gezondheid en fysieke geschiktheid.\n2. Psychologisch onderzoek: Evaluatie van mentale weerbaarheid, persoonlijkheid en cognitieve capaciteiten.\n3. Sporttest: Test van fysieke vaardigheden zoals kracht, uithoudingsvermogen en snelheid.\n\nNa succesvolle afronding van deze selecties start de Algemene Militaire Opleiding voor Mariniers (AMOL), een intensieve training van ongeveer 33 weken. De slagingskans is relatief laag; historisch gezien voltooit slechts 30-40% van de kandidaten de opleiding succesvol. Dit onderstreept de hoge eisen en het uitdagende karakter van het traject.",
   },
   {
     title: "Fysieke Eisen",
@@ -57,7 +57,7 @@ const accordionData = [
   - Samenwerking & mentaliteit: Kameradschap, functioneren in groepen, leiderschap en mentale weerbaarheid.
   
   Amfibische training op Texel:
-  Een bijzonder onderdeel is de amfibische week op de Joost Dourleinkazerne op Texel. Hier leer je opereren vanuit het water naar het land — een unieke vaardigheid voor mariniers.
+  Een bijzonder onderdeel is de amfibische week op de Joost Dourleinkazerne op Texel. Hier leer je opereren vanuit het water naar het land, een unieke vaardigheid voor mariniers.
   
   Mentale voorbereiding:
   De opleiding is ontworpen om je mentale grenzen te testen:
@@ -126,7 +126,7 @@ const marsofAccordion = [
   {
     title: "Kikvorsman (Combat Diver)",
     content:
-      "De kikvorsman is gespecialiseerd in onderwateroperaties, verplaatsing over water en duiken met gesloten systemen. Door het gebruik van speciale apparatuur kunnen zij onder water opereren zonder detecteerbare luchtbellen. De opleiding tot kikvorsman is zwaar: fysiek, technisch én mentaal. Ze voeren operaties uit in kustgebieden, havens, en rivieromgevingen — vaak ongezien en diep achter de linies.",
+      "De kikvorsman is gespecialiseerd in onderwateroperaties, verplaatsing over water en duiken met gesloten systemen. Door het gebruik van speciale apparatuur kunnen zij onder water opereren zonder detecteerbare luchtbellen. De opleiding tot kikvorsman is zwaar: fysiek, technisch én mentaal. Ze voeren operaties uit in kustgebieden, havens, en rivieromgevingen, vaak ongezien en diep achter de linies.",
   },
 ];
 
@@ -144,7 +144,7 @@ const potomAccordion = [
   {
     title: "Voor wie is dit geschikt?",
     content:
-      "POTOM is toegankelijk voor kandidaten met minimaal een VWO-, HBO- of WO-diploma. Je moet beschikken over leiderschapskwaliteiten, strategisch inzicht en fysieke paraatheid. De opleiding is zwaarder dan men vaak verwacht — je traint fysiek mee met de troepen, maar draagt daarnaast ook de verantwoordelijkheid van een bevelvoerend militair.",
+      "POTOM is toegankelijk voor kandidaten met minimaal een VWO-, HBO- of WO-diploma. Je moet beschikken over leiderschapskwaliteiten, strategisch inzicht en fysieke paraatheid. De opleiding is zwaarder dan men vaak verwacht. Je traint fysiek mee met de troepen, maar draagt daarnaast ook de verantwoordelijkheid van een bevelvoerend militair.",
   },
 ];
 
@@ -152,37 +152,37 @@ const mariniersVeelgesteldevragen = [
   {
     title: "Moet ik al superfit zijn voor ik begin met de keuring?",
     content:
-      "Nee. Je hoeft geen topatleet te zijn om te beginnen — maar zonder gerichte voorbereiding is de kans op uitval groot. De meeste kandidaten vallen af omdat ze te laat begonnen zijn of zich enkel fysiek voorbereiden. Mission Movement helpt je stap voor stap sterker worden — fysiek én mentaal — zodat je voorbereid aankomt, niet opgebrand vertrekt.",
+      "Nee. Je hoeft geen topatleet te zijn om te beginnen, maar zonder gerichte voorbereiding is de kans op uitval groot. De meeste kandidaten vallen af omdat ze te laat begonnen zijn of zich enkel fysiek voorbereiden. Mission Movement helpt je stap voor stap sterker worden, fysiek en mentaal, zodat je voorbereid aankomt, niet opgebrand vertrekt.",
   },
   {
     title: "Kan ik dit combineren met school of werk?",
     content:
-      "Ja. Het programma is ontworpen met realiteit in het achterhoofd. Je kunt de trainingen uitvoeren op momenten die passen binnen jouw schema — zolang je consistent blijft en de discipline opbrengt. Het vergt toewijding, maar juist dat maakt het waardevol. Dit is geen quick fix, dit is voorbereiding voor een ander soort leven.",
+      "Ja. Het programma is ontworpen met realiteit in het achterhoofd. Je kunt de trainingen uitvoeren op momenten die passen binnen jouw schema zolang je consistent blijft en de discipline opbrengt. Het vergt toewijding, maar juist dat maakt het waardevol. Dit is geen quick fix, dit is voorbereiding voor een ander soort leven.",
   },
   {
     title: "Wat als ik nog twijfel over mijn keuze?",
     content:
-      "Twijfel is normaal. En juist die twijfel maakt dit programma waardevol. Het geeft je een eerlijke inkijk in wat er gevraagd wordt — fysiek, mentaal, en qua mindset. Je ontdekt niet alleen of je het fysiek aankan, maar vooral of je dit écht wilt. Zonder direct een opleiding in te stappen kun je jezelf testen, voelen en groeien.",
+      "Twijfel is normaal. En juist die twijfel maakt dit programma waardevol. Het geeft je een eerlijke inkijk in wat er gevraagd wordt, zowel fysiek en mentaal als qua mindset. Je ontdekt niet alleen of je het fysiek aankan, maar vooral of je dit écht wilt. Zonder direct een opleiding in te stappen kun je jezelf testen, voelen en groeien.",
   },
   {
-    title: "Wat als ik al zelf train — wat voegt dit toe?",
+    title: "Wat als ik al zelf train, wat voegt dit toe?",
     content:
-      "Train je al zelfstandig? Mooi. Maar trainen op eigen kracht is niet hetzelfde als doelgericht toewerken naar een selectie met militaire eisen. Mission Movement geeft je structuur, testmomenten, herstelopbouw en mentale druk — zodat je geen energie verspilt en weet waar je écht staat.",
+      "Train je al zelfstandig? Mooi. Maar trainen op eigen kracht is niet hetzelfde als doelgericht toewerken naar een selectie met militaire eisen. Mission Movement geeft je structuur, testmomenten, herstelopbouw en mentale druk, zodat je geen energie verspilt en weet waar je écht staat.",
   },
   {
     title: "Wat gebeurt er als ik uitval of een week mis?",
     content:
-      "Uitval is geen falen — het is onderdeel van het proces. In dit programma leer je omgaan met tegenslag, maar ook hoe je herpakt. Je krijgt praktische tools om ritme op te bouwen en je voortgang bij te houden, ook als het even misgaat. Want het gaat niet om perfectie, het gaat om volhouden.",
+      "Uitval is geen falen. Het is onderdeel van het proces. In dit programma leer je omgaan met tegenslag, maar ook hoe je herpakt. Je krijgt praktische tools om ritme op te bouwen en je voortgang bij te houden, ook als het even misgaat. Want het gaat niet om perfectie, het gaat om volhouden.",
   },
   {
     title: "Is dit programma alleen voor mensen die marinier willen worden?",
     content:
-      "Nee. Dit programma is geschikt voor iedereen die zich serieus wil voorbereiden op een militaire loopbaan binnen het Korps Mariniers, Korps Commandotroepen (KCT) of 11 Luchtmobiele Brigade. Hoewel de basisprincipes van fysieke en mentale voorbereiding hetzelfde zijn, verschilt de aanpak per eenheid. Afhankelijk van jouw doel, stemmen we daar het contact en de inhoud op af — zodat je traint met de juiste focus.",
+      "Nee. Dit programma is geschikt voor iedereen die zich serieus wil voorbereiden op een militaire loopbaan binnen het Korps Mariniers, Korps Commandotroepen (KCT) of 11 Luchtmobiele Brigade. Hoewel de basisprincipes van fysieke en mentale voorbereiding hetzelfde zijn, verschilt de aanpak per eenheid. Afhankelijk van jouw doel, stemmen we daar het contact en de inhoud op af, zodat je traint met de juiste focus.",
   },
   {
     title: "Is dit programma ook geschikt voor vrouwen?",
     content:
-      "Absoluut. Steeds meer vrouwen kiezen bewust voor een leven vol discipline, fysieke uitdaging en mentale kracht. Voor luchtmobiele eenheden is het inmiddels gebruikelijk dat vrouwelijke kandidaten de selectie halen. Voor het Korps Mariniers en het Korps Commandotroepen is dit nog niet gebeurd — maar dat betekent niet dat het onmogelijk is. Ben jij degene die die grens doorbreekt?\n\nDit programma helpt je fysiek én mentaal groeien met eerlijke feedback, duidelijke opbouw en persoonlijke begeleiding. Het is ontworpen voor iedereen met de mindset om zichzelf te overstijgen — ongeacht geslacht.",
+      "Absoluut. Steeds meer vrouwen kiezen bewust voor een leven vol discipline, fysieke uitdaging en mentale kracht. Voor luchtmobiele eenheden is het inmiddels gebruikelijk dat vrouwelijke kandidaten de selectie halen. Voor het Korps Mariniers en het Korps Commandotroepen is dit nog niet gebeurd, maar dat betekent niet dat het onmogelijk is. Ben jij degene die die grens doorbreekt?\n\nDit programma helpt je fysiek én mentaal groeien met eerlijke feedback, duidelijke opbouw en persoonlijke begeleiding. Het is ontworpen voor iedereen met de mindset om zichzelf te overstijgen, ongeacht geslacht.",
   },
 ];
 
@@ -224,7 +224,7 @@ const Mariniers = () => {
             Korps Mariniers
           </h1>
           <p className="text-gray-200 max-w-xl font-light text-base md:text-lg">
-            Alles wat je moet weten over deze elite-eenheid — van selectie tot
+            Alles wat je moet weten over deze elite-eenheid, van selectie tot
             inzet.
           </p>
         </div>
@@ -254,7 +254,7 @@ const Mariniers = () => {
               Het Korps Mariniers is de amfibische infanterie van de Koninklijke
               Marine. Ze zijn gespecialiseerd in operaties vanuit zee naar land,
               maar ook inzetbaar in de lucht en op het land. Mariniers opereren
-              wereldwijd in de zwaarste omstandigheden — van poolgebieden tot
+              wereldwijd in de zwaarste omstandigheden, van poolgebieden tot
               tropische regenwouden, in conflictgebieden of bij humanitaire
               rampen.
               <br className="hidden md:block" />
@@ -297,7 +297,7 @@ const Mariniers = () => {
                 }`}
               >
                 <div className="px-6 pt-4">
-                  <p className="whitespace-pre-line text-gray-300 font-light leading-relaxed text-sm md:text-base">
+                  <p className="whitespace-pre-line text-gray-300 font-light leading-relaxed text-base md:text-lg">
                     {item.content}
                   </p>
                 </div>
@@ -330,7 +330,7 @@ const Mariniers = () => {
             <h3 className="text-yellow font-semibold text-lg mb-2">
               {item.title}
             </h3>
-            <p className="text-gray-300 font-light text-sm md:text-base whitespace-pre-line">
+            <p className="text-gray-300 font-light whitespace-pre-line text-base md:text-lg">
               {item.content}
             </p>
           </div>
@@ -346,7 +346,7 @@ const Mariniers = () => {
             <h3 className="text-yellow font-semibold text-lg mb-2">
               {item.title}
             </h3>
-            <p className="text-gray-300 font-light text-sm md:text-base whitespace-pre-line">
+            <p className="text-gray-300 font-light whitespace-pre-line text-base md:text-lg">
               {item.content}
             </p>
           </div>
@@ -364,7 +364,7 @@ const Mariniers = () => {
           </h3>
           <p className="text-base md:text-lg mb-6">
             Als je iets voelt voor discipline, broederschap en het uiterste uit
-            jezelf halen — dan is dit voor jou. Ik help je erbij.
+            jezelf halen, dan is dit voor jou. Ik help je erbij.
           </p>
           <Link to="/pricing" className="flex justify-center items-center">
             <button className="btn-lg bg-black text-yellow hover:bg-yellow hover:text-black border border-black">
@@ -380,7 +380,7 @@ const Mariniers = () => {
         </h2>
         <ul className="list-disc pl-6 text-gray-300 font-light space-y-2">
           <li>
-            Je voelt dat er méér in je zit dan wat je nu laat zien — en je bent
+            Je voelt dat er méér in je zit dan wat je nu laat zien en je bent
             klaar om het te bewijzen.
           </li>
           <li>
@@ -392,7 +392,7 @@ const Mariniers = () => {
             die ertoe doen.
           </li>
           <li>
-            Je bent (bijna) marinier, ex-militair of burger — maar diep
+            Je bent (bijna) marinier, ex-militair of burger maar diep
             vanbinnen voel jij dat je gemaakt bent voor meer.
           </li>
           <li>
@@ -412,7 +412,7 @@ const Mariniers = () => {
         </h2>
         <ol className="relative border-l border-yellow pl-6 space-y-6 text-gray-300 font-light text-sm md:text-base">
           {[
-            "Serieuze voorbereiding — fysiek en mentaal",
+            "Serieuze voorbereiding, fysiek en mentaal",
             "Interesse in dienst nemen",
             "Oriëntatiegesprek & aanmelding",
             "Marinierskeuring (fysiek & mentaal)",
@@ -460,7 +460,7 @@ const Mariniers = () => {
                   isOpen ? "max-h-[1000px] py-4 px-6" : "max-h-0"
                 }`}
               >
-                <p className="whitespace-pre-line text-gray-300 font-light leading-relaxed text-sm md:text-base">
+                <p className="whitespace-pre-line text-gray-300 font-light leading-relaxed text-base md:text-lg">
                   {item.content}
                 </p>
               </div>

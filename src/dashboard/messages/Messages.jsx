@@ -122,7 +122,7 @@ const Messages = () => {
         <h2 className="h2-teko text-yellow text-xl tracking-wider">
           Chat with your Coach
         </h2>
-        {isTyping && <p className="text-sm text-gray-400">You’re typing...</p>}
+        {isTyping && <p className="text-gray-400 text-base md:text-lg">You’re typing...</p>}
       </div>
 
       {/* Messages */}

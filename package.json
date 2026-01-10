@@ -23,6 +23,7 @@
     "react-icons": "^4.12.0",
     "react-photo-album": "^2.3.0",
     "react-scripts": "5.0.1",
+    "react-router-dom": "^6.20.0",
     "react-scroll": "^1.9.0",
     "react-swipeable": "^7.0.2",
     "stripe": "^17.7.0",
@@ -54,7 +55,6 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "react-router-dom": "^6.20.0",
     "tailwindcss": "^3.3.5"
   }
 }

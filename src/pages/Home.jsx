@@ -1,6 +1,5 @@
 import React, { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
-import FloatingCTA from "../components/FloatingCTA";
 import { useInView } from "../Hooks/useGlowEffect";
 import QuoteBlock from "../components/QuoteBlock";
 import { Helmet } from "react-helmet-async";
@@ -151,7 +150,7 @@ const Home = () => {
               <li className="flex gap-2 items-start">
                 <span className="text-yellow mt-1">•</span>
                 Broederschap en verbondenheid die verder reiken dan het
-                programma — dit gaat over thuishoren
+                programma. Dit gaat over thuishoren
               </li>
               <li className="flex gap-2 items-start">
                 <span className="text-yellow mt-1">•</span>
@@ -182,7 +181,7 @@ const Home = () => {
 
       {/* <section className="semisection flex justify-center items-center px-10 py-20 md:py-14">
         <p className="font-secondary text-brown tracking-widest text-[25px] md:text-[40px] text-center leading-snug">
-          — not for everyone, <br className="md:hidden" /> but for those willing
+          Not for everyone, <br className="md:hidden" /> but for those willing
           to earn it.
         </p>
       </section>
@@ -194,7 +193,7 @@ const Home = () => {
         </h3>
 
         <p className="text-white font-light text-base md:text-lg max-w-3xl text-justify leading-relaxed">
-          This isn’t just training — it’s entry into a world few will ever
+          This isn’t just training. It’s entry into a world few will ever
           experience.
           <br className="hidden md:block" />
           A life driven by adrenaline, forged by discipline, and bound by

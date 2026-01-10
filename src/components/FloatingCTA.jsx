@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaTimes, FaArrowRight } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
 
 const FloatingCTA = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -26,7 +26,7 @@ const FloatingCTA = () => {
         to="/program"
         className="flex items-center gap-2 font-bold tracking-wider uppercase hover:underline"
       >
-        Start Jouw Missie <FaArrowRight className="text-black" size={12} />
+        Start Jouw Missie
       </Link>
       <button
         onClick={() => setDismissed(true)}

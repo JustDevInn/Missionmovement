@@ -14,7 +14,7 @@ const RecentCard = ({ title, items, emptyMessage }) => (
   <div className="bg-[#1E1E1E] p-6 rounded-xl border border-[#2A2A2A]">
     <h3 className="text-lg font-semibold text-cyan-400 mb-4">{title}</h3>
     {items.length === 0 ? (
-      <p className="text-sm text-gray-400">{emptyMessage}</p>
+      <p className="text-gray-400 text-base md:text-lg">{emptyMessage}</p>
     ) : (
       <ul className="space-y-3 text-sm text-gray-300">
         {items.map((item, idx) => (
@@ -55,7 +55,7 @@ const AdminHome = () => {
           const name = data.displayName || data.email || "Unnamed User";
           const date =
             data.createdAt?.toDate().toLocaleDateString() || "Unknown date";
-          return `${name} — ${date}`;
+          return `${name} - ${date}`;
         });
         setRecentUsers(recentUserList);
 
@@ -93,7 +93,7 @@ const AdminHome = () => {
                 key={userId + msgDoc.id}
                 className="hover:underline text-cyan-300 block"
               >
-                {preview} — {timestamp}
+                {preview} - {timestamp}
                 {isUnread && (
                   <span className="ml-2 text-yellow-400">(unread)</span>
                 )}

@@ -151,11 +151,11 @@ const CheckIn = () => {
                   <h2 className="text-xl font-semibold text-yellow capitalize">
                     {weekKey}
                   </h2>
-                  <p className="text-sm text-brown tracking-wider">
+                  <p className="text-brown tracking-wider text-base md:text-lg">
                     Completed blocks: {blocksCompleted}
                   </p>
                   {!isExpanded && (
-                    <p className="text-sm italic text-gray-300 mt-1">
+                    <p className="italic text-gray-300 mt-1 text-base md:text-lg">
                       {preview || "No reflection yet..."}
                     </p>
                   )}

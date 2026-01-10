@@ -29,8 +29,8 @@ const Cancel = () => {
         <h1 className="text-yellow text-2xl font-secondary uppercase tracking-wider mb-4">
           Betaling Geannuleerd
         </h1>
-        <p className="text-gray-300 font-light text-sm leading-relaxed mb-6">
-          Geen zorgen — je kunt altijd terugkomen om je aankoop af te ronden
+        <p className="text-gray-300 font-light leading-relaxed mb-6 text-base md:text-lg">
+          Geen zorgen, je kunt altijd terugkomen om je aankoop af te ronden
           wanneer je er klaar voor bent.
         </p>
 

@@ -188,7 +188,7 @@ const SingleBlog = () => {
           <h2 className="text-yellow text-2xl font-secondary uppercase tracking-widest mb-3">
             Vond je dit interessant?
           </h2>
-          <p className="text-gray-400 mb-6 text-sm">
+          <p className="text-gray-400 mb-6 text-base md:text-lg">
             Ontdek meer training inzichten of bekijk onze programma’s die zijn
             ontworpen om jouw veerkracht naar een elitair niveau te tillen.
           </p>

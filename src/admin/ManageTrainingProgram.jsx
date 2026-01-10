@@ -214,7 +214,7 @@ const ManageTrainingProgram = () => {
               >
                 <div>
                   <h2 className="text-xl font-bold capitalize">{day}</h2>
-                  <p className="text-sm text-gray-400 uppercase tracking-wider">
+                  <p className="text-gray-400 uppercase tracking-wider text-base md:text-lg">
                     {session.type || "Session"}
                   </p>
                 </div>

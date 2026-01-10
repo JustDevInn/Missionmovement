@@ -20,22 +20,15 @@ module.exports = {
         yellow: '#FFCC00',
         brown: '#8E774F',
         dark: '#121212',
-        surface: '#1E1E1E',
-        accent: '#00FFFF', // Cyan
+        bg: 'var(--bg)',
+        surface: 'var(--surface)',
+        text: 'var(--text)',
+        muted: 'var(--muted)',
+        border: 'var(--border)',
+        accent: 'var(--accent)',
+        surfaceDark: '#1E1E1E',
+        accentCyan: '#00FFFF', // Cyan
         highlight: '#00BFFF', // DeepSkyBlue
-      },
-      backgroundImage: {
-        'royalmarine': "url('/public/img/royalmarines.jpg')",
-        'barret': "url('/public/img/barret.webp')",
-        'marsof': "url('/public/img/marsof.webp')",
-        'boatgroup': "url('/public/img/Bootgroup_carry.webp')",
-        'marsen': "url('/public/img/marsenopleiding.jpg')",
-        'spelioladder': "url('/public/img/spelioladder.jpg')",
-        'hlo': "url('/public/img/hlo.jpg')",
-        'parajumping': "url('/public/img/parajumping.jpg')",
-        'heigendhert': "url('/public/img/heigendhert.jpg')",
-        'friscatnight': "url('/public/img/friscatnight.jpg')",
-        'takethestep': "url('/public/img/takethestep.jpg')",
       }
     },
   },
@@ -43,4 +36,3 @@ module.exports = {
     require('@tailwindcss/line-clamp')
   ],
 }
-

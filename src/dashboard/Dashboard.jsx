@@ -11,52 +11,55 @@ const featureCards = [
     title: "Your Program",
     image: "/img/bootgroup_carry.webp",
     route: "/trainingprogram",
-    locked: true,
+    requiredLevels: ["basic", "intermediate", "full", "admin"],
     bgPosition: "top",
   },
   {
     title: "Training Schedule",
     image: "/img/profilepicture.png",
     route: "/trainingschedule",
-    locked: true,
+    requiredLevels: ["intermediate", "full", "admin"],
     bgPosition: "top",
   },
   {
     title: "Progress Overview",
     image: "/img/spelioladder.jpg",
     route: "/progress",
-    locked: true,
+    requiredLevels: ["intermediate", "full", "admin"],
     bgPosition: "bottom",
   },
   {
     title: "Schedule Check-In",
     image: "/img/barret.jpg",
     route: "/check-in",
-    locked: true,
+    requiredLevels: ["intermediate", "full", "admin"],
     bgPosition: "center",
   },
   {
     title: "Video Library",
     image: "/img/friscatnight.jpg",
     route: "/library",
-    locked: true,
+    requiredLevels: ["intermediate", "full", "admin"],
     bgPosition: "center",
   },
   {
     title: "Get Full Access",
     image: "/img/marines-sunset.jpg",
     route: "/pricing",
-    locked: false,
+    requiredLevels: ["free"],
     cta: "Unlock Now",
     bgPosition: "center",
   },
 ];
 
 const Dashboard = () => {
-  const { user, hasPaid } = useAuth();
+  const { user, userRole, access } = useAuth();
   const [localLoading, setLocalLoading] = useState(true);
   const [username, setUsername] = useState("");
   const [showModal, setShowModal] = useState(false);
+
+  const level = access || userRole || "free";
+  const hasAccess = ["basic", "intermediate", "full", "admin"].includes(level);
 
   useEffect(() => {
     const fetchUsername = async () => {
@@ -89,8 +92,12 @@ const Dashboard = () => {
           <h1 className="h1-header">
             Welcome, {username || user.displayName || user.email}!
           </h1>
-          <p className="text-gray-400 font-light text-sm mt-1">
-            {hasPaid
+          <p className="text-yellow text-xs mt-1 uppercase tracking-wide">
+            Current Plan: <span className="font-semibold">{level}</span>
+          </p>
+
+          <p className="text-gray-400 font-light mt-1 text-base md:text-lg">
+            {hasAccess
               ? "You said yes to discomfort, to resilience, to something greater."
               : "Your journey starts here. Let’s get to work."}
           </p>
@@ -101,9 +108,12 @@ const Dashboard = () => {
       {/* Grid of Feature Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {featureCards
-          .filter((card) => !(hasPaid && card.title === "Get Full Access"))
+          .filter(
+            (card) => !(level !== "free" && card.title === "Get Full Access")
+          )
+
           .map((card, index) => {
-            const isLocked = card.locked && !hasPaid;
+            const isLocked = !card.requiredLevels.includes(level);
 
             const content = (
               <>

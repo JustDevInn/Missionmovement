@@ -53,7 +53,7 @@ const Login = () => {
         </h2>
 
         {error && (
-          <p className="text-red-500 bg-red-900 bg-opacity-20 px-4 py-2 rounded text-sm mb-4 text-center">
+          <p className="text-red-500 bg-red-900 bg-opacity-20 px-4 py-2 rounded mb-4 text-center text-base md:text-lg">
             {error}
           </p>
         )}
@@ -71,7 +71,7 @@ const Login = () => {
   <input
     type={showPassword ? "text" : "password"}
     placeholder="Password"
-    autoComplete="new-password" // for signup — change to "current-password" for login
+    autoComplete="new-password" // for signup - change to "current-password" for login
     className="w-full bg-[#121212] text-white placeholder-gray-400 px-4 py-3 pr-10 rounded-md outline-none focus:ring-2 focus:ring-yellow transition"
     onChange={(e) => setPassword(e.target.value)}
     disabled={loading}
@@ -104,7 +104,7 @@ const Login = () => {
           )}
         </div>
 
-        <p className="text-center text-sm text-gray-400 mt-6">
+        <p className="text-center text-gray-400 mt-6 text-base md:text-lg">
           Niew hier?{" "}
           <RouterLink to="/signup" className="text-yellow hover:underline">
           Creëer een account

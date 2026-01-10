@@ -1,13 +1,118 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import FloatingCTA from "../components/FloatingCTA";
 import Spinner from "../components/Spinner";
 import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [captchaToken, setCaptchaToken] = useState("");
+  const [captchaReady, setCaptchaReady] = useState(false);
+  const captchaRef = useRef(null);
 
-  const handleSubmit = () => {
+  const CAPTCHA_PROVIDER = process.env.REACT_APP_CAPTCHA_PROVIDER || "hcaptcha";
+  const CAPTCHA_SITE_KEY = process.env.REACT_APP_CAPTCHA_SITE_KEY;
+  const CONTACT_ENDPOINT = process.env.REACT_APP_CONTACT_ENDPOINT;
+
+  useEffect(() => {
+    if (!CAPTCHA_SITE_KEY) {
+      return;
+    }
+
+    const renderWidget = () => {
+      if (!captchaRef.current) return;
+
+      if (CAPTCHA_PROVIDER === "recaptcha" && window.grecaptcha) {
+        window.grecaptcha.render(captchaRef.current, {
+          sitekey: CAPTCHA_SITE_KEY,
+          callback: (token) => setCaptchaToken(token),
+          "expired-callback": () => setCaptchaToken(""),
+        });
+        setCaptchaReady(true);
+        return;
+      }
+
+      if (window.hcaptcha) {
+        window.hcaptcha.render(captchaRef.current, {
+          sitekey: CAPTCHA_SITE_KEY,
+          theme: "dark",
+          callback: (token) => setCaptchaToken(token),
+          "expired-callback": () => setCaptchaToken(""),
+        });
+        setCaptchaReady(true);
+      }
+    };
+
+    const scriptId = `captcha-script-${CAPTCHA_PROVIDER}`;
+    if (document.getElementById(scriptId)) {
+      renderWidget();
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.id = scriptId;
+    script.async = true;
+    script.defer = true;
+    script.src =
+      CAPTCHA_PROVIDER === "recaptcha"
+        ? "https://www.google.com/recaptcha/api.js?render=explicit"
+        : "https://js.hcaptcha.com/1/api.js?render=explicit";
+    script.onload = renderWidget;
+    document.body.appendChild(script);
+  }, [CAPTCHA_PROVIDER, CAPTCHA_SITE_KEY]);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setError("");
+    setSuccess("");
+
+    if (!CONTACT_ENDPOINT) {
+      setError("Contact endpoint is niet geconfigureerd.");
+      return;
+    }
+
+    if (!CAPTCHA_SITE_KEY) {
+      setError("CAPTCHA site key ontbreekt.");
+      return;
+    }
+
+    if (!captchaToken) {
+      setError("Bevestig eerst de CAPTCHA.");
+      return;
+    }
+
     setLoading(true);
+    const formData = new FormData(event.currentTarget);
+    const payload = {
+      intentie: formData.get("intentie"),
+      name: formData.get("name"),
+      email: formData.get("email"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+      captchaToken,
+    };
+
+    try {
+      const response = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        const result = await response.json().catch(() => ({}));
+        throw new Error(result.message || "Versturen mislukt.");
+      }
+
+      setSuccess("Bedankt! Je bericht is verstuurd.");
+      event.currentTarget.reset();
+      setCaptchaToken("");
+    } catch (err) {
+      setError(err.message || "Versturen mislukt.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -50,22 +155,23 @@ const Contact = () => {
         <h1 className="text-yellow font-secondary text-[35px] md:text-[70px] uppercase leading-[120%] tracking-wide font-extralight mb-6 text-center">
           Jouw Eerste Stap
         </h1>
-        <p className="text-brown font-normal uppercase tracking-widest text-sm md:text-lg text-center max-w-2xl">
-          Klaar om het serieus aan te pakken? Laat je gegevens achter — wij
+        <p className="text-brown font-normal uppercase tracking-widest md:text-lg text-center max-w-2xl text-base">
+          Klaar om het serieus aan te pakken? Laat je gegevens achter. Wij
           nemen contact op.
         </p>
       </section>
 
       {/* Contactformulier */}
-      <section className="w-full px-5 py-20 lg:py-32 flex justify-center items-center">
+      <section
+        id="contact-form"
+        className="w-full px-5 py-20 lg:py-32 flex justify-center items-center"
+      >
         <div className="w-full max-w-2xl bg-primary p-6 md:p-10 rounded-xl shadow-lg animate-fade-in">
           <h2 className="h2-teko text-yellow text-center mb-10">
             Verstuur Je Bericht
           </h2>
 
           <form
-            action="https://getform.io/f/19890081-7383-4319-832f-c7a6294b1408"
-            method="POST"
             onSubmit={handleSubmit}
             className="flex flex-col gap-y-6"
             autoComplete="off"
@@ -124,6 +230,21 @@ const Contact = () => {
               className="bg-transparent border-b border-b-brown rounded-md h-[150px] outline-none font-normal w-full px-3 placeholder:text-brown text-white focus:border-yellow focus:ring-1 focus:ring-yellow transition duration-200 resize-none"
             />
 
+            <div className="flex flex-col gap-2">
+              {!CAPTCHA_SITE_KEY && (
+                <p className="text-xs text-red-400">
+                  CAPTCHA is nog niet geconfigureerd.
+                </p>
+              )}
+              <div ref={captchaRef} />
+              {CAPTCHA_SITE_KEY && !captchaReady && (
+                <p className="text-xs text-gray-400">CAPTCHA wordt geladen...</p>
+              )}
+            </div>
+
+            {error && <p className="text-red-400 text-base md:text-lg">{error}</p>}
+            {success && <p className="text-green-400 text-base md:text-lg">{success}</p>}
+
             {/* Verstuur */}
             <button
               type="submit"
@@ -146,7 +267,7 @@ const Contact = () => {
 
           {/* WhatsApp CTA */}
           <div className="text-center mt-10">
-            <p className="text-gray-300 text-sm mb-2">
+            <p className="text-gray-300 mb-2 text-base md:text-lg">
               Liever direct contact? Stuur ons gerust een WhatsApp-bericht.
             </p>
             <a

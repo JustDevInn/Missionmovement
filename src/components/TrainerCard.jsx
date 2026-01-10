@@ -8,7 +8,7 @@ const TrainerCard = () => {
       {/* Trainer Section */}
       <section className="w-full bg-black py-12 min-h-screen flex flex-col justify-center">
         <h1 className="h1-teko text-yellow text-center mb-10 tracking-wider">
-          Trainers
+          Trainer
         </h1>
 
         <div className="flex flex-col lg:flex-row gap-10 px-5 lg:px-20 max-w-screen-xl mx-auto">
@@ -17,7 +17,7 @@ const TrainerCard = () => {
             <h2 className="text-brown font-secondary text-[22px] md:text-[32px] lg:text-[40px] uppercase font-light leading-tight tracking-wide">
               Justin Peeters, Oprichter Mission Movement
             </h2>
-            <p className="text-white font-light text-justify leading-relaxed text-sm md:text-base tracking-wide">
+            <p className="text-white font-light text-justify leading-relaxed tracking-wide text-base md:text-lg">
               Met een decennium aan elite-dienst in het Korps Mariniers,
               waaronder vier jaar in de gerespecteerde MARSOC-eenheden, brengt
               Justin bewezen expertise naar Mission Movement.
@@ -36,7 +36,7 @@ const TrainerCard = () => {
               <br />
               Zijn toewijding aan blessurepreventie en duurzaamheid in
               veeleisende carrières vormt zijn drijfveer. Justin zorgt ervoor
-              dat mensen zowel fysiek als mentaal voorbereid zijn — zodat ze op
+              dat mensen zowel fysiek als mentaal voorbereid zijn, zodat ze op
               hun eigen voorwaarden kunnen stoppen, en niet door vermijdbare
               tegenslagen.
             </p>

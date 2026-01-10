@@ -7,7 +7,7 @@ const documents = [
     file: "/pdfs/welcome_guide.pdf",
     image: "/img/profilepicture.png",
     description:
-      "Start here – A message from Justin and an overview of your program.",
+      "Start here - A message from Justin and an overview of your program.",
     bgPosition: "top",
     bgSize: "cover",
   },
@@ -48,16 +48,16 @@ const documents = [
     bgSize: "cover",
   },
   {
-    title: "SUPPORT 01 – EXERCISE LIBRARY",
+    title: "SUPPORT 01 - EXERCISE LIBRARY",
     file: "/pdfs/support_exercise_library.pdf",
     image: "/img/friscatnight.jpg",
     description:
-      "Every movement and drill explained – your complete visual reference.",
+      "Every movement and drill explained - your complete visual reference.",
     bgPosition: "center",
     bgSize: "cover",
   },
   {
-    title: "SUPPORT 02 – MOBILITY GUIDE",
+    title: "SUPPORT 02 - MOBILITY GUIDE",
     file: "/pdfs/support_mobility_guide.pdf",
     image: "/img/hlo.jpg",
     description:
@@ -87,10 +87,10 @@ const TrainingProgram = () => {
           className="w-full h-64 object-cover rounded-xl shadow-md mb-6"
         />
         <h1 className="h1 mb-2">The Military Preparation Program</h1>
-        <p className="text-gray-400 text-sm sm:text-base max-w-3xl tracking-wider">
+        <p className="text-gray-400 sm:text-base max-w-3xl tracking-wider text-base md:text-lg">
           This program is your step-by-step path to becoming mentally and
           physically ready for military life. It’s divided into key
-          sub-programs, each focused on a specific phase of your preparation –
+          sub-programs, each focused on a specific phase of your preparation -
           from meeting entry requirements to building strength, water
           confidence, and mobility.
         </p>
@@ -124,7 +124,7 @@ const TrainingProgram = () => {
           </li>
           <li>
             <span className="text-white font-medium">
-              Support – Exercise & Mobility:
+              Support - Exercise & Mobility:
             </span>{" "}
             Learn the movements and restore your body.
           </li>
@@ -158,7 +158,7 @@ const TrainingProgram = () => {
               </div>
             </div>
             <div className="p-4 flex flex-col flex-1 justify-between">
-              <p className="text-sm text-gray-300 mb-3">{doc.description}</p>
+              <p className="text-gray-300 mb-3 text-base md:text-lg">{doc.description}</p>
               <a
                 href={doc.file}
                 download
