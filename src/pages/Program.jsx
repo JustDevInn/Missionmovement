@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, lazy, Suspense } from "react";
 import { FaCheck } from "react-icons/fa6";
 import { GrAchievement } from "react-icons/gr";
 import Banners from "../components/Banners";
@@ -22,6 +22,7 @@ const wordDefinitions = {
 };
 
 const Program = () => {
+  const VideoPreview = lazy(() => import("../components/VideoPreview"));
   const { animate, elementRef } = useGlowEffect();
   const [hoveredWord, setHoveredWord] = useState(null);
   const [openProgramIndex, setOpenProgramIndex] = useState(null);
@@ -214,9 +215,7 @@ const Program = () => {
           <div className="col-span-1 lg:col-span-2 grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* FAQ sectie */}
             <div className="space-y-4 border-t border-mmBorder pt-6">
-              <h2 className="mm-h2 text-mmText mb-6">
-                Veelgestelde Vragen
-              </h2>
+              <h2 className="mm-h2 text-mmText mb-6">Veelgestelde Vragen</h2>
 
               {faqDataNL.map((faq, index) => {
                 const isOpen = openFAQIndex === index;
@@ -267,6 +266,17 @@ const Program = () => {
             </div>
           </div>
         </header>
+      </section>
+
+      {/* Video Preview */}
+      <section className="py-16 px-4 md:px-10 lg:px-20 flex justify-center items-center bg-mmPage border-t border-mmBorder">
+        <Suspense
+          fallback={
+            <div className="text-gray-500">Preview wordt geladen...</div>
+          }
+        >
+          <VideoPreview videoId="YHffzTVE_9Q" />
+        </Suspense>
       </section>
 
       <QuoteBlock

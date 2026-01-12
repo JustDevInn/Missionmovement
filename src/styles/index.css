@@ -108,7 +108,7 @@
   }
 
   body {
-    @apply font-primary bg-[#101010] text-[16px] md:text-[18px] font-normal leading-relaxed;
+    @apply font-primary bg-[#e6edf7] text-[16px] md:text-[18px] font-normal leading-relaxed;
   }
   .h1-header {
     @apply text-yellow font-primary text-[20px] md:text-[30px] lg:text-[40px] font-bold uppercase leading-[120%] tracking-widest;
