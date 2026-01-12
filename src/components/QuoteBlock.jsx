@@ -2,24 +2,24 @@ import React from "react";
 
 const QuoteBlock = ({ quote, author }) => {
   return (
-    <div className="relative border-l-4 border-yellow pl-6 md:pl-10 my-20 pr-4 py-6 bg-[#121212] rounded-md shadow-md transition-all hover:scale-[1.015] hover:shadow-yellow/20 duration-300 max-w-4xl mx-auto group">
-      <p className="text-white font-light text-base md:text-lg italic leading-relaxed">
+    <div className="relative border-l-4 border-mmAccent pl-6 md:pl-10 my-20 pr-4 py-6 bg-mmSurface rounded-2xl border border-mmBorder shadow-sm transition-all hover:shadow-md duration-300 max-w-4xl mx-auto group">
+      <p className="text-mmTextMuted text-base md:text-lg italic leading-relaxed">
         “{quote}”
       </p>
-      <p className="text-yellow font-secondary tracking-wider mt-4 text-left group-hover:translate-x-1 transition-transform duration-300 text-base md:text-lg">
+      <p className="font-display uppercase tracking-widest mt-4 text-left group-hover:translate-x-1 transition-transform duration-300 text-base md:text-lg text-mmAccent">
         - {author}
       </p>
 
       {/* Glowing accent */}
-      <span className="absolute top-0 left-0 w-1 h-full bg-yellow animate-pulse shadow-lg" />
+      <span className="absolute top-0 left-0 w-1 h-full bg-mmAccent" />
     </div>
   );
 };
 
 export default QuoteBlock;
 
-/* <section className="py-20 bg-[#101010]">
-  <h2 className="text-yellow text-center text-2xl md:text-4xl font-secondary uppercase mb-10">
+/* <section className="py-20 bg-mmPage">
+  <h2 className="mm-h2 text-center mb-10 text-mmText">
     Words to Live By
   </h2>
   <div className="space-y-16">

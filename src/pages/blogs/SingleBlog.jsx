@@ -65,14 +65,14 @@ const SingleBlog = () => {
 
   if (loading || !blog) {
     return (
-      <div className="flex justify-center items-center h-screen bg-[#0b0b0b]">
-        <Spinner />
+      <div className="flex justify-center items-center h-screen bg-mmPage">
+        <Spinner color="border-mmAccent" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen pt-20 px-5 md:px-10 bg-[#0b0b0b] text-white animate-fadein">
+    <div className="min-h-screen pt-20 px-5 md:px-10 bg-mmPage text-mmText animate-fadein">
       <Helmet>
         <title>{blog.title} | Mission Movement</title>
         <meta name="description" content={blog.summary} />
@@ -91,16 +91,16 @@ const SingleBlog = () => {
       <div className="max-w-3xl mx-auto">
         <Link
           to="/blogs"
-          className="text-yellow text-sm font-semibold uppercase tracking-wide hover:underline mb-6 inline-block"
+          className="text-mmAccent text-sm font-semibold uppercase tracking-wide hover:underline mb-6 inline-block"
         >
           ← Terug
         </Link>
 
-        <h1 className="h1-teko text-yellow text-4xl md:text-6xl mb-4">
+        <h1 className="mm-h1 text-mmText text-4xl md:text-6xl mb-4">
           {blog.title}
         </h1>
 
-        <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400 mb-6">
+        <div className="flex flex-wrap items-center gap-4 text-sm text-mmTextMuted mb-6">
           <span>Door {blog.author}</span>
           <span>•</span>
           <span>
@@ -111,7 +111,7 @@ const SingleBlog = () => {
           <span>{getReadingTime()}</span>
           <button
             onClick={handleShare}
-            className="ml-auto text-yellow text-xs border border-yellow px-3 py-1 rounded hover:bg-yellow hover:text-black transition"
+            className="ml-auto text-mmAccent text-xs border border-mmAccent px-3 py-1 rounded hover:bg-mmAccent hover:text-white transition"
           >
             Deel dit artikel
           </button>
@@ -122,7 +122,7 @@ const SingleBlog = () => {
             {blog.tags.map((tag, i) => (
               <span
                 key={i}
-                className="bg-yellow text-black text-xs px-2 py-1 rounded-full font-semibold uppercase"
+                className="bg-mmAccent text-white text-xs px-2 py-1 rounded-full font-semibold uppercase"
               >
                 {tag}
               </span>
@@ -137,12 +137,12 @@ const SingleBlog = () => {
         />
 
         {blog.content?.quote && (
-          <blockquote className="bg-[#1a1a1a] border-l-4 border-yellow p-6 italic text-lg font-light mb-10 rounded-lg text-gray-200 shadow">
+          <blockquote className="bg-mmSurface border-l-4 border-mmAccent p-6 italic text-lg mb-10 rounded-2xl text-mmTextMuted shadow-sm">
             “{blog.content.quote}”
           </blockquote>
         )}
 
-        <div className="space-y-6 text-white font-light leading-relaxed md:px-4 bg-[#101010] border border-yellow/10 rounded-lg p-5 shadow-md">
+        <div className="space-y-6 text-mmTextMuted leading-relaxed md:px-4 bg-mmSurface border border-mmBorder rounded-2xl p-5 shadow-sm">
           {blog.content?.paragraphs?.map((para, index) => (
             <div key={index} className=" text-sm md:text-base">
               <p>{para}</p>
@@ -167,7 +167,7 @@ const SingleBlog = () => {
           {prevBlog ? (
             <Link
               to={`/blogs/${prevBlog.slug}`}
-              className="text-yellow text-sm hover:underline"
+              className="text-mmAccent text-sm hover:underline"
             >
               ← {prevBlog.title}
             </Link>
@@ -177,7 +177,7 @@ const SingleBlog = () => {
           {nextBlog && (
             <Link
               to={`/blogs/${nextBlog.slug}`}
-              className="text-yellow text-sm hover:underline ml-auto"
+              className="text-mmAccent text-sm hover:underline ml-auto"
             >
               {nextBlog.title} →
             </Link>
@@ -185,23 +185,23 @@ const SingleBlog = () => {
         </div>
 
         <div className="mt-20 text-center">
-          <h2 className="text-yellow text-2xl font-secondary uppercase tracking-widest mb-3">
+          <h2 className="mm-h2 text-mmText mb-3">
             Vond je dit interessant?
           </h2>
-          <p className="text-gray-400 mb-6 text-base md:text-lg">
+          <p className="text-mmTextMuted mb-6 text-base md:text-lg">
             Ontdek meer training inzichten of bekijk onze programma’s die zijn
             ontworpen om jouw veerkracht naar een elitair niveau te tillen.
           </p>
           <Link
             to="/program"
-            className="mb-16 inline-block bg-yellow text-black font-bold px-6 py-3 uppercase tracking-wider hover:bg-transparent hover:text-yellow border border-yellow transition"
+            className="mb-16 inline-block mm-btnPrimary px-6 py-3"
           >
             Bekijk Trainingsprogramma →
           </Link>
         </div>
 
         {showToast && (
-          <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-yellow text-black px-4 py-2 rounded shadow-lg text-sm font-bold z-50 animate-fadein">
+          <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-mmAccent text-white px-4 py-2 rounded shadow-sm text-sm font-bold z-50 animate-fadein">
             Link gekopieerd naar klembord!
           </div>
         )}

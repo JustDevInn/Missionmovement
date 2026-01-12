@@ -42,7 +42,7 @@ const Resources = () => {
         {/* Background Overlay for Better Readability */}
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         <div className="relative h-full w-full flex justify-center lg:justify-end items-center pt-20 px-5 lg:px-20">
-          <h1 className="text-yellow font-primary text-[35px] md:text-[60px] font-medium uppercase tracking-wider text-center lg:text-right">
+          <h1 className="font-display text-mmAccent text-[35px] md:text-[60px] uppercase tracking-widest text-center lg:text-right">
             Voorbereiden met een doel
           </h1>
         </div>
@@ -51,14 +51,14 @@ const Resources = () => {
 
       {/* FAQ Section */}
       <section className="w-screen px-10 py-20 lg:pt-40 lg:pb-20 flex flex-col justify-center items-center">
-        <h1 className="text-yellow font-secondary text-[30px] md:text-[60px] lg:text-[90px] font-light uppercase leading-[120%] tracking-wide">
+        <h1 className="mm-h1 text-mmText">
           Wat je moet weten.
         </h1>
       </section>
 
       {/* FAQ container */}
-      <section className="px-4 md:px-10 max-w-5xl mx-auto py-16 space-y-4 border-t border-yellow">
-        <h2 className="text-yellow text-2xl md:text-3xl font-secondary uppercase tracking-widest mb-6">
+      <section className="px-4 md:px-10 max-w-5xl mx-auto py-16 space-y-4 border-t border-mmBorder">
+        <h2 className="mm-h2 text-mmText mb-6">
           Veelgestelde Vragen
         </h2>
 
@@ -67,25 +67,25 @@ const Resources = () => {
           return (
             <div
               key={index}
-              className={`border border-yellow/20 rounded-lg transition-all duration-300 ${
-                isOpen ? "bg-[#111111] border-yellow" : "bg-[#0a0a0a]"
+              className={`border border-mmBorder rounded-2xl transition-all duration-300 ${
+                isOpen ? "bg-mmSurface border-mmAccent" : "bg-mmSurface"
               }`}
             >
               <button
                 onClick={() => toggle(index)}
                 className="w-full flex justify-between items-center px-6 py-4 text-left"
               >
-                <span className="text-yellow font-secondary text-base md:text-lg tracking-widest uppercase">
+                <span className="text-mmAccent font-display text-base md:text-lg tracking-widest uppercase">
                   {faq.vraag}
                 </span>
-                <span className="text-yellow text-xl">{isOpen ? "−" : "+"}</span>
+                <span className="text-mmAccent text-xl">{isOpen ? "−" : "+"}</span>
               </button>
               <div
                 className={`overflow-hidden transition-all duration-500 ease-in-out ${
                   isOpen ? "max-h-[1000px] py-4 px-6" : "max-h-0"
                 }`}
               >
-                <p className="whitespace-pre-line text-gray-300 font-light leading-relaxed text-base md:text-lg">
+                <p className="whitespace-pre-line text-mmTextMuted leading-relaxed text-base md:text-lg">
                   {faq.antwoord}
                 </p>
               </div>
@@ -96,7 +96,7 @@ const Resources = () => {
 
       {/* ARTICLES's */}
       <section className="w-screen px-10 py-20 lg:pt-40 lg:pb-20 flex flex-col justify-center items-center">
-        <h1 className="h1-teko">Artikelen</h1>
+        <h1 className="mm-h1 text-mmText">Artikelen</h1>
       </section>
       {/* Article Container */}
       <section className="w-full px-4 sm:px-6 md:px-10 lg:px-20">
@@ -145,7 +145,7 @@ const Resources = () => {
           ].map((blog, index) => (
             <div
               key={index}
-              className="bg-primary rounded-xl overflow-hidden shadow-lg hover:scale-[1.02] transition-transform duration-300"
+              className="bg-mmSurface border border-mmBorder rounded-2xl overflow-hidden shadow-sm hover:scale-[1.02] transition-transform duration-300"
             >
               <img
                 src={blog.thumbnail}
@@ -154,16 +154,16 @@ const Resources = () => {
                 className="w-full h-48 object-cover"
               />
               <div className="p-4 space-y-2">
-                <h2 className="text-yellow text-lg font-bold uppercase">
+                <h2 className="text-mmText text-lg font-display uppercase tracking-widest">
                   {blog.title}
                 </h2>
-                <p className="italic text-gray-400 text-base md:text-lg">
+                <p className="italic text-mmTextMuted text-base md:text-lg">
                   by {blog.author} • {blog.date}
                 </p>
-                <p className="text-white text-base md:text-lg">{blog.summary}</p>
+                <p className="text-mmTextMuted text-base md:text-lg">{blog.summary}</p>
                 <a
                   href={`/blogs/${blog.slug}`}
-                  className="inline-block mt-3 bg-yellow text-black font-bold text-sm px-4 py-2 uppercase tracking-wide hover:bg-transparent hover:text-yellow border border-yellow transition-all"
+                  className="inline-block mt-3 mm-btnPrimary text-sm"
                 >
                   Lees meer →
                 </a>
@@ -175,7 +175,7 @@ const Resources = () => {
 
       {/* Social */}
       <SocialGallery />
-      <h2 className="text-brown text-xl md:text-3xl font-secondary uppercase tracking-widest mb-10 text-center">
+      <h2 className="mm-h2 text-mmText mb-10 text-center">
         Echte mensen. Echte progressie.
       </h2>
     </div>

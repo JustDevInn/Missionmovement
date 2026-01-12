@@ -67,29 +67,29 @@ const Success = () => {
   }, [navigate]);
 
   return (
-    <div className="min-h-[calc(100vh-90px)] bg-[#0a0a0a] flex flex-col items-center justify-center text-center px-6 py-16 font-primary">
-      <div className="bg-[#1A1A1A] border border-green-500 px-8 py-10 rounded-xl shadow-lg max-w-md w-full">
+    <div className="min-h-[calc(100vh-90px)] bg-mmPage flex flex-col items-center justify-center text-center px-6 py-16">
+      <div className="bg-mmSurface border border-green-500 px-8 py-10 rounded-2xl shadow-sm max-w-md w-full">
         <div className="flex justify-center mb-4">
           <FaCheckCircle className="text-green-400 text-5xl" />
         </div>
-        <h1 className="text-yellow text-2xl font-secondary uppercase tracking-wider mb-4">
+        <h1 className="text-mmText text-2xl font-display uppercase tracking-widest mb-4">
           Payment Successful
         </h1>
-        <p className="text-gray-300 font-light leading-relaxed mb-6 text-base md:text-lg">
+        <p className="text-mmTextMuted leading-relaxed mb-6 text-base md:text-lg">
           Welcome to the Mission Movement dashboard. Your transformation begins
           now.
         </p>
 
         <button
           onClick={() => navigate("/dashboard")}
-          className="inline-flex items-center justify-center gap-2 bg-yellow text-black font-semibold px-6 py-3 rounded-md hover:bg-opacity-90 transition mb-4"
+          className="inline-flex items-center justify-center gap-2 bg-mmAccent text-white font-semibold px-6 py-3 rounded-md hover:bg-mmAccentHover transition mb-4"
         >
           Go to Dashboard <FaArrowRight />
         </button>
 
-        <p className="text-gray-500 text-xs">
+        <p className="text-mmTextMuted text-xs">
           Redirecting in{" "}
-          <span className="text-yellow font-semibold">{countdown}</span>{" "}
+          <span className="text-mmAccent font-semibold">{countdown}</span>{" "}
           seconds...
         </p>
       </div>

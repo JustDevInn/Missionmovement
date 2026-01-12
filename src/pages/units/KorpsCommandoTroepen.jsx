@@ -114,7 +114,7 @@ const KorpsCommandoTroepen = () => {
   }, []);
 
   return (
-    <div className="bg-black text-white min-h-screen pt-20">
+    <div className="bg-mmPage text-mmText min-h-screen pt-20">
       <Helmet>
         <title>Korps Commandotroepen | Missie & Voorbereiding</title>
         <meta
@@ -130,12 +130,12 @@ const KorpsCommandoTroepen = () => {
           alt="KCT trainingsvisual"
           className="absolute inset-0 w-full h-full object-cover object-[center_20%] scale-110"
         />
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 h-full w-full flex flex-col justify-center items-center text-center px-6">
-          <h1 className="text-yellow text-[32px] md:text-[50px] font-secondary uppercase tracking-widest mb-4">
+          <h1 className="text-mmAccent text-[32px] md:text-[50px] font-display uppercase tracking-widest mb-4">
             Korps Commandotroepen
           </h1>
-          <p className="text-gray-200 max-w-xl font-light text-base md:text-lg">
+          <p className="text-white/90 max-w-xl text-base md:text-lg">
             De absolute top binnen Defensie. Ontdek hoe jij hier klaar voor
             kunt zijn.
           </p>
@@ -147,7 +147,7 @@ const KorpsCommandoTroepen = () => {
       <SubNav />
 
       {/* Intro */}
-      <section className="bg-[#0a0a0a] py-16 px-6 md:px-10 lg:px-20 max-w-5xl mx-auto">
+      <section className="bg-mmPage py-16 px-6 md:px-10 lg:px-20 max-w-5xl mx-auto">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
           {/* Embleem links van de tekst */}
           <div className="flex-shrink-0 flex items-center justify-center h-[160px] md:h-[220px]">
@@ -159,11 +159,11 @@ const KorpsCommandoTroepen = () => {
           </div>
 
           {/* Gele streep + content */}
-          <div className="border-l-[3px] border-yellow pl-6">
-            <h2 className="text-yellow text-2xl md:text-4xl font-secondary uppercase tracking-widest mb-4">
+          <div className="border-l-[3px] border-mmAccent pl-6">
+            <h2 className="text-mmText text-2xl md:text-4xl font-display uppercase tracking-widest mb-4">
               Wat is het KCT?
             </h2>
-            <p className="text-gray-300 font-light leading-relaxed text-base md:text-lg">
+            <p className="text-mmTextMuted leading-relaxed text-base md:text-lg">
               Het Korps Commandotroepen (KCT) is de Special Operations Force van
               de Koninklijke Landmacht. De eenheid voert wereldwijd
               specialistische operaties uit, vaak onder strikte geheimhouding en
@@ -190,18 +190,18 @@ const KorpsCommandoTroepen = () => {
           return (
             <div
               key={index}
-              className={`border border-yellow/20 rounded-lg transition-all duration-300 ${
-                isOpen ? "bg-[#111111] border-yellow" : "bg-[#0a0a0a]"
+              className={`border border-mmBorder rounded-2xl transition-all duration-300 ${
+                isOpen ? "bg-mmSurface border-mmAccent" : "bg-mmSurface"
               }`}
             >
               <button
                 onClick={() => toggleIndex(index)}
                 className="w-full flex justify-between items-center px-6 py-4 text-left"
               >
-                <span className="text-yellow font-secondary text-base md:text-lg tracking-widest uppercase">
+                <span className="text-mmAccent font-display text-base md:text-lg tracking-widest uppercase">
                   {item.title}
                 </span>
-                <span className="text-yellow text-xl">
+                <span className="text-mmAccent text-xl">
                   {isOpen ? "−" : "+"}
                 </span>
               </button>
@@ -210,13 +210,13 @@ const KorpsCommandoTroepen = () => {
                   isOpen ? "max-h-[1000px] py-4 px-6" : "max-h-0"
                 }`}
               >
-                <p className="whitespace-pre-line text-gray-300 font-light leading-relaxed mb-4 text-base md:text-lg">
+                <p className="whitespace-pre-line text-mmTextMuted leading-relaxed mb-4 text-base md:text-lg">
                   {item.content}
                 </p>
                 <img
                   src={item.image}
                   alt={`${item.title} visual`}
-                  className="w-full max-h-[300px] rounded-md shadow-md object-cover"
+                  className="w-full max-h-[300px] rounded-2xl shadow-sm border border-mmBorder object-cover"
                   style={{ objectPosition: item.objectPosition || "center" }}
                 />
               </div>
@@ -227,37 +227,37 @@ const KorpsCommandoTroepen = () => {
 
       {/* KCT specialisaties*/}
       <section className="px-4 md:px-10 max-w-5xl mx-auto pb-16">
-        <h2 className="text-yellow text-2xl md:text-3xl font-secondary uppercase tracking-widest mb-6">
+        <h2 className="mm-h2 text-mmText mb-6">
           Specialisaties binnen het KCT
         </h2>
         {kctSpecialisaties.map((item, index) => (
           <div key={index} className="mb-6">
-            <h3 className="text-yellow font-semibold text-lg mb-2">
+            <h3 className="text-mmAccent font-semibold text-lg mb-2">
               {item.title}
             </h3>
-            <p className="text-gray-300 font-light whitespace-pre-line text-base md:text-lg">
+            <p className="text-mmTextMuted whitespace-pre-line text-base md:text-lg">
               {item.content}
             </p>
           </div>
         ))}
       </section>
       {/* CTA */}
-      <section className="relative bg-yellow text-black py-12 my-10 px-6 text-center shadow-lg overflow-hidden">
+      <section className="relative bg-mmSurface border border-mmBorder text-mmText py-12 my-10 px-6 text-center shadow-sm overflow-hidden">
         <div className="max-w-3xl mx-auto">
-          <p className="uppercase text-xs tracking-widest mb-2 font-bold">
+          <p className="uppercase text-xs tracking-widest mb-2 font-bold text-mmTextMuted">
             Special Forces Voorbereiding
           </p>
           <h3 className="text-3xl md:text-4xl font-bold tracking-wide mb-3">
             Eén kans. Eén selectie. Zorg dat je klaar bent.
           </h3>
-          <p className="text-base md:text-lg mb-6">
+          <p className="text-base md:text-lg mb-6 text-mmTextMuted">
             De weg naar het KCT is geen traject om 'wel te proberen'. Je krijgt
             geen tweede kans, je moet sterk, voorbereid en gefocust starten.
             Dit programma is gebouwd om je daar te krijgen, met begeleiding van
             iemand die de lat begrijpt.
           </p>
           <Link to="/pricing" className="flex justify-center items-center">
-            <button className="btn-lg bg-black text-yellow hover:bg-yellow hover:text-black border border-black">
+            <button className="mm-btnPrimary">
               Start Voorbereiding
             </button>
           </Link>
@@ -266,10 +266,10 @@ const KorpsCommandoTroepen = () => {
 
       {/* Voor wie */}
       <section className="py-16 px-6 md:px-10 max-w-5xl mx-auto text-left">
-        <h2 className="text-yellow text-2xl md:text-3xl font-secondary uppercase tracking-widest mb-6">
+        <h2 className="mm-h2 text-mmText mb-6">
           Voor wie is dit geschikt?
         </h2>
-        <ul className="list-disc pl-6 text-gray-300 font-light space-y-2">
+        <ul className="list-disc pl-6 text-mmTextMuted space-y-2">
           <li>
             Je ambieert een plek binnen het Korps Commandotroepen maar weet niet
             waar je voorbereiding moet beginnen.
@@ -298,11 +298,11 @@ const KorpsCommandoTroepen = () => {
       </section>
 
       {/* Route */}
-      <section className="bg-[#101010] py-16 px-6 md:px-10 max-w-5xl mx-auto text-left border-t border-yellow">
-        <h2 className="text-yellow text-2xl md:text-3xl font-secondary uppercase tracking-widest mb-6">
+      <section className="bg-mmPage py-16 px-6 md:px-10 max-w-5xl mx-auto text-left border-t border-mmBorder">
+        <h2 className="mm-h2 text-mmText mb-6">
           Jouw route naar het Korps Commandotroepen
         </h2>
-        <ol className="relative border-l border-yellow pl-6 space-y-6 text-gray-300 font-light text-sm md:text-base">
+        <ol className="relative border-l border-mmAccent pl-6 space-y-6 text-mmTextMuted text-sm md:text-base">
           {[
             "Serieuze voorbereiding, fysiek en mentaal",
             "Oriëntatie en aanmelding via Defensie",
@@ -312,7 +312,7 @@ const KorpsCommandoTroepen = () => {
             "Afronding en inzet als operationeel commando",
           ].map((step, i) => (
             <li key={i}>
-              <span className="absolute left-[-9px] top-[5px] w-3 h-3 bg-yellow rounded-full" />
+              <span className="absolute left-[-9px] top-[5px] w-3 h-3 bg-mmAccent rounded-full" />
               {step}
             </li>
           ))}
@@ -320,8 +320,8 @@ const KorpsCommandoTroepen = () => {
       </section>
 
       {/* FAQ Accordion */}
-      <section className="px-4 md:px-10 max-w-5xl mx-auto py-16 space-y-4 border-t border-yellow">
-        <h2 className="text-yellow text-2xl md:text-3xl font-secondary uppercase tracking-widest mb-6">
+      <section className="px-4 md:px-10 max-w-5xl mx-auto py-16 space-y-4 border-t border-mmBorder">
+        <h2 className="mm-h2 text-mmText mb-6">
           Veelgestelde Vragen
         </h2>
 
@@ -330,8 +330,8 @@ const KorpsCommandoTroepen = () => {
           return (
             <div
               key={index}
-              className={`border border-yellow/20 rounded-lg transition-all duration-300 ${
-                isOpen ? "bg-[#111111] border-yellow" : "bg-[#0a0a0a]"
+              className={`border border-mmBorder rounded-2xl transition-all duration-300 ${
+                isOpen ? "bg-mmSurface border-mmAccent" : "bg-mmSurface"
               }`}
             >
               <button
@@ -342,10 +342,10 @@ const KorpsCommandoTroepen = () => {
                 }
                 className="w-full flex justify-between items-center px-6 py-4 text-left"
               >
-                <span className="text-yellow font-secondary text-base md:text-lg tracking-widest uppercase">
+                <span className="text-mmAccent font-display text-base md:text-lg tracking-widest uppercase">
                   {item.q}
                 </span>
-                <span className="text-yellow text-xl">
+                <span className="text-mmAccent text-xl">
                   {isOpen ? "−" : "+"}
                 </span>
               </button>
@@ -354,7 +354,7 @@ const KorpsCommandoTroepen = () => {
                   isOpen ? "max-h-[1000px] py-4 px-6" : "max-h-0"
                 }`}
               >
-                <p className="whitespace-pre-line text-gray-300 font-light leading-relaxed text-base md:text-lg">
+                <p className="whitespace-pre-line text-mmTextMuted leading-relaxed text-base md:text-lg">
                   {item.a}
                 </p>
               </div>
@@ -365,7 +365,7 @@ const KorpsCommandoTroepen = () => {
 
       {/* Mobile Sticky CTA */}
       {showStickyCTA && (
-        <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-yellow text-black px-4 py-3 flex justify-between items-center shadow-md">
+        <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-mmAccent text-white px-4 py-3 flex justify-between items-center shadow-sm">
           {/* Klaar voor (links) */}
           <span className="font-bold tracking-wide uppercase text-sm">
             Klaar voor?
@@ -374,13 +374,13 @@ const KorpsCommandoTroepen = () => {
           {/* X en Button (rechts) */}
           <div className="flex items-center gap-2">
             <Link to="/pricing">
-              <button className="bg-black text-yellow font-bold py-1.5 px-3 text-sm rounded hover:bg-yellow hover:text-black border border-black transition-all">
+              <button className="bg-mmSurface text-mmText font-bold py-1.5 px-3 text-sm rounded border border-mmBorder transition-all">
                 Bekijk Programma
               </button>
             </Link>
             <button
               onClick={() => setShowStickyCTA(false)}
-              className="text-black hover:text-gray-700 font-bold text-xl"
+              className="text-white/80 hover:text-white font-bold text-xl"
               aria-label="Sluiten"
             >
               ×

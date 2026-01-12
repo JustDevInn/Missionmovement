@@ -3,6 +3,99 @@
 @tailwind utilities;
 
 @layer base {
+  .mm-public {
+    --mm-page: #f7f9fc;
+    --mm-surface: #ffffff;
+    --mm-text: #0b1220;
+    --mm-text-muted: rgba(15, 23, 42, 0.62);
+    --mm-body: rgba(15, 23, 42, 0.82);
+    --mm-border: #e2e8f0;
+    --mm-border-strong: #cbd5e1;
+    --mm-accent: #1f6feb;
+    --mm-accent-hover: #1a5bd6;
+    --mm-focus: rgba(31, 111, 235, 0.3);
+    --mm-overlay-dark: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.55) 0%,
+      rgba(0, 0, 0, 0.2) 45%,
+      rgba(0, 0, 0, 0.55) 100%
+    );
+    --mm-glass-bg: rgba(0, 0, 0, 0.55);
+    --mm-glass-border: rgba(255, 255, 255, 0.12);
+  }
+
+  .serviceHero {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .serviceHero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: var(--mm-overlay-dark);
+  }
+
+  .serviceHeroContent {
+    position: relative;
+    z-index: 2;
+  }
+
+  .serviceHeroSubtitle {
+    background: var(--mm-glass-bg);
+    border: 1px solid var(--mm-glass-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 14px 18px;
+    max-width: min(760px, 92vw);
+    margin: 18px auto 0;
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
+  }
+
+  .serviceHeroSubtitle p {
+    margin: 0;
+    color: inherit;
+  }
+
+  .veiligheidsdienstenPage .serviceHeroSubtitle,
+  .veiligheidsdienstenPage .serviceHeroSubtitle p {
+    color: #fff !important;
+  }
+
+  .veiligheidsdienstenPage {
+    --body: rgba(15, 23, 42, 0.82);
+    --muted: rgba(15, 23, 42, 0.62);
+  }
+
+  .veiligheidsdienstenPage p {
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+      sans-serif;
+    color: var(--body);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .veiligheidsdienstenPage li {
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+      sans-serif;
+    color: var(--body);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .veiligheidsdienstenPage .sectionLead {
+    color: var(--muted);
+    max-width: 62ch;
+  }
+
+  .veiligheidsdienstenPage .cardTitle {
+    font-family: "Teko", system-ui, sans-serif;
+    letter-spacing: 0.08em;
+  }
+
   :root {
     --bg: #0d1624;
     --surface: #111e30;
@@ -173,43 +266,89 @@
 }
 
 @layer components {
+  .mm-page {
+    @apply bg-mmPage text-mmText font-body;
+  }
+
   .mm-container {
-    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-
-  .mm-section {
-    @apply bg-bg text-text py-12 md:py-16;
-  }
-
-  .mm-card {
-    @apply rounded-2xl border border-border bg-surface p-6 md:p-8 shadow-sm;
+    @apply max-w-5xl mx-auto px-6 md:px-10 lg:px-12;
   }
 
   .mm-h1 {
-    @apply text-3xl md:text-5xl font-secondary uppercase tracking-widest text-accent;
+    @apply font-display uppercase tracking-widest text-mmText text-3xl md:text-5xl;
   }
 
   .mm-h2 {
-    @apply text-xl md:text-3xl font-secondary uppercase tracking-widest text-accent;
+    @apply font-display uppercase tracking-widest text-mmText text-xl md:text-3xl;
+  }
+
+  .mm-h3 {
+    @apply font-display uppercase tracking-widest text-mmText text-lg md:text-2xl;
+  }
+
+  .mm-lead {
+    @apply text-mmTextMuted;
+  }
+
+  .mm-p {
+    @apply text-mmBody leading-[1.75];
+  }
+
+  .mm-card {
+    @apply bg-mmSurface rounded-2xl border border-mmBorder shadow-sm;
+  }
+
+  .mm-cardInner {
+    @apply bg-mmSurface rounded-xl border border-mmBorder;
+  }
+
+  .mm-accentLine {
+    @apply border-l-[3px] border-mmAccent;
+  }
+
+  .mm-btnPrimary {
+    @apply bg-mmAccent text-white rounded-xl border border-transparent px-6 py-3 font-semibold transition;
+  }
+
+  .mm-btnPrimary:hover {
+    background-color: var(--mm-accent-hover);
+  }
+
+  .mm-btnPrimary:focus-visible {
+    box-shadow: 0 0 0 2px var(--mm-focus);
+  }
+
+  .mm-heroOverlay {
+    background: var(--mm-overlay-dark);
+  }
+
+  .mm-glassSubtitle {
+    background: var(--mm-glass-bg);
+    border: 1px solid var(--mm-glass-border);
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .mm-section {
+    @apply bg-mmPage text-mmText py-12 md:py-16;
   }
 
   .mm-btn {
-    @apply inline-flex items-center justify-center rounded-full border border-border px-5 py-2 text-sm font-semibold text-text transition;
-    background-color: var(--surface-2);
+    @apply inline-flex items-center justify-center rounded-full border border-mmBorder px-5 py-2 text-sm font-semibold text-mmText transition;
+    background-color: var(--mm-surface);
   }
 
   .mm-btn:hover {
-    background-color: var(--surface);
+    background-color: var(--mm-surface);
   }
 
   .mm-btn-primary {
     @apply inline-flex items-center justify-center rounded-full border border-transparent px-5 py-2 text-sm font-semibold transition;
-    background-color: var(--accent);
-    color: #0b1422;
+    background-color: var(--mm-accent);
+    color: #ffffff;
   }
 
   .mm-btn-primary:hover {
-    background-color: var(--accent-2);
+    background-color: var(--mm-accent-hover);
   }
 
   .admin-dark-theme {

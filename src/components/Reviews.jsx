@@ -29,7 +29,7 @@ const Reviews = () => {
 
   return (
     <section className="w-screen flex flex-col justify-center items-center p-10 text-justify">
-      <h2 className="h1-teko text-center py-20 tracking-wider">
+      <h2 className="mm-h1 text-mmText text-center py-20 tracking-widest">
         Zij Die Het Verdiend Hebben
       </h2>
 
@@ -42,10 +42,12 @@ const Reviews = () => {
         {reviews.map((review, index) => (
           <div
             key={index}
-            className="flex-shrink-0 w-full md:w-[48%] lg:w-[45%] p-5 border border-brown shadow-lg bg-primary snap-center"
+            className="flex-shrink-0 w-full md:w-[48%] lg:w-[45%] p-5 border border-mmBorder shadow-sm bg-mmSurface rounded-2xl snap-center"
           >
-            <h2 className="h2-teko mb-2">{review.name}</h2>
-            <p className="text-white font-light tracking-wider">
+            <h2 className="font-display uppercase tracking-widest text-mmText mb-2">
+              {review.name}
+            </h2>
+            <p className="text-mmTextMuted">
               {review.text}
             </p>
           </div>

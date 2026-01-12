@@ -98,67 +98,67 @@ const Aanbod = () => {
         <p className="text-red-500 text-center mt-4 font-medium">{error}</p>
       )}
 
-      <section className="w-full bg-[#101010] py-20 px-6 md:px-20 flex flex-col items-center">
-        <h2 className="text-yellow text-2xl md:text-4xl font-secondary uppercase tracking-widest text-center mb-12 border-b border-yellow pb-4 w-full max-w-4xl">
+      <section className="w-full bg-mmPage py-20 px-6 md:px-20 flex flex-col items-center">
+        <h2 className="mm-h2 text-center mb-12 border-b border-mmBorder pb-4 w-full max-w-4xl text-mmText">
           Wat je krijgt
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-10 w-full max-w-5xl text-white font-normal text-sm md:text-base">
-          <div className="space-y-4 bg-[#121212] rounded-lg p-6 border border-yellow/20 shadow-md">
-            <h3 className="text-yellow font-semibold uppercase tracking-widest mb-2">
+        <div className="grid md:grid-cols-2 gap-10 w-full max-w-5xl text-mmTextMuted text-sm md:text-base">
+          <div className="mm-card space-y-4 p-6">
+            <h3 className="font-display uppercase tracking-widest text-mmAccent mb-2">
               Volledige toegang tot het programma
             </h3>
             <ul className="list-none space-y-2">
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> Programma 01:
+                <span className="text-mmAccent mt-1">•</span> Programma 01:
                 Basisvereisten
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> Programma 02:
+                <span className="text-mmAccent mt-1">•</span> Programma 02:
                 Fundamentele Kracht
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> Programma 03:
+                <span className="text-mmAccent mt-1">•</span> Programma 03:
                 Zwemmen of Zinken
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> Programma 04/05:
+                <span className="text-mmAccent mt-1">•</span> Programma 04/05:
                 Ondersteuning (Mobiliteit + Oefenbibliotheek)
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> 6-Weeks
+                <span className="text-mmAccent mt-1">•</span> 6-Weeks
                 Gestructureerd Trainingsplan
               </li>
             </ul>
           </div>
 
-          <div className="space-y-4 bg-[#121212] rounded-lg p-6 border border-yellow/20 shadow-md">
-            <h3 className="text-yellow font-semibold uppercase tracking-widest mb-2">
+          <div className="mm-card space-y-4 p-6">
+            <h3 className="font-display uppercase tracking-widest text-mmAccent mb-2">
               In de app
             </h3>
             <ul className="list-none space-y-2">
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> Dagelijkse structuur
+                <span className="text-mmAccent mt-1">•</span> Dagelijkse structuur
                 gericht op resultaat
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> Verantwoording,
+                <span className="text-mmAccent mt-1">•</span> Verantwoording,
                 zoals in het echt
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> Downloadbare PDF’s
+                <span className="text-mmAccent mt-1">•</span> Downloadbare PDF’s
                 van alle programma’s
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> Beheersing van
+                <span className="text-mmAccent mt-1">•</span> Beheersing van
                 tactische bewegingen met video’s en uitleg
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> Echte begeleiding,
+                <span className="text-mmAccent mt-1">•</span> Echte begeleiding,
                 geen generieke schema’s
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span> Voedingsrichtlijnen
+                <span className="text-mmAccent mt-1">•</span> Voedingsrichtlijnen
               </li>
             </ul>
           </div>
@@ -170,12 +170,12 @@ const Aanbod = () => {
         author="Mission Movement"
       />
 
-      <section className="w-full bg-[#101010] py-20 px-4 flex flex-col items-center">
-        <h2 className="text-yellow text-xl md:text-3xl font-secondary tracking-widest uppercase mb-6 text-center">
+      <section className="w-full bg-mmPage py-20 px-4 flex flex-col items-center">
+        <h2 className="mm-h2 text-mmText text-center text-xl md:text-3xl mb-6">
           Een glimp van de grind. Kijk goed waar je instapt.
         </h2>
         <div className="w-full flex justify-center">
-          <div className="w-full max-w-3xl aspect-video rounded-lg overflow-hidden border border-yellow/20 shadow-xl bg-black">
+          <div className="w-full max-w-3xl aspect-video rounded-2xl overflow-hidden border border-mmBorder shadow-sm bg-black">
             <Suspense
               fallback={<div className="text-gray-500">Voorbeeld laden...</div>}
             >
@@ -187,7 +187,7 @@ const Aanbod = () => {
 
       <p
         ref={enlistRef}
-        className={`mt-16 mb-10 text-yellow text-center text-base md:text-lg tracking-wide font-secondary italic transition-all duration-1000 ease-out ${
+        className={`mt-16 mb-10 text-mmAccent text-center text-base md:text-lg tracking-wide italic transition-all duration-1000 ease-out ${
           enlistVisible
             ? "opacity-100 translate-y-0 blur-0 scale-100"
             : "opacity-0 translate-y-4 blur-sm scale-95"

@@ -13,6 +13,8 @@ module.exports = {
     fontFamily: {
       primary: ['Helvetica Neue', 'sans-serif'],
       secondary: ['Teko', 'sans-serif'],
+      body: ['Inter', 'system-ui', 'sans-serif'],
+      display: ['Teko', 'system-ui', 'sans-serif'],
     },
     extend: {
       colors: {
@@ -29,6 +31,18 @@ module.exports = {
         surfaceDark: '#1E1E1E',
         accentCyan: '#00FFFF', // Cyan
         highlight: '#00BFFF', // DeepSkyBlue
+        mmPage: 'var(--mm-page)',
+        mmSurface: 'var(--mm-surface)',
+        mmText: 'var(--mm-text)',
+        mmTextMuted: 'var(--mm-text-muted)',
+        mmBody: 'var(--mm-body)',
+        mmBorder: 'var(--mm-border)',
+        mmBorderStrong: 'var(--mm-border-strong)',
+        mmAccent: 'var(--mm-accent)',
+        mmAccentHover: 'var(--mm-accent-hover)',
+        mmOverlayDark: 'var(--mm-overlay-dark)',
+        mmGlassBg: 'var(--mm-glass-bg)',
+        mmGlassBorder: 'var(--mm-glass-border)',
       }
     },
   },

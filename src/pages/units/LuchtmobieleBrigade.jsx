@@ -125,7 +125,7 @@ const LuchtmobieleBrigade = () => {
   }, []);
 
   return (
-    <div className="bg-black text-white min-h-screen pt-20">
+    <div className="bg-mmPage text-mmText min-h-screen pt-20">
       <Helmet>
         <title>11 Luchtmobiele Brigade | Missie & Voorbereiding</title>
         <meta
@@ -141,12 +141,12 @@ const LuchtmobieleBrigade = () => {
           alt="Luchtmobiele Brigade"
           className="absolute inset-0 w-full h-full object-cover object-[center_80%] scale-110"
         />
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 h-full w-full flex flex-col justify-center items-center text-center px-6">
-          <h1 className="text-yellow text-[32px] md:text-[50px] font-secondary uppercase tracking-widest mb-4">
+          <h1 className="text-mmAccent text-[32px] md:text-[50px] font-display uppercase tracking-widest mb-4">
             11 Luchtmobiele Brigade
           </h1>
-          <p className="text-gray-200 max-w-xl font-light text-base md:text-lg">
+          <p className="text-white/90 max-w-xl text-base md:text-lg">
             De rode baretten van Defensie: snel, licht en altijd inzetbaar.
           </p>
         </div>
@@ -156,7 +156,7 @@ const LuchtmobieleBrigade = () => {
 
       <SubNav />
       {/* Intro */}
-      <section className="bg-[#0a0a0a] py-16 px-6 md:px-10 lg:px-20 max-w-5xl mx-auto">
+      <section className="bg-mmPage py-16 px-6 md:px-10 lg:px-20 max-w-5xl mx-auto">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
           <div className="flex-shrink-0 flex items-center justify-center h-[160px] md:h-[220px]">
             <img
@@ -165,11 +165,11 @@ const LuchtmobieleBrigade = () => {
               className="h-full w-auto object-contain"
             />
           </div>
-          <div className="border-l-[3px] border-yellow pl-6">
-            <h2 className="text-yellow text-2xl md:text-4xl font-secondary uppercase tracking-widest mb-4">
+          <div className="border-l-[3px] border-mmAccent pl-6">
+            <h2 className="text-mmText text-2xl md:text-4xl font-display uppercase tracking-widest mb-4">
               Wat is 11 Luchtmobiele Brigade?
             </h2>
-            <p className="text-gray-300 font-light leading-relaxed text-base md:text-lg">
+            <p className="text-mmTextMuted leading-relaxed text-base md:text-lg">
               Na de val van de Berlijnse Muur in 1989 veranderde de wereldwijde
               veiligheidssituatie ingrijpend. Nederland zag de noodzaak voor een
               snel inzetbare eenheid die wereldwijd flexibel kon opereren binnen
@@ -200,18 +200,18 @@ const LuchtmobieleBrigade = () => {
           return (
             <div
               key={index}
-              className={`border border-yellow/20 rounded-lg transition-all duration-300 ${
-                isOpen ? "bg-[#111111] border-yellow" : "bg-[#0a0a0a]"
+              className={`border border-mmBorder rounded-2xl transition-all duration-300 ${
+                isOpen ? "bg-mmSurface border-mmAccent" : "bg-mmSurface"
               }`}
             >
               <button
                 onClick={() => toggleIndex(index)}
                 className="w-full flex justify-between items-center px-6 py-4 text-left"
               >
-                <span className="text-yellow font-secondary text-base md:text-lg tracking-widest uppercase">
+                <span className="text-mmAccent font-display text-base md:text-lg tracking-widest uppercase">
                   {item.title}
                 </span>
-                <span className="text-yellow text-xl">
+                <span className="text-mmAccent text-xl">
                   {isOpen ? "−" : "+"}
                 </span>
               </button>
@@ -220,13 +220,13 @@ const LuchtmobieleBrigade = () => {
                   isOpen ? "max-h-[1000px] py-4 px-6" : "max-h-0"
                 }`}
               >
-                <p className="whitespace-pre-line text-gray-300 font-light leading-relaxed mb-4 text-base md:text-lg">
+                <p className="whitespace-pre-line text-mmTextMuted leading-relaxed mb-4 text-base md:text-lg">
                   {item.content}
                 </p>
                 <img
                   src={item.image}
                   alt={`${item.title} visual`}
-                  className="w-full max-h-[300px] rounded-md shadow-md object-cover"
+                  className="w-full max-h-[300px] rounded-2xl shadow-sm border border-mmBorder object-cover"
                   style={{ objectPosition: item.objectPosition || "center" }}
                 />
               </div>
@@ -237,15 +237,15 @@ const LuchtmobieleBrigade = () => {
 
       {/* LMB specialisaties*/}
       <section className="px-4 md:px-10 max-w-5xl mx-auto pb-16">
-        <h2 className="text-yellow text-2xl md:text-3xl font-secondary uppercase tracking-widest mb-6">
+        <h2 className="mm-h2 text-mmText mb-6">
           Specialisaties binnen de Luchtmobiele brigade
         </h2>
         {lmbSpecialisaties.map((item, index) => (
           <div key={index} className="mb-6">
-            <h3 className="text-yellow font-semibold text-lg mb-2">
+            <h3 className="text-mmAccent font-semibold text-lg mb-2">
               {item.title}
             </h3>
-            <p className="text-gray-300 font-light whitespace-pre-line text-base md:text-lg">
+            <p className="text-mmTextMuted whitespace-pre-line text-base md:text-lg">
               {item.content}
             </p>
           </div>
@@ -253,15 +253,15 @@ const LuchtmobieleBrigade = () => {
       </section>
 
       {/* CTA */}
-      <section className="relative bg-yellow text-black py-12 my-10 px-6 text-center shadow-lg overflow-hidden">
+      <section className="relative bg-mmSurface border border-mmBorder text-mmText py-12 my-10 px-6 text-center shadow-sm overflow-hidden">
         <div className="max-w-3xl mx-auto">
-          <p className="uppercase text-xs tracking-widest mb-2 font-bold">
+          <p className="uppercase text-xs tracking-widest mb-2 font-bold text-mmTextMuted">
             Luchtmobiel Voorbereiding
           </p>
           <h3 className="text-3xl md:text-4xl font-bold tracking-wide mb-3">
             Wil je dit echt, dan moet je voorbereid starten.
           </h3>
-          <p className="text-base md:text-lg mb-6">
+          <p className="text-base md:text-lg mb-6 text-mmTextMuted">
             De luchtmobiele opleiding is fysiek zwaar en mentaal veeleisend. Eén
             poging, geen ruimte voor gokken. Dit programma helpt je gericht
             toewerken naar een sterke en realistische start.{" "}
@@ -270,7 +270,7 @@ const LuchtmobieleBrigade = () => {
             Ook steeds meer vrouwen bewijzen dat ze hier thuishoren.
           </p>
           <Link to="/pricing" className="flex justify-center items-center">
-            <button className="btn-lg bg-black text-yellow hover:bg-yellow hover:text-black border border-black">
+            <button className="mm-btnPrimary">
               Start Voorbereiding
             </button>
           </Link>
@@ -279,10 +279,10 @@ const LuchtmobieleBrigade = () => {
 
       {/* Voor wie */}
       <section className="py-16 px-6 md:px-10 max-w-5xl mx-auto text-left">
-        <h2 className="text-yellow text-2xl md:text-3xl font-secondary uppercase tracking-widest mb-6">
+        <h2 className="mm-h2 text-mmText mb-6">
           Voor wie is dit geschikt?
         </h2>
-        <ul className="list-disc pl-6 text-gray-300 font-light space-y-2">
+        <ul className="list-disc pl-6 text-mmTextMuted space-y-2">
           <li>
             Je wilt deel uitmaken van een snelle, internationale
             interventie-eenheid die optreedt onder druk.
@@ -311,11 +311,11 @@ const LuchtmobieleBrigade = () => {
       </section>
 
       {/* Route */}
-      <section className="bg-[#101010] py-16 px-6 md:px-10 max-w-5xl mx-auto text-left border-t border-yellow">
-        <h2 className="text-yellow text-2xl md:text-3xl font-secondary uppercase tracking-widest mb-6">
+      <section className="bg-mmPage py-16 px-6 md:px-10 max-w-5xl mx-auto text-left border-t border-mmBorder">
+        <h2 className="mm-h2 text-mmText mb-6">
           Jouw route naar 11 Luchtmobiele Brigade
         </h2>
-        <ol className="relative border-l border-yellow pl-6 space-y-6 text-gray-300 font-light text-sm md:text-base">
+        <ol className="relative border-l border-mmAccent pl-6 space-y-6 text-mmTextMuted text-sm md:text-base">
           {[
             "Voorbereiding: fysiek",
             "Oriëntatie en aanmelding via Defensie",
@@ -325,7 +325,7 @@ const LuchtmobieleBrigade = () => {
             "Inzet als luchtmobiel militair",
           ].map((step, i) => (
             <li key={i}>
-              <span className="absolute left-[-9px] top-[5px] w-3 h-3 bg-yellow rounded-full" />
+              <span className="absolute left-[-9px] top-[5px] w-3 h-3 bg-mmAccent rounded-full" />
               {step}
             </li>
           ))}
@@ -333,8 +333,8 @@ const LuchtmobieleBrigade = () => {
       </section>
 
       {/* FAQ Accordion */}
-      <section className="px-4 md:px-10 max-w-5xl mx-auto py-16 space-y-4 border-t border-yellow">
-        <h2 className="text-yellow text-2xl md:text-3xl font-secondary uppercase tracking-widest mb-6">
+      <section className="px-4 md:px-10 max-w-5xl mx-auto py-16 space-y-4 border-t border-mmBorder">
+        <h2 className="mm-h2 text-mmText mb-6">
           Veelgestelde Vragen
         </h2>
 
@@ -344,8 +344,8 @@ const LuchtmobieleBrigade = () => {
           return (
             <div
               key={index}
-              className={`border border-yellow/20 rounded-lg transition-all duration-300 ${
-                isOpen ? "bg-[#111111] border-yellow" : "bg-[#0a0a0a]"
+              className={`border border-mmBorder rounded-2xl transition-all duration-300 ${
+                isOpen ? "bg-mmSurface border-mmAccent" : "bg-mmSurface"
               }`}
             >
               <button
@@ -356,10 +356,10 @@ const LuchtmobieleBrigade = () => {
                 }
                 className="w-full flex justify-between items-center px-6 py-4 text-left"
               >
-                <span className="text-yellow font-secondary text-base md:text-lg tracking-widest uppercase">
+                <span className="text-mmAccent font-display text-base md:text-lg tracking-widest uppercase">
                   {item.title}
                 </span>
-                <span className="text-yellow text-xl">
+                <span className="text-mmAccent text-xl">
                   {isOpen ? "−" : "+"}
                 </span>
               </button>
@@ -368,7 +368,7 @@ const LuchtmobieleBrigade = () => {
                   isOpen ? "max-h-[1000px] py-4 px-6" : "max-h-0"
                 }`}
               >
-                <p className="whitespace-pre-line text-gray-300 font-light leading-relaxed text-base md:text-lg">
+                <p className="whitespace-pre-line text-mmTextMuted leading-relaxed text-base md:text-lg">
                   {item.content}
                 </p>
               </div>
@@ -379,19 +379,19 @@ const LuchtmobieleBrigade = () => {
 
       {/* Mobile Sticky CTA */}
       {showStickyCTA && (
-        <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-yellow text-black px-4 py-3 flex justify-between items-center shadow-md">
+        <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-mmAccent text-white px-4 py-3 flex justify-between items-center shadow-sm">
           <span className="font-bold tracking-wide uppercase text-sm">
             Klaar voor?
           </span>
           <div className="flex items-center gap-2">
             <Link to="/pricing">
-              <button className="bg-black text-yellow font-bold py-1.5 px-3 text-sm rounded hover:bg-yellow hover:text-black border border-black transition-all">
+              <button className="bg-mmSurface text-mmText font-bold py-1.5 px-3 text-sm rounded border border-mmBorder transition-all">
                 Bekijk Programma
               </button>
             </Link>
             <button
               onClick={() => setShowStickyCTA(false)}
-              className="text-black hover:text-gray-700 font-bold text-xl"
+              className="text-white/80 hover:text-white font-bold text-xl"
               aria-label="Sluiten"
             >
               ×

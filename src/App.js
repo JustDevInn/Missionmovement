@@ -173,7 +173,7 @@ const MainRoutes = () => {
 
     </Routes>
   ) : (
-    <div className="pt-18 md:pt-20">
+    <div className="mm-public mm-page pt-18 md:pt-20">
       <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         {/* Public Pages */}

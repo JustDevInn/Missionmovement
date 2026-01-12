@@ -39,16 +39,16 @@ const Login = () => {
   };
 
   return user ? (
-    <div className="text-center mt-32 text-white text-xl">
+    <div className="text-center mt-32 text-mmText text-xl">
       Je bent al ingelogd. We verwijzen je nu...
     </div>
   ) : (
-    <div className="min-h-[calc(100vh-90px)] bg-[#0a0a0a] flex justify-center items-center px-4">
+    <div className="min-h-[calc(100vh-90px)] bg-mmPage flex justify-center items-center px-4">
       <form
         onSubmit={handleLogin}
-        className="bg-[#1A1A1A] border border-yellow w-full max-w-md rounded-xl px-8 py-10 shadow-lg"
+        className="bg-mmSurface border border-mmBorder w-full max-w-md rounded-2xl px-8 py-10 shadow-sm"
       >
-        <h2 className="text-yellow font-secondary text-3xl mb-6 tracking-wider uppercase text-center">
+        <h2 className="text-mmText font-display text-3xl mb-6 tracking-widest uppercase text-center">
           Log in
         </h2>
 
@@ -62,52 +62,52 @@ const Login = () => {
           <input
             type="email"
             placeholder="Email"
-            className="w-full bg-[#121212] text-white placeholder-gray-400 px-4 py-3 rounded-md outline-none focus:ring-2 focus:ring-yellow transition"
+            className="w-full bg-mmSurface text-mmText placeholder-mmTextMuted px-4 py-3 rounded-md outline-none border border-mmBorder focus:ring-2 focus:ring-mmFocus transition"
             onChange={(e) => setEmail(e.target.value)}
             disabled={loading}
             required
           />
-         <div className="relative">
-  <input
-    type={showPassword ? "text" : "password"}
-    placeholder="Password"
-    autoComplete="new-password" // for signup - change to "current-password" for login
-    className="w-full bg-[#121212] text-white placeholder-gray-400 px-4 py-3 pr-10 rounded-md outline-none focus:ring-2 focus:ring-yellow transition"
-    onChange={(e) => setPassword(e.target.value)}
-    disabled={loading}
-    required
-  />
-  <button
-    type="button"
-    onClick={() => setShowPassword(!showPassword)}
-    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-yellow"
-  >
-    {showPassword ? <FaEyeSlash /> : <FaEye />}
-  </button>
-</div>
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              autoComplete="new-password"
+              className="w-full bg-mmSurface text-mmText placeholder-mmTextMuted px-4 py-3 pr-10 rounded-md outline-none border border-mmBorder focus:ring-2 focus:ring-mmFocus transition"
+              onChange={(e) => setPassword(e.target.value)}
+              disabled={loading}
+              required
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-mmTextMuted hover:text-mmAccent"
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </button>
+          </div>
 
         </div>
 
         <div className="mt-6">
           {showSpinner ? (
             <div className="flex justify-center">
-              <Spinner />
+              <Spinner color="border-mmAccent" />
             </div>
           ) : (
             <button
               type="submit"
               disabled={loading}
-              className="bg-yellow text-black font-semibold py-3 w-full rounded-md hover:bg-opacity-90 transition tracking-wide disabled:opacity-60 disabled:cursor-not-allowed"
+              className="mm-btnPrimary w-full disabled:opacity-60 disabled:cursor-not-allowed"
             >
               Log in
             </button>
           )}
         </div>
 
-        <p className="text-center text-gray-400 mt-6 text-base md:text-lg">
+        <p className="text-center text-mmTextMuted mt-6 text-base md:text-lg">
           Niew hier?{" "}
-          <RouterLink to="/signup" className="text-yellow hover:underline">
-          Creëer een account
+          <RouterLink to="/signup" className="text-mmAccent hover:underline">
+            Creëer een account
           </RouterLink>
         </p>
       </form>

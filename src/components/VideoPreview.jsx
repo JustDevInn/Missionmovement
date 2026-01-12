@@ -7,7 +7,7 @@ const VideoPreview = ({ videoId = "YHffzTVE_9Q" }) => {
   const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
 
   return (
-    <div className="w-full max-w-3xl aspect-video rounded-lg overflow-hidden border border-[#2A2A2A] shadow-xl bg-black">
+    <div className="w-full max-w-3xl aspect-video rounded-2xl overflow-hidden border border-mmBorder shadow-sm bg-black">
       {isPlaying ? (
         <iframe
           className="w-full h-full"
@@ -31,7 +31,7 @@ const VideoPreview = ({ videoId = "YHffzTVE_9Q" }) => {
           <div className="absolute inset-0 bg-black/50 flex items-center justify-center transition group-hover:bg-black/60">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-16 h-16 text-yellow drop-shadow-lg"
+              className="w-16 h-16 text-mmAccent drop-shadow-lg"
               fill="currentColor"
               viewBox="0 0 24 24"
             >

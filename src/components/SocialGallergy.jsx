@@ -79,7 +79,7 @@ const SocialGallery = () => {
     <div className="w-screen">
       {/* Social Header */}
       <section className="px-10 flex flex-col justify-center items-center">
-        <h1 className="h1-teko py-20 lg:pt-40 lg:pb-20">Social</h1>
+        <h1 className="mm-h1 text-mmText py-20 lg:pt-40 lg:pb-20">Social</h1>
         <motion.a
           variants={fadeIn("up")}
           initial="hidden"
@@ -88,7 +88,7 @@ const SocialGallery = () => {
           href="http://www.instagram.com/mission.movement"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-yellow w-full text-sm lg:text-lg text-center"
+          className="text-mmAccent w-full text-sm lg:text-lg text-center"
         >
           @mission.movement
         </motion.a>
@@ -134,8 +134,7 @@ const SocialGallery = () => {
           >
             {/* Close Button */}
             <button
-              className="absolute -top-10 -right-10 text-brown hover:text-yellow text-2xl border border-b border-brown hover:border-yellow 
-              h-8 w-8 flex items-center justify-center"
+              className="absolute -top-10 -right-10 text-mmTextMuted hover:text-mmAccent text-2xl border border-b border-mmBorder hover:border-mmAccent h-8 w-8 flex items-center justify-center bg-mmSurface/90"
               onClick={() => setOpen(false)}
             >
               ✕
@@ -143,7 +142,7 @@ const SocialGallery = () => {
 
             {/* Left Arrow */}
             <button
-              className="absolute -left-10 text-brown hover:text-yellow text-3xl"
+              className="absolute -left-10 text-mmTextMuted hover:text-mmAccent text-3xl"
               onClick={(e) => {
                 e.stopPropagation();
                 prevImage();
@@ -206,7 +205,7 @@ const SocialGallery = () => {
 
             {/* Right Arrow */}
             <button
-              className="absolute -right-10 text-brown hover:text-yellow text-3xl"
+              className="absolute -right-10 text-mmTextMuted hover:text-mmAccent text-3xl"
               onClick={(e) => {
                 e.stopPropagation();
                 nextImage();

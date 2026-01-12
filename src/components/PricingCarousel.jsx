@@ -62,14 +62,14 @@ const PricingCarousel = ({ onCheckout, loading = false }) => {
   });
 
   return (
-    <div className="relative w-full flex flex-col items-center py-40 md:py-20 px-6 bg-[#121212]">
+    <div className="relative w-full flex flex-col items-center py-24 md:py-20 px-6 bg-mmPage">
       {loading && (
-        <div className="fixed inset-0 z-[9999] bg-black/80 flex items-center justify-center">
-          <Spinner />
+        <div className="fixed inset-0 z-[9999] bg-black/60 flex items-center justify-center">
+          <Spinner color="border-mmAccent" />
         </div>
       )}
 
-      <h2 className="text-yellow text-3xl md:text-5xl font-secondary uppercase tracking-widest text-center mb-16">
+      <h2 className="mm-h2 text-center mb-16 text-mmText">
         Kies jouw aanpak
       </h2>
 
@@ -118,8 +118,8 @@ const PricingCarousel = ({ onCheckout, loading = false }) => {
           {plans.map((_, i) => (
             <span
               key={i}
-              className={`w-3 h-3 rounded-full border border-yellow transition-all ${
-                i === index ? "bg-yellow" : "bg-transparent"
+              className={`w-3 h-3 rounded-full border border-mmBorder transition-all ${
+                i === index ? "bg-mmAccent border-mmAccent" : "bg-transparent"
               }`}
             />
           ))}
@@ -134,27 +134,27 @@ const Card = ({ data, highlighted, muted, onCheckout }) => {
 
   return (
     <div
-      className={`w-[280px] md:w-[360px] bg-[#101010] border rounded-lg shadow-md px-6 py-8 transition-all duration-300 ${
+      className={`w-[280px] md:w-[360px] bg-mmSurface border border-mmBorder rounded-2xl shadow-sm px-6 py-8 transition-all duration-300 ${
         highlighted
-          ? "border-yellow shadow-yellow/20 scale-[1.05] z-20"
-          : "border-yellow/20 opacity-60 scale-90"
+          ? "border-mmAccent ring-1 ring-mmAccent/20 scale-[1.03] z-20"
+          : "opacity-70 scale-95"
       }`}
     >
       <h3
-        className={`text-lg md:text-xl font-bold uppercase ${
-          highlighted ? "text-yellow" : "text-white"
+        className={`text-lg md:text-xl font-display uppercase tracking-widest ${
+          highlighted ? "text-mmAccent" : "text-mmText"
         }`}
       >
         {title}
       </h3>
-      <p className="text-gray-400 mt-3 mb-4 text-base md:text-lg">{description}</p>
-      <ul className="text-white text-sm space-y-2 mb-4">
+      <p className="text-mmTextMuted mt-3 mb-4 text-base md:text-lg">{description}</p>
+      <ul className="text-mmTextMuted text-sm space-y-2 mb-4">
         {features.map((f, i) => (
           <li key={i}>{f}</li>
         ))}
       </ul>
-      <p className="text-yellow font-bold text-lg mb-4">{price}</p>
-      <button className="btn-lg w-full" onClick={() => onCheckout(id)}>
+      <p className="text-mmText font-semibold text-lg mb-4">{price}</p>
+      <button className="mm-btnPrimary w-full" onClick={() => onCheckout(id)}>
         {id === "basic"
           ? "Start dit traject"
           : id === "standard"

@@ -20,17 +20,17 @@ const FloatingCTA = () => {
     <div
       className={`fixed bottom-5 right-5 z-50 transition-all duration-500 ease-in-out transform ${
         isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-      } hidden md:flex items-center bg-yellow text-black rounded-full px-5 py-3 shadow-lg gap-3 backdrop-blur-sm`}
+      } hidden md:flex items-center bg-mmAccent text-white rounded-full px-5 py-3 shadow-sm gap-3 backdrop-blur-sm`}
     >
       <Link
         to="/program"
-        className="flex items-center gap-2 font-bold tracking-wider uppercase hover:underline"
+        className="flex items-center gap-2 font-bold tracking-widest uppercase hover:underline"
       >
         Start Jouw Missie
       </Link>
       <button
         onClick={() => setDismissed(true)}
-        className="ml-2 text-black hover:text-gray-700 transition"
+        className="ml-2 text-white/80 hover:text-white transition"
         aria-label="Dismiss CTA"
       >
         <FaTimes size={14} />

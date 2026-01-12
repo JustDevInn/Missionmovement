@@ -67,27 +67,31 @@ const Program = () => {
       {/* Hero sectie */}
       <section className="section flex flex-col justify-center items-center md:mb-20">
         <div className="flex flex-col justify-start items-start">
-          <p className="h2 animate-fade-in">Het</p>
-          <h1 className="text-yellow font-primary text-[35px] md:text-[100px] font-medium uppercase leading-[120%] tracking-wider animate-slide-in-left">
+          <p className="font-display uppercase tracking-widest text-mmText text-[20px] md:text-[30px] animate-fade-in">
+            Het
+          </p>
+          <h1 className="font-display text-mmAccent text-[35px] md:text-[100px] uppercase leading-[120%] tracking-widest animate-slide-in-left">
             Militaraire
           </h1>
-          <h1 className="text-yellow font-primary text-[35px] md:text-[100px] font-medium uppercase leading-[120%] tracking-wider animate-slide-in-left">
+          <h1 className="font-display text-mmAccent text-[35px] md:text-[100px] uppercase leading-[120%] tracking-widest animate-slide-in-left">
             Voorbereidings-
           </h1>
-          <p className="h2 animate-fade-in">Programma</p>
+          <p className="font-display uppercase tracking-widest text-mmText text-[20px] md:text-[30px] animate-fade-in">
+            Programma
+          </p>
         </div>
       </section>
 
-      <section className="bg-[#121212] py-4 border-t border-b border-yellow w-full text-center mb-20">
-        <div className="text-brown font-secondary tracking-widest uppercase text-md md:text-lg flex flex-wrap justify-center gap-4 px-4">
+      <section className="bg-mmSurface py-4 border-t border-b border-mmBorder w-full text-center mb-20">
+        <div className="text-mmTextMuted font-display tracking-widest uppercase text-md md:text-lg flex flex-wrap justify-center gap-4 px-4">
           {coreValues.map((value, index) => (
             <React.Fragment key={index}>
-              <span className="px-1 hover:text-yellow transition duration-200">
+              <span className="px-1 hover:text-mmAccent transition duration-200">
                 {value}
               </span>
 
               {index < coreValues.length - 1 && (
-                <span className="text-yellow">|</span>
+                <span className="text-mmAccent">|</span>
               )}
             </React.Fragment>
           ))}
@@ -96,12 +100,12 @@ const Program = () => {
 
       {/* Programma overzicht */}
       <section className="w-full px-5 sm:px-10 lg:px-20">
-        <header className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 tracking-wider text-white max-w-7xl mx-auto">
-          <div className="bg-primary p-4 md:p-6 lg:p-8 rounded-xl shadow-lg">
-            <h1 className="text-yellow text-xl md:text-4xl font-secondary tracking-widest uppercase mb-4 text-center border-b border-yellow pb-2">
+        <header className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 tracking-wider text-mmText max-w-7xl mx-auto">
+          <div className="mm-card p-4 md:p-6 lg:p-8">
+            <h1 className="mm-h2 text-center border-b border-mmBorder pb-2 mb-4 text-mmText">
               Programma Overzicht
             </h1>
-            <p className="text-xs md:text-sm font-normal text-white text-justify leading-relaxed mb-4">
+            <p className="text-xs md:text-sm font-normal text-mmTextMuted text-justify leading-relaxed mb-4">
               Het Militaire voorbereidingsprogramma van Mission Movement is
               gebouwd op meer dan 10 jaar ervaring binnen elite eenheden en 10
               jaar in de sport branche. Het gaat verder dan fitness - het is
@@ -114,15 +118,15 @@ const Program = () => {
             {programDetails.map((item, index) => (
               <div
                 key={index}
-                className="mb-3 bg-brown rounded-md overflow-hidden transition-all duration-300 hover:scale-[1.01] hover:bg-opacity-80"
+                className="mb-3 bg-mmSurface border border-mmBorder rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.01]"
               >
                 <button
                   onClick={() => toggleProgram(index)}
-                  className="w-full flex justify-between items-center px-3 py-2 text-left text-brown text-xs md:text-sm font-medium uppercase bg-primary hover:text-yellow transition duration-300"
+                  className="w-full flex justify-between items-center px-3 py-2 text-left text-mmText text-xs md:text-sm font-medium uppercase bg-mmSurface hover:text-mmAccent transition duration-300"
                   aria-expanded={openProgramIndex === index}
                 >
                   {item.title}
-                  <span className="text-yellow text-xl">
+                  <span className="text-mmAccent text-xl">
                     {openProgramIndex === index ? "−" : "+"}
                   </span>
                 </button>
@@ -133,7 +137,7 @@ const Program = () => {
                       : "max-h-0 opacity-0"
                   }`}
                 >
-                  <p className="text-white text-xs leading-relaxed">
+                  <p className="text-mmTextMuted text-xs leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -144,10 +148,10 @@ const Program = () => {
           {/* Vereisten + Skills + Voor wie */}
           <div className="flex flex-col p-4 md:p-6 lg:p-8 gap-8 lg:gap-10">
             <div>
-              <h1 className="text-yellow font-secondary text-xl md:text-2xl tracking-widest uppercase mb-3">
+              <h1 className="text-mmAccent font-display text-xl md:text-2xl tracking-widest uppercase mb-3">
                 Vereisten
               </h1>
-              <ul className="grid grid-cols-2 gap-2 text-xs md:text-sm font-light">
+              <ul className="grid grid-cols-2 gap-2 text-xs md:text-sm text-mmTextMuted">
                 {[
                   "Mindset en houding",
                   "Fysieke basisconditie",
@@ -157,7 +161,7 @@ const Program = () => {
                   "Geen medische belemmeringen",
                 ].map((req, i) => (
                   <li key={i} className="flex items-center gap-2">
-                    <FaCheck className="text-yellow min-w-[16px] h-[16px] md:min-w-[20px] md:h-[20px]" />
+                    <FaCheck className="text-mmAccent min-w-[16px] h-[16px] md:min-w-[20px] md:h-[20px]" />
                     {req}
                   </li>
                 ))}
@@ -165,10 +169,10 @@ const Program = () => {
             </div>
 
             <div>
-              <h1 className="text-yellow font-secondary text-xl md:text-2xl tracking-widest uppercase mb-3">
+              <h1 className="text-mmAccent font-display text-xl md:text-2xl tracking-widest uppercase mb-3">
                 Wat Je Leert
               </h1>
-              <ul className="grid grid-cols-2 gap-2 text-xs md:text-sm font-light">
+              <ul className="grid grid-cols-2 gap-2 text-xs md:text-sm text-mmTextMuted">
                 {[
                   "Fysieke paraatheid",
                   "Gespecialiseerde technieken",
@@ -178,7 +182,7 @@ const Program = () => {
                   "Doorzettings- vermogen",
                 ].map((skill, i) => (
                   <li key={i} className="flex items-center gap-2">
-                    <GrAchievement className="text-yellow min-w-[16px] h-[16px] md:min-w-[20px] md:h-[20px]" />
+                    <GrAchievement className="text-mmAccent min-w-[16px] h-[16px] md:min-w-[20px] md:h-[20px]" />
                     {skill}
                   </li>
                 ))}
@@ -186,10 +190,10 @@ const Program = () => {
             </div>
 
             <div>
-              <h1 className="text-yellow font-secondary text-xl md:text-2xl uppercase tracking-widest mb-3">
+              <h1 className="text-mmAccent font-display text-xl md:text-2xl uppercase tracking-widest mb-3">
                 Voor Wie
               </h1>
-              <ul className="grid grid-cols-2 gap-2 text-xs md:text-sm font-light">
+              <ul className="grid grid-cols-2 gap-2 text-xs md:text-sm text-mmTextMuted">
                 {[
                   "Toekomstige militairen die zich voorbereiden op selectie",
                   "Actieve militairen die structuur zoeken",
@@ -199,7 +203,7 @@ const Program = () => {
                   "Iedereen die fysieke & mentale weerbaarheid wil opbouwen",
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-2">
-                    <FaCheck className="text-yellow min-w-[16px] h-[16px] md:min-w-[20px] md:h-[20px]" />
+                    <FaCheck className="text-mmAccent min-w-[16px] h-[16px] md:min-w-[20px] md:h-[20px]" />
                     {item}
                   </li>
                 ))}
@@ -209,8 +213,8 @@ const Program = () => {
           {/* Begin FAQ & bundle - zelfde grid en header als erboven */}
           <div className="col-span-1 lg:col-span-2 grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* FAQ sectie */}
-            <div className="space-y-4 border-t border-yellow pt-6">
-              <h2 className="text-yellow text-2xl md:text-3xl font-secondary uppercase tracking-widest mb-6">
+            <div className="space-y-4 border-t border-mmBorder pt-6">
+              <h2 className="mm-h2 text-mmText mb-6">
                 Veelgestelde Vragen
               </h2>
 
@@ -219,8 +223,8 @@ const Program = () => {
                 return (
                   <div
                     key={index}
-                    className={`border border-yellow/20 rounded-lg transition-all duration-300 ${
-                      isOpen ? "bg-[#111111] border-yellow" : "bg-[#0a0a0a]"
+                    className={`border border-mmBorder rounded-2xl transition-all duration-300 ${
+                      isOpen ? "bg-mmSurface border-mmAccent" : "bg-mmSurface"
                     }`}
                   >
                     <button
@@ -228,10 +232,10 @@ const Program = () => {
                       className="w-full flex justify-between items-center px-6 py-4 text-left"
                       aria-expanded={isOpen}
                     >
-                      <span className="text-yellow font-secondary text-base md:text-lg tracking-widest uppercase">
+                      <span className="text-mmAccent font-display text-base md:text-lg tracking-widest uppercase">
                         {faq.vraag}
                       </span>
-                      <span className="text-yellow text-xl">
+                      <span className="text-mmAccent text-xl">
                         {isOpen ? "−" : "+"}
                       </span>
                     </button>
@@ -240,7 +244,7 @@ const Program = () => {
                         isOpen ? "max-h-[1000px] py-4 px-6" : "max-h-0"
                       }`}
                     >
-                      <p className="whitespace-pre-line text-gray-300 font-light leading-relaxed text-base md:text-lg">
+                      <p className="whitespace-pre-line text-mmTextMuted leading-relaxed text-base md:text-lg">
                         {faq.antwoord}
                       </p>
                     </div>
@@ -255,10 +259,10 @@ const Program = () => {
                 src={Bundle}
                 alt="Programma bundle"
                 loading="lazy"
-                className="h-[400px] w-[250px] rounded-lg shadow-lg hover:scale-[1.03] transition-transform"
+                className="h-[400px] w-[250px] rounded-2xl shadow-sm border border-mmBorder bg-mmSurface hover:scale-[1.03] transition-transform"
               />
               <Link to="/pricing" className="mt-8">
-                <button className="btn btn-lg w-[250px]">Start nu</button>
+                <button className="mm-btnPrimary w-[250px]">Start nu</button>
               </Link>
             </div>
           </div>
@@ -285,34 +289,34 @@ const Program = () => {
       />
 
       <section className="w-screen flex flex-col lg:flex-row py-20 p-10 justify-between items-center lg:items-start lg:mt-20">
-        <div className="md:w-1/2 flex flex-col font-light px-5 lg:px-28">
-          <h5 className="font-secondary text-[30px] lg:text-[50px] tracking-wider text-gray-300 lg:text-left text-center">
-            <span className="text-yellow tracking-wider">Klaar? </span>
+        <div className="md:w-1/2 flex flex-col px-5 lg:px-28">
+          <h5 className="font-display text-[30px] lg:text-[50px] tracking-widest text-mmTextMuted lg:text-left text-center">
+            <span className="text-mmAccent tracking-widest">Klaar? </span>
             Schrijf je in en verander je lijf en geest in een kracht waar niet
             mee te spotten valt.
           </h5>
           <div
             ref={elementRef}
-            className={`font-secondary text-brown uppercase lg:py-20 pt-10 pb-20 text-center lg:text-left tracking-widest cursor-pointer ${
-              animate ? "animate-light-sweep" : ""
+            className={`font-display text-mmText uppercase lg:py-20 pt-10 pb-20 text-center lg:text-left tracking-widest cursor-pointer ${
+              animate ? "" : ""
             }`}
           >
             {[
               "Verbondenheid",
-              <span className="text-yellow">|</span>,
+              <span className="text-mmAccent">|</span>,
               "Kracht",
-              <span className="text-yellow">|</span>,
+              <span className="text-mmAccent">|</span>,
               "Toewijding",
             ].map((word, index) => (
               <span
                 key={index}
                 onMouseEnter={() => word !== "|" && setHoveredWord(word)}
                 onMouseLeave={() => setHoveredWord(null)}
-                className="relative inline-block px-2 transition duration-200 hover:text-yellow text-brown tracking-wider text-lg"
+                className="relative inline-block px-2 transition duration-200 hover:text-mmAccent text-mmText tracking-wider text-lg"
               >
                 {word}
                 {hoveredWord === word && (
-                  <div className="absolute left-1/2 transform -translate-x-1/2 top-10 bg-black text-white text-lg rounded-md px-4 py-3 shadow-md w-[220px] transition-opacity duration-300">
+                  <div className="absolute left-1/2 transform -translate-x-1/2 top-10 bg-mmSurface text-mmText text-lg rounded-xl px-4 py-3 shadow-sm border border-mmBorder w-[220px] transition-opacity duration-300">
                     {wordDefinitions[word]}
                   </div>
                 )}
@@ -326,16 +330,16 @@ const Program = () => {
             src={Bundle}
             loading="lazy"
             alt="projectbundlecover"
-            className="h-[400px] w-[250px]"
+            className="h-[400px] w-[250px] rounded-2xl shadow-sm border border-mmBorder bg-mmSurface"
           />
           <div className="flex justify-center items-center mt-10">
             <Link to="/pricing" className="hidden md:block">
-              <button className="btn-lg !min-w-0 !h-auto px-10 py-4 text-center whitespace-nowrap w-[250px]">
+              <button className="mm-btnPrimary !min-w-0 !h-auto px-10 py-4 text-center whitespace-nowrap w-[250px]">
                 Start nu
               </button>
             </Link>
             <Link to="/pricing" className="block md:hidden">
-              <button className="btn-lg !min-w-0 !h-auto px-6 py-3 text-center whitespace-nowrap w-[250px]">
+              <button className="mm-btnPrimary !min-w-0 !h-auto px-6 py-3 text-center whitespace-nowrap w-[250px]">
                 Start Nu
               </button>
             </Link>

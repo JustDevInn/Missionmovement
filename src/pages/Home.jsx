@@ -7,6 +7,20 @@ import { Helmet } from "react-helmet-async";
 const Home = () => {
   const { ref, isVisible } = useInView();
   const VideoPreview = lazy(() => import("../components/VideoPreview"));
+  const tracks = [
+    {
+      title: "Defensie",
+      items: [
+        "Korps Mariniers",
+        "Korps Commando Troepen",
+        "11 Luchtmobiele Brigade",
+      ],
+    },
+    {
+      title: "Veiligheidsdiensten",
+      items: ["Politie", "Marechaussee", "Brandweer"],
+    },
+  ];
   const coreValues = [
     "Discipline",
     "Broederschap",
@@ -18,10 +32,10 @@ const Home = () => {
   return (
     <div className="pt-20 md:pt-0">
       <Helmet>
-        <title>Mission Movement | Militaire Voorbereiding</title>
+        <title>Mission Movement | Voorbereiding op selectie & opleiding</title>
         <meta
           name="description"
-          content="Train met structuur, discipline en doel. Mission Movement bereidt je fysiek, mentaal en mentaal voor op de wereld van elite-eenheden."
+          content="Fysieke en mentale voorbereiding voor Defensie (Korps Mariniers, KCT, 11 Luchtmobiele Brigade) en Veiligheidsdiensten (Politie, Marechaussee, Brandweer)."
         />
         <meta property="og:title" content="Mission Movement" />
         <meta
@@ -45,78 +59,114 @@ const Home = () => {
           loading="eager"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 mm-heroOverlay" />
         <div className="relative z-10 w-full max-w-4xl flex flex-col items-center text-center px-5 lg:px-0">
-          <h1 className="text-3xl md:h1 mb-4 text-yellow font-bold uppercase tracking-wider">
-            Militair Voorbereidings- traject
+          <h1 className="h1-teko mb-4 text-mmAccent">
+            Voorbereiding op selectie &amp; opleiding
           </h1>
-          <p className="text-white font-normal text-lg md:text-xl max-w-xl">
-            Een compleet 6-weeks systeem om je lichaam te versterken, je geest
-            te verscherpen en je plek te verdienen.
+          <p className="text-gray-200 font-normal text-lg md:text-xl max-w-xl leading-relaxed">
+            Fysieke en mentale voorbereiding voor Defensie en
+            Veiligheidsdiensten — gericht op keuring, selectie en
+            belastbaarheid.
           </p>
 
           <div className="flex flex-col-reverse md:flex-row items-center gap-4 mt-6">
             <Link to="/pricing">
-              <button className="btn py-4 px-8 h-[60px] min-w-[200px] flex items-center  justify-center uppercase font-bold tracking-widest bg-yellow text-black hover:bg-transparent hover:text-yellow border border-yellow duration-300 text-xl">
+              <button className="mm-btnPrimary uppercase font-bold tracking-widest text-xl min-w-[200px] h-[60px]">
                 Aanmelden
               </button>
             </Link>
           </div>
+
+          {/* Scope chips */}
+          <div className="mt-6 flex items-center gap-3 text-mmTextMuted font-display uppercase tracking-widest text-xs md:text-sm">
+            <span>Defensie</span>
+            <span className="text-mmAccent">|</span>
+            <span>Veiligheidsdiensten</span>
+          </div>
         </div>
       </header>
 
-      <section className="bg-[#121212] py-4 border-t border-b border-yellow w-full text-center">
-        <div className="text-gray-300 font-secondary tracking-widest uppercase text-md md:text-lg flex flex-wrap justify-center gap-4 px-4">
+      <section className="bg-mmPage py-14 md:py-16 px-6 md:px-10 lg:px-20">
+        <div className="mm-container">
+          <h2 className="mm-h2 text-center mb-8">
+            Voor wie is dit?
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {tracks.map((track) => (
+              <div
+                key={track.title}
+                className="mm-card p-6 md:p-8"
+              >
+                <h3 className="text-mmAccent font-display uppercase tracking-widest text-sm md:text-base mb-3">
+                  {track.title}
+                </h3>
+                <ul className="text-mmTextMuted text-sm md:text-base space-y-2">
+                  {track.items.map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <span className="text-mmAccent mt-1">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-mmSurface py-4 border-t border-b border-mmBorder w-full text-center">
+        <div className="text-mmTextMuted font-display tracking-widest uppercase text-md md:text-lg flex flex-wrap justify-center gap-4 px-4">
           {coreValues.map((value, index) => (
             <React.Fragment key={index}>
-              <span className="px-1 hover:text-brown transition duration-200">
+              <span className="px-1 hover:text-mmAccent transition duration-200">
                 {value}
               </span>
 
               {index < coreValues.length - 1 && (
-                <span className="text-yellow">|</span>
+                <span className="text-mmAccent">|</span>
               )}
             </React.Fragment>
           ))}
         </div>
       </section>
 
-      <section className="w-full bg-[#101010] py-20 px-6 md:px-20 flex flex-col items-center">
-        <h2 className="text-yellow text-2xl md:text-4xl font-secondary uppercase tracking-widest text-center mb-12 border-b border-yellow pb-4 w-full max-w-4xl">
+      <section className="w-full bg-mmPage py-20 px-6 md:px-20 flex flex-col items-center">
+        <h2 className="mm-h2 text-center mb-12 border-b border-mmBorder pb-4 w-full max-w-4xl">
           Wat Je Krijgt
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-10 w-full max-w-5xl text-white font-normal text-sm md:text-base">
+        <div className="grid md:grid-cols-2 gap-10 w-full max-w-5xl text-mmTextMuted font-normal text-sm md:text-base leading-relaxed">
           {/* Linkerkant - Wat je krijgt */}
-          <div className="space-y-4 bg-[#121212] rounded-lg p-6 border border-yellow/20 shadow-md">
-            <h3 className="text-yellow font-semibold uppercase tracking-widest mb-2">
+          <div className="mm-card space-y-4 p-6">
+            <h3 className="text-mmAccent font-display uppercase tracking-widest mb-2 text-sm md:text-base">
               Dit zit erin:
             </h3>
             <ul className="list-none space-y-2">
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span>
+                <span className="text-mmAccent mt-1">•</span>
                 Een volledig weekschema met krachttraining, conditie, mobiliteit
                 en mentale weerbaarheid
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span>
+                <span className="text-mmAccent mt-1">•</span>
                 Zwemoefeningen & watervertrouwen volgens special forces-normen
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span>
+                <span className="text-mmAccent mt-1">•</span>
                 Een videobibliotheek voor perfecte techniek en uitvoering
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span>
+                <span className="text-mmAccent mt-1">•</span>
                 Een voortgangstracker om prestaties en groei te meten
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span>
+                <span className="text-mmAccent mt-1">•</span>
                 Wekelijkse check-ins en reflectie-opdrachten voor structuur en
                 begeleiding
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span>
+                <span className="text-mmAccent mt-1">•</span>
                 Ontwikkeld door een voormalig marinier - geen theorie, maar
                 praktijk
               </li>
@@ -124,36 +174,36 @@ const Home = () => {
           </div>
 
           {/* Rechterkant - Wat je eruit haalt */}
-          <div className="space-y-4 bg-[#121212] rounded-lg p-6 border border-yellow/20 shadow-md">
-            <h3 className="text-yellow font-semibold uppercase tracking-widest mb-2">
+          <div className="mm-card space-y-4 p-6">
+            <h3 className="text-mmAccent font-display uppercase tracking-widest mb-2 text-sm md:text-base">
               Wat je eraan overhoudt:
             </h3>
             <ul className="list-none space-y-2">
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span>
+                <span className="text-mmAccent mt-1">•</span>
                 Fysieke en mentale weerbaarheid die je onderscheidt van de massa
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span>
+                <span className="text-mmAccent mt-1">•</span>
                 Een sterke mindset gevormd door structuur, druk en
                 doelgerichtheid
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span>
+                <span className="text-mmAccent mt-1">•</span>
                 Diepgeworteld zelfvertrouwen - omdat je het écht hebt verdiend
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span>
+                <span className="text-mmAccent mt-1">•</span>
                 Een leven van discipline, adrenaline en uitdaging waar maar
                 weinigen voor durven kiezen
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span>
+                <span className="text-mmAccent mt-1">•</span>
                 Broederschap en verbondenheid die verder reiken dan het
                 programma. Dit gaat over thuishoren
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-yellow mt-1">•</span>
+                <span className="text-mmAccent mt-1">•</span>
                 Richting, helderheid en een gevoel van identiteit dat weinig
                 mensen ooit zullen begrijpen
               </li>
@@ -163,15 +213,15 @@ const Home = () => {
 
         {/* CTA */}
         <div className="flex flex-col md:flex-row justify-center items-center mt-16 gap-10">
-          <h2 className="text-yellow text-md md:text-lg font-semibold tracking-wider uppercase md:text-center">
+          <h2 className="text-mmText text-md md:text-lg font-semibold tracking-wider uppercase md:text-center">
             Klaar om te starten? <br />
-            <span className="text-gray-300 lowercase">
+            <span className="text-mmTextMuted lowercase">
               Bekijk het programma
             </span>
           </h2>
           <div className="flex justify-center items-center my-10">
             <Link to="/pricing">
-              <button className="btn py-4 px-8 h-[60px] min-w-[200px] flex items-center  justify-center uppercase font-bold tracking-widest bg-yellow text-black hover:bg-transparent hover:text-yellow border border-yellow duration-300 text-xl">
+              <button className="mm-btnPrimary uppercase font-bold tracking-widest text-xl min-w-[200px] h-[60px]">
                 Programma
               </button>
             </Link>
@@ -180,7 +230,7 @@ const Home = () => {
       </section>
 
       {/* <section className="semisection flex justify-center items-center px-10 py-20 md:py-14">
-        <p className="font-secondary text-brown tracking-widest text-[25px] md:text-[40px] text-center leading-snug">
+        <p className="font-display text-mmText tracking-widest text-[25px] md:text-[40px] text-center leading-snug">
           Not for everyone, <br className="md:hidden" /> but for those willing
           to earn it.
         </p>
@@ -188,7 +238,7 @@ const Home = () => {
 
 
       <section className="flex flex-col items-center justify-center px-6 md:px-10 text-center space-y-6 pb-10">
-        <h3 className="text-yellow font-secondary text-sm md:text-base tracking-widest uppercase">
+        <h3 className="text-mmAccent font-display text-sm md:text-base tracking-widest uppercase">
           This is not fitness. This is preparation.
         </h3>
 
@@ -218,8 +268,8 @@ const Home = () => {
           ></div>
 
           <div className="w-full lg:w-1/2 px-10 lg:px-20 py-20 flex flex-col justify-center items-start text-left relative">
-            <h2 className="h2-teko mb-5">Over Mission Movement</h2>
-            <p className="text-white text-lg font-normal tracking-wider text-justify">
+            <h2 className="mm-h2 text-mmText mb-5">Over Mission Movement</h2>
+            <p className="text-mmTextMuted text-lg tracking-wider text-justify leading-relaxed">
               Dit is geen standaard trainingsschema - dit is transformatie.
               Mission Movement bereidt jou voor op een leven met doel, druk en
               prestaties op het hoogste niveau. Dit is jouw toegang tot een
@@ -228,7 +278,7 @@ const Home = () => {
             </p>
             <div className="w-full flex md:justify-start justify-center">
               <Link to="about">
-                <button className="btn btn-lg h-[60px] my-5 w-[250px]">
+                <button className="mm-btnPrimary h-[60px] my-5 w-[250px]">
                   Lees meer →
                 </button>
               </Link>
@@ -249,8 +299,8 @@ const Home = () => {
           ></div>
 
           <div className="w-full lg:w-1/2 px-10 lg:px-20 py-20 flex flex-col justify-center items-start text-left">
-            <h2 className="h2-teko mb-5">Het Programma</h2>
-            <p className="text-white text-lg font-normal tracking-wider text-justify">
+            <h2 className="mm-h2 text-mmText mb-5">Het Programma</h2>
+            <p className="text-mmTextMuted text-lg tracking-wider text-justify leading-relaxed">
               Stap in een zesweekse transformatie - ontwikkeld voor wie
               elitevoorbereiding serieus neemt.
               <br />
@@ -261,7 +311,7 @@ const Home = () => {
             </p>
             <div className="w-full flex justify-center md:justify-start">
               <Link to="program">
-                <button className="btn btn-lg my-5 h-auto w-[250px]">
+                <button className="mm-btnPrimary my-5 h-auto w-[250px]">
                   Programma
                 </button>
               </Link>
@@ -282,8 +332,8 @@ const Home = () => {
           ></div>
 
           <div className="w-full lg:w-1/2 px-10 lg:px-20 py-20 flex flex-col justify-center items-start text-left">
-            <h2 className="h2-teko mb-5">Zij die het verdiend hebben</h2>
-            <p className="text-white text-lg font-normal tracking-wider text-justify">
+            <h2 className="mm-h2 text-mmText mb-5">Zij die het verdiend hebben</h2>
+            <p className="text-mmTextMuted text-lg tracking-wider text-justify leading-relaxed">
               Ontdek verhalen van deelnemers die hun leven hebben veranderd met
               Mission Movement. Lees hun ervaringen, hun doorbraken, en hoe dit
               programma hen hielp richting special forces of een sterker leven.
@@ -298,7 +348,7 @@ const Home = () => {
         />
 
         {/* Video Preview */}
-        <section className="py-16 px-4 md:px-10 lg:px-20 flex justify-center items-center bg-[#0f0f0f] border-t border-yellow">
+        <section className="py-16 px-4 md:px-10 lg:px-20 flex justify-center items-center bg-mmPage border-t border-mmBorder">
           <Suspense
             fallback={
               <div className="text-gray-500">Preview wordt geladen...</div>
@@ -312,11 +362,11 @@ const Home = () => {
         {/* <FloatingCTA /> */}
 
         {/* Laatste Call to Action */}
-        <section className="h-[350px] md:h-[600px] w-screen flex justify-center items-center px-10">
+        <section className="h-[350px] md:h-[600px] w-screen flex justify-center items-center px-10 bg-mmPage">
           <div className="w-full flex flex-col justify-center items-center">
             <h2
               ref={ref}
-              className={`h1-teko text-brown text-[40px] md:text-[70px] mb-2 text-center transition-all duration-700 ease-in-out ${
+              className={`mm-h1 text-mmText text-[40px] md:text-[70px] mb-2 text-center transition-all duration-700 ease-in-out ${
                 isVisible
                   ? "translate-x-0 opacity-100"
                   : "-translate-x-10 opacity-0"
@@ -324,7 +374,7 @@ const Home = () => {
             >
               Dit is het pad. Jij kiest of je het bewandelt.
             </h2>
-            <p className="text-white font-light tracking-wider md:text-[20px] text-center">
+            <p className="text-mmTextMuted tracking-wider md:text-[20px] text-center leading-relaxed">
               Dit is geen training. <br />
               Dit is toegang tot een leven vol adrenaline, richting en
               verbondenheid. <br />
@@ -332,7 +382,7 @@ const Home = () => {
             </p>
 
             <Link to="/pricing">
-              <button className="btn btn-lg my-7 md:my-10">Start</button>
+              <button className="mm-btnPrimary my-7 md:my-10">Start</button>
             </Link>
           </div>
         </section>

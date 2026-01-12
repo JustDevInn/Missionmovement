@@ -3,82 +3,84 @@ import { FaInstagram, FaEnvelope, FaPhone } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="w-full px-6 md:px-16 pt-20 pb-12 bg-[#101010] text-white">
-      {/* CTA Sectie */}
-      <div className="text-center mb-10">
-        <h2 className="h2-teko text-yellow tracking-widest">Neem Contact Op</h2>
-        <p className="mt-4 md:text-lg font-normal max-w-xl mx-auto">
-          Klaar om serieus aan de slag te gaan? <br />
-          Stuur een bericht - ik help je op weg.
-        </p>
-      </div>
-
-      {/* Footer Inhoud */}
-      <div className="flex flex-col items-center md:flex-row md:justify-between md:items-end gap-10 md:gap-20 h-[250px]">
-        {/* Branding */}
-        <div className="text-center md:text-left md:h-full md:flex md:items-end">
-          <h1 className="text-yellow font-primary text-[32px] md:text-[60px] lg:text-[80px] font-medium uppercase leading-[100%] tracking-wider">
-            Mission
-            <br />
-            Movement
-          </h1>
+    <footer className="w-full bg-[#F7F9FC] text-[#0B1220] border-t border-slate-200">
+      <div className="max-w-6xl mx-auto px-6 md:px-16 pt-16 pb-10">
+        {/* CTA */}
+        <div className="text-center mb-12">
+          <h2 className="font-display uppercase tracking-[0.18em] text-[18px] md:text-[20px]">
+            Neem contact op
+          </h2>
+          <p className="mt-4 text-slate-600 max-w-xl mx-auto leading-relaxed">
+            Klaar om serieus aan de slag te gaan?{" "}
+            <span className="whitespace-nowrap">
+              Stuur een bericht — ik help je op weg.
+            </span>
+          </p>
         </div>
 
-        {/* Contactgegevens */}
-        <div className="flex flex-col items-center md:items-start gap-6 text-sm md:text-lg text-center md:text-left w-full md:w-auto">
-          {/* Telefoon */}
-          <div>
-            {/* <h5 className="text-yellow font-semibold uppercase tracking-wider mb-1">
-              Telefoon
-            </h5> */}
-            <a
-              href="tel:+36125183459"
-              aria-label="telefoonnummer"
-              className="flex justify-center md:justify-start items-center gap-2 text-gray-400 hover:text-yellow transition"
-            >
-              <FaPhone /> +31 6 49 17 16 84
-            </a>
+        {/* Content */}
+        <div className="grid gap-10 md:grid-cols-2 md:items-start">
+          {/* Brand */}
+          <div className="text-center md:text-left">
+            <h3 className="font-display uppercase tracking-[0.12em] text-[34px] md:text-[44px] leading-[1.05]">
+              Mission
+              <br />
+              Movement
+            </h3>
+
+            <p className="mt-5 text-slate-600 leading-relaxed max-w-sm mx-auto md:mx-0">
+              Persoonlijke begeleiding voor serieuze kandidaten richting
+              defensie, politie en brandweer.
+            </p>
           </div>
 
-          {/* Socials */}
-          <div>
-            {/* <h5 className="text-yellow font-semibold uppercase tracking-wider mb-1">
-              Instagram
-            </h5> */}
-            <a
-              href="https://www.instagram.com/mission.movement"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="instagram"
-              className="flex justify-center md:justify-start items-center gap-2 text-gray-400 hover:text-yellow transition"
-            >
-              <FaInstagram /> @missionmovement
-            </a>
-          </div>
+          {/* Contact */}
+          <div className="flex flex-col items-center md:items-end">
+            <div className="w-full max-w-sm space-y-2">
+              <a
+                href="tel:+31649171684"
+                aria-label="telefoonnummer"
+                className="flex items-center justify-center md:justify-end gap-3 text-slate-700 hover:text-[#1f6feb] transition py-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1f6feb]/30"
+              >
+                <FaPhone className="text-[#1f6feb]" />
+                <span>+31 6 49 17 16 84</span>
+              </a>
 
-          {/* E-mail */}
-          <div>
-            {/* <h5 className="text-yellow font-semibold uppercase tracking-wider mb-1">
-              E-mail
-            </h5> */}
-            <a
-              href="mailto:MissionMovement@gmail.com"
-              aria-label="e-mail"
-              className="flex justify-center md:justify-start items-center gap-2 text-gray-400 hover:text-yellow transition"
-            >
-              <FaEnvelope /> MissionMovement@gmail.com
-            </a>
+              <a
+                href="https://www.instagram.com/mission.movement"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="instagram"
+                className="flex items-center justify-center md:justify-end gap-3 text-slate-700 hover:text-[#1f6feb] transition py-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1f6feb]/30"
+              >
+                <FaInstagram className="text-[#1f6feb]" />
+                <span>@mission.movement</span>
+              </a>
+
+              <a
+                href="mailto:MissionMovement@gmail.com"
+                aria-label="e-mail"
+                className="flex items-center justify-center md:justify-end gap-3 text-slate-700 hover:text-[#1f6feb] transition py-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1f6feb]/30"
+              >
+                <FaEnvelope className="text-[#1f6feb]" />
+                <span>MissionMovement@gmail.com</span>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Onderbalk */}
-      <div className="mt-12 flex flex-col md:flex-row justify-between items-center text-gray-500 text-xs tracking-widest border-t border-[#222] pt-6">
-        <p>© 2024 Mission Movement. Alle rechten voorbehouden.</p>
-        <p>
-          KVK:{" "}
-          <span className="font-medium">Justin Peeters Coaching 85486205</span>
-        </p>
+        {/* Bottom bar */}
+        <div className="mt-12 pt-6 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-3 text-slate-500 text-sm">
+          <p className="text-center md:text-left">
+            © 2024 Mission Movement. Alle rechten voorbehouden.
+          </p>
+          <p className="text-center md:text-right">
+            KVK:{" "}
+            <span className="font-medium text-slate-600">
+              Justin Peeters Coaching 85486205
+            </span>
+          </p>
+        </div>
       </div>
     </footer>
   );

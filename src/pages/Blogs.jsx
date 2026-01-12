@@ -77,7 +77,7 @@ const Blogs = () => {
   }, [currentPage, selectedTag, searchTerm, sortBy]);
 
   return (
-    <div className="pt-20 px-6 md:px-10 lg:px-20 bg-[#0b0b0b] min-h-screen">
+    <div className="pt-20 px-6 md:px-10 lg:px-20 bg-mmPage min-h-screen">
       <Helmet>
         <title>Artikelen | Mission Movement</title>
         <meta
@@ -86,7 +86,7 @@ const Blogs = () => {
         />
       </Helmet>
 
-      <h1 className="h1-teko text-yellow text-center mb-10 uppercase">
+      <h1 className="mm-h1 text-mmText text-center mb-10">
         Mission Artikelen
       </h1>
 
@@ -95,7 +95,7 @@ const Blogs = () => {
         <input
           type="text"
           placeholder="Zoek artikelen..."
-          className="w-full md:max-w-sm px-4 py-2 text-sm rounded border border-yellow bg-transparent text-white placeholder-gray-400"
+          className="w-full md:max-w-sm px-4 py-2 text-sm rounded border border-mmBorder bg-mmSurface text-mmText placeholder:text-mmTextMuted"
           value={searchTerm}
           onChange={(e) => {
             setSearchTerm(e.target.value);
@@ -106,21 +106,21 @@ const Blogs = () => {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="appearance-none px-4 py-2 pr-6 bg-black border border-yellow text-yellow rounded text-sm w-full"
+            className="appearance-none px-4 py-2 pr-6 bg-mmSurface border border-mmBorder text-mmText rounded text-sm w-full"
           >
             <option value="newest">Sorteer: Nieuwste</option>
             <option value="title">Sorteer: Titel (A-Z)</option>
           </select>
 
           {/* Custom arrow */}
-          <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-yellow text-sm">
+          <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-mmAccent text-sm">
             <MdKeyboardArrowDown />
           </div>
         </div>
       </div>
 
       {/* Tag Filter */}
-      <div className="overflow-x-auto whitespace-nowrap hide-scrollbar mb-10 pb-2 border-b border-yellow">
+      <div className="overflow-x-auto whitespace-nowrap hide-scrollbar mb-10 pb-2 border-b border-mmBorder">
         <div className="inline-flex gap-2">
           {allTags.map((tag) => (
             <button
@@ -131,8 +131,8 @@ const Blogs = () => {
               }}
               className={`uppercase px-4 py-1 text-xs md:text-sm border rounded-full transition-all whitespace-nowrap ${
                 selectedTag === tag
-                  ? "bg-yellow text-black font-bold"
-                  : "border-yellow text-yellow hover:bg-yellow hover:text-black"
+                  ? "bg-mmAccent text-white font-bold border-mmAccent"
+                  : "border-mmBorder text-mmTextMuted hover:border-mmAccent hover:text-mmText"
               }`}
             >
               {tag}
@@ -144,7 +144,7 @@ const Blogs = () => {
       {/* Blog Cards */}
       {loading ? (
         <div className="flex justify-center py-20">
-          <Spinner />
+          <Spinner color="border-mmAccent" />
         </div>
       ) : currentBlogs.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -152,7 +152,7 @@ const Blogs = () => {
             <Link
               to={`/blogs/${blog.slug}`}
               key={blog.id}
-              className="group bg-primary rounded-xl shadow-md hover:scale-[1.02] transition-transform flex flex-col"
+              className="group bg-mmSurface border border-mmBorder rounded-2xl shadow-sm hover:scale-[1.02] transition-transform flex flex-col"
             >
               <img
                 src={blog.thumbnail}
@@ -162,17 +162,17 @@ const Blogs = () => {
               />
               <div className="p-6 flex flex-col flex-grow">
                 <div className="flex items-center justify-between mb-2">
-                  <h2 className="text-yellow text-xl font-bold uppercase tracking-wider">
+                  <h2 className="text-mmText text-xl font-display uppercase tracking-widest">
                     {blog.title}
                   </h2>
                   {blog.pinned && (
-                    <span className="text-xs text-black bg-yellow px-2 py-1 rounded-full font-bold uppercase">
+                    <span className="text-xs text-white bg-mmAccent px-2 py-1 rounded-full font-bold uppercase">
                       aanbevolen
                     </span>
                   )}
                 </div>
 
-                <p className="text-white italic mb-2 text-base md:text-lg">
+                <p className="text-mmTextMuted italic mb-2 text-base md:text-lg">
                   door {blog.author} •{" "}
                   {blog.createdAt?.seconds &&
                     format(
@@ -181,12 +181,12 @@ const Blogs = () => {
                     )}
                 </p>
 
-                <p className="text-white font-light leading-relaxed line-clamp-3 mb-6 text-base md:text-lg">
+                <p className="text-mmTextMuted leading-relaxed line-clamp-3 mb-6 text-base md:text-lg">
                   {blog.summary}
                 </p>
 
                 <div className="mt-auto">
-                  <div className="text-sm text-black bg-yellow font-bold tracking-wide px-4 py-2 w-max uppercase border border-yellow transition-all group-hover:bg-transparent group-hover:text-yellow">
+                  <div className="text-sm text-white bg-mmAccent font-bold tracking-wide px-4 py-2 w-max uppercase border border-mmAccent transition-all group-hover:bg-transparent group-hover:text-mmAccent">
                     Lees meer →
                   </div>
                 </div>
@@ -195,7 +195,7 @@ const Blogs = () => {
           ))}
         </div>
       ) : (
-        <p className="text-white text-center mt-10">Geen artikelen gevonden.</p>
+        <p className="text-mmTextMuted text-center mt-10">Geen artikelen gevonden.</p>
       )}
 
       {/* Pagination */}
@@ -205,10 +205,10 @@ const Blogs = () => {
             <button
               key={num}
               onClick={() => setCurrentPage(num + 1)}
-              className={`w-10 h-10 rounded-full border border-yellow text-sm transition ${
+              className={`w-10 h-10 rounded-full border border-mmBorder text-sm transition ${
                 currentPage === num + 1
-                  ? "bg-yellow text-black font-bold"
-                  : "text-yellow hover:bg-yellow hover:text-black"
+                  ? "bg-mmAccent text-white font-bold border-mmAccent"
+                  : "text-mmTextMuted hover:border-mmAccent hover:text-mmText"
               }`}
             >
               {num + 1}

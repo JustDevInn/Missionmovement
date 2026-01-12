@@ -36,7 +36,7 @@ const Contact = () => {
       if (window.hcaptcha) {
         window.hcaptcha.render(captchaRef.current, {
           sitekey: CAPTCHA_SITE_KEY,
-          theme: "dark",
+          theme: "light",
           callback: (token) => setCaptchaToken(token),
           "expired-callback": () => setCaptchaToken(""),
         });
@@ -142,7 +142,7 @@ const Contact = () => {
       <section className="section flex justify-center items-center bg-takethestep bg-center bg-no-repeat bg-cover relative bg-fixed">
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative z-10 w-full flex justify-center items-center pt-20 px-5 lg:px-20">
-          <h1 className="text-yellow font-primary text-[35px] md:text-[60px] font-medium uppercase tracking-wider text-center">
+          <h1 className="font-display text-mmAccent text-[35px] md:text-[60px] uppercase tracking-widest text-center">
             Vragen?
           </h1>
         </div>
@@ -152,10 +152,10 @@ const Contact = () => {
 
       {/* Introtekst */}
       <section className="w-full px-5 sm:px-10 lg:px-20 py-20 flex flex-col justify-center items-center">
-        <h1 className="text-yellow font-secondary text-[35px] md:text-[70px] uppercase leading-[120%] tracking-wide font-extralight mb-6 text-center">
+        <h1 className="mm-h1 text-mmText mb-6 text-center">
           Jouw Eerste Stap
         </h1>
-        <p className="text-brown font-normal uppercase tracking-widest md:text-lg text-center max-w-2xl text-base">
+        <p className="text-mmTextMuted font-normal uppercase tracking-widest md:text-lg text-center max-w-2xl text-base">
           Klaar om het serieus aan te pakken? Laat je gegevens achter. Wij
           nemen contact op.
         </p>
@@ -166,8 +166,8 @@ const Contact = () => {
         id="contact-form"
         className="w-full px-5 py-20 lg:py-32 flex justify-center items-center"
       >
-        <div className="w-full max-w-2xl bg-primary p-6 md:p-10 rounded-xl shadow-lg animate-fade-in">
-          <h2 className="h2-teko text-yellow text-center mb-10">
+        <div className="w-full max-w-2xl bg-mmSurface border border-mmBorder p-6 md:p-10 rounded-2xl shadow-sm animate-fade-in">
+          <h2 className="mm-h2 text-mmText text-center mb-10">
             Verstuur Je Bericht
           </h2>
 
@@ -180,7 +180,7 @@ const Contact = () => {
             <select
               name="intentie"
               required
-              className="bg-transparent border-b border-b-brown rounded-md h-[50px] outline-none font-normal text-gray-300 px-3 placeholder:text-brown focus:border-yellow focus:ring-1 focus:ring-yellow transition duration-200"
+              className="bg-transparent border-b border-mmBorder rounded-md h-[50px] outline-none font-normal text-mmText px-3 placeholder:text-mmTextMuted focus:border-mmAccent focus:ring-1 focus:ring-mmFocus transition duration-200"
             >
               <option value="">Waarvoor neem je contact op?</option>
               <option value="Voorbereiding Mariniers">
@@ -202,14 +202,14 @@ const Contact = () => {
                 name="name"
                 placeholder="Naam"
                 required
-                className="bg-transparent border-b border-b-brown rounded-md h-[50px] outline-none font-normal w-full px-3 placeholder:text-brown text-white focus:border-yellow focus:ring-1 focus:ring-yellow transition duration-200"
+                className="bg-transparent border-b border-mmBorder rounded-md h-[50px] outline-none font-normal w-full px-3 placeholder:text-mmTextMuted text-mmText focus:border-mmAccent focus:ring-1 focus:ring-mmFocus transition duration-200"
               />
               <input
                 type="email"
                 name="email"
                 placeholder="E-mailadres"
                 required
-                className="bg-transparent border-b border-b-brown rounded-md h-[50px] outline-none font-normal w-full px-3 placeholder:text-brown text-white focus:border-yellow focus:ring-1 focus:ring-yellow transition duration-200"
+                className="bg-transparent border-b border-mmBorder rounded-md h-[50px] outline-none font-normal w-full px-3 placeholder:text-mmTextMuted text-mmText focus:border-mmAccent focus:ring-1 focus:ring-mmFocus transition duration-200"
               />
             </div>
 
@@ -219,7 +219,7 @@ const Contact = () => {
               name="subject"
               placeholder="Onderwerp"
               required
-              className="bg-transparent border-b border-b-brown rounded-md h-[50px] outline-none font-normal w-full px-3 placeholder:text-brown text-white focus:border-yellow focus:ring-1 focus:ring-yellow transition duration-200"
+              className="bg-transparent border-b border-mmBorder rounded-md h-[50px] outline-none font-normal w-full px-3 placeholder:text-mmTextMuted text-mmText focus:border-mmAccent focus:ring-1 focus:ring-mmFocus transition duration-200"
             />
 
             {/* Bericht */}
@@ -227,7 +227,7 @@ const Contact = () => {
               name="message"
               placeholder="Typ je bericht..."
               required
-              className="bg-transparent border-b border-b-brown rounded-md h-[150px] outline-none font-normal w-full px-3 placeholder:text-brown text-white focus:border-yellow focus:ring-1 focus:ring-yellow transition duration-200 resize-none"
+              className="bg-transparent border-b border-mmBorder rounded-md h-[150px] outline-none font-normal w-full px-3 placeholder:text-mmTextMuted text-mmText focus:border-mmAccent focus:ring-1 focus:ring-mmFocus transition duration-200 resize-none"
             />
 
             <div className="flex flex-col gap-2">
@@ -242,18 +242,18 @@ const Contact = () => {
               )}
             </div>
 
-            {error && <p className="text-red-400 text-base md:text-lg">{error}</p>}
-            {success && <p className="text-green-400 text-base md:text-lg">{success}</p>}
+            {error && <p className="text-red-500 text-base md:text-lg">{error}</p>}
+            {success && <p className="text-green-600 text-base md:text-lg">{success}</p>}
 
             {/* Verstuur */}
             <button
               type="submit"
               disabled={loading}
-              className="btn md:btn-lg mx-auto my-[15px] flex items-center justify-center gap-2 disabled:opacity-50 relative overflow-hidden"
+              className="mm-btnPrimary mx-auto my-[15px] flex items-center justify-center gap-2 disabled:opacity-50 relative overflow-hidden"
             >
               {loading ? (
                 <div className="w-6 h-6 flex items-center justify-center">
-                  <Spinner />
+                  <Spinner color="border-mmAccent" />
                 </div>
               ) : (
                 "Verstuur"
@@ -261,20 +261,20 @@ const Contact = () => {
             </button>
           </form>
 
-          <p className="text-center text-xs text-gray-500 mt-6">
+          <p className="text-center text-xs text-mmTextMuted mt-6">
             Geen spam. Geen automatisering. Je krijgt een echt antwoord van ons.
           </p>
 
           {/* WhatsApp CTA */}
           <div className="text-center mt-10">
-            <p className="text-gray-300 mb-2 text-base md:text-lg">
+            <p className="text-mmTextMuted mb-2 text-base md:text-lg">
               Liever direct contact? Stuur ons gerust een WhatsApp-bericht.
             </p>
             <a
               href="https://wa.me/31649171684"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-4 py-2 border border-yellow text-yellow hover:bg-yellow hover:text-black rounded transition-all"
+              className="inline-block px-4 py-2 border border-mmAccent text-mmAccent hover:bg-mmAccent hover:text-white rounded transition-all"
             >
               Stuur een WhatsApp
             </a>
