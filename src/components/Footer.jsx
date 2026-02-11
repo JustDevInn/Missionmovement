@@ -43,7 +43,7 @@ const Footer = () => {
                 className="flex items-center justify-center md:justify-end gap-3 text-mmTextMuted hover:text-mmAccent transition py-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-mmFocus"
               >
                 <FaPhone className="text-mmAccent" />
-                <span>+31 6 49 17 16 84</span>
+                {/* <span>+31 6 49 17 16 84</span> */}
               </a>
 
               <a
@@ -54,7 +54,7 @@ const Footer = () => {
                 className="flex items-center justify-center md:justify-end gap-3 text-mmTextMuted hover:text-mmAccent transition py-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-mmFocus"
               >
                 <FaInstagram className="text-mmAccent" />
-                <span>@mission.movement</span>
+                {/* <span>@mission.movement</span> */}
               </a>
 
               <a
@@ -63,7 +63,7 @@ const Footer = () => {
                 className="flex items-center justify-center md:justify-end gap-3 text-mmTextMuted hover:text-mmAccent transition py-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-mmFocus"
               >
                 <FaEnvelope className="text-mmAccent" />
-                <span>MissionMovement@gmail.com</span>
+                {/* <span>MissionMovement@gmail.com</span> */}
               </a>
             </div>
           </div>
@@ -72,13 +72,10 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="mt-12 pt-6 border-t border-mmBorder flex flex-col md:flex-row items-center justify-between gap-3 text-mmTextMuted text-sm">
           <p className="text-center md:text-left">
-            © 2024 Mission Movement. Alle rechten voorbehouden.
+            © 2026 Mission Movement. Alle rechten voorbehouden.
           </p>
           <p className="text-center md:text-right">
-            KVK:{" "}
-            <span className="font-medium text-mmTextMuted">
-              Justin Peeters Coaching 85486205
-            </span>
+            KVK: <span className="font-medium text-mmTextMuted">85486205</span>
           </p>
         </div>
       </div>

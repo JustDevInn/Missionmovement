@@ -91,10 +91,10 @@ const Nav = () => {
     const getFocusable = () =>
       Array.from(
         menuEl.querySelectorAll(
-          'a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        )
+          'a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])',
+        ),
       ).filter(
-        (el) => !el.hasAttribute("disabled") && !el.getAttribute("aria-hidden")
+        (el) => !el.hasAttribute("disabled") && !el.getAttribute("aria-hidden"),
       );
 
     if (nav) {
