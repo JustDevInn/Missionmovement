@@ -21,7 +21,7 @@ const DayNoteTextarea = ({ value, onChange }) => {
       value={value}
       onChange={onChange}
       placeholder="Add a note for this training day..."
-      className="w-full italic text-sm text-white bg-transparent border border-[#2A2A2A] px-3 py-2 rounded resize-none overflow-hidden"
+      className="w-full italic text-sm text-white bg-transparent border border-border px-3 py-2 rounded resize-none overflow-hidden"
       rows={1}
       onInput={(e) => {
         e.target.style.height = "auto";
@@ -142,7 +142,7 @@ const TrainingSchedule = () => {
   );
 
   return (
-    <div className="min-h-screen bg-[#121212] text-gray-200 px-4 sm:px-6 py-10 max-w-5xl mx-auto">
+    <div className="min-h-screen bg-bg text-gray-200 px-4 sm:px-6 py-10 max-w-5xl mx-auto">
       <h1 className="h1 text-[35px] md:text-[50px] mb-8">Training Schedule</h1>
 
       {/* Week Tabs */}
@@ -154,7 +154,7 @@ const TrainingSchedule = () => {
             className={`px-4 py-2 rounded text-sm tracking-widest font-medium uppercase whitespace-nowrap transition-all duration-200 ${
               activeWeek === week
                 ? "bg-yellow text-black"
-                : "bg-[#1E1E1E] text-gray-400 border border-[#2A2A2A] hover:bg-yellow hover:text-black"
+                : "bg-surface text-gray-400 border border-border hover:bg-yellow hover:text-black"
             }`}
           >
             Week {week}
@@ -175,10 +175,10 @@ const TrainingSchedule = () => {
           return (
             <div
               key={day}
-              className="border border-[#2A2A2A] rounded-lg bg-[#1E1E1E]"
+              className="border border-border rounded-lg bg-surface"
             >
               <button
-                className="w-full flex justify-between items-center p-5 text-left hover:bg-[#2A2A2A]"
+                className="w-full flex justify-between items-center p-5 text-left hover:bg-border"
                 onClick={() => toggleDay(day)}
               >
                 <div>
@@ -202,7 +202,7 @@ const TrainingSchedule = () => {
                     return (
                       <div
                         key={idx}
-                        className={`bg-[#121212] border border-[#2A2A2A] rounded-lg p-4 space-y-3 transition-opacity ${
+                        className={`bg-bg border border-border rounded-lg p-4 space-y-3 transition-opacity ${
                           isCompleted ? "opacity-70" : "opacity-100"
                         }`}
                       >

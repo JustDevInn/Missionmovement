@@ -7,15 +7,13 @@ const TrainerCard = () => {
     <>
       {/* Trainer Section */}
       <section className="w-full bg-mmPage py-16 flex flex-col justify-center">
-        <h1 className="mm-h1 text-center mb-10 text-mmText">
-          Trainer
-        </h1>
+        <h1 className="mm-h1 text-center mb-10 text-mmText">Trainer</h1>
 
         <div className="flex flex-col lg:flex-row gap-10 px-5 lg:px-20 max-w-screen-xl mx-auto">
           {/* Text Content */}
           <div className="lg:w-1/2 space-y-4">
             <h2 className="font-display uppercase tracking-widest text-mmText text-[22px] md:text-[32px] lg:text-[40px] leading-tight">
-              Justin Peeters, Oprichter Mission Movement
+              Justin P, Oprichter Mission Movement
             </h2>
             <p className="text-mmTextMuted text-justify leading-relaxed text-base md:text-lg">
               Met een decennium aan elite-dienst in het Korps Mariniers,

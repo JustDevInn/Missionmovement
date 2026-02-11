@@ -4,21 +4,21 @@ import { Link } from "react-router-dom";
 import { db } from "../firebase";
 
 const StatCard = ({ title, value }) => (
-  <div className="bg-[#1E1E1E] p-6 rounded-xl border border-[#2A2A2A] text-center">
+  <div className="bg-surface p-6 rounded-xl border border-border text-center">
     <h3 className="text-sm text-gray-400 mb-2">{title}</h3>
     <p className="text-2xl font-bold text-white">{value}</p>
   </div>
 );
 
 const RecentCard = ({ title, items, emptyMessage }) => (
-  <div className="bg-[#1E1E1E] p-6 rounded-xl border border-[#2A2A2A]">
-    <h3 className="text-lg font-semibold text-cyan-400 mb-4">{title}</h3>
+  <div className="bg-surface p-6 rounded-xl border border-border">
+    <h3 className="text-lg font-semibold text-yellow mb-4">{title}</h3>
     {items.length === 0 ? (
       <p className="text-gray-400 text-base md:text-lg">{emptyMessage}</p>
     ) : (
       <ul className="space-y-3 text-sm text-gray-300">
         {items.map((item, idx) => (
-          <li key={idx} className="border-b border-[#2A2A2A] pb-2">
+          <li key={idx} className="border-b border-border pb-2">
             {item}
           </li>
         ))}
@@ -91,7 +91,7 @@ const AdminHome = () => {
               <Link
                 to={`/admin/messagesadmin?user=${userId}`}
                 key={userId + msgDoc.id}
-                className="hover:underline text-cyan-300 block"
+                className="hover:underline text-yellow block"
               >
                 {preview} - {timestamp}
                 {isUnread && (
@@ -119,7 +119,7 @@ const AdminHome = () => {
       {/* Subtle top-corner spinner (left on mobile) */}
       {loading && (
         <div className="fixed z-50 top-4 right-4 md:right-4 md:left-auto left-4 md:top-4">
-          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-cyan-400 border-opacity-50" />
+          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-yellow/50" />
         </div>
       )}
 

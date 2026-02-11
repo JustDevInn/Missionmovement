@@ -153,19 +153,19 @@ const MessagesAdmin = () => {
     <div className="flex flex-col md:flex-row h-full min-h-full">
       {/* Sidebar */}
       <aside
-        className={`md:w-64 border-r border-[#2A2A2A] p-4 bg-[#1E1E1E] ${
+        className={`md:w-64 border-r border-border p-4 bg-surface ${
           selectedUserId && isMobileView ? "hidden" : "block"
         }`}
       >
-        <h2 className="text-lg font-semibold mb-4 text-cyan-400">Users</h2>
+        <h2 className="text-lg font-semibold mb-4 text-yellow">Users</h2>
         {users.map((u) => (
           <button
             key={u.id}
             onClick={() => setSelectedUserId(u.id)}
             className={`block w-full text-left px-3 py-2 mb-2 rounded text-sm ${
               selectedUserId === u.id
-                ? "bg-cyan-600 text-white"
-                : "bg-[#121212] hover:bg-[#2A2A2A] text-gray-300"
+                ? "bg-yellow text-black"
+                : "bg-bg hover:bg-border text-gray-300"
             }`}
           >
             {userNames[u.id] || u.id}
@@ -177,14 +177,14 @@ const MessagesAdmin = () => {
       {selectedUserId && (
         <div className="flex-1 flex flex-col h-[calc(100vh-5rem)] md:h-[calc(100vh-4rem)]">
           {/* Header */}
-          <div className="p-4 border-b border-[#2A2A2A] bg-[#1E1E1E] flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-cyan-400">
+          <div className="p-4 border-b border-border bg-surface flex items-center justify-between">
+            <h2 className="text-lg font-semibold text-yellow">
               Chat with {userNames[selectedUserId] || "User"}
             </h2>
             {isMobileView && (
               <button
                 onClick={() => setSelectedUserId(null)}
-                className="text-white hover:text-cyan-400"
+                className="text-white hover:text-yellow"
               >
                 <FaArrowLeft /> Back
               </button>
@@ -216,8 +216,8 @@ const MessagesAdmin = () => {
                       <div
                         className={`max-w-[80%] p-3 rounded-lg text-sm relative group ${
                           isAdmin
-                            ? "bg-cyan-600 text-white"
-                            : "bg-[#1E1E1E] border border-[#2A2A2A] text-gray-200"
+                            ? "bg-yellow text-black"
+                            : "bg-surface border border-border text-gray-200"
                         }`}
                       >
                         {isEditing ? (
@@ -225,7 +225,7 @@ const MessagesAdmin = () => {
                             <input
                               value={editedText}
                               onChange={(e) => setEditedText(e.target.value)}
-                              className="bg-[#121212] border border-[#2A2A2A] text-white px-2 py-1 rounded w-full mb-2"
+                              className="bg-bg border border-border text-white px-2 py-1 rounded w-full mb-2"
                             />
                             <div className="flex gap-2 justify-end">
                               <button onClick={() => handleEditSave(msg.id)}>
@@ -249,7 +249,7 @@ const MessagesAdmin = () => {
                                 href={msg.mediaUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="underline text-cyan-200"
+                                className="underline text-yellow"
                               >
                                 📎 {msg.fileName || "Attachment"}
                               </a>
@@ -290,14 +290,14 @@ const MessagesAdmin = () => {
               {/* Input Field */}
               <form
                 onSubmit={handleSendMessage}
-                className="bg-[#1E1E1E] p-4 border-t border-[#2A2A2A] flex items-center gap-2"
+                className="bg-surface p-4 border-t border-border flex items-center gap-2"
               >
                 <input
                   type="text"
                   placeholder="Type a message..."
                   value={newMsg}
                   onChange={(e) => setNewMsg(e.target.value)}
-                  className="flex-1 bg-[#121212] border border-[#2A2A2A] px-3 py-2 rounded text-sm text-white placeholder-gray-400"
+                  className="flex-1 bg-bg border border-border px-3 py-2 rounded text-sm text-white placeholder-gray-400"
                 />
                 <input
                   type="file"
@@ -309,13 +309,13 @@ const MessagesAdmin = () => {
                 <button
                   type="button"
                   onClick={() => fileInputRef.current.click()}
-                  className="text-cyan-400 hover:text-white"
+                  className="text-yellow hover:text-white"
                 >
                   <FaPaperclip />
                 </button>
                 <button
                   type="submit"
-                  className="bg-cyan-500 hover:bg-cyan-600 text-white px-3 py-2 rounded"
+                  className="bg-yellow hover:bg-yellow/90 text-black px-3 py-2 rounded"
                 >
                   <FaPaperPlane />
                 </button>

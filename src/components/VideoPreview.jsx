@@ -57,7 +57,7 @@ export default VideoPreview;
 //   };
 
 //   return (
-//     <div className="w-full max-w-5xl aspect-video rounded-lg overflow-hidden border border-[#2A2A2A] shadow-xl relative bg-black">
+//     <div className="w-full max-w-5xl aspect-video rounded-lg overflow-hidden border border-border shadow-xl relative bg-black">
 //       {!isPlaying ? (
 //         <div
 //           className="w-full h-full relative cursor-pointer"

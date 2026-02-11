@@ -22,7 +22,7 @@ const AutoExpandingTextarea = ({
     <textarea
       ref={ref}
       className={`w-full italic text-sm text-red-400 bg-transparent px-3 py-2 rounded resize-none overflow-hidden ${
-        isEditing ? "border border-[#2A2A2A]" : "border-none"
+        isEditing ? "border border-border" : "border-none"
       }`}
       placeholder={placeholder || "Note (optional)"}
       defaultValue={value}
@@ -167,19 +167,19 @@ const ManageTrainingProgram = () => {
   );
 
   return (
-    <div className="min-h-screen bg-[#121212] text-gray-200 py-10 max-w-5xl mx-auto px-0 sm:px-0">
+    <div className="min-h-screen bg-bg text-gray-200 py-10 max-w-5xl mx-auto px-0 sm:px-0">
       {saving && (
         <div className="fixed top-4 right-4 z-50">
-          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-cyan-400 border-opacity-50"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-yellow/50"></div>
         </div>
       )}
       {showToast && (
-        <div className="fixed top-4 right-16 bg-cyan-600 text-white px-4 py-2 rounded shadow-lg z-50 transition">
+        <div className="fixed top-4 right-16 bg-yellow text-black px-4 py-2 rounded shadow-lg z-50 transition">
           ✅ Program updated successfully!
         </div>
       )}
 
-      <h1 className="text-3xl font-bold mb-6 text-cyan-400">
+      <h1 className="text-3xl font-bold mb-6 text-yellow">
         Manage Training Program
       </h1>
 
@@ -190,8 +190,8 @@ const ManageTrainingProgram = () => {
             onClick={() => setWeek(w)}
             className={`px-4 py-2 rounded text-sm font-medium transition ${
               week === w
-                ? "bg-cyan-400 text-white"
-                : "bg-[#1E1E1E] text-gray-400 hover:bg-cyan-400 hover:text-white"
+                ? "bg-yellow text-black"
+                : "bg-surface text-gray-400 hover:bg-yellow/90 hover:text-black"
             }`}
           >
             Week {w}
@@ -206,10 +206,10 @@ const ManageTrainingProgram = () => {
           return (
             <div
               key={day}
-              className="border border-[#2A2A2A] rounded bg-[#1E1E1E]"
+              className="border border-border rounded bg-surface"
             >
               <button
-                className="w-full flex justify-between items-center p-4 text-left text-white hover:bg-[#2A2A2A]"
+                className="w-full flex justify-between items-center p-4 text-left text-white hover:bg-border"
                 onClick={() => toggleDay(day)}
               >
                 <div>
@@ -228,12 +228,12 @@ const ManageTrainingProgram = () => {
                   {session.blocks.map((block, blockIdx) => (
                     <div
                       key={blockIdx}
-                      className="bg-[#121212] border border-[#2A2A2A] rounded p-4 space-y-2"
+                      className="bg-bg border border-border rounded p-4 space-y-2"
                     >
                       <input
                         className={`w-full font-bold text-lg text-white bg-transparent px-3 py-2 rounded ${
                           editing[`week${week}.${day}.${blockIdx}.title`]
-                            ? "border border-[#2A2A2A]"
+                            ? "border border-border"
                             : "border-none"
                         }`}
                         defaultValue={block.title}
@@ -250,7 +250,7 @@ const ManageTrainingProgram = () => {
                       <input
                         className={`w-full italic text-sm text-gray-300 bg-transparent px-3 py-2 rounded ${
                           editing[`week${week}.${day}.${blockIdx}.subHeader`]
-                            ? "border border-[#2A2A2A]"
+                            ? "border border-border"
                             : "border-none"
                         }`}
                         placeholder="Block Sub-header"
@@ -309,7 +309,7 @@ const ManageTrainingProgram = () => {
                                   editing[
                                     `week${week}.${day}.${blockIdx}.items.${itemIdx}.text`
                                   ]
-                                    ? "border border-[#2A2A2A]"
+                                    ? "border border-border"
                                     : "border-none"
                                 }`}
                                 defaultValue={item.text}
@@ -330,7 +330,7 @@ const ManageTrainingProgram = () => {
                                   onClick={() =>
                                     handleAddItem(week, day, blockIdx)
                                   }
-                                  className="text-xs text-cyan-400 hover:text-white"
+                                  className="text-xs text-yellow hover:text-white"
                                   title="Add Item"
                                 >
                                   +

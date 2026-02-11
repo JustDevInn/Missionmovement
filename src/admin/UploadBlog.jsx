@@ -78,8 +78,8 @@ const UploadBlog = () => {
   };
 
   return (
-    <div className="p-6 md:p-10 bg-[#121212] min-h-screen text-white">
-      <h1 className="text-3xl font-bold text-cyan-500 mb-6">
+    <div className="p-6 md:p-10 bg-bg min-h-screen text-white">
+      <h1 className="text-3xl font-bold text-yellow mb-6">
         Upload Blog Article
       </h1>
 
@@ -132,7 +132,7 @@ const UploadBlog = () => {
           <span>Feature this post</span>
         </label>
 
-        <h3 className="text-cyan-500 font-semibold mt-6">Paragraphs</h3>
+        <h3 className="text-yellow font-semibold mt-6">Paragraphs</h3>
         {form.content.paragraphs.map((para, i) => (
           <textarea
             key={i}
@@ -148,12 +148,12 @@ const UploadBlog = () => {
         <button
           type="button"
           onClick={() => addField("paragraphs")}
-          className="text-cyan-400 text-sm underline"
+          className="text-yellow text-sm underline"
         >
           + Add Paragraph
         </button>
 
-        <h3 className="text-cyan-500 font-semibold mt-6">Images (URLs)</h3>
+        <h3 className="text-yellow font-semibold mt-6">Images (URLs)</h3>
         {form.content.images.map((img, i) => (
           <input
             key={i}
@@ -166,12 +166,12 @@ const UploadBlog = () => {
         <button
           type="button"
           onClick={() => addField("images")}
-          className="text-cyan-400 text-sm underline"
+          className="text-yellow text-sm underline"
         >
           + Add Image
         </button>
 
-        <h3 className="text-cyan-500 font-semibold mt-6">Quote</h3>
+        <h3 className="text-yellow font-semibold mt-6">Quote</h3>
         <input
           value={form.content.quote}
           onChange={(e) =>
@@ -187,7 +187,7 @@ const UploadBlog = () => {
         <button
           type="submit"
           disabled={submitting}
-          className="mt-6 bg-cyan-500 px-4 py-2 rounded font-bold text-white hover:opacity-90"
+          className="mt-6 bg-yellow px-4 py-2 rounded font-bold text-black hover:opacity-90"
         >
           {submitting ? "Uploading..." : "Submit Blog"}
         </button>
@@ -197,8 +197,8 @@ const UploadBlog = () => {
       </form>
 
       {/* Live Preview */}
-      <div className="mt-12 border-t border-cyan-800 pt-6">
-        <h2 className="text-2xl font-bold text-cyan-500 mb-4">Live Preview</h2>
+      <div className="mt-12 border-t border-yellow/30 pt-6">
+        <h2 className="text-2xl font-bold text-yellow mb-4">Live Preview</h2>
         <h3 className="text-yellow text-3xl font-bold mb-2">{form.title}</h3>
         <p className="italic text-gray-400 mb-2 text-base md:text-lg">by {form.author}</p>
         {form.thumbnail && (

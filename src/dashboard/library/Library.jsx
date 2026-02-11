@@ -75,13 +75,13 @@ const Library = () => {
   });
 
   return (
-    <div className="min-h-screen bg-[#121212] text-white px-4 sm:px-6 py-10 max-w-6xl mx-auto">
+    <div className="min-h-screen bg-bg text-white px-4 sm:px-6 py-10 max-w-6xl mx-auto">
       <h1 className="h1 mb-8">Video Library</h1>
 
       <input
         type="text"
         placeholder="Search by title or tag..."
-        className="w-full p-3 bg-[#1E1E1E] border border-[#2A2A2A] rounded mb-6 text-white placeholder-gray-500"
+        className="w-full p-3 bg-surface border border-border rounded mb-6 text-white placeholder-gray-500"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
@@ -94,7 +94,7 @@ const Library = () => {
             className={`px-3 py-1 text-xs rounded font-semibold transition ${
               activeTag === tag
                 ? "bg-yellow text-black"
-                : "bg-[#1E1E1E] text-gray-400 border border-[#2A2A2A] hover:bg-yellow hover:text-black"
+                : "bg-surface text-gray-400 border border-border hover:bg-yellow hover:text-black"
             }`}
           >
             #{tag}
@@ -121,7 +121,7 @@ const Library = () => {
         {filteredVideos.map((video) => (
           <div
             key={video.id}
-            className="border border-[#2A2A2A] rounded bg-[#1E1E1E] p-4 transition-all duration-300 flex flex-col justify-between h-[370px] relative shadow"
+            className="border border-border rounded bg-surface p-4 transition-all duration-300 flex flex-col justify-between h-[370px] relative shadow"
           >
             {video.thumbnail && (
               <img
@@ -138,7 +138,7 @@ const Library = () => {
               {video.tags?.map((tag, i) => (
                 <button
                   key={i}
-                  className="inline-block mr-2 mb-1 px-2 py-1 bg-[#2A2A2A] text-gray-300 rounded text-xs hover:bg-yellow hover:text-black transition"
+                  className="inline-block mr-2 mb-1 px-2 py-1 bg-border text-gray-300 rounded text-xs hover:bg-yellow hover:text-black transition"
                   onClick={() => setActiveTag(tag)}
                 >
                   #{tag}
@@ -160,7 +160,7 @@ const Library = () => {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="absolute z-40 top-full mt-2 left-0 right-0 bg-[#1E1E1E] border border-[#2A2A2A] shadow-lg p-3 rounded text-sm text-gray-300"
+                  className="absolute z-40 top-full mt-2 left-0 right-0 bg-surface border border-border shadow-lg p-3 rounded text-sm text-gray-300"
                 >
                   <p>{video.description}</p>
                 </motion.div>
@@ -183,7 +183,7 @@ const Library = () => {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg p-4 w-full max-w-3xl relative shadow-lg"
+              className="bg-surface border border-border rounded-lg p-4 w-full max-w-3xl relative shadow-lg"
               ref={modalRef}
             >
               <button

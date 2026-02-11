@@ -20,7 +20,7 @@ const AutoExpandingTextarea = ({ value, onChange, placeholder }) => {
       value={value}
       onChange={onChange}
       placeholder={placeholder}
-      className="w-full italic text-sm text-white bg-transparent border border-[#2A2A2A] px-3 py-2 rounded resize-none overflow-hidden"
+      className="w-full italic text-sm text-white bg-transparent border border-border px-3 py-2 rounded resize-none overflow-hidden"
       rows={1}
       onInput={(e) => {
         e.target.style.height = "auto";
@@ -106,7 +106,7 @@ const CheckIn = () => {
   if (loading) return <div className="p-6 text-gray-300">Loading...</div>;
 
   return (
-    <div className="min-h-screen bg-[#121212] text-white px-4 sm:px-6 py-10 max-w-5xl mx-auto">
+    <div className="min-h-screen bg-bg text-white px-4 sm:px-6 py-10 max-w-5xl mx-auto">
       <h1 className="h1 mb-8">Check-In & Reflection</h1>
 
       {progressData &&
@@ -136,7 +136,7 @@ const CheckIn = () => {
           return (
             <div
               key={weekKey}
-              className="bg-[#1E1E1E] border border-[#2A2A2A] rounded p-5 mb-8"
+              className="bg-surface border border-border rounded p-5 mb-8"
             >
               <div
                 className="cursor-pointer flex justify-between items-center"

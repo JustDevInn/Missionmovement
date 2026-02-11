@@ -85,7 +85,7 @@ const ManageUsers = () => {
       {/* 🖥️ Table View for Desktop */}
       <div className="hidden sm:block overflow-x-auto">
         <table className="min-w-full border text-sm">
-        <thead className="bg-[#1E1E1E] text-left font-semibold text-gray-300 border-b border-[#2A2A2A]">
+        <thead className="bg-surface text-left font-semibold text-gray-300 border-b border-border">
             <tr>
               <th className="p-3 border">Email</th>
               <th className="p-3 border">Username</th>
@@ -129,7 +129,7 @@ const ManageUsers = () => {
     setEditingUser(user);
     setNewRole(user.role || "user");
   }}
-  className="text-blue-500 hover:underline text-sm mr-2"
+  className="text-yellow hover:underline text-sm mr-2"
 >
   Edit
 </button>
@@ -151,7 +151,7 @@ const ManageUsers = () => {
       {/* 📱 Card View for Mobile */}
       <div className="flex flex-col gap-4 sm:hidden">
       {filteredUsers.map((user) => (
-          <div key={user.id} className="border rounded-lg p-4 shadow bg-[#1E1E1E] text-white">
+          <div key={user.id} className="border rounded-lg p-4 shadow bg-surface text-white">
             <p className="break-words text-base md:text-lg">
               <span className="font-semibold">Email:</span> {user.email || "-"}
             </p>
@@ -186,7 +186,7 @@ const ManageUsers = () => {
       setEditingUser(user);
       setNewRole(user.role || "user");
     }}
-    className="px-2 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 text-center"
+    className="px-2 py-1 rounded bg-yellow text-black hover:bg-yellow/90 text-center"
   >
     Edit
   </button>
@@ -222,7 +222,7 @@ const ManageUsers = () => {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-[#1E1E1E] text-white w-full max-w-sm p-6 rounded-lg shadow-lg text-center"
+              className="bg-surface text-white w-full max-w-sm p-6 rounded-lg shadow-lg text-center"
             >
               <h2 className="text-xl font-bold mb-4">Confirm Deletion</h2>
               <p className="text-gray-600 mb-6 text-base md:text-lg">
@@ -260,7 +260,7 @@ const ManageUsers = () => {
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
-        className="bg-[#1E1E1E] text-white w-full max-w-sm p-6 rounded-lg shadow-lg"
+        className="bg-surface text-white w-full max-w-sm p-6 rounded-lg shadow-lg"
       >
         <h2 className="text-xl font-bold mb-4 text-center">Edit User Role</h2>
 
@@ -304,7 +304,7 @@ const ManageUsers = () => {
               );
               setEditingUser(null);
             }}
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            className="px-4 py-2 bg-yellow text-black rounded hover:bg-yellow/90"
           >
             Save
           </button>

@@ -3,7 +3,7 @@ import { FaLeaf } from "react-icons/fa";
 
 const Nutrition = () => {
   return (
-    <div className="min-h-screen bg-[#121212] text-white flex items-center justify-center px-4 py-10">
+    <div className="min-h-screen bg-bg text-white flex items-center justify-center px-4 py-10">
       <div className="text-center max-w-md space-y-6">
         <FaLeaf className="text-yellow text-5xl mx-auto animate-bounce" />
         <h1 className="text-3xl md:text-4xl font-bold text-yellow tracking-wide uppercase">

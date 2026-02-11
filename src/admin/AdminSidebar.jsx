@@ -74,21 +74,21 @@ const AdminSidebar = ({ isCollapsed, setIsCollapsed }) => {
       {/* Mobile toggle */}
       <button
         onClick={() => setIsMobileOpen(true)}
-        className="md:hidden fixed top-4 right-4 z-50 bg-[#1E1E1E] border border-[#2A2A2A] rounded-full p-2 shadow"
+        className="md:hidden fixed top-4 right-4 z-50 bg-surface border border-border rounded-full p-2 shadow"
       >
-        <FaBars className="text-cyan-400 text-lg" />
+        <FaBars className="text-yellow text-lg" />
       </button>
 
       {/* Desktop Sidebar */}
       <aside
-        className={`hidden md:flex flex-col bg-[#1E1E1E] border-r border-[#2A2A2A] sticky top-0 h-screen transition-all duration-300 ${
+        className={`hidden md:flex flex-col bg-surface border-r border-border sticky top-0 h-screen transition-all duration-300 ${
           isCollapsed ? "w-16 px-2" : "w-64 px-6"
         } py-6 text-white`}
       >
         <div className="flex items-center justify-between mb-6">
           {!isCollapsed && (
             <Link to="/admin">
-              <h2 className="text-xl font-bold text-cyan-400">Admin Panel</h2>
+              <h2 className="text-xl font-bold text-yellow">Admin Panel</h2>
             </Link>
           )}
           <button
@@ -108,8 +108,8 @@ const AdminSidebar = ({ isCollapsed, setIsCollapsed }) => {
               className={({ isActive }) =>
                 `flex items-center gap-2 px-3 py-2 rounded-md transition-all ${
                   isActive
-                    ? "bg-cyan-600 text-white font-semibold"
-                    : "text-gray-400 hover:text-white hover:bg-[#2A2A2A]"
+                    ? "bg-yellow text-black font-semibold"
+                    : "text-gray-400 hover:text-white hover:bg-border"
                 }`
               }
             >
@@ -121,7 +121,7 @@ const AdminSidebar = ({ isCollapsed, setIsCollapsed }) => {
 
         <Link
           to="/dashboard"
-          className={`mt-auto text-sm text-cyan-400 hover:underline ${
+          className={`mt-auto text-sm text-yellow hover:underline ${
             isCollapsed ? "text-center mt-10" : "mt-10"
           }`}
         >
@@ -140,7 +140,7 @@ const AdminSidebar = ({ isCollapsed, setIsCollapsed }) => {
       >
         <div
           ref={drawerRef}
-          className={`fixed top-0 right-0 h-full w-64 bg-[#1E1E1E] text-white p-6 shadow-lg transform transition-transform duration-300 ${
+          className={`fixed top-0 right-0 h-full w-64 bg-surface text-white p-6 shadow-lg transform transition-transform duration-300 ${
             isMobileOpen ? "translate-x-0" : "translate-x-full"
           }`}
           onClick={(e) => e.stopPropagation()}
@@ -152,7 +152,7 @@ const AdminSidebar = ({ isCollapsed, setIsCollapsed }) => {
             <FaTimes />
           </button>
 
-          <h2 className="text-xl font-bold mb-6 text-cyan-400">Admin Panel</h2>
+          <h2 className="text-xl font-bold mb-6 text-yellow">Admin Panel</h2>
 
           <nav className="flex flex-col gap-4 text-sm font-medium">
             {links.map((link) => (
@@ -164,8 +164,8 @@ const AdminSidebar = ({ isCollapsed, setIsCollapsed }) => {
                 className={({ isActive }) =>
                   `flex items-center gap-2 px-3 py-2 rounded-md transition ${
                     isActive
-                      ? "bg-cyan-600 text-white font-semibold"
-                      : "text-gray-400 hover:text-white hover:bg-[#2A2A2A]"
+                      ? "bg-yellow text-black font-semibold"
+                      : "text-gray-400 hover:text-white hover:bg-border"
                   }`
                 }
               >
@@ -177,7 +177,7 @@ const AdminSidebar = ({ isCollapsed, setIsCollapsed }) => {
           <Link
             to="/dashboard"
             onClick={() => setIsMobileOpen(false)}
-            className="block mt-10 text-sm text-cyan-400 hover:underline"
+            className="block mt-10 text-sm text-yellow hover:underline"
           >
             ← Back to User Dashboard
           </Link>
