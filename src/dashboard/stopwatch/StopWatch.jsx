@@ -41,8 +41,8 @@ const Stopwatch = () => {
   };
 
   return (
-    <div className="min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center px-4 py-6 bg-[#121212] text-white">
-      <div className="w-full max-w-md bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow-md p-6 flex flex-col justify-between h-[550px]">
+    <div className="min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center px-4 py-6 bg-bg text-white">
+      <div className="w-full max-w-md bg-surface border border-border rounded-lg shadow-md p-6 flex flex-col justify-between h-[550px]">
         <div>
           <h2 className="text-xl font-bold text-yellow text-center mb-4 uppercase tracking-widest">
             Stopwatch
@@ -83,7 +83,7 @@ const Stopwatch = () => {
           )}
         </div>
 
-        <div className="text-sm text-gray-300 space-y-1 max-h-48 overflow-y-auto pr-1 border-t border-[#2A2A2A] pt-4">
+        <div className="text-sm text-gray-300 space-y-1 max-h-48 overflow-y-auto pr-1 border-t border-border pt-4">
           {laps.map((lap, idx) => (
             <div key={idx} className="flex justify-between">
               <span className="text-brown">Round {laps.length - idx}</span>

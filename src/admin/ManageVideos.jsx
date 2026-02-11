@@ -109,7 +109,7 @@ const ManageVideos = () => {
       <input
         type="text"
         placeholder="Search by title or tag..."
-        className="w-full p-3 border border-[#2A2A2A] rounded mb-6 bg-[#1E1E1E] text-gray-200 placeholder-gray-400"
+        className="w-full p-3 border border-border rounded mb-6 bg-surface text-gray-200 placeholder-gray-400"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
@@ -134,7 +134,7 @@ const ManageVideos = () => {
           <button
             key={tag}
             onClick={() => setActiveTag(tag)}
-            className="text-xs bg-[#2A2A2A] hover:bg-yellow px-2 py-1 rounded text-gray-300 hover:text-black"
+            className="text-xs bg-border hover:bg-yellow px-2 py-1 rounded text-gray-300 hover:text-black"
           >
             #{tag}
           </button>
@@ -145,7 +145,7 @@ const ManageVideos = () => {
         {filteredVideos.map((video) => (
           <div
             key={video.id}
-            className="bg-[#1E1E1E] p-4 border border-[#2A2A2A] rounded shadow-sm flex flex-col justify-between h-[430px]"
+            className="bg-surface p-4 border border-border rounded shadow-sm flex flex-col justify-between h-[430px]"
           >
             {video.thumbnail && (
               <img
@@ -164,17 +164,17 @@ const ManageVideos = () => {
               {video.tags.map((tag, i) => (
                 <span
                   key={i}
-                  className="inline-block bg-[#2A2A2A] px-2 py-1 rounded mr-1 mb-1 text-gray-300"
+                  className="inline-block bg-border px-2 py-1 rounded mr-1 mb-1 text-gray-300"
                 >
                   #{tag}
                 </span>
               ))}
             </div>
-            <div className="flex items-center justify-between mt-auto pt-3 border-t border-[#2A2A2A]">
+            <div className="flex items-center justify-between mt-auto pt-3 border-t border-border">
               <div className="flex gap-3">
                 <button
                   onClick={() => handleEditClick(video)}
-                  className="flex items-center text-blue-400 hover:underline text-sm"
+                  className="flex items-center text-yellow hover:underline text-sm"
                 >
                   <FaEdit className="mr-1" /> Edit
                 </button>
@@ -205,7 +205,7 @@ const ManageVideos = () => {
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="bg-[#1E1E1E] text-gray-200 rounded-lg p-6 max-w-lg w-full shadow-xl relative"
+              className="bg-surface text-gray-200 rounded-lg p-6 max-w-lg w-full shadow-xl relative"
               ref={modalRef}
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -225,7 +225,7 @@ const ManageVideos = () => {
                   value={editForm.title}
                   onChange={handleEditChange}
                   placeholder="Title"
-                  className="w-full border border-[#2A2A2A] rounded p-2 bg-[#121212] text-gray-300 placeholder-gray-500"
+                  className="w-full border border-border rounded p-2 bg-bg text-gray-300 placeholder-gray-500"
                 />
                 <textarea
                   name="description"
@@ -233,7 +233,7 @@ const ManageVideos = () => {
                   onChange={handleEditChange}
                   placeholder="Description"
                   rows={3}
-                  className="w-full border border-[#2A2A2A] rounded p-2 bg-[#121212] text-gray-300 placeholder-gray-500"
+                  className="w-full border border-border rounded p-2 bg-bg text-gray-300 placeholder-gray-500"
                 ></textarea>
                 <input
                   type="text"
@@ -241,7 +241,7 @@ const ManageVideos = () => {
                   value={editForm.tags}
                   onChange={handleEditChange}
                   placeholder="Tags (comma separated)"
-                  className="w-full border border-[#2A2A2A] rounded p-2 bg-[#121212] text-gray-300 placeholder-gray-500"
+                  className="w-full border border-border rounded p-2 bg-bg text-gray-300 placeholder-gray-500"
                 />
                 <input
                   type="text"
@@ -249,7 +249,7 @@ const ManageVideos = () => {
                   value={editForm.videoUrl}
                   onChange={handleEditChange}
                   placeholder="YouTube Video URL"
-                  className="w-full border border-[#2A2A2A] rounded p-2 bg-[#121212] text-gray-300 placeholder-gray-500"
+                  className="w-full border border-border rounded p-2 bg-bg text-gray-300 placeholder-gray-500"
                 />
                 <input
                   type="text"
@@ -257,7 +257,7 @@ const ManageVideos = () => {
                   value={editForm.thumbnail}
                   onChange={handleEditChange}
                   placeholder="Thumbnail URL"
-                  className="w-full border border-[#2A2A2A] rounded p-2 bg-[#121212] text-gray-300 placeholder-gray-500"
+                  className="w-full border border-border rounded p-2 bg-bg text-gray-300 placeholder-gray-500"
                 />
                 <button
                   onClick={handleEditSave}

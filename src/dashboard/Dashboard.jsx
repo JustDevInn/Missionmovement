@@ -78,14 +78,14 @@ const Dashboard = () => {
 
   if (localLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#121212] text-white">
+      <div className="min-h-screen flex items-center justify-center bg-bg text-white">
         <div className="animate-spin rounded-full h-12 w-12 border-4 border-yellow border-t-transparent" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#121212] px-4 pt-8 pb-16 md:px-8 text-white max-w-7xl mx-auto font-primary">
+    <div className="min-h-screen bg-bg px-4 pt-8 pb-16 md:px-8 text-white max-w-7xl mx-auto font-primary">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10">
         <div>
@@ -152,7 +152,7 @@ const Dashboard = () => {
               <div
                 key={index}
                 onClick={() => setShowModal(true)}
-                className="bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow overflow-hidden opacity-70 cursor-pointer hover:brightness-110 transition flex flex-col"
+                className="bg-surface border border-border rounded-lg shadow overflow-hidden opacity-70 cursor-pointer hover:brightness-110 transition flex flex-col"
               >
                 {content}
               </div>
@@ -160,7 +160,7 @@ const Dashboard = () => {
               <Link
                 key={index}
                 to={card.route}
-                className="bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow hover:shadow-lg transition overflow-hidden flex flex-col"
+                className="bg-surface border border-border rounded-lg shadow hover:shadow-lg transition overflow-hidden flex flex-col"
               >
                 {content}
               </Link>

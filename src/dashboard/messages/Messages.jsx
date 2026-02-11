@@ -116,9 +116,9 @@ const Messages = () => {
   };
 
   return (
-    <div className="min-h-[80vh] max-h-[85vh] mt-10 flex flex-col bg-[#121212] text-white max-w-3xl mx-auto border border-[#2A2A2A] rounded-lg shadow overflow-hidden">
+    <div className="min-h-[80vh] max-h-[85vh] mt-10 flex flex-col bg-bg text-white max-w-3xl mx-auto border border-border rounded-lg shadow overflow-hidden">
       {/* Header */}
-      <div className="bg-[#1E1E1E] px-4 py-3 border-b border-[#2A2A2A]">
+      <div className="bg-surface px-4 py-3 border-b border-border">
         <h2 className="h2-teko text-yellow text-xl tracking-wider">
           Chat with your Coach
         </h2>
@@ -150,7 +150,7 @@ const Messages = () => {
                 className={`max-w-[80%] p-3 rounded-lg text-sm relative group transition ${
                   isUser
                     ? "bg-brown text-white"
-                    : "bg-[#1E1E1E] border border-[#2A2A2A] text-gray-200"
+                    : "bg-surface border border-border text-gray-200"
                 }`}
               >
                 {isEditing ? (
@@ -158,12 +158,12 @@ const Messages = () => {
                     <input
                       value={editedText}
                       onChange={(e) => setEditedText(e.target.value)}
-                      className="bg-[#121212] border border-[#2A2A2A] text-white px-2 py-1 rounded"
+                      className="bg-bg border border-border text-white px-2 py-1 rounded"
                     />
                     <div className="flex gap-2 justify-end">
                       <button
                         onClick={() => handleEditSave(msg.id)}
-                        className="text-cyan-300 hover:text-white"
+                        className="text-yellow hover:text-white"
                         title="Save"
                       >
                         <FaSave />
@@ -188,7 +188,7 @@ const Messages = () => {
                         href={msg.mediaUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="underline text-cyan-200 hover:text-yellow transition"
+                        className="underline text-yellow hover:text-yellow transition"
                       >
                         📎 {msg.fileName || "Attachment"}
                       </a>
@@ -236,14 +236,14 @@ const Messages = () => {
       {/* Input */}
       <form
         onSubmit={handleSendMessage}
-        className="bg-[#1E1E1E] p-4 border-t border-[#2A2A2A] flex items-center gap-2"
+        className="bg-surface p-4 border-t border-border flex items-center gap-2"
       >
         <input
           type="text"
           placeholder="Type a message..."
           value={newMsg}
           onChange={(e) => setNewMsg(e.target.value)}
-          className="flex-1 bg-[#121212] border border-[#2A2A2A] px-3 py-2 rounded text-sm text-white placeholder-gray-400"
+          className="flex-1 bg-bg border border-border px-3 py-2 rounded text-sm text-white placeholder-gray-400"
         />
         <input
           type="file"

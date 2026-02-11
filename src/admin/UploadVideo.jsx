@@ -66,27 +66,27 @@ const UploadVideo = () => {
         <input
           type="text"
           placeholder="Title"
-          className="w-full p-3 bg-[#121212] border border-[#2A2A2A] rounded placeholder-gray-400"
+          className="w-full p-3 bg-bg border border-border rounded placeholder-gray-400"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
         <textarea
           placeholder="Description"
-          className="w-full p-3 bg-[#121212] border border-[#2A2A2A] rounded placeholder-gray-400"
+          className="w-full p-3 bg-bg border border-border rounded placeholder-gray-400"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
         <input
           type="text"
           placeholder="YouTube Video URL"
-          className="w-full p-3 bg-[#121212] border border-[#2A2A2A] rounded placeholder-gray-400"
+          className="w-full p-3 bg-bg border border-border rounded placeholder-gray-400"
           value={videoUrl}
           onChange={(e) => setVideoUrl(e.target.value)}
         />
         <input
           type="text"
           placeholder="Thumbnail URL"
-          className="w-full p-3 bg-[#121212] border border-[#2A2A2A] rounded placeholder-gray-400"
+          className="w-full p-3 bg-bg border border-border rounded placeholder-gray-400"
           value={thumbnail}
           onChange={(e) => setThumbnail(e.target.value)}
         />
@@ -94,13 +94,13 @@ const UploadVideo = () => {
           <button
             type="button"
             onClick={handleCopy}
-            className="flex items-center gap-2 text-xs hover:underline text-gray-400 hover:text-blue-400"
+            className="flex items-center gap-2 text-xs hover:underline text-gray-400 hover:text-yellow"
           >
             <FaClipboard />
             https://img.youtube.com/vi/string/hqdefault.jpg
           </button>
           {showCopied && (
-            <span className="absolute top-full left-0 mt-1 text-xs text-green-400 bg-[#1E1E1E] px-2 py-1 border border-green-600 rounded shadow-sm">
+            <span className="absolute top-full left-0 mt-1 text-xs text-green-400 bg-surface px-2 py-1 border border-green-600 rounded shadow-sm">
               Copied!
             </span>
           )}
@@ -108,13 +108,13 @@ const UploadVideo = () => {
         <input
           type="text"
           placeholder="Tags (comma-separated)"
-          className="w-full p-3 bg-[#121212] border border-[#2A2A2A] rounded placeholder-gray-400"
+          className="w-full p-3 bg-bg border border-border rounded placeholder-gray-400"
           value={tags}
           onChange={(e) => setTags(e.target.value)}
         />
         <button
           type="submit"
-          className="bg-cyan-500 text-white font-semibold px-4 py-2 rounded hover:brightness-110 transition"
+          className="bg-yellow text-black font-semibold px-4 py-2 rounded hover:brightness-110 transition"
         >
           Upload
         </button>

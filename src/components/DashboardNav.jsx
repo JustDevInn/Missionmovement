@@ -136,8 +136,8 @@ const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
         className={({ isActive }) =>
           `flex items-center gap-3 px-3 py-2 rounded-md transition-all ${
             isActive
-              ? "text-yellow font-semibold border-l-4 border-yellow pl-2 bg-[#1A1A1A]"
-              : "text-gray-400 hover:text-yellow hover:bg-[#1A1A1A]"
+              ? "text-yellow font-semibold border-l-4 border-yellow pl-2 bg-surface2"
+              : "text-gray-400 hover:text-yellow hover:bg-surface2"
           }`
         }
       >
@@ -152,14 +152,14 @@ const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
       {/* Mobile hamburger */}
       <button
         onClick={() => setIsMobileOpen(true)}
-        className="md:hidden fixed top-4 right-4 z-50 bg-[#1E1E1E] border border-yellow rounded-full p-2 shadow"
+        className="md:hidden fixed top-4 right-4 z-50 bg-surface border border-yellow rounded-full p-2 shadow"
       >
         <FaBars className="text-yellow text-lg" />
       </button>
 
       {/* Desktop Sidebar */}
       <aside
-        className={`hidden md:flex flex-col bg-[#101010] border-r border-[#2A2A2A] sticky top-0 h-screen transition-all duration-300 font-primary ${
+        className={`hidden md:flex flex-col bg-bg border-r border-border sticky top-0 h-screen transition-all duration-300 font-primary ${
           isCollapsed ? "w-16 px-2" : "w-64 px-6"
         } py-6 text-white`}
       >
@@ -201,7 +201,7 @@ const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
       >
         <div
           ref={drawerRef}
-          className={`fixed top-0 right-0 h-full w-64 bg-[#101010] text-white font-primary p-6 shadow-lg transform transition-transform duration-300 ${
+          className={`fixed top-0 right-0 h-full w-64 bg-bg text-white font-primary p-6 shadow-lg transform transition-transform duration-300 ${
             isMobileOpen ? "translate-x-0" : "translate-x-full"
           }`}
           onClick={(e) => e.stopPropagation()}
@@ -224,7 +224,7 @@ const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
               return isLocked ? (
                 <div
                   key={link.to}
-                  className="flex items-center gap-2 px-3 py-2 rounded-md text-gray-600 bg-[#0f0f0f] cursor-not-allowed"
+                  className="flex items-center gap-2 px-3 py-2 rounded-md text-gray-600 bg-bg cursor-not-allowed"
                 >
                   <FaLock className="text-yellow" /> {link.label}
                 </div>
@@ -237,8 +237,8 @@ const DashboardNav = ({ isCollapsed, setIsCollapsed }) => {
                   className={({ isActive }) =>
                     `flex items-center gap-2 px-3 py-2 rounded-md transition ${
                       isActive
-                        ? "text-yellow font-semibold border-l-4 border-yellow pl-2 bg-[#1A1A1A]"
-                        : "text-gray-400 hover:text-yellow hover:bg-[#1A1A1A]"
+                        ? "text-yellow font-semibold border-l-4 border-yellow pl-2 bg-surface2"
+                        : "text-gray-400 hover:text-yellow hover:bg-surface2"
                     }`
                   }
                 >

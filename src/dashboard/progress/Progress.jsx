@@ -147,13 +147,13 @@ const Progress = () => {
   if (loading) return <Spinner />;
 
   return (
-    <div className="min-h-screen bg-[#121212] text-white px-4 sm:px-6 py-10 max-w-5xl mx-auto space-y-10">
+    <div className="min-h-screen bg-bg text-white px-4 sm:px-6 py-10 max-w-5xl mx-auto space-y-10">
       <h1 className="text-3xl font-bold text-yellow uppercase tracking-wide mb-2">
         Progress Overview
       </h1>
 
       {/* Starting Scores */}
-      <div className="bg-[#1E1E1E] p-5 rounded border border-[#2A2A2A] relative">
+      <div className="bg-surface p-5 rounded border border-border relative">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-semibold text-white tracking-wide">
             Starting Scores
@@ -193,7 +193,7 @@ const Progress = () => {
                 value={scoresDraft[field] || ""}
                 onChange={(e) => handleScoreChange(field, e.target.value)}
                 placeholder={field}
-                className="w-full bg-[#121212] border border-[#2A2A2A] rounded px-3 py-2 text-sm text-white"
+                className="w-full bg-bg border border-border rounded px-3 py-2 text-sm text-white"
               />
             ))}
             <button
@@ -209,19 +209,19 @@ const Progress = () => {
 
       {/* Stats Summary */}
       <div className="grid sm:grid-cols-3 gap-4">
-        <div className="bg-[#1E1E1E] p-5 rounded border border-[#2A2A2A] text-center">
+        <div className="bg-surface p-5 rounded border border-border text-center">
           <p className="text-3xl font-mono text-yellow">{totalBlocks}</p>
           <p className="text-brown uppercase tracking-wide mt-1 text-base md:text-lg">
             Blocks Completed
           </p>
         </div>
-        <div className="bg-[#1E1E1E] p-5 rounded border border-[#2A2A2A] text-center">
+        <div className="bg-surface p-5 rounded border border-border text-center">
           <p className="text-3xl font-mono text-yellow">{totalReflections}</p>
           <p className="text-brown uppercase tracking-wide mt-1 text-base md:text-lg">
             Reflections Written
           </p>
         </div>
-        <div className="bg-[#1E1E1E] p-5 rounded border border-[#2A2A2A] text-center">
+        <div className="bg-surface p-5 rounded border border-border text-center">
           <p className="text-3xl font-mono text-yellow">{streak}</p>
           <p className="text-brown uppercase tracking-wide mt-1 text-base md:text-lg">
             Current Streak
@@ -230,7 +230,7 @@ const Progress = () => {
       </div>
 
       {/* Chart */}
-      <div className="bg-[#1E1E1E] p-6 rounded border border-[#2A2A2A]">
+      <div className="bg-surface p-6 rounded border border-border">
         <h2 className="text-xl font-semibold mb-4 text-white">
           Weekly Progress
         </h2>

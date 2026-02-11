@@ -68,7 +68,7 @@ const ManageBlogs = () => {
 
   return (
     <div className="p-6 md:p-10 text-white">
-      <h1 className="text-3xl font-bold text-cyan-400 mb-6">Manage Blogs</h1>
+      <h1 className="text-3xl font-bold text-yellow mb-6">Manage Blogs</h1>
 
       {/* Controls */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
@@ -77,12 +77,12 @@ const ManageBlogs = () => {
           placeholder="Search by title or author..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="bg-[#1c1c1c] text-white border border-cyan-500 px-4 py-2 rounded w-full md:max-w-md"
+          className="bg-surface2 text-white border border-yellow px-4 py-2 rounded w-full md:max-w-md"
         />
         <select
           value={sortOption}
           onChange={(e) => setSortOption(e.target.value)}
-          className="bg-[#1c1c1c] text-white border border-cyan-500 px-4 py-2 rounded w-full md:w-48"
+          className="bg-surface2 text-white border border-yellow px-4 py-2 rounded w-full md:w-48"
         >
           <option value="newest">Sort: Newest</option>
           <option value="oldest">Sort: Oldest</option>
@@ -112,7 +112,7 @@ const ManageBlogs = () => {
                 <div className="flex gap-3 mt-4">
                   <button
                     onClick={() => handleEditClick(blog)}
-                    className="bg-cyan-500 text-white font-bold px-4 py-2 rounded hover:bg-cyan-600"
+                    className="bg-yellow text-black font-bold px-4 py-2 rounded hover:bg-yellow/90"
                   >
                     Edit
                   </button>

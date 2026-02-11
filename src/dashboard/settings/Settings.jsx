@@ -101,11 +101,11 @@ const Settings = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#121212] text-white px-4 sm:px-6 py-10 max-w-2xl mx-auto space-y-10">
+    <div className="min-h-screen bg-bg text-white px-4 sm:px-6 py-10 max-w-2xl mx-auto space-y-10">
       <h1 className="h1-teko text-yellow text-3xl tracking-wider">Settings</h1>
 
       {/* Username */}
-      <div className="bg-[#1E1E1E] border border-[#2A2A2A] p-4 rounded space-y-3">
+      <div className="bg-surface border border-border p-4 rounded space-y-3">
         <h2 className="h2-teko text-white text-xl tracking-wide">
           Change Username
         </h2>
@@ -114,7 +114,7 @@ const Settings = () => {
           type="text"
           value={newUsername}
           onChange={(e) => setNewUsername(e.target.value)}
-          className="w-full bg-[#121212] border border-[#2A2A2A] rounded px-3 py-2 text-sm text-white"
+          className="w-full bg-bg border border-border rounded px-3 py-2 text-sm text-white"
         />
         <button
           onClick={handleUsernameSave}
@@ -133,7 +133,7 @@ const Settings = () => {
       {/* Change Password */}
       <form
         onSubmit={handleChangePassword}
-        className="bg-[#1E1E1E] border border-[#2A2A2A] p-4 rounded space-y-3"
+        className="bg-surface border border-border p-4 rounded space-y-3"
       >
         <h2 className="h2-teko text-white text-xl tracking-wide">
           Change Password
@@ -144,7 +144,7 @@ const Settings = () => {
           autoComplete="current-password"
           value={currentPw}
           onChange={(e) => setCurrentPw(e.target.value)}
-          className="w-full bg-[#121212] border border-[#2A2A2A] rounded px-3 py-2 text-sm text-white"
+          className="w-full bg-bg border border-border rounded px-3 py-2 text-sm text-white"
         />
         <input
           type="password"
@@ -152,7 +152,7 @@ const Settings = () => {
           autoComplete="new-password"
           value={newPw}
           onChange={(e) => setNewPw(e.target.value)}
-          className="w-full bg-[#121212] border border-[#2A2A2A] rounded px-3 py-2 text-sm text-white"
+          className="w-full bg-bg border border-border rounded px-3 py-2 text-sm text-white"
         />
         <button
           type="submit"
@@ -168,7 +168,7 @@ const Settings = () => {
       </form>
 
       {/* Password Reset */}
-      <div className="bg-[#1E1E1E] border border-[#2A2A2A] p-4 rounded space-y-3">
+      <div className="bg-surface border border-border p-4 rounded space-y-3">
         <h2 className="h2-teko text-white text-xl tracking-wide">
           Forgot Password?
         </h2>
@@ -189,7 +189,7 @@ const Settings = () => {
       {/* Delete Account */}
       <form
         onSubmit={handleDeleteAccount}
-        className="bg-[#1E1E1E] border border-red-800 p-4 rounded space-y-3"
+        className="bg-surface border border-red-800 p-4 rounded space-y-3"
       >
         <h2 className="h2-teko text-red-500 text-xl tracking-wide">
           Danger Zone: Delete Account
@@ -211,7 +211,7 @@ const Settings = () => {
           autoComplete="current-password"
           value={deletePw}
           onChange={(e) => setDeletePw(e.target.value)}
-          className="w-full bg-[#121212] border border-[#2A2A2A] rounded px-3 py-2 text-sm text-white mt-2"
+          className="w-full bg-bg border border-border rounded px-3 py-2 text-sm text-white mt-2"
         />
         <button
           type="submit"

@@ -1,176 +1,189 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import FloatingCTA from "../components/FloatingCTA";
 import { Helmet } from "react-helmet-async";
+import FloatingCTA from "../components/FloatingCTA";
 import TrainerCard from "../components/TrainerCard";
+import aboutConfig from "./config/about.config";
+import mmTheme from "../styles/mmTheme";
+import Container from "../components/layout/Container";
 
 const About = () => {
+  const theme = mmTheme;
+  const {
+    meta,
+    hero,
+    foundations,
+    quote,
+    missionValues,
+    closingCta,
+    endDivider,
+  } = aboutConfig;
+  const foundationParagraphs = foundations.body.split("\n\n");
+
   return (
-    <div className="pt-10">
+    <main className={`aboutPage min-h-screen pt-20 font-body ${theme.page}`}>
       <Helmet>
-        <title>Over Ons | Mission Movement</title>
-        <meta
-          name="description"
-          content="Ontdek het verhaal achter Mission Movement en de reis van elite-eenheid naar elite coaching."
-        />
-        <meta property="og:title" content="Over Mission Movement" />
-        <meta
-          property="og:description"
-          content="Van het Korps Mariniers naar de moderne krijger - dit is ons verhaal."
-        />
-        <meta
-          property="og:image"
-          content="https://missionmovement.vercel.app/img/thestory.png"
-        />
+        <title>{meta.title}</title>
+        <meta name="description" content={meta.description} />
+        <meta property="og:title" content={meta.ogTitle} />
+        <meta property="og:description" content={meta.ogDescription} />
+        <meta property="og:image" content={meta.ogImage} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta
-          property="og:url"
-          content="https://missionmovement.vercel.app/about"
-        />
+        <meta property="og:url" content={meta.ogUrl} />
       </Helmet>
 
       {/* Hero Section: The Story */}
       <section
-        className="relative section flex justify-center items-center bg-parajumping bg-bottom bg-no-repeat bg-cover"
+        className={`serviceHero relative h-[400px] md:h-[500px] w-full ${hero.backgroundClass}`}
         aria-hidden="true"
       >
-        <div className="absolute inset-0 bg-black/60 z-0" />
-        <div className="relative z-10 h-full w-full flex justify-center lg:justify-center items-center pt-32 px-5 lg:px-20">
-          <div className="text-center lg:text-center">
-            <h1 className="font-display uppercase tracking-widest text-mmAccent text-[35px] md:text-[60px]">
-              Het Verhaal
-            </h1>
-            <p className="text-white/90 mt-2 font-display uppercase tracking-widest text-base md:text-lg">
-              Elke missie begint met een waarom. Deze begon met ervaring -
-              verdiend op de harde manier.
+        <div className={`absolute inset-0 z-10 ${theme.heroOverlay}`} />
+        <Container className="serviceHeroContent relative z-20 h-full w-full flex flex-col justify-center items-center text-center">
+          <h1
+            className={`${theme.heroTitle} text-[32px] md:text-[54px] font-display uppercase tracking-[0.08em]`}
+            style={{ textShadow: "0 2px 12px rgba(0,0,0,0.55)" }}
+          >
+            {hero.title}
+          </h1>
+          <div
+            className={`h-[3px] w-12 ${theme.accentLine} rounded-full mt-4 opacity-90`}
+          />
+          <div className="serviceHeroSubtitle">
+            <p className="leading-relaxed font-medium text-[15px] md:text-lg">
+              {hero.subtitle}
             </p>
           </div>
-        </div>
+        </Container>
       </section>
 
       <FloatingCTA />
 
       {/* Foundations Section */}
-      <section className="w-full px-5 sm:px-10 lg:px-20 py-20 flex flex-col justify-center items-center text-left">
-        <h1 className="mm-h1 text-mmText pb-10">Grondslagen</h1>
-        <div className="max-w-5xl pt-5 text-justify">
-          <h5 className="mb-5 text-mmAccent font-display text-[25px] md:text-[50px] uppercase leading-[120%] tracking-widest">
-            Ons verhaal
-          </h5>
-          <p className="text-mmTextMuted lg:text-xl leading-relaxed">
-            Gebouwd op een decennium aan dienst binnen het Korps Mariniers,
-            inclusief vier jaar in MARSOC, brengt Mission Movement
-            praktijkgerichte voorbereiding vanuit echte ervaring. Na de
-            militaire carrière runden we vijf jaar lang een privé
-            trainingsruimte - waar we niet alleen lichamen trainden, maar vooral
-            onbreekbare mindsets bouwden.
-            <br />
-            <br />
-            Met negen jaar coachingervaring combineren we militaire precisie met
-            persoonlijke begeleiding. Of het nu gaat om selectietrainingen,
-            bergexpedities of sportschoolklanten - we hebben elke herhaling die
-            we aanleren zelf doorleefd.
-            <br />
-            <br />
-            Onze missie is simpel: toekomstige operators voorbereiden. Van
-            fysiek tot mentaal - we geven je de tools die we zelf graag eerder
-            hadden gehad. Vooral wanneer falen geen optie is.
-            <br />
-            <br />
-            Mission Movement is er om veerkrachtige mensen te vormen. Niet
-            alleen voor het leger, maar voor het leven. Als jij bereid bent je
-            te committeren, leiden wij de weg.
-          </p>
-        </div>
+      <section className="w-full py-20 flex flex-col justify-center items-center text-left">
+        <Container>
+          <h2
+            className={`${theme.textPrimary} text-2xl md:text-4xl font-display uppercase tracking-widest pb-10`}
+          >
+            {foundations.heading}
+          </h2>
+        <div className="max-w-5xl pt-5 text-left md:text-justify mm-readable">
+            <h3
+              className={`${theme.accentText} font-display uppercase tracking-widest text-xl md:text-3xl mb-5`}
+            >
+              {foundations.subheading}
+            </h3>
+            <div className="space-y-6">
+              {foundationParagraphs.map((paragraph) => (
+                <p
+                  key={paragraph.slice(0, 24)}
+                  className={`sectionLead ${theme.textMuted} lg:text-xl leading-relaxed`}
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </div>
+        </Container>
       </section>
 
       {/* Inspirational Quote Divider */}
-      <section className="relative bg-fixed bg-cover bg-center bg-heigendhert h-[300px] flex items-center justify-center">
-        <div className="bg-black/70 px-6 py-4 border-l-4 border-mmAccent max-w-4xl">
-          <h2 className="text-white text-lg md:text-2xl uppercase tracking-widest font-display text-center">
-            Discipline is de brug tussen doelen en verwezenlijking.
-          </h2>
-        </div>
+      <section
+        className={`relative bg-cover bg-center bg-scroll md:bg-fixed ${quote.backgroundClass} h-[300px] flex items-center justify-center`}
+      >
+        <Container>
+          <div
+            className={`bg-black/70 px-6 py-4 border-l-4 ${theme.accentBorder} max-w-4xl`}
+          >
+            <h2 className="text-white text-lg md:text-2xl uppercase tracking-widest font-display text-center">
+              {quote.text}
+            </h2>
+          </div>
+        </Container>
       </section>
 
       {/* Mission & Values */}
-      <section className="w-full px-5 sm:px-10 lg:px-20 py-20 flex flex-col justify-center items-center">
-        <h1 className="mm-h1 text-mmText py-10">Missie & Waarden</h1>
-        <div className="flex flex-col md:flex-row w-full max-w-6xl gap-10 text-justify">
-          {/* Missie */}
-          <div className="w-full md:w-1/3 p-6 bg-mmSurface border border-mmBorder rounded-2xl">
-            <h5 className="font-display text-mmAccent uppercase text-[22px] md:text-2xl mb-2 tracking-widest">
-              Onze Missie:
-            </h5>
-            <p className="text-mmTextMuted lg:text-xl space-y-4 leading-relaxed">
-              Wij vormen de operators van morgen. Dat betekent: lichamen
-              voorbereiden, minds aanscherpen, en een niveau van discipline
-              installeren dat maar weinigen ooit bereiken. Wil je dienen - écht
-              dienen - dan begint het hier.
-            </p>
-          </div>
-
-          {/* Waarden */}
-          <div className="w-full md:w-2/3 p-6 bg-mmSurface border border-mmBorder rounded-2xl">
-            <h5 className="font-display text-mmAccent text-[22px] md:text-2xl mb-2 tracking-widest uppercase">
-              Kernwaarden:
-            </h5>
-            <div className="text-mmTextMuted lg:text-xl space-y-4 leading-relaxed">
-              <p>
-                <span className="text-mmAccent uppercase font-semibold font-display tracking-widest">
-                  Discipline:
-                </span>{" "}
-                Geen motivatie. Structuur. Gewoontes. Zelfrespect zonder
-                concessies.
-              </p>
-              <p>
-                <span className="text-mmAccent uppercase font-semibold font-display tracking-widest">
-                  Vastberadenheid:
-                </span>{" "}
-                Wij verschijnen. Elke dag. Juist wanneer het zwaar is.
-              </p>
-              <p>
-                <span className="text-mmAccent uppercase font-semibold font-display tracking-widest">
-                  Doorzettingsvermogen:
-                </span>{" "}
-                We hopen niet op vooruitgang - we vechten ervoor. Eén herhaling
-                tegelijk.
-              </p>
-
-              <p>
-                Deze waarden vormen het fundament van onze aanpak - gericht op
-                duurzame, mentale én fysieke voorbereiding.
+      <section className="w-full py-20 flex flex-col justify-center items-center">
+        <Container className="flex flex-col items-center">
+          <h2
+            className={`${theme.textPrimary} text-2xl md:text-4xl font-display uppercase tracking-widest py-10`}
+          >
+            {missionValues.heading}
+          </h2>
+          <div className="flex flex-col md:flex-row w-full max-w-6xl gap-10 text-left md:text-justify">
+            {/* Missie */}
+            <div
+              className={`w-full md:w-1/3 p-6 ${theme.card} border ${theme.border} rounded-2xl`}
+            >
+              <h3
+                className={`${theme.accentText} font-display uppercase text-lg md:text-2xl mb-2 tracking-widest`}
+              >
+                {missionValues.missionTitle}
+              </h3>
+              <p
+                className={`sectionLead ${theme.textMuted} lg:text-xl leading-relaxed`}
+              >
+                {missionValues.missionBody}
               </p>
             </div>
+
+            {/* Waarden */}
+            <div
+              className={`w-full md:w-2/3 p-6 ${theme.card} border ${theme.border} rounded-2xl`}
+            >
+              <h3
+                className={`${theme.accentText} text-lg md:text-2xl mb-2 tracking-widest uppercase font-display`}
+              >
+                {missionValues.valuesTitle}
+              </h3>
+              <div
+                className={`sectionLead ${theme.textMuted} lg:text-xl space-y-4 leading-relaxed`}
+              >
+                {missionValues.values.map((value) => (
+                  <p key={value.label}>
+                    <span
+                      className={`${theme.accentText} uppercase font-semibold font-display tracking-widest`}
+                    >
+                      {value.label}:
+                    </span>{" "}
+                    {value.text}
+                  </p>
+                ))}
+                <p>{missionValues.outro}</p>
+              </div>
+            </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Trainer cards */}
       <TrainerCard />
 
       {/* CTA Ending Section */}
-      <section className="w-full py-20 text-center px-5 flex flex-col justify-center items-center">
-        <h2 className="mm-h2 text-mmText mb-5">
-          Je kent nu het verhaal. Wat wordt jouw rol?
-        </h2>
-        <p className="text-mmTextMuted max-w-2xl mx-auto mb-8">
-          Veel mensen praten over verandering. Weinig doen wat nodig is. Of je
-          nu droomt van een uniform of je potentieel wilt waarmaken - wij wijzen
-          je de weg en duwen je erdoorheen.
-        </p>
-        <Link to="/program">
-          <button className="mm-btnPrimary min-w-[200px]">Start nu</button>
-        </Link>
+      <section className="w-full py-20 text-center flex flex-col justify-center items-center">
+        <Container className="flex flex-col items-center">
+          <h2
+            className={`${theme.textPrimary} text-xl md:text-3xl font-display uppercase tracking-widest mb-5`}
+          >
+            {closingCta.heading}
+          </h2>
+          <p className={`sectionLead ${theme.textMuted} max-w-2xl mx-auto mb-8`}>
+            {closingCta.body}
+          </p>
+          <Link to={closingCta.buttonLink}>
+            <button className="mm-btnPrimary min-w-[200px]">
+              {closingCta.buttonText}
+            </button>
+          </Link>
+        </Container>
       </section>
 
       {/* Background Divider Image */}
       <section
-        className="h-[250px] md:h-[450px] w-full bg-fixed bg-friscatnight bg-center bg-no-repeat bg-cover"
+        className={`relative h-[250px] md:h-[450px] w-full bg-cover bg-center bg-scroll md:bg-fixed ${endDivider.backgroundClass} bg-no-repeat`}
         aria-hidden="true"
       ></section>
-    </div>
+    </main>
   );
 };
 

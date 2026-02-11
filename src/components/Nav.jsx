@@ -130,7 +130,7 @@ const Nav = () => {
 
   return (
     <div
-      className={`fixed top-0 w-screen px-6 h-16 md:h-20 bg-[#F7F9FC]/95 backdrop-blur border-b border-slate-200 z-50 flex justify-between items-center text-[#0B1220] text-lg transition-transform duration-300 ${
+      className={`fixed top-0 w-screen px-6 h-16 md:h-20 bg-bg backdrop-blur border-b border-mmAccent z-50 flex justify-between items-center text-mmText text-lg transition-transform duration-300 ${
         visible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
@@ -142,7 +142,7 @@ const Nav = () => {
             <div className="w-[56px] flex items-center justify-start">
               <button
                 type="button"
-                className="flex items-center justify-center text-[#0B1220] focus-visible:ring-2 focus-visible:ring-[#1f6feb]/30 rounded"
+                className="flex items-center justify-center text-mmText focus-visible:ring-2 focus-visible:ring-mmFocus rounded"
                 onClick={() => setNav(!nav)}
                 aria-label={nav ? "Close menu" : "Open menu"}
                 aria-expanded={nav}
@@ -150,9 +150,9 @@ const Nav = () => {
                 ref={menuButtonRef}
               >
                 {nav ? (
-                  <MdClose size={32} className="text-[#0B1220]" />
+                  <MdClose size={32} className="text-mmText" />
                 ) : (
-                  <IoMdMenu size={32} className="text-[#0B1220]" />
+                  <IoMdMenu size={32} className="text-mmText" />
                 )}
               </button>
             </div>
@@ -161,7 +161,7 @@ const Nav = () => {
             <RouterLink
               to="/"
               alt="to-homepage"
-              className="flex flex-col items-center justify-self-center text-center text-sm font-display uppercase tracking-[0.14em]"
+              className="flex flex-col items-center justify-self-center text-center text-sm font-display uppercase tracking-[0.14em] text-mmAccent"
               onClick={() => setNav(false)}
             >
               <span>Mission</span>
@@ -174,20 +174,20 @@ const Nav = () => {
                 <RouterLink
                   to="/login"
                   alt="to-login-page"
-                  className="flex items-center justify-center focus-visible:ring-2 focus-visible:ring-[#1f6feb]/30 rounded"
+                  className="flex items-center justify-center focus-visible:ring-2 focus-visible:ring-mmFocus rounded"
                 >
                   <MdLogin
                     size={28}
-                    className="text-[#0B1220] hover:text-[#1f6feb]"
+                    className="text-mmText hover:text-mmAccent"
                   />
                 </RouterLink>
               ) : (
                 <RouterLink
                   to="/dashboard"
                   alt="to-dashboard"
-                  className="flex items-center justify-center focus-visible:ring-2 focus-visible:ring-[#1f6feb]/30 rounded"
+                  className="flex items-center justify-center focus-visible:ring-2 focus-visible:ring-mmFocus rounded"
                 >
-                  <GiRank3 size={28} className="text-[#1f6feb]" />
+                  <GiRank3 size={28} className="text-mmAccent" />
                 </RouterLink>
               )}
             </div>
@@ -195,7 +195,7 @@ const Nav = () => {
 
           {/* Mobile Menu Panel */}
           <div
-            className={`absolute top-full left-0 w-full bg-white border-t border-slate-200 overflow-y-auto h-[calc(100dvh-4rem)] transition-transform transition-opacity duration-500 ease-out transform-gpu will-change-transform ${
+            className={`absolute top-full left-0 w-full bg-bg border-t border-mmBorder overflow-y-auto h-[calc(100dvh-4rem)] transition-transform transition-opacity duration-500 ease-out transform-gpu will-change-transform ${
               nav
                 ? "translate-y-0 opacity-100 pointer-events-auto"
                 : "-translate-y-3 opacity-0 pointer-events-none"
@@ -206,7 +206,7 @@ const Nav = () => {
             aria-modal="true"
             ref={menuRef}
           >
-            <form className="px-6 py-8 space-y-4 text-[#0B1220]">
+            <form className="px-6 py-8 space-y-4 text-mmText">
               {/* Direct links */}
               {[
                 { title: "Over ons", path: "/about" },
@@ -221,7 +221,7 @@ const Nav = () => {
                   to={path}
                   ref={index === 0 ? firstMobileLinkRef : null}
                   onClick={() => setNav(false)}
-                  className="block text-lg font-display uppercase tracking-[0.14em] text-[#0B1220] hover:text-[#1f6feb] py-3 border-b border-slate-200 focus-visible:ring-2 focus-visible:ring-[#1f6feb]/30"
+                  className="block text-lg font-display uppercase tracking-[0.14em] text-mmText hover:text-mmAccent py-3 border-b border-mmBorder focus-visible:ring-2 focus-visible:ring-mmFocus"
                 >
                   {title}
                 </RouterLink>
@@ -238,7 +238,7 @@ const Nav = () => {
                 />
                 <label
                   htmlFor="menu-Eenheden"
-                  className="flex justify-between items-center text-[#0B1220] hover:text-[#1f6feb] uppercase text-lg font-display tracking-[0.14em] py-3 border-b border-slate-200 cursor-pointer"
+                  className="flex justify-between items-center text-mmText hover:text-mmAccent uppercase text-lg font-display tracking-[0.14em] py-3 border-b border-mmBorder cursor-pointer"
                 >
                   Eenheden
                   <span>
@@ -276,7 +276,7 @@ const Nav = () => {
                       key={title}
                       to={path}
                       onClick={() => setNav(false)}
-                      className="block text-sm text-slate-700 hover:text-[#1f6feb] focus-visible:ring-2 focus-visible:ring-[#1f6feb]/30"
+                      className="block text-sm text-mmTextMuted hover:text-mmAccent focus-visible:ring-2 focus-visible:ring-mmFocus"
                     >
                       {title}
                     </RouterLink>
@@ -290,7 +290,7 @@ const Nav = () => {
         <>
           {/* Desktop Left: Menu button */}
           <div
-            className="flex items-center cursor-pointer text-[#0B1220]"
+            className="flex items-center cursor-pointer text-mmText"
             onClick={() => setNav(!nav)}
             role="button"
             tabIndex={0}
@@ -313,7 +313,7 @@ const Nav = () => {
           {/* Desktop Center: Brand */}
           <RouterLink
             to="/"
-            className="text-xl font-display uppercase tracking-[0.14em]"
+            className="text-xl font-display uppercase tracking-[0.14em] text-mmAccent"
             onClick={() => setNav(false)}
           >
             <span>Mission</span>
@@ -321,11 +321,11 @@ const Nav = () => {
           </RouterLink>
 
           {/* Desktop Right: Auth */}
-          <div className="flex gap-4 text-[#0B1220] text-sm md:text-lg">
+          <div className="flex gap-4 text-mmText text-sm md:text-lg">
             {!user ? (
               <RouterLink
                 to="/login"
-                className="hover:text-[#1f6feb] focus-visible:ring-2 focus-visible:ring-[#1f6feb]/30 rounded"
+                className="hover:text-mmAccent focus-visible:ring-2 focus-visible:ring-mmFocus rounded"
                 alt="to-login-page"
               >
                 <MdLogin className="text-2xl hover:scale-105 duration-300" />
@@ -335,17 +335,17 @@ const Nav = () => {
                 <RouterLink
                   to="/dashboard"
                   alt="to-dashboard"
-                  className="hover:text-[#1f6feb] flex justify-center items-center focus-visible:ring-2 focus-visible:ring-[#1f6feb]/30 rounded"
+                  className="hover:text-mmAccent flex justify-center items-center focus-visible:ring-2 focus-visible:ring-mmFocus rounded"
                 >
                   <MdOutlineSpaceDashboard />
                 </RouterLink>
-                <span className="text-slate-300">|</span>
+                <span className="text-mmTextMuted">|</span>
                 <button
                   onClick={() => {
                     setNav(false);
                     logout();
                   }}
-                  className="hover:text-red-500 focus-visible:ring-2 focus-visible:ring-[#1f6feb]/30 rounded"
+                  className="hover:text-red-500 focus-visible:ring-2 focus-visible:ring-mmFocus rounded"
                 >
                   <IoMdLogOut />
                 </button>
@@ -355,7 +355,7 @@ const Nav = () => {
 
           {/* Desktop Dropdown */}
           <div
-            className={`absolute top-full left-0 w-full bg-white border-t border-slate-200 shadow-lg transition-all duration-300 ${
+            className={`absolute top-full left-0 w-full bg-bg border-t border-mmBorder shadow-lg transition-all duration-300 ${
               nav ? "h-[60vh] opacity-100" : "h-0 opacity-0 pointer-events-none"
             } overflow-hidden`}
             id="main-menu"
@@ -369,43 +369,43 @@ const Nav = () => {
                 <div>
                   <RouterLink
                     to="/about"
-                    className="text-[#0B1220] hover:text-[#1f6feb] text-2xl font-display uppercase tracking-[0.14em]"
+                    className="text-mmText hover:text-mmAccent text-2xl font-display uppercase tracking-[0.14em]"
                     onClick={() => setNav(false)}
                   >
                     Over ons
                   </RouterLink>
-                  <div className="border-t border-slate-200 w-48 my-2" />
+                  <div className="border-t border-mmBorder w-48 my-2" />
                 </div>
 
                 <div>
-                  <h3 className="text-[#0B1220] text-2xl font-display uppercase tracking-[0.14em]">
+                  <h3 className="text-mmText text-2xl font-display uppercase tracking-[0.14em]">
                     Eenheden
                   </h3>
-                  <div className="border-t border-slate-200 w-48 my-2" />
+                  <div className="border-t border-mmBorder w-48 my-2" />
                   <RouterLink
                     to="/units/mariniers"
-                    className="block text-slate-700 hover:text-[#1f6feb] py-1"
+                    className="block text-mmTextMuted hover:text-mmAccent py-1"
                     onClick={() => setNav(false)}
                   >
                     Korps Mariniers
                   </RouterLink>
                   <RouterLink
                     to="/units/commandotroepen"
-                    className="block text-slate-700 hover:text-[#1f6feb] py-1"
+                    className="block text-mmTextMuted hover:text-mmAccent py-1"
                     onClick={() => setNav(false)}
                   >
                     Korps Commando Troepen
                   </RouterLink>
                   <RouterLink
                     to="/units/luchtmobiel"
-                    className="block text-slate-700 hover:text-[#1f6feb] py-1"
+                    className="block text-mmTextMuted hover:text-mmAccent py-1"
                     onClick={() => setNav(false)}
                   >
                     11 Luchtmobiele brigade
                   </RouterLink>
                   <RouterLink
                     to="/units/veiligheidsdiensten"
-                    className="block text-slate-700 hover:text-[#1f6feb] py-1"
+                    className="block text-mmTextMuted hover:text-mmAccent py-1"
                     onClick={() => setNav(false)}
                   >
                     Veiligheidsdiensten
@@ -415,12 +415,12 @@ const Nav = () => {
                 <div>
                   <RouterLink
                     to="/program"
-                    className="text-[#0B1220] hover:text-[#1f6feb] text-2xl font-display uppercase tracking-[0.14em]"
+                    className="text-mmText hover:text-mmAccent text-2xl font-display uppercase tracking-[0.14em]"
                     onClick={() => setNav(false)}
                   >
                     Het programma
                   </RouterLink>
-                  <div className="border-t border-slate-200 w-48 my-2" />
+                  <div className="border-t border-mmBorder w-48 my-2" />
                 </div>
               </div>
 
@@ -429,45 +429,45 @@ const Nav = () => {
                 <div>
                   <RouterLink
                     to="/blogs"
-                    className="text-[#0B1220] hover:text-[#1f6feb] text-2xl font-display uppercase tracking-[0.14em]"
+                    className="text-mmText hover:text-mmAccent text-2xl font-display uppercase tracking-[0.14em]"
                     onClick={() => setNav(false)}
                   >
                     Artikelen
                   </RouterLink>
-                  <div className="border-t border-slate-200 w-48 my-2" />
+                  <div className="border-t border-mmBorder w-48 my-2" />
                 </div>
 
                 <div>
                   <RouterLink
                     to="/resources"
-                    className="text-[#0B1220] hover:text-[#1f6feb] text-2xl font-display uppercase tracking-[0.14em]"
+                    className="text-mmText hover:text-mmAccent text-2xl font-display uppercase tracking-[0.14em]"
                     onClick={() => setNav(false)}
                   >
                     Bronnen
                   </RouterLink>
-                  <div className="border-t border-slate-200 w-48 my-2" />
+                  <div className="border-t border-mmBorder w-48 my-2" />
                 </div>
 
                 <div>
                   <RouterLink
                     to="/pricing"
-                    className="text-[#0B1220] hover:text-[#1f6feb] text-2xl font-display uppercase tracking-[0.14em]"
+                    className="text-mmText hover:text-mmAccent text-2xl font-display uppercase tracking-[0.14em]"
                     onClick={() => setNav(false)}
                   >
                     Bekijk ons aanbod
                   </RouterLink>
-                  <div className="border-t border-slate-200 w-48 my-2" />
+                  <div className="border-t border-mmBorder w-48 my-2" />
                 </div>
 
                 <div>
                   <RouterLink
                     to="/contact"
-                    className="text-[#0B1220] hover:text-[#1f6feb] text-2xl font-display uppercase tracking-[0.14em]"
+                    className="text-mmText hover:text-mmAccent text-2xl font-display uppercase tracking-[0.14em]"
                     onClick={() => setNav(false)}
                   >
                     Contact
                   </RouterLink>
-                  <div className="border-t border-slate-200 w-40 my-2" />
+                  <div className="border-t border-mmBorder w-40 my-2" />
                 </div>
               </div>
 

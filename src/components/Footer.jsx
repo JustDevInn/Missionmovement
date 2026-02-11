@@ -3,14 +3,14 @@ import { FaInstagram, FaEnvelope, FaPhone } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#F7F9FC] text-[#0B1220] border-t border-slate-200">
+    <footer className="w-full bg-mmPage text-mmText border-t border-mmBorder">
       <div className="max-w-6xl mx-auto px-6 md:px-16 pt-16 pb-10">
         {/* CTA */}
         <div className="text-center mb-12">
           <h2 className="font-display uppercase tracking-[0.18em] text-[18px] md:text-[20px]">
             Neem contact op
           </h2>
-          <p className="mt-4 text-slate-600 max-w-xl mx-auto leading-relaxed">
+          <p className="mt-4 text-mmTextMuted max-w-xl mx-auto leading-relaxed">
             Klaar om serieus aan de slag te gaan?{" "}
             <span className="whitespace-nowrap">
               Stuur een bericht — ik help je op weg.
@@ -22,13 +22,13 @@ const Footer = () => {
         <div className="grid gap-10 md:grid-cols-2 md:items-start">
           {/* Brand */}
           <div className="text-center md:text-left">
-            <h3 className="font-display uppercase tracking-[0.12em] text-[34px] md:text-[44px] leading-[1.05]">
+            <h3 className="font-display uppercase tracking-[0.12em] text-[34px] md:text-[44px] leading-[1.05] text-mmAccent">
               Mission
               <br />
               Movement
             </h3>
 
-            <p className="mt-5 text-slate-600 leading-relaxed max-w-sm mx-auto md:mx-0">
+            <p className="mt-5 text-mmTextMuted leading-relaxed max-w-sm mx-auto md:mx-0">
               Persoonlijke begeleiding voor serieuze kandidaten richting
               defensie, politie en brandweer.
             </p>
@@ -40,9 +40,9 @@ const Footer = () => {
               <a
                 href="tel:+31649171684"
                 aria-label="telefoonnummer"
-                className="flex items-center justify-center md:justify-end gap-3 text-slate-700 hover:text-[#1f6feb] transition py-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1f6feb]/30"
+                className="flex items-center justify-center md:justify-end gap-3 text-mmTextMuted hover:text-mmAccent transition py-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-mmFocus"
               >
-                <FaPhone className="text-[#1f6feb]" />
+                <FaPhone className="text-mmAccent" />
                 <span>+31 6 49 17 16 84</span>
               </a>
 
@@ -51,18 +51,18 @@ const Footer = () => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="instagram"
-                className="flex items-center justify-center md:justify-end gap-3 text-slate-700 hover:text-[#1f6feb] transition py-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1f6feb]/30"
+                className="flex items-center justify-center md:justify-end gap-3 text-mmTextMuted hover:text-mmAccent transition py-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-mmFocus"
               >
-                <FaInstagram className="text-[#1f6feb]" />
+                <FaInstagram className="text-mmAccent" />
                 <span>@mission.movement</span>
               </a>
 
               <a
                 href="mailto:MissionMovement@gmail.com"
                 aria-label="e-mail"
-                className="flex items-center justify-center md:justify-end gap-3 text-slate-700 hover:text-[#1f6feb] transition py-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1f6feb]/30"
+                className="flex items-center justify-center md:justify-end gap-3 text-mmTextMuted hover:text-mmAccent transition py-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-mmFocus"
               >
-                <FaEnvelope className="text-[#1f6feb]" />
+                <FaEnvelope className="text-mmAccent" />
                 <span>MissionMovement@gmail.com</span>
               </a>
             </div>
@@ -70,13 +70,13 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-3 text-slate-500 text-sm">
+        <div className="mt-12 pt-6 border-t border-mmBorder flex flex-col md:flex-row items-center justify-between gap-3 text-mmTextMuted text-sm">
           <p className="text-center md:text-left">
             © 2024 Mission Movement. Alle rechten voorbehouden.
           </p>
           <p className="text-center md:text-right">
             KVK:{" "}
-            <span className="font-medium text-slate-600">
+            <span className="font-medium text-mmTextMuted">
               Justin Peeters Coaching 85486205
             </span>
           </p>

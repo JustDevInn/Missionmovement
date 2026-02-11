@@ -123,17 +123,17 @@ const UploadTrainingProgram = () => {
     <div className="w-full max-w-4xl px-4 sm:px-6 py-6 mx-auto text-white overflow-x-hidden relative">
       {(loading || saving) && (
         <div className="fixed top-4 right-4 z-50">
-          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-cyan-400 border-opacity-50"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-yellow/50"></div>
         </div>
       )}
 
       {showToast && (
-        <div className="fixed top-4 right-16 bg-cyan-600 text-white px-4 py-2 rounded shadow-lg z-50 transition">
+        <div className="fixed top-4 right-16 bg-yellow text-black px-4 py-2 rounded shadow-lg z-50 transition">
           ✅ Program saved successfully!
         </div>
       )}
 
-      <h1 className="text-2xl font-bold mb-6 text-cyan-400">
+      <h1 className="text-2xl font-bold mb-6 text-yellow">
         Upload Training Program
       </h1>
 
@@ -141,7 +141,7 @@ const UploadTrainingProgram = () => {
         <select
           value={week}
           onChange={(e) => setWeek(Number(e.target.value))}
-          className="bg-[#1E1E1E] border border-[#2A2A2A] rounded px-3 py-2 text-white"
+          className="bg-surface border border-border rounded px-3 py-2 text-white"
         >
           {[1, 2, 3, 4, 5, 6].map((w) => (
             <option key={w} value={w}>
@@ -153,7 +153,7 @@ const UploadTrainingProgram = () => {
         <select
           value={day}
           onChange={(e) => setDay(e.target.value)}
-          className="bg-[#1E1E1E] border border-[#2A2A2A] rounded px-3 py-2 text-white"
+          className="bg-surface border border-border rounded px-3 py-2 text-white"
         >
           {[
             "monday",
@@ -172,13 +172,13 @@ const UploadTrainingProgram = () => {
       </div>
 
       <input
-        className="w-full bg-[#121212] border border-[#2A2A2A] px-3 py-2 mb-3 rounded placeholder-gray-400 text-white"
+        className="w-full bg-bg border border-border px-3 py-2 mb-3 rounded placeholder-gray-400 text-white"
         placeholder="Block Title (e.g., Foundational Strength)"
         value={newBlock.title}
         onChange={(e) => setNewBlock({ ...newBlock, title: e.target.value })}
       />
       <input
-        className="w-full bg-[#121212] border border-[#2A2A2A] px-3 py-2 mb-3 rounded placeholder-gray-400 text-white"
+        className="w-full bg-bg border border-border px-3 py-2 mb-3 rounded placeholder-gray-400 text-white"
         placeholder="Block Sub-header (e.g., Strength / Conditioning)"
         value={newBlock.subHeader}
         onChange={(e) =>
@@ -187,7 +187,7 @@ const UploadTrainingProgram = () => {
       />
 
       <input
-        className="w-full bg-[#121212] border border-[#2A2A2A] px-3 py-2 mb-3 rounded placeholder-gray-400 text-white"
+        className="w-full bg-bg border border-border px-3 py-2 mb-3 rounded placeholder-gray-400 text-white"
         placeholder="Items Note (e.g., general instructions before the list)"
         value={newBlock.blockNote}
         onChange={(e) =>
@@ -196,7 +196,7 @@ const UploadTrainingProgram = () => {
       />
 
       <textarea
-        className="w-full bg-[#121212] border border-[#2A2A2A] px-3 py-2 mb-3 rounded placeholder-gray-400 text-white resize-none overflow-hidden"
+        className="w-full bg-bg border border-border px-3 py-2 mb-3 rounded placeholder-gray-400 text-white resize-none overflow-hidden"
         placeholder="Block Note"
         value={newBlock.note}
         onChange={(e) => setNewBlock({ ...newBlock, note: e.target.value })}
@@ -210,7 +210,7 @@ const UploadTrainingProgram = () => {
         {newBlock.items.map((item, i) => (
           <li
             key={i}
-            className="bg-[#1E1E1E] border border-[#2A2A2A] rounded p-3 text-sm"
+            className="bg-surface border border-border rounded p-3 text-sm"
           >
             <div className="flex justify-between items-center">
               <span className="text-gray-200">{item.text}</span>
@@ -233,20 +233,20 @@ const UploadTrainingProgram = () => {
 
       <div className="mb-6">
         <input
-          className="w-full bg-[#121212] border border-[#2A2A2A] px-3 py-2 rounded text-white placeholder-gray-400 mb-2"
+          className="w-full bg-bg border border-border px-3 py-2 rounded text-white placeholder-gray-400 mb-2"
           placeholder="New item"
           value={newItem.text}
           onChange={(e) => setNewItem({ ...newItem, text: e.target.value })}
         />
         <input
-          className="w-full bg-[#121212] border border-[#2A2A2A] px-3 py-2 rounded text-gray-300 placeholder-gray-500 italic text-sm"
+          className="w-full bg-bg border border-border px-3 py-2 rounded text-gray-300 placeholder-gray-500 italic text-sm"
           placeholder="Optional note (e.g., Complete 3 rounds, no rest)"
           value={newItem.note}
           onChange={(e) => setNewItem({ ...newItem, note: e.target.value })}
         />
         <button
           onClick={handleAddItem}
-          className="mt-2 text-cyan-400 hover:text-white text-sm p-2"
+          className="mt-2 text-yellow hover:text-white text-sm p-2"
           title="Add Item"
         >
           <FaPlus />
@@ -255,7 +255,7 @@ const UploadTrainingProgram = () => {
 
       <button
         onClick={handleAddBlock}
-        className="mb-6 bg-cyan-600 text-white px-6 py-2 rounded hover:bg-cyan-700 transition"
+        className="mb-6 bg-yellow text-black px-6 py-2 rounded hover:bg-yellow/90 transition"
       >
         Add Block
       </button>
@@ -264,13 +264,13 @@ const UploadTrainingProgram = () => {
         {blocks.map((block, index) => (
           <div
             key={index}
-            className="bg-[#1E1E1E] border border-[#2A2A2A] rounded p-4"
+            className="bg-surface border border-border rounded p-4"
           >
             <div className="flex justify-between items-start">
               <div>
                 <h3 className="text-lg font-bold text-white">{block.title}</h3>
                 {block.subHeader && (
-                  <p className="font-semibold text-cyan-400 mb-1 text-base md:text-lg">
+                  <p className="font-semibold text-yellow mb-1 text-base md:text-lg">
                     {block.subHeader}
                   </p>
                 )}
@@ -315,7 +315,7 @@ const UploadTrainingProgram = () => {
       <button
         onClick={handleSave}
         disabled={loading || saving}
-        className="bg-cyan-600 text-white px-6 py-2 rounded hover:bg-cyan-700 transition"
+        className="bg-yellow text-black px-6 py-2 rounded hover:bg-yellow/90 transition"
       >
         {saving ? "Saving..." : "Save Program"}
       </button>

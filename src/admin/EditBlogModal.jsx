@@ -74,15 +74,15 @@ const EditBlogModal = ({ blog, onClose, onSave }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center overflow-y-auto p-4">
-      <div className="bg-[#1a1a1a] rounded-lg p-6 max-w-3xl w-full text-white relative">
+      <div className="bg-surface2 rounded-lg p-6 max-w-3xl w-full text-white relative">
         <button
           onClick={onClose}
-          className="absolute top-2 right-3 text-cyan-400 text-xl font-bold"
+          className="absolute top-2 right-3 text-yellow text-xl font-bold"
         >
           ✕
         </button>
 
-        <h2 className="text-2xl font-bold text-cyan-400 mb-4">Edit Blog</h2>
+        <h2 className="text-2xl font-bold text-yellow mb-4">Edit Blog</h2>
 
         <div className="space-y-3 max-h-[80vh] overflow-y-auto pr-2">
           <input
@@ -90,49 +90,49 @@ const EditBlogModal = ({ blog, onClose, onSave }) => {
             value={formData.title}
             onChange={handleChange}
             placeholder="Title"
-            className="w-full p-2 rounded bg-black border border-cyan-600"
+            className="w-full p-2 rounded bg-black border border-yellow"
           />
           <input
             name="author"
             value={formData.author}
             onChange={handleChange}
             placeholder="Author"
-            className="w-full p-2 rounded bg-black border border-cyan-600"
+            className="w-full p-2 rounded bg-black border border-yellow"
           />
           <input
             name="slug"
             value={formData.slug}
             onChange={handleChange}
             placeholder="Slug"
-            className="w-full p-2 rounded bg-black border border-cyan-600"
+            className="w-full p-2 rounded bg-black border border-yellow"
           />
           <input
             name="summary"
             value={formData.summary}
             onChange={handleChange}
             placeholder="Summary"
-            className="w-full p-2 rounded bg-black border border-cyan-600"
+            className="w-full p-2 rounded bg-black border border-yellow"
           />
           <input
             name="thumbnail"
             value={formData.thumbnail}
             onChange={handleChange}
             placeholder="Thumbnail URL"
-            className="w-full p-2 rounded bg-black border border-cyan-600"
+            className="w-full p-2 rounded bg-black border border-yellow"
           />
           <input
             name="quote"
             value={formData.quote}
             onChange={handleChange}
             placeholder="Quote"
-            className="w-full p-2 rounded bg-black border border-cyan-600"
+            className="w-full p-2 rounded bg-black border border-yellow"
           />
           <input
             name="tags"
             value={formData.tags}
             onChange={handleChange}
             placeholder="Tags (comma-separated)"
-            className="w-full p-2 rounded bg-black border border-cyan-600"
+            className="w-full p-2 rounded bg-black border border-yellow"
           />
 
           <label className="flex items-center gap-2 text-sm mt-1">
@@ -146,13 +146,13 @@ const EditBlogModal = ({ blog, onClose, onSave }) => {
           </label>
 
           {/* Paragraphs */}
-          <h4 className="text-cyan-500 mt-4 font-semibold">Paragraphs</h4>
+          <h4 className="text-yellow mt-4 font-semibold">Paragraphs</h4>
           {formData.paragraphs.map((para, i) => (
             <div key={i} className="relative">
               <textarea
                 value={para}
                 onChange={(e) => handleArrayChange(e, i, "paragraphs")}
-                className="w-full p-2 rounded bg-black border border-cyan-600 mb-1"
+                className="w-full p-2 rounded bg-black border border-yellow mb-1"
                 rows={3}
               />
               <button
@@ -167,19 +167,19 @@ const EditBlogModal = ({ blog, onClose, onSave }) => {
           <button
             type="button"
             onClick={() => addField("paragraphs")}
-            className="text-cyan-400 text-sm underline"
+            className="text-yellow text-sm underline"
           >
             + Add Paragraph
           </button>
 
           {/* Images */}
-          <h4 className="text-cyan-500 mt-4 font-semibold">Images (URLs)</h4>
+          <h4 className="text-yellow mt-4 font-semibold">Images (URLs)</h4>
           {formData.images.map((img, i) => (
             <div key={i} className="relative">
               <input
                 value={img}
                 onChange={(e) => handleArrayChange(e, i, "images")}
-                className="w-full p-2 rounded bg-black border border-cyan-600 mb-1"
+                className="w-full p-2 rounded bg-black border border-yellow mb-1"
               />
               <button
                 type="button"
@@ -193,7 +193,7 @@ const EditBlogModal = ({ blog, onClose, onSave }) => {
           <button
             type="button"
             onClick={() => addField("images")}
-            className="text-cyan-400 text-sm underline"
+            className="text-yellow text-sm underline"
           >
             + Add Image
           </button>
@@ -202,7 +202,7 @@ const EditBlogModal = ({ blog, onClose, onSave }) => {
         <button
           onClick={handleSave}
           disabled={saving}
-          className="mt-6 bg-cyan-500 px-5 py-2 rounded text-black font-semibold hover:bg-cyan-400"
+          className="mt-6 bg-yellow px-5 py-2 rounded text-black font-semibold hover:bg-yellow/90"
         >
           {saving ? <Spinner /> : "Save Changes"}
         </button>

@@ -78,7 +78,7 @@ const documents = [
 
 const TrainingProgram = () => {
   return (
-    <div className="min-h-screen bg-[#121212] text-white px-4 sm:px-6 py-12 max-w-5xl mx-auto font-primary">
+    <div className="min-h-screen bg-bg text-white px-4 sm:px-6 py-12 max-w-5xl mx-auto font-primary">
       {/* Hero Banner */}
       <div className="mb-10">
         <img
@@ -140,7 +140,7 @@ const TrainingProgram = () => {
         {documents.map((doc, index) => (
           <div
             key={index}
-            className="group bg-[#1E1E1E] border border-[#2A2A2A] rounded-lg shadow hover:shadow-yellow/10 transition duration-300 overflow-hidden flex flex-col"
+            className="group bg-surface border border-border rounded-lg shadow hover:shadow-yellow/10 transition duration-300 overflow-hidden flex flex-col"
           >
             <div
               className="h-32 relative group-hover:scale-[1.01] transition-transform duration-300"

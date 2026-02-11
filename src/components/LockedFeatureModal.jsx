@@ -20,7 +20,7 @@ const LockedFeatureModal = ({ isOpen, onClose }) => {
       onClick={onClose} // ✅ close on background click
     >
       <div
-        className="relative bg-[#1A1A1A] border border-yellow rounded-xl shadow-xl p-8 max-w-md w-full text-center transform transition-all duration-300 scale-100 opacity-100 animate-fade-in"
+        className="relative bg-surface2 border border-yellow rounded-xl shadow-xl p-8 max-w-md w-full text-center transform transition-all duration-300 scale-100 opacity-100 animate-fade-in"
         onClick={(e) => e.stopPropagation()} // ✅ prevent closing when clicking modal
       >
         {/* ❌ Close icon top right */}

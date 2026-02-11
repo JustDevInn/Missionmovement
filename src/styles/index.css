@@ -4,16 +4,16 @@
 
 @layer base {
   .mm-public {
-    --mm-page: #f7f9fc;
-    --mm-surface: #ffffff;
-    --mm-text: #0b1220;
-    --mm-text-muted: rgba(15, 23, 42, 0.62);
-    --mm-body: rgba(15, 23, 42, 0.82);
-    --mm-border: #e2e8f0;
-    --mm-border-strong: #cbd5e1;
-    --mm-accent: #1f6feb;
-    --mm-accent-hover: #1a5bd6;
-    --mm-focus: rgba(31, 111, 235, 0.3);
+    --mm-page: #0b0b0b;
+    --mm-surface: #141414;
+    --mm-text: #eaeaea;
+    --mm-text-muted: rgba(234, 234, 234, 0.7);
+    --mm-body: rgba(234, 234, 234, 0.85);
+    --mm-border: #2a2a2a;
+    --mm-border-strong: #3a3a3a;
+    --mm-accent: #ffcc01;
+    --mm-accent-hover: #e6b800;
+    --mm-focus: rgba(255, 204, 1, 0.3);
     --mm-overlay-dark: linear-gradient(
       0deg,
       rgba(0, 0, 0, 0.55) 0%,
@@ -66,8 +66,8 @@
   }
 
   .veiligheidsdienstenPage {
-    --body: rgba(15, 23, 42, 0.82);
-    --muted: rgba(15, 23, 42, 0.62);
+    --body: rgba(234, 234, 234, 0.85);
+    --muted: rgba(234, 234, 234, 0.7);
   }
 
   .veiligheidsdienstenPage p {
@@ -97,18 +97,21 @@
   }
 
   :root {
-    --bg: #0d1624;
-    --surface: #111e30;
-    --surface-2: #17243a;
-    --text: #e6edf7;
-    --muted: #b4c1d4;
-    --border: #24344e;
-    --accent: #4aa3ff;
-    --accent-2: #7dd3fc;
+    --bg: #0b0b0b;
+    --surface: #141414;
+    --surface-2: #1c1c1c;
+    --text: #eaeaea;
+    --muted: #a0a0a0;
+    --border: #2a2a2a;
+    --accent: #ffcc01;
+    --accent-2: #ffcc01;
+    --mm-gutter: clamp(20px, 4.5vw, 44px);
+    --mm-maxw: 1100px;
+    --mm-maxw-wide: 1280px;
   }
 
   body {
-    @apply font-primary bg-[#e6edf7] text-[16px] md:text-[18px] font-normal leading-relaxed;
+    @apply font-primary bg-bg text-text text-[16px] md:text-[18px] font-normal leading-relaxed;
   }
   .h1-header {
     @apply text-yellow font-primary text-[20px] md:text-[30px] lg:text-[40px] font-bold uppercase leading-[120%] tracking-widest;
@@ -271,7 +274,25 @@
   }
 
   .mm-container {
-    @apply max-w-5xl mx-auto px-6 md:px-10 lg:px-12;
+    max-width: var(--mm-maxw);
+    margin-inline: auto;
+    padding-inline: var(--mm-gutter);
+  }
+
+  .mm-containerWide {
+    max-width: var(--mm-maxw-wide);
+    margin-inline: auto;
+    padding-inline: var(--mm-gutter);
+  }
+
+  .mm-bleed {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+
+  .mm-readable {
+    max-width: 65ch;
   }
 
   .mm-h1 {
@@ -352,7 +373,7 @@
   }
 
   .admin-dark-theme {
-    @apply bg-[#121212] text-white min-h-screen;
+    @apply bg-bg text-white min-h-screen;
   }
 
   .admin-dark-theme h1,
@@ -364,7 +385,7 @@
   .admin-dark-theme input,
   .admin-dark-theme textarea,
   .admin-dark-theme select {
-    @apply bg-[#1E1E1E] border border-gray-600 text-white rounded px-3 py-2;
+    @apply bg-surface border border-border text-white rounded px-3 py-2;
   }
 
   .admin-dark-theme button {
@@ -372,19 +393,19 @@
   }
 
   .admin-dark-theme .btn-primary {
-    @apply bg-blue-600 text-white hover:bg-blue-500;
+    @apply bg-yellow text-black hover:bg-yellow/90;
   }
 
   .admin-dark-theme .btn-accent {
-    @apply bg-cyan-500 text-black hover:bg-cyan-400;
+    @apply bg-yellow text-black hover:bg-yellow/90;
   }
 
   .admin-dark-theme .card {
-    @apply bg-[#1E1E1E] border border-gray-700 shadow-md rounded-lg p-4;
+    @apply bg-surface border border-border shadow-md rounded-lg p-4;
   }
 
   .admin-dark-theme .section-title {
-    @apply text-lg font-bold text-cyan-400;
+    @apply text-lg font-bold text-yellow;
   }
 }
 
