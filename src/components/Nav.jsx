@@ -170,6 +170,8 @@ const Nav = () => {
 
             {/* Right: Login/Dashboard icon (mirrored position) */}
             <div className="w-[56px] flex items-center justify-end">
+              {/* TEMP: Auth icons hidden until back office is live */}
+              {/*
               {!user ? (
                 <RouterLink
                   to="/login"
@@ -190,6 +192,8 @@ const Nav = () => {
                   <GiRank3 size={28} className="text-mmAccent" />
                 </RouterLink>
               )}
+              */}
+              <div className="w-[28px] h-[28px]" aria-hidden="true" />
             </div>
           </div>
 
@@ -320,7 +324,8 @@ const Nav = () => {
             <span className="block text-center">Movement</span>
           </RouterLink>
 
-          {/* Desktop Right: Auth */}
+          {/* TEMP: Auth icons hidden until back office is live */}
+          {/*
           <div className="flex gap-4 text-mmText text-sm md:text-lg">
             {!user ? (
               <RouterLink
@@ -352,6 +357,8 @@ const Nav = () => {
               </>
             )}
           </div>
+          */}
+          <div className="w-[96px] md:w-[112px]" aria-hidden="true" />
 
           {/* Desktop Dropdown */}
           <div
