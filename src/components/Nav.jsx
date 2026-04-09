@@ -2,12 +2,11 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { MdClose, MdLogin, MdOutlineSpaceDashboard } from "react-icons/md";
-import { IoMdMenu, IoMdLogOut } from "react-icons/io";
-import { GiRank3 } from "react-icons/gi";
+import { MdClose } from "react-icons/md";
+import { IoMdMenu } from "react-icons/io";
 
 const Nav = () => {
-  const { user, logout } = useAuth();
+  useAuth();
   const location = useLocation();
 
   const [nav, setNav] = useState(false);
