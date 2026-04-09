@@ -32,6 +32,9 @@ import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import PaidRoute from "./components/PaidRoute";
 import AdminRoute from "./components/AdminRoute";
+import { AnimatePresence } from "framer-motion";
+import PageWrapper from "./components/PageWrapper"; 
+import DashboardLayout from "./layouts/DashboardLayout";
 
 // Dashboard Pages
 const Dashboard = lazy(() => import("./dashboard/Dashboard"));
@@ -57,11 +60,7 @@ const UploadBlog = lazy(() => import('./admin/UploadBlog.jsx'));
 const ManageBlog = lazy(() => import('./admin/ManageBlog.jsx'));
 
 // Layout
-import DashboardLayout from "./layouts/DashboardLayout";
 const Stopwatch = lazy(() => import('./dashboard/stopwatch/StopWatch'));
-
-import { AnimatePresence } from "framer-motion";
-import PageWrapper from "./components/PageWrapper"; 
 
 const MainRoutes = () => {
   const location = useLocation();
