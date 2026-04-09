@@ -1,78 +1,41 @@
-import React, { useState, lazy, Suspense } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import Reviews from "../components/Reviews";
 import QuoteBlock from "../components/QuoteBlock";
 import { useFadeIn } from "../Hooks/useFadeIn";
 import { Helmet } from "react-helmet-async";
 import PricingCarousel from "./PricingCarousel";
-import { useAuth } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
 
 const VideoPreview = lazy(() => import("../components/VideoPreview"));
 
 const Aanbod = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const { ref: enlistRef, visible: enlistVisible } = useFadeIn();
-  const { user, loading: authLoading } = useAuth();
 
-  const handleCheckout = async (productId) => {
-    setError("");
+  const openPaymentModal = () => setIsPaymentModalOpen(true);
+  const closePaymentModal = () => setIsPaymentModalOpen(false);
 
-    if (authLoading) {
-      setError("Even geduld terwijl we je status controleren...");
-      return;
-    }
-
-    if (!user) {
-      setError(
-        "Maak een account aan of log in om dit product te kopen. Je account geeft je toegang tot de backoffice waar je het programma kunt volgen."
-      );
-      navigate("/signup");
-      return;
-    }
-
-    setIsLoading(true);
-
-    try {
-      const res = await fetch("http://localhost:4242/create-checkout-session", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          productId,
-          email: user.email,
-        }),
-      });
-
-      const data = await res.json();
-
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        setError("Er is iets fout gegaan, probeer het opnieuw.");
-      }
-    } catch (err) {
-      setError("Verbinding met de betaaldienst mislukt.");
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  useEffect(() => {
+    if (!isPaymentModalOpen) return;
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") closePaymentModal();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isPaymentModalOpen]);
 
   return (
     <>
       <Helmet>
         <title>
-          6-Weekse Militaire Voorbereidingsprogramma | Mission Movement
+          12-Weekse Militaire Voorbereidingsprogramma | Mission Movement
         </title>
         <meta
           name="description"
-          content="Krijg toegang tot het volledige 6-weekse programma gericht op militaire voorbereiding. Kracht, mindset, zwemmen, herstel en meer, ontwikkeld door een voormalig marinier."
+          content="Krijg toegang tot het volledige 12-weekse programma gericht op militaire voorbereiding. Kracht, mindset, zwemmen, herstel en meer, ontwikkeld door een voormalig marinier."
         />
         <meta
           property="og:title"
-          content="6-Weekse Militaire Voorbereidingsprogramma | Mission Movement"
+          content="12-Weekse Militaire Voorbereidingsprogramma | Mission Movement"
         />
         <meta
           property="og:description"
@@ -92,10 +55,88 @@ const Aanbod = () => {
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
-      <PricingCarousel onCheckout={handleCheckout} loading={isLoading} />
+      <PricingCarousel onCheckout={openPaymentModal} />
 
-      {error && (
-        <p className="text-red-500 text-center mt-4 font-medium">{error}</p>
+      {isPaymentModalOpen && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center px-4">
+          <div
+            className="absolute inset-0 bg-black/70"
+            onClick={closePaymentModal}
+          />
+          <div
+            role="dialog"
+            aria-modal="true"
+            className="relative w-full max-w-xl bg-mmSurface border border-mmBorder rounded-2xl shadow-lg p-6 md:p-8 text-mmText"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="absolute top-4 right-4 mm-btn"
+              onClick={closePaymentModal}
+              aria-label="Sluiten"
+            >
+              Sluiten
+            </button>
+            <h3 className="mm-h3 text-mmAccent mb-4">
+              Betaling tijdelijk niet beschikbaar
+            </h3>
+            <p className="text-mmTextMuted mb-4">
+              De online betaaldienst is op dit moment tijdelijk niet beschikbaar.
+            </p>
+            <p className="text-mmTextMuted mb-4">
+              Wil je starten met het traject? Neem dan direct contact op met
+              Justin Peeters via:
+            </p>
+            <div className="space-y-2 text-mmText">
+              <p>
+                E-mail:{" "}
+                <a
+                  href="mailto:Peeters.justin@yahoo.com"
+                  className="text-mmAccent underline underline-offset-4"
+                >
+                  Peeters.justin@yahoo.com
+                </a>
+              </p>
+              <p>
+                WhatsApp:{" "}
+                <a
+                  href="https://wa.me/31649171684"
+                  className="text-mmAccent underline underline-offset-4"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  +31649171684
+                </a>
+              </p>
+            </div>
+            <p className="text-mmTextMuted mt-4">
+              Je ontvangt dan persoonlijk verdere instructies om te starten.
+            </p>
+            <div className="mt-6 flex flex-col sm:flex-row gap-3">
+              <a
+                href="mailto:Peeters.justin@yahoo.com"
+                className="mm-btnPrimary w-full text-center"
+              >
+                E-mail sturen
+              </a>
+              <a
+                href="https://wa.me/31649171684"
+                className="mm-btn w-full text-center"
+                target="_blank"
+                rel="noreferrer"
+              >
+                WhatsApp
+              </a>
+              <button
+                type="button"
+                className="mm-btn w-full"
+                onClick={closePaymentModal}
+              >
+                Sluiten
+              </button>
+            </div>
+          </div>
+        </div>
       )}
 
       <section className="w-full bg-mmPage py-20 px-6 md:px-20 flex flex-col items-center">
@@ -126,7 +167,7 @@ const Aanbod = () => {
                 Ondersteuning (Mobiliteit + Oefenbibliotheek)
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-mmAccent mt-1">•</span> 6-Weeks
+                <span className="text-mmAccent mt-1">•</span> 12-Weeks
                 Gestructureerd Trainingsplan
               </li>
             </ul>

@@ -15,7 +15,7 @@ const MobileBanners = () => {
     {
       bg: "spelioladder",
       title: "MILITAIR PROGRAMMA 03: ZWEMMEN OF ZINKEN",
-      text: "Een volledig 6-weeks programma gericht op zwemmen, ademcontrole, mobiliteit en zelfvertrouwen in het water. Gestructureerd en progressief.",
+      text: "Een volledig 12-weeks programma gericht op zwemmen, ademcontrole, mobiliteit en zelfvertrouwen in het water. Gestructureerd en progressief.",
     },
     {
       bg: "hlo",
