@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { useSwipeable } from "react-swipeable";
+import React, { useRef, useState } from "react";
 import Spinner from "../components/Spinner";
 
 const plans = [
@@ -9,13 +7,14 @@ const plans = [
     title: "Zelfstandig Traject",
     price: "€39,-",
     features: [
-      "✓ 6-weekse structuur",
+      "✓ 12-weekse structuur",
       "✓ Downloadbare PDF",
       "✕ Geen coaching of extra modules",
     ],
     description:
-      "Voor zelfdiscipline zonder afleiding. Alleen toegang tot het 6-weekse trainingsschema als PDF.",
+      "Voor zelfdiscipline zonder afleiding. Alleen toegang tot het 12-weekse trainingsschema als PDF.",
   },
+  /*
   {
     id: "standard",
     title: "Volledig Programma",
@@ -29,6 +28,7 @@ const plans = [
     description:
       "De complete voorbereiding met kracht, mindset, herstel en meer. Perfect voor zelfstartende strijders.",
   },
+  */
   {
     id: "coaching",
     title: "Met Coaching",
@@ -45,21 +45,17 @@ const plans = [
 ];
 
 const PricingCarousel = ({ onCheckout, loading = false }) => {
-  const [index, setIndex] = useState(1);
+  const mobileScrollRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  const next = () => setIndex((prev) => (prev + 1) % plans.length);
-  const prev = () =>
-    setIndex((prev) => (prev - 1 + plans.length) % plans.length);
-
-  const getPlan = (offset) =>
-    plans[(index + offset + plans.length) % plans.length];
-
-  const handlers = useSwipeable({
-    onSwipedLeft: next,
-    onSwipedRight: prev,
-    trackTouch: true,
-    preventScrollOnSwipe: true,
-  });
+  const handleMobileScroll = () => {
+    const el = mobileScrollRef.current;
+    if (!el) return;
+    const itemWidth = el.clientWidth;
+    if (itemWidth === 0) return;
+    const nextIndex = Math.round(el.scrollLeft / itemWidth);
+    setActiveIndex(nextIndex);
+  };
 
   return (
     <div className="relative w-full flex flex-col items-center py-24 md:py-20 px-6 bg-mmPage">
@@ -73,53 +69,32 @@ const PricingCarousel = ({ onCheckout, loading = false }) => {
         Kies jouw aanpak
       </h2>
 
-      {/* Desktop */}
-      <div className="relative hidden md:flex items-center justify-center w-full max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0.3, scale: 0.85, x: "-100%" }}
-          animate={{ opacity: 0.4, scale: 0.85, x: 0 }}
-          transition={{ duration: 0.5 }}
-          onClick={prev}
-          className="absolute left-0 cursor-pointer hover:opacity-80 transition-all z-10"
-        >
-          <Card data={getPlan(-1)} muted onCheckout={onCheckout} />
-        </motion.div>
-
-        <motion.div
-          key={getPlan(0).id}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="z-20"
-        >
-          <Card data={getPlan(0)} highlighted onCheckout={onCheckout} />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0.3, scale: 0.85, x: "100%" }}
-          animate={{ opacity: 0.4, scale: 0.85, x: 0 }}
-          transition={{ duration: 0.5 }}
-          onClick={next}
-          className="absolute right-0 cursor-pointer hover:opacity-80 transition-all z-10"
-        >
-          <Card data={getPlan(1)} muted onCheckout={onCheckout} />
-        </motion.div>
+      {/* Desktop/Tablet */}
+      <div className="hidden md:grid w-full max-w-5xl mx-auto grid-cols-2 gap-10 justify-items-center items-stretch">
+        {plans.map((plan) => (
+          <Card key={plan.id} data={plan} onCheckout={onCheckout} />
+        ))}
       </div>
 
       {/* Mobile */}
-      <div
-        className="md:hidden w-full max-w-xs flex flex-col items-center mt-10"
-        {...handlers}
-      >
-        <Card data={getPlan(0)} highlighted onCheckout={onCheckout} />
-
-        {/* Bullet indicators */}
-        <div className="flex justify-center mt-10 space-x-2">
+      <div className="md:hidden w-full mt-10">
+        <div
+          ref={mobileScrollRef}
+          onScroll={handleMobileScroll}
+          className="flex w-full gap-6 overflow-x-auto snap-x snap-mandatory px-4 -mx-4 pb-4 scroll-smooth touch-pan-x [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {plans.map((plan) => (
+            <div key={plan.id} className="min-w-full flex justify-center snap-center">
+              <Card data={plan} onCheckout={onCheckout} />
+            </div>
+          ))}
+        </div>
+        <div className="flex justify-center mt-6 space-x-2">
           {plans.map((_, i) => (
             <span
               key={i}
-              className={`w-3 h-3 rounded-full border border-mmBorder transition-all ${
-                i === index ? "bg-mmAccent border-mmAccent" : "bg-transparent"
+              className={`w-2.5 h-2.5 rounded-full border border-mmBorder transition-all ${
+                i === activeIndex ? "bg-mmAccent border-mmAccent" : "bg-transparent"
               }`}
             />
           ))}
@@ -136,8 +111,10 @@ const Card = ({ data, highlighted, muted, onCheckout }) => {
     <div
       className={`w-[280px] md:w-[360px] bg-mmSurface border border-mmBorder rounded-2xl shadow-sm px-6 py-8 transition-all duration-300 ${
         highlighted
-          ? "border-mmAccent ring-1 ring-mmAccent/20 scale-[1.03] z-20"
-          : "opacity-70 scale-95"
+          ? "border-mmAccent ring-1 ring-mmAccent/20"
+          : muted
+          ? "opacity-70"
+          : ""
       }`}
     >
       <h3

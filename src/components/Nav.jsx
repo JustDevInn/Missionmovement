@@ -2,12 +2,15 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { MdClose, MdLogin, MdOutlineSpaceDashboard } from "react-icons/md";
-import { IoMdMenu, IoMdLogOut } from "react-icons/io";
-import { GiRank3 } from "react-icons/gi";
+import { MdClose } from "react-icons/md";
+// import { MdLogin, MdOutlineSpaceDashboard } from "react-icons/md";
+import { IoMdMenu } from "react-icons/io";
+// import { IoMdLogOut } from "react-icons/io";
+// import { GiRank3 } from "react-icons/gi";
 
 const Nav = () => {
-  const { user, logout } = useAuth();
+  // const { user, logout } = useAuth();
+  useAuth();
   const location = useLocation();
 
   const [nav, setNav] = useState(false);
@@ -170,6 +173,8 @@ const Nav = () => {
 
             {/* Right: Login/Dashboard icon (mirrored position) */}
             <div className="w-[56px] flex items-center justify-end">
+              {/* TEMP: Auth icons hidden until back office is live */}
+              {/*
               {!user ? (
                 <RouterLink
                   to="/login"
@@ -190,6 +195,8 @@ const Nav = () => {
                   <GiRank3 size={28} className="text-mmAccent" />
                 </RouterLink>
               )}
+              */}
+              <div className="w-[28px] h-[28px]" aria-hidden="true" />
             </div>
           </div>
 
@@ -320,7 +327,8 @@ const Nav = () => {
             <span className="block text-center">Movement</span>
           </RouterLink>
 
-          {/* Desktop Right: Auth */}
+          {/* TEMP: Auth icons hidden until back office is live */}
+          {/*
           <div className="flex gap-4 text-mmText text-sm md:text-lg">
             {!user ? (
               <RouterLink
@@ -352,6 +360,8 @@ const Nav = () => {
               </>
             )}
           </div>
+          */}
+          <div className="w-[96px] md:w-[112px]" aria-hidden="true" />
 
           {/* Desktop Dropdown */}
           <div
