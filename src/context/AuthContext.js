@@ -138,7 +138,7 @@ export const AuthProvider = ({ children }) => {
         access: userData.access,
       }}
     >
-      {!loading && children}
+      {children}
     </AuthContext.Provider>
   );
 };
