@@ -3,9 +3,13 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { MdClose } from "react-icons/md";
+// import { MdLogin, MdOutlineSpaceDashboard } from "react-icons/md";
 import { IoMdMenu } from "react-icons/io";
+// import { IoMdLogOut } from "react-icons/io";
+// import { GiRank3 } from "react-icons/gi";
 
 const Nav = () => {
+  // const { user, logout } = useAuth();
   useAuth();
   const location = useLocation();
 
