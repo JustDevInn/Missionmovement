@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import ScrollToTop from './utils/ScrollToTop';
 import { HelmetProvider } from "react-helmet-async";
@@ -34,31 +34,31 @@ import PaidRoute from "./components/PaidRoute";
 import AdminRoute from "./components/AdminRoute";
 
 // Dashboard Pages
-import Dashboard from "./dashboard/Dashboard";
-import Library from "./dashboard/library/Library";
-import TrainingProgram from "./dashboard/training/TrainingProgram";
-import TrainingSchedule from "./dashboard/trainingschedule/TrainingSchedule.jsx"
-import Progress from "./dashboard/progress/Progress";
-import CheckIn from "./dashboard/checkin/CheckIn";
-import Messages from './dashboard/messages/Messages';
-import Nutrition from './dashboard/nutrition/Nutrition';
-import Settings from './dashboard/settings/Settings';
+const Dashboard = lazy(() => import("./dashboard/Dashboard"));
+const Library = lazy(() => import("./dashboard/library/Library"));
+const TrainingProgram = lazy(() => import("./dashboard/training/TrainingProgram"));
+const TrainingSchedule = lazy(() => import("./dashboard/trainingschedule/TrainingSchedule.jsx"));
+const Progress = lazy(() => import("./dashboard/progress/Progress"));
+const CheckIn = lazy(() => import("./dashboard/checkin/CheckIn"));
+const Messages = lazy(() => import("./dashboard/messages/Messages"));
+const Nutrition = lazy(() => import("./dashboard/nutrition/Nutrition"));
+const Settings = lazy(() => import("./dashboard/settings/Settings"));
 
 // Admin Pages
-import AdminHome from './admin/AdminHome.jsx';
-import AdminDashboard from "./admin/AdminDashboard";
-import UploadVideo from "./admin/UploadVideo";
-import ManageVideos from "./admin/ManageVideos";
-import ManageUsers from "./admin/ManageUsers";
-import ManageTrainingProgram from './admin/ManageTrainingProgram';
-import UploadTrainingProgram from './admin/UploadTrainingProgram';
-import MessagesAdmin from './admin/MessagesAdmin.jsx';
-import UploadBlog from './admin/UploadBlog.jsx';
-import ManageBlog from './admin/ManageBlog.jsx';
+const AdminHome = lazy(() => import('./admin/AdminHome.jsx'));
+const AdminDashboard = lazy(() => import("./admin/AdminDashboard"));
+const UploadVideo = lazy(() => import("./admin/UploadVideo"));
+const ManageVideos = lazy(() => import("./admin/ManageVideos"));
+const ManageUsers = lazy(() => import("./admin/ManageUsers"));
+const ManageTrainingProgram = lazy(() => import('./admin/ManageTrainingProgram'));
+const UploadTrainingProgram = lazy(() => import('./admin/UploadTrainingProgram'));
+const MessagesAdmin = lazy(() => import('./admin/MessagesAdmin.jsx'));
+const UploadBlog = lazy(() => import('./admin/UploadBlog.jsx'));
+const ManageBlog = lazy(() => import('./admin/ManageBlog.jsx'));
 
 // Layout
 import DashboardLayout from "./layouts/DashboardLayout";
-import Stopwatch from './dashboard/stopwatch/StopWatch';
+const Stopwatch = lazy(() => import('./dashboard/stopwatch/StopWatch'));
 
 import { AnimatePresence } from "framer-motion";
 import PageWrapper from "./components/PageWrapper"; 
@@ -83,95 +83,94 @@ const MainRoutes = () => {
   <ScrollToTop />
 
   {isDashboardRoute ? (
- 
- <Routes>
-  {/* Protected Dashboard Routes with Shared Sidebar */}
-  <Route element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>}>
+    <Suspense fallback={null}>
+      <Routes>
+        {/* Protected Dashboard Routes with Shared Sidebar */}
+        <Route element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>}>
 
-    {/* Free Access (all users) */}
-    <Route path="/dashboard" element={<Dashboard />} />
-    <Route path="/stopwatch" element={<Stopwatch />} />
-    <Route path="/settings" element={<Settings />} />
+          {/* Free Access (all users) */}
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/stopwatch" element={<Stopwatch />} />
+          <Route path="/settings" element={<Settings />} />
 
-    {/* Basic+ (basic, intermediate, full, admin) */}
-    <Route
-      path="/trainingprogram"
-      element={
-        <PaidRoute requiredLevels={["basic", "intermediate", "full", "admin"]}>
-          <TrainingProgram />
-        </PaidRoute>
-      }
-    />
+          {/* Basic+ (basic, intermediate, full, admin) */}
+          <Route
+            path="/trainingprogram"
+            element={
+              <PaidRoute requiredLevels={["basic", "intermediate", "full", "admin"]}>
+                <TrainingProgram />
+              </PaidRoute>
+            }
+          />
 
-    {/* Intermediate+ (intermediate, full, admin) */}
-    <Route
-      path="/library"
-      element={
-        <PaidRoute requiredLevels={["intermediate", "full", "admin"]}>
-          <Library />
-        </PaidRoute>
-      }
-    />
-    <Route
-      path="/trainingschedule"
-      element={
-        <PaidRoute requiredLevels={["intermediate", "full", "admin"]}>
-          <TrainingSchedule />
-        </PaidRoute>
-      }
-    />
-    <Route
-      path="/progress"
-      element={
-        <PaidRoute requiredLevels={["intermediate", "full", "admin"]}>
-          <Progress />
-        </PaidRoute>
-      }
-    />
-    <Route
-      path="/nutrition"
-      element={
-        <PaidRoute requiredLevels={["intermediate", "full", "admin"]}>
-          <Nutrition />
-        </PaidRoute>
-      }
-    />
-    <Route
-      path="/check-in"
-      element={
-        <PaidRoute requiredLevels={["intermediate", "full", "admin"]}>
-          <CheckIn />
-        </PaidRoute>
-      }
-    />
+          {/* Intermediate+ (intermediate, full, admin) */}
+          <Route
+            path="/library"
+            element={
+              <PaidRoute requiredLevels={["intermediate", "full", "admin"]}>
+                <Library />
+              </PaidRoute>
+            }
+          />
+          <Route
+            path="/trainingschedule"
+            element={
+              <PaidRoute requiredLevels={["intermediate", "full", "admin"]}>
+                <TrainingSchedule />
+              </PaidRoute>
+            }
+          />
+          <Route
+            path="/progress"
+            element={
+              <PaidRoute requiredLevels={["intermediate", "full", "admin"]}>
+                <Progress />
+              </PaidRoute>
+            }
+          />
+          <Route
+            path="/nutrition"
+            element={
+              <PaidRoute requiredLevels={["intermediate", "full", "admin"]}>
+                <Nutrition />
+              </PaidRoute>
+            }
+          />
+          <Route
+            path="/check-in"
+            element={
+              <PaidRoute requiredLevels={["intermediate", "full", "admin"]}>
+                <CheckIn />
+              </PaidRoute>
+            }
+          />
 
-    {/* Full Only (full, admin) */}
-    <Route
-      path="/messages"
-      element={
-        <PaidRoute requiredLevels={["full", "admin"]}>
-          <Messages />
-        </PaidRoute>
-      }
-    />
-  </Route>
-
-
-      {/* Admin Dashboard Routes */}
-      <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>}>
-  <Route index element={<AdminHome />} />
-  <Route path="upload" element={<UploadVideo />} />
-  <Route path="manage-videos" element={<ManageVideos />} />
-  <Route path="manage-users" element={<ManageUsers />} />
-  <Route path="manage-program" element={<ManageTrainingProgram />} />
-  <Route path="upload-program" element={<UploadTrainingProgram />} />
-  <Route path="manage-blog" element={<ManageBlog />} />
-  <Route path="upload-blog" element={<UploadBlog />} />
-  <Route path="messagesadmin" element={<MessagesAdmin />} />
-</Route>
+          {/* Full Only (full, admin) */}
+          <Route
+            path="/messages"
+            element={
+              <PaidRoute requiredLevels={["full", "admin"]}>
+                <Messages />
+              </PaidRoute>
+            }
+          />
+        </Route>
 
 
-    </Routes>
+        {/* Admin Dashboard Routes */}
+        <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>}>
+          <Route index element={<AdminHome />} />
+          <Route path="upload" element={<UploadVideo />} />
+          <Route path="manage-videos" element={<ManageVideos />} />
+          <Route path="manage-users" element={<ManageUsers />} />
+          <Route path="manage-program" element={<ManageTrainingProgram />} />
+          <Route path="upload-program" element={<UploadTrainingProgram />} />
+          <Route path="manage-blog" element={<ManageBlog />} />
+          <Route path="upload-blog" element={<UploadBlog />} />
+          <Route path="messagesadmin" element={<MessagesAdmin />} />
+        </Route>
+      </Routes>
+    </Suspense>
   ) : (
     <div className="mm-public mm-page pt-18 md:pt-20">
       <AnimatePresence mode="wait">
