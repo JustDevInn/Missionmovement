@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import Spinner from "../components/Spinner";
 
 const plans = [
@@ -45,6 +45,18 @@ const plans = [
 ];
 
 const PricingCarousel = ({ onCheckout, loading = false }) => {
+  const mobileScrollRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleMobileScroll = () => {
+    const el = mobileScrollRef.current;
+    if (!el) return;
+    const itemWidth = el.clientWidth;
+    if (itemWidth === 0) return;
+    const nextIndex = Math.round(el.scrollLeft / itemWidth);
+    setActiveIndex(nextIndex);
+  };
+
   return (
     <div className="relative w-full flex flex-col items-center py-24 md:py-20 px-6 bg-mmPage">
       {loading && (
@@ -66,11 +78,25 @@ const PricingCarousel = ({ onCheckout, loading = false }) => {
 
       {/* Mobile */}
       <div className="md:hidden w-full mt-10">
-        <div className="flex w-full gap-6 overflow-x-auto snap-x snap-mandatory px-4 -mx-4 pb-4 scroll-smooth touch-pan-x [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div
+          ref={mobileScrollRef}
+          onScroll={handleMobileScroll}
+          className="flex w-full gap-6 overflow-x-auto snap-x snap-mandatory px-4 -mx-4 pb-4 scroll-smooth touch-pan-x [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
           {plans.map((plan) => (
             <div key={plan.id} className="min-w-full flex justify-center snap-center">
               <Card data={plan} onCheckout={onCheckout} />
             </div>
+          ))}
+        </div>
+        <div className="flex justify-center mt-6 space-x-2">
+          {plans.map((_, i) => (
+            <span
+              key={i}
+              className={`w-2.5 h-2.5 rounded-full border border-mmBorder transition-all ${
+                i === activeIndex ? "bg-mmAccent border-mmAccent" : "bg-transparent"
+              }`}
+            />
           ))}
         </div>
       </div>
