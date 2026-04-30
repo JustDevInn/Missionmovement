@@ -67,7 +67,7 @@ const About = () => {
           >
             {foundations.heading}
           </h2>
-        <div className="max-w-5xl pt-5 text-left md:text-justify mm-readable">
+          <div className="max-w-5xl pt-5 text-left md:text-justify mm-readable">
             <h3
               className={`${theme.accentText} font-display uppercase tracking-widest text-xl md:text-3xl mb-5`}
             >
@@ -110,7 +110,7 @@ const About = () => {
           >
             {missionValues.heading}
           </h2>
-          <div className="flex flex-col md:flex-row w-full max-w-6xl gap-10 text-left md:text-justify">
+          <div className="flex flex-col md:flex-row w-full max-w-6xl gap-10 text-left ">
             {/* Missie */}
             <div
               className={`w-full md:w-1/3 p-6 ${theme.card} border ${theme.border} rounded-2xl`}
@@ -167,7 +167,9 @@ const About = () => {
           >
             {closingCta.heading}
           </h2>
-          <p className={`sectionLead ${theme.textMuted} max-w-2xl mx-auto mb-8`}>
+          <p
+            className={`sectionLead ${theme.textMuted} max-w-2xl mx-auto mb-8`}
+          >
             {closingCta.body}
           </p>
           <Link to={closingCta.buttonLink}>

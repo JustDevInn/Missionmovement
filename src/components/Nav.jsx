@@ -482,12 +482,12 @@ const Nav = () => {
               </div>
 
               {/* Column 3 */}
-              <div className="flex flex-col space-y-8 justify-center items-center">
+              <div className="flex flex-col justify-center items-center">
                 <div className="mt-auto">
                   <img
-                    src="/img/tryme.png"
+                    src="/img/MissionMovement-yellow.png"
                     alt="Military Prep"
-                    className="w-[250px] h-[300px] object-cover"
+                    className="w-[420px] h-[300px] object-cover"
                   />
                 </div>
               </div>

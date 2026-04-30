@@ -146,7 +146,7 @@ const Home = () => {
             <div className="bg-black/65 border border-white/10 rounded-2xl px-6 py-5 shadow-sm">
               <p className="font-normal text-[15px] md:text-[18px] leading-relaxed text-white/95">
                 Fysieke en mentale voorbereiding voor Defensie en
-                Veiligheidsdiensten — gericht op selectie, keuring en duurzame
+                Veiligheidsdiensten. Gericht op selectie, keuring en duurzame
                 belastbaarheid.
               </p>
             </div>
@@ -358,7 +358,7 @@ const Home = () => {
             <ImageCard
               title="Over Mission Movement"
               imgSrc="/img/royalmarines.webp"
-              text="Mission Movement is gebouwd voor kandidaten die serieus willen instromen bij Defensie of Veiligheidsdiensten. Geen hype, geen snelle fixes — maar structuur, progressie en begeleiding die je selectie-ready maakt: conditie, kracht, belastbaarheid en presteren onder druk."
+              text="Mission Movement is gebouwd voor kandidaten die serieus willen instromen bij Defensie of Veiligheidsdiensten. Geen hype, geen snelle fixes. Maar structuur, progressie en begeleiding die je selectie-ready maakt: conditie, kracht, belastbaarheid en presteren onder druk."
               cta="Lees meer"
               to="/about"
             />
@@ -366,7 +366,7 @@ const Home = () => {
             <ImageCard
               title="Zij die het verdiend hebben"
               imgSrc="/img/eenheden/veiligheidsdiensten.jpg"
-              text="Verhalen van kandidaten die kozen voor structuur. Geen ‘before/after’ sprookjes — maar meetbare progressie, betere belastbaarheid en meer vertrouwen richting selectie of opleiding."
+              text="Verhalen van kandidaten die kozen voor structuur. Geen ‘before/after’ sprookjes. Meetbare progressie, betere belastbaarheid en meer vertrouwen richting selectie of opleiding."
               cta="Bekijk verhalen"
               to="/pricing"
             />
@@ -375,7 +375,7 @@ const Home = () => {
               <ImageCard
                 title="Het Programma"
                 imgSrc="/img/eenheden/veiligheidsdiensten.jpg"
-                text="Eén systeem, aangepast aan jouw route en startniveau. We bouwen kracht, conditie, mobiliteit en mentale weerbaarheid op — met duidelijke opbouw, tracking en begeleiding. Gericht op selectie-eisen, zonder blessure-ruis."
+                text="Eén systeem, aangepast aan jouw route en startniveau. We bouwen kracht, conditie, mobiliteit en mentale weerbaarheid met duidelijke opbouw, tracking en begeleiding. Gericht op selectie-eisen, zonder blessure-ruis."
                 cta="Bekijk programma"
                 to="/program"
               />

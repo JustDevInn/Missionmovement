@@ -16,27 +16,33 @@ const TrainerCard = () => {
               Justin P, Oprichter Mission Movement
             </h2>
             <p className="text-mmTextMuted text-justify leading-relaxed text-base md:text-lg">
-              Met een decennium aan elite-dienst in het Korps Mariniers,
-              waaronder vier jaar in de gerespecteerde MARSOC-eenheden, brengt
-              Justin bewezen expertise naar Mission Movement.
+              Met tien jaar ervaring binnen het Korps Mariniers, waaronder vier
+              jaar binnen de MARSOC, weet ik wat er nodig is om te functioneren
+              onder druk.
               <br />
               <br />
-              Na zijn militaire carrière runde hij vijf jaar lang een eigen
-              personal training gym, waar hij zijn vaardigheden verfijnde op het
-              gebied van fysieke conditie en mentale weerbaarheid.
+              Ik kom niet uit een klaslokaal, maar uit de operationele praktijk.
+              Binnen die omgeving heb ik, naast mijn primaire taken als
+              marinier, ook mariniers en commando’s begeleid in fysieke
+              voorbereiding, belastbaarheid en mentale weerbaarheid.
               <br />
               <br />
-              Als ervaren coach met negen jaar op de teller, combineert Justin
-              militaire precisie met coachingsvaardigheid. Zijn holistische
-              aanpak omvat bergbeklimmen, surfen en gymsessies voor een complete
-              fitnesservaring.
+              Na mijn militaire carrière heb ik vijf jaar lang mijn eigen
+              personal training gym gerund, waar ik mensen hielp sterker, fitter
+              en weerbaarder te worden.
               <br />
               <br />
-              Zijn toewijding aan blessurepreventie en duurzaamheid in
-              veeleisende carrières vormt zijn drijfveer. Justin zorgt ervoor
-              dat mensen zowel fysiek als mentaal voorbereid zijn, zodat ze op
-              hun eigen voorwaarden kunnen stoppen, en niet door vermijdbare
-              tegenslagen.
+              Als coach combineer ik militaire precisie met een persoonlijke en
+              praktische aanpak. Ik kijk niet alleen naar training, maar naar
+              het hele proces: belastbaarheid, herstel, techniek, discipline en
+              mentale voorbereiding.
+              <br />
+              <br />
+              Mijn doel is om mensen goed voorbereid aan hun traject te laten
+              beginnen. Niet alleen om de selectie te halen, maar om ook daarna
+              sterk te blijven functioneren. Je moet kunnen stoppen wanneer jij
+              daarvoor kiest. Niet omdat een blessure, verkeerde aanpak of
+              gebrek aan voorbereiding je eruit haalt.
             </p>
           </div>
 
