@@ -19,10 +19,13 @@ const Veiligheidsdiensten = () => {
       <Helmet>
         <title>{meta.title}</title>
         <meta name="description" content={meta.description} />
-        <link
-          rel="canonical"
-          href="https://missionmovement.vercel.app/units/veiligheidsdiensten"
-        />
+        <meta property="og:title" content={meta.ogTitle} />
+        <meta property="og:description" content={meta.ogDescription} />
+        <meta property="og:image" content={meta.ogImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:url" content={meta.ogUrl} />
+        <link rel="canonical" href={meta.canonical} />
       </Helmet>
 
       <HeroSection hero={hero} theme={theme} />

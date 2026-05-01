@@ -1,8 +1,14 @@
 const veiligheidsdienstenConfig = {
   meta: {
-    title: "Veiligheidsdiensten | Politie, KMar & Brandweer",
+    title: "Voorbereiding Politie, Brandweer & KMar | Mission Movement",
     description:
-      "Voorbereiding op selectie en opleiding voor Politie, Koninklijke Marechaussee en Brandweer.",
+      "Mission Movement helpt kandidaten zich voorbereiden op politie, brandweer, KMar en andere veiligheidsdiensten met structuur, training en begeleiding.",
+    ogTitle: "Voorbereiding Politie, Brandweer & KMar | Mission Movement",
+    ogDescription:
+      "Mission Movement helpt kandidaten zich voorbereiden op politie, brandweer, KMar en andere veiligheidsdiensten met structuur, training en begeleiding.",
+    ogImage: "https://missionmovement.vercel.app/img/thestory.png",
+    ogUrl: "https://missionmovement.vercel.app/units/veiligheidsdiensten",
+    canonical: "https://missionmovement.vercel.app/units/veiligheidsdiensten",
   },
   hero: {
     title: "VEILIGHEIDSDIENSTEN",

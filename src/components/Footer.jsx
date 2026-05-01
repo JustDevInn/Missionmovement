@@ -10,11 +10,11 @@ const Footer = () => {
           <h2 className="font-display uppercase tracking-[0.18em] text-[18px] md:text-[20px]">
             Neem contact op
           </h2>
-          <p className="mt-4 text-mmTextMuted max-w-xl mx-auto leading-relaxed">
-            Klaar om serieus aan de slag te gaan?{" "}
-            <span className="whitespace-nowrap">
-              Stuur een bericht — ik help je op weg.
-            </span>
+
+          <p className="mt-4 text-mmTextMuted max-w-2xl mx-auto leading-relaxed whitespace-pre-line">
+            {`Wil je serieus richting Defensie, politie, brandweer of KMar werken?
+
+Stuur me een bericht. Dan kijken we samen waar je nu staat, wat je doel is en welke voorbereiding daarbij past.`}
           </p>
         </div>
 
@@ -29,8 +29,9 @@ const Footer = () => {
             </h3>
 
             <p className="mt-5 text-mmTextMuted leading-relaxed max-w-sm mx-auto md:mx-0">
-              Persoonlijke begeleiding voor serieuze kandidaten richting
-              defensie, politie en brandweer.
+              Persoonlijke begeleiding en gestructureerde voorbereiding voor
+              serieuze kandidaten richting Defensie, politie, brandweer en
+              veiligheidsdiensten.
             </p>
           </div>
 

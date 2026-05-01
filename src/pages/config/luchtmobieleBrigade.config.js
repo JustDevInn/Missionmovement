@@ -1,8 +1,14 @@
 const luchtmobieleBrigadeConfig = {
   meta: {
-    title: "11 Luchtmobiele Brigade | Missie & Voorbereiding",
+    title: "Voorbereiding Luchtmobiele Brigade | Mission Movement",
     description:
-      "Alles over de 11 Luchtmobiele Brigade: inzet, keuring en hoe jij je optimaal voorbereidt op deze dynamische eenheid.",
+      "Bereid je fysiek en mentaal voor op de Luchtmobiele Brigade met gestructureerde training, belastbaarheid en discipline.",
+    ogTitle: "Voorbereiding Luchtmobiele Brigade | Mission Movement",
+    ogDescription:
+      "Bereid je fysiek en mentaal voor op de Luchtmobiele Brigade met gestructureerde training, belastbaarheid en discipline.",
+    ogImage: "https://missionmovement.vercel.app/img/thestory.png",
+    ogUrl: "https://missionmovement.vercel.app/units/luchtmobiel",
+    canonical: "https://missionmovement.vercel.app/units/luchtmobiel",
   },
   hero: {
     imageSrc: "/img/eenheden/lmb_wide.jpg",

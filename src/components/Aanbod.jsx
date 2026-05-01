@@ -26,20 +26,18 @@ const Aanbod = () => {
   return (
     <>
       <Helmet>
-        <title>
-          12-Weekse Militaire Voorbereidingsprogramma | Mission Movement
-        </title>
+        <title>Aanbod & Prijzen | Mission Movement Voorbereidingsprogramma</title>
         <meta
           name="description"
-          content="Krijg toegang tot het volledige 12-weekse programma gericht op militaire voorbereiding. Kracht, mindset, zwemmen, herstel en meer, ontwikkeld door een voormalig marinier."
+          content="Bekijk het Mission Movement aanbod voor kandidaten die serieus richting Defensie, politie, brandweer, KMar of specialistische eenheden willen werken."
         />
         <meta
           property="og:title"
-          content="12-Weekse Militaire Voorbereidingsprogramma | Mission Movement"
+          content="Aanbod & Prijzen | Mission Movement Voorbereidingsprogramma"
         />
         <meta
           property="og:description"
-          content="Voorbereiding op elite-niveau. Fysieke, mentale en tactische training gebaseerd op echte militaire ervaring."
+          content="Bekijk het Mission Movement aanbod voor kandidaten die serieus richting Defensie, politie, brandweer, KMar of specialistische eenheden willen werken."
         />
         <meta
           property="og:image"
@@ -53,6 +51,18 @@ const Aanbod = () => {
         />
         <meta property="og:type" content="product" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Aanbod & Prijzen | Mission Movement Voorbereidingsprogramma"
+        />
+        <meta
+          name="twitter:description"
+          content="Bekijk het Mission Movement aanbod voor kandidaten die serieus richting Defensie, politie, brandweer, KMar of specialistische eenheden willen werken."
+        />
+        <meta
+          name="twitter:image"
+          content="https://missionmovement.vercel.app/img/mmvmtlogo.png"
+        />
         <link
           rel="canonical"
           href="https://missionmovement.vercel.app/pricing"

@@ -31,7 +31,7 @@ const About = () => {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:url" content={meta.ogUrl} />
-        <link rel="canonical" href="https://missionmovement.vercel.app/about" />
+        <link rel="canonical" href={meta.canonical} />
       </Helmet>
 
       {/* Hero Section: The Story */}
@@ -51,7 +51,7 @@ const About = () => {
             className={`h-[3px] w-12 ${theme.accentLine} rounded-full mt-4 opacity-90`}
           />
           <div className="serviceHeroSubtitle">
-            <p className="leading-relaxed font-medium text-[15px] md:text-lg">
+            <p className="leading-relaxed font-medium text-[15px] md:text-lg whitespace-pre-line">
               {hero.subtitle}
             </p>
           </div>
@@ -114,7 +114,7 @@ const About = () => {
           <div className="flex flex-col md:flex-row w-full max-w-6xl gap-10 text-left ">
             {/* Missie */}
             <div
-              className={`w-full md:w-1/3 p-6 ${theme.card} border ${theme.border} rounded-2xl`}
+              className={`w-full md:w-1/2 p-6 ${theme.card} border ${theme.border} rounded-2xl`}
             >
               <h3
                 className={`${theme.accentText} font-display uppercase text-lg md:text-2xl mb-2 tracking-widest`}
@@ -122,7 +122,7 @@ const About = () => {
                 {missionValues.missionTitle}
               </h3>
               <p
-                className={`sectionLead ${theme.textMuted} lg:text-xl leading-relaxed`}
+                className={`sectionLead ${theme.textMuted} lg:text-xl leading-relaxed whitespace-pre-line`}
               >
                 {missionValues.missionBody}
               </p>
@@ -130,7 +130,7 @@ const About = () => {
 
             {/* Waarden */}
             <div
-              className={`w-full md:w-2/3 p-6 ${theme.card} border ${theme.border} rounded-2xl`}
+              className={`w-full md:w-1/2 p-6 ${theme.card} border ${theme.border} rounded-2xl`}
             >
               <h3
                 className={`${theme.accentText} text-lg md:text-2xl mb-2 tracking-widest uppercase font-display`}
@@ -169,7 +169,7 @@ const About = () => {
             {closingCta.heading}
           </h2>
           <p
-            className={`sectionLead ${theme.textMuted} max-w-2xl mx-auto mb-8`}
+            className={`sectionLead ${theme.textMuted} max-w-2xl mx-auto mb-8 whitespace-pre-line`}
           >
             {closingCta.body}
           </p>

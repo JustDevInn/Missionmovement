@@ -104,15 +104,21 @@ const Home = () => {
   return (
     <div className="pt-20 md:pt-0 bg-mmPage">
       <Helmet>
-        <title>Mission Movement | Voorbereiding op selectie & opleiding</title>
+        <title>
+          Mission Movement | Militaire Voorbereiding voor Defensie &
+          Veiligheidsdiensten
+        </title>
         <meta
           name="description"
-          content="Fysieke en mentale voorbereiding voor Defensie (Mariniers, KCT, Luchtmobiel) en Veiligheidsdiensten (Politie, Marechaussee, Brandweer) — gericht op selectie, keuring en duurzame belastbaarheid."
+          content="Mission Movement helpt kandidaten zich fysiek en mentaal voorbereiden op Defensie, politie, brandweer, KMar en specialistische eenheden."
         />
-        <meta property="og:title" content="Mission Movement" />
+        <meta
+          property="og:title"
+          content="Mission Movement | Militaire Voorbereiding voor Defensie & Veiligheidsdiensten"
+        />
         <meta
           property="og:description"
-          content="Gestructureerde voorbereiding voor Defensie en Veiligheidsdiensten. Kies je route, bepaal je startniveau en train met opbouw + tracking richting selectie of opleiding."
+          content="Mission Movement helpt kandidaten zich fysiek en mentaal voorbereiden op Defensie, politie, brandweer, KMar en specialistische eenheden."
         />
         <meta
           property="og:image"
@@ -120,7 +126,8 @@ const Home = () => {
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:url" content="https://missionmovement.vercel.app" />
+        <meta property="og:url" content="https://missionmovement.vercel.app/" />
+        <link rel="canonical" href="https://missionmovement.vercel.app/" />
       </Helmet>
 
       {/* HERO */}

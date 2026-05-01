@@ -118,15 +118,18 @@ const Contact = () => {
   return (
     <div className="pt-10">
       <Helmet>
-        <title>Contact | Mission Movement</title>
+        <title>Contact | Start jouw Voorbereiding met Mission Movement</title>
         <meta
           name="description"
-          content="Wil je serieus voorbereid starten aan een militaire carrière? Neem contact op met Mission Movement."
+          content="Neem contact op met Mission Movement voor gerichte begeleiding richting Defensie, politie, brandweer, KMar of specialistische eenheden."
         />
-        <meta property="og:title" content="Contact | Mission Movement" />
+        <meta
+          property="og:title"
+          content="Contact | Start jouw Voorbereiding met Mission Movement"
+        />
         <meta
           property="og:description"
-          content="Meld je aan voor voorbereiding op Mariniers, Luchtmobiel of KCT. Ik help je doelgericht op weg."
+          content="Neem contact op met Mission Movement voor gerichte begeleiding richting Defensie, politie, brandweer, KMar of specialistische eenheden."
         />
         <meta
           property="og:image"

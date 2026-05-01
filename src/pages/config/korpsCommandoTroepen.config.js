@@ -1,8 +1,14 @@
 const korpsCommandoTroepenConfig = {
   meta: {
-    title: "Korps Commandotroepen | Missie & Voorbereiding",
+    title: "Voorbereiding Korps Commandotroepen | Mission Movement",
     description:
-      "Alles over het KCT: de zwaarste eenheid binnen Defensie. Slagingskansen, structuur en hoe je jezelf kunt voorbereiden.",
+      "Train gericht richting het Korps Commandotroepen met aandacht voor belastbaarheid, fysieke basis, mentale weerbaarheid en duurzame voorbereiding.",
+    ogTitle: "Voorbereiding Korps Commandotroepen | Mission Movement",
+    ogDescription:
+      "Train gericht richting het Korps Commandotroepen met aandacht voor belastbaarheid, fysieke basis, mentale weerbaarheid en duurzame voorbereiding.",
+    ogImage: "https://missionmovement.vercel.app/img/thestory.png",
+    ogUrl: "https://missionmovement.vercel.app/units/commandotroepen",
+    canonical: "https://missionmovement.vercel.app/units/commandotroepen",
   },
   hero: {
     imageSrc: "/img/eenheden/kct.webp",

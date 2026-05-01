@@ -79,15 +79,33 @@ const Blogs = () => {
   return (
     <div className="pt-20 px-6 md:px-10 lg:px-20 bg-mmPage min-h-screen">
       <Helmet>
-        <title>Artikelen | Mission Movement</title>
+        <title>Blogs | Militaire Voorbereiding & Training voor Veiligheidsdiensten</title>
         <meta
           name="description"
-          content="Explore tactical training articles, real-world lessons, and expert insights from Mission Movement."
+          content="Artikelen over trainen voor Defensie, politie, brandweer, KMar, belastbaarheid, discipline en mentale voorbereiding."
+        />
+        <meta
+          property="og:title"
+          content="Blogs | Militaire Voorbereiding & Training voor Veiligheidsdiensten"
+        />
+        <meta
+          property="og:description"
+          content="Artikelen over trainen voor Defensie, politie, brandweer, KMar, belastbaarheid, discipline en mentale voorbereiding."
+        />
+        <meta
+          property="og:image"
+          content="https://missionmovement.vercel.app/img/thestory.png"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          property="og:url"
+          content="https://missionmovement.vercel.app/blogs"
         />
         <link
           rel="canonical"
           href="https://missionmovement.vercel.app/blogs"
-        />{" "}
+        />
       </Helmet>
 
       <h1 className="mm-h1 text-mmText text-center mb-10">Mission Artikelen</h1>

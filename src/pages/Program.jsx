@@ -43,15 +43,20 @@ const Program = () => {
   return (
     <div className="pt-10">
       <Helmet>
-        <title>Programma | Mission Movement</title>
+        <title>
+          Programma | Voorbereiding op Defensie, Politie, Brandweer & KMar
+        </title>
         <meta
           name="description"
-          content="Ontdek het Military Preparation Program van Mission Movement, gebouwd vanuit ervaring met special forces en een decennium aan coaching."
+          content="Train gericht met Mission Movement en bouw aan kracht, conditie, belastbaarheid, discipline en mentale voorbereiding voor Defensie en veiligheidsdiensten."
         />
-        <meta property="og:title" content="Programma | Mission Movement" />
+        <meta
+          property="og:title"
+          content="Programma | Voorbereiding op Defensie, Politie, Brandweer & KMar"
+        />
         <meta
           property="og:description"
-          content="Van het Korps Mariniers tot moderne krijger. Dit programma geeft je wat je nodig hebt om te slagen."
+          content="Train gericht met Mission Movement en bouw aan kracht, conditie, belastbaarheid, discipline en mentale voorbereiding voor Defensie en veiligheidsdiensten."
         />
         <meta
           property="og:image"
@@ -61,7 +66,7 @@ const Program = () => {
         <meta property="og:image:height" content="630" />
         <meta
           property="og:url"
-          content="https://missionmovement.vercel.app/about"
+          content="https://missionmovement.vercel.app/program"
         />
         <link
           rel="canonical"

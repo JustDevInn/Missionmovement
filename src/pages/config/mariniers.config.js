@@ -1,8 +1,14 @@
 const mariniersConfig = {
   meta: {
-    title: "Korps Mariniers | Missie & Voorbereiding",
+    title: "Voorbereiding Korps Mariniers | Mission Movement",
     description:
-      "Leer alles over het Korps Mariniers. Structuur, inzet, slagingskans en waarom goede voorbereiding essentieel is.",
+      "Bereid je gericht voor op het Korps Mariniers met training voor kracht, conditie, belastbaarheid, discipline en mentale weerbaarheid.",
+    ogTitle: "Voorbereiding Korps Mariniers | Mission Movement",
+    ogDescription:
+      "Bereid je gericht voor op het Korps Mariniers met training voor kracht, conditie, belastbaarheid, discipline en mentale weerbaarheid.",
+    ogImage: "https://missionmovement.vercel.app/img/thestory.png",
+    ogUrl: "https://missionmovement.vercel.app/units/mariniers",
+    canonical: "https://missionmovement.vercel.app/units/mariniers",
   },
   hero: {
     imageSrc: "/img/spelioladder.jpg",

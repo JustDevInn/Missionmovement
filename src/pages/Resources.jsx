@@ -15,15 +15,20 @@ const Resources = () => {
   return (
     <div className="pt-10">
       <Helmet>
-        <title>Bronnen | Mission Movement</title>
+        <title>
+          Resources | Militaire Voorbereiding, Training & Veelgestelde Vragen
+        </title>
         <meta
           name="description"
-          content="Ontdek deskundige begeleiding, trainingsartikelen en bronnen die je voorbereiden op de echte wereld."
+          content="Lees praktische informatie over fysieke training, mentale voorbereiding, belastbaarheid en voorbereiding op Defensie en veiligheidsdiensten."
         />
-        <meta property="og:title" content="Mission Movement Bronnen" />
+        <meta
+          property="og:title"
+          content="Resources | Militaire Voorbereiding, Training & Veelgestelde Vragen"
+        />
         <meta
           property="og:description"
-          content="Versterk jezelf met zorgvuldig geselecteerde kennis, veelgestelde vragen en tactische inzichten uit het veld."
+          content="Lees praktische informatie over fysieke training, mentale voorbereiding, belastbaarheid en voorbereiding op Defensie en veiligheidsdiensten."
         />
         <meta
           property="og:image"
