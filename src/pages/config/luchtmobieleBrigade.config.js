@@ -2,10 +2,10 @@ const luchtmobieleBrigadeConfig = {
   meta: {
     title: "Voorbereiding Luchtmobiele Brigade | Mission Movement",
     description:
-      "Bereid je fysiek en mentaal voor op de Luchtmobiele Brigade met gestructureerde training, belastbaarheid en discipline.",
+      "Alles over voorbereiding richting 11 Luchtmobiele Brigade: AMOL, rode baret, fysieke eisen, marsen met bepakking, mentale weerbaarheid, belastbaarheid en gerichte training via Mission Movement.",
     ogTitle: "Voorbereiding Luchtmobiele Brigade | Mission Movement",
     ogDescription:
-      "Bereid je fysiek en mentaal voor op de Luchtmobiele Brigade met gestructureerde training, belastbaarheid en discipline.",
+      "Alles over voorbereiding richting 11 Luchtmobiele Brigade: AMOL, rode baret, fysieke eisen, marsen met bepakking, mentale weerbaarheid, belastbaarheid en gerichte training via Mission Movement.",
     ogImage: "https://missionmovement.vercel.app/img/thestory.png",
     ogUrl: "https://missionmovement.vercel.app/units/luchtmobiel",
     canonical: "https://missionmovement.vercel.app/units/luchtmobiel",
@@ -16,7 +16,8 @@ const luchtmobieleBrigadeConfig = {
     objectPosition: "center 80%",
     overlayClass: "mm-heroOverlay",
     title: "11 Luchtmobiele Brigade",
-    subtitle: "De rode baretten van Defensie: snel, licht en altijd inzetbaar.",
+    subtitle:
+      "Voor kandidaten die serieus richting 11 Luchtmobiele Brigade willen werken: van AMOL en rode baret tot fysieke eisen, marsen met bepakking en belastbaarheid.",
   },
   subNav: {
     variant: "dark",
@@ -27,7 +28,7 @@ const luchtmobieleBrigadeConfig = {
     emblemAlt: "Luchtmobiele Embleem",
     heading: "Wat is 11 Luchtmobiele Brigade?",
     body:
-      "Na de val van de Berlijnse Muur in 1989 veranderde de wereldwijde veiligheidssituatie ingrijpend. Nederland zag de noodzaak voor een snel inzetbare eenheid die wereldwijd flexibel kon opereren binnen het volledige geweldsspectrum. Dit leidde in 1992 tot de oprichting van 11 Luchtmobiele Brigade. Deze brigade is een hoogwaardige infanterie-eenheid van de Koninklijke Landmacht, gespecialiseerd in snelle inzet via helikopters of transportvliegtuigen. De nadruk ligt op snelheid, wendbaarheid en het opereren in kleine, zelfstandige teams - vaak diep achter vijandelijke linies.\n\nAls luchtmobiel militair word je opgeleid om langdurig te presteren onder fysieke en mentale druk. Je traint intensief op uithoudingsvermogen, oriëntatievermogen en samenwerking onder stress. De missies zijn uiteenlopend - van gevechtsoperaties tot humanitaire inzet - maar vragen altijd een hoog niveau van discipline, fitheid en paraatheid.",
+      "Na de val van de Berlijnse Muur in 1989 veranderde de wereldwijde veiligheidssituatie ingrijpend. Nederland zag de noodzaak voor een snel inzetbare eenheid die wereldwijd flexibel kon opereren binnen het volledige geweldsspectrum. Dit leidde in 1992 tot de oprichting van 11 Luchtmobiele Brigade. Deze brigade is een hoogwaardige infanterie-eenheid van de Koninklijke Landmacht, gespecialiseerd in snelle inzet via helikopters of transportvliegtuigen. De nadruk ligt op snelheid, wendbaarheid en het opereren in kleine, zelfstandige teams - vaak diep achter vijandelijke linies.\n\nAls luchtmobiel militair word je opgeleid om langdurig te presteren onder fysieke en mentale druk. Je traint intensief op uithoudingsvermogen, oriëntatievermogen en samenwerking onder stress. De missies zijn uiteenlopend - van gevechtsoperaties tot humanitaire inzet - maar vragen altijd een hoog niveau van discipline, fitheid en paraatheid.\n\nVoor kandidaten betekent dit dat voorbereiding verder moet gaan dan alleen conditie opbouwen. Je moet werken aan kracht, uithoudingsvermogen, herstel, marsen met bepakking, samenwerking onder druk en mentale weerbaarheid. Niet alleen om aan de minimale eisen te voldoen, maar om sterker en met meer marge aan de opleiding te beginnen.",
     accentBorder: "border-mmAccent",
   },
   accordion: {
@@ -97,33 +98,33 @@ const luchtmobieleBrigadeConfig = {
     },
   ],
   cta: {
-    eyebrow: "Luchtmobiel Voorbereiding",
-    heading: "Wil je dit echt, dan moet je voorbereid starten.",
+    eyebrow: "Luchtmobiel voorbereiding",
+    heading: "Wil je serieus richting 11 Luchtmobiele Brigade?",
     body:
-      "De luchtmobiele opleiding is fysiek zwaar en mentaal veeleisend. Eén poging, geen ruimte voor gokken. Dit programma helpt je gericht toewerken naar een sterke en realistische start.\n\nOok steeds meer vrouwen bewijzen dat ze hier thuishoren.",
-    buttonText: "Start Voorbereiding",
-    buttonTo: "/pricing",
+      "De voorbereiding op Luchtmobiel vraagt om meer dan motivatie. Bouw gericht aan kracht, conditie, marsvermogen, belastbaarheid, herstel, discipline en mentale weerbaarheid, zodat je beter voorbereid richting AMOL en opleiding gaat.",
+    buttonText: "Bekijk het programma",
+    buttonTo: "/program",
   },
   forWho: {
     heading: "Voor wie is dit geschikt?",
     bullets: [
-      "Je wilt deel uitmaken van een snelle, internationale interventie-eenheid die optreedt onder druk.",
-      "Je zoekt niet alleen fysieke uitdaging, maar ook teamverband, ritme en mentale groei.",
-      "Je wilt niet twijfelend beginnen aan de AMOL, maar voorbereid, hersteld en met een sterk fundament.",
-      "Je weet dat snelheid, samenwerking en draagvermogen net zo belangrijk zijn als brute kracht.",
-      "Je bent vrouw of man en klaar om jezelf te bewijzen in een omgeving waar inzet zwaarder telt dan geslacht.",
-      "Je neemt deze kans serieus en kiest voor gerichte opbouw in plaats van 'even kijken of je het haalt'.",
+      "Je wilt luchtmobiel militair worden en zoekt structuur in je voorbereiding richting AMOL en opleiding.",
+      "Je traint al, maar weet niet zeker of je voorbereiding aansluit op de fysieke eisen van Defensie.",
+      "Je wilt sterker worden in kracht, uithoudingsvermogen, marsen met bepakking en herstelvermogen.",
+      "Je wilt niet alleen de minimale norm halen, maar met meer marge aan je traject beginnen.",
+      "Je zoekt een duidelijke opbouw in plaats van losse trainingen zonder richting.",
+      "Je wilt serieus werken aan discipline, samenwerking, belastbaarheid en mentale weerbaarheid.",
     ],
   },
   route: {
     heading: "Jouw route naar 11 Luchtmobiele Brigade",
     steps: [
-      "Voorbereiding: fysiek",
-      "Oriëntatie en aanmelding via Defensie",
-      "Kennismakingsdag en keuringen",
-      "Start van de AMOL met luchtmobiel profiel",
-      "Afronding luchtmobiele opleiding & toewijzing eenheid",
-      "Inzet als luchtmobiel militair",
+      "Oriëntatie: begrijpen wat 11 Luchtmobiele Brigade vraagt",
+      "Start voorbereiding: kracht, conditie, marsvermogen en belastbaarheid opbouwen",
+      "Aanmelding en selectieprocedure bij Defensie",
+      "Keuringen en fysieke testmomenten",
+      "Start AMOL met luchtmobiel profiel",
+      "Opleiding afronden en doorgroeien als luchtmobiel militair",
     ],
   },
   faq: {
@@ -132,41 +133,41 @@ const luchtmobieleBrigadeConfig = {
       {
         title: "Is luchtmobiel net zo zwaar als het KCT?",
         content:
-          "Nee. De opleiding en selectie bij 11 Luchtmobiele Brigade zijn fysiek zwaar en mentaal veeleisend, maar minder extreem dan het traject van het Korps Commandotroepen. Dat neemt niet weg dat je moet beschikken over een uitstekende conditie, discipline, en de mentale capaciteit om onder druk te functioneren. Verwacht geen gemak, alleen een andere vorm van intensiteit.",
+          "Het is een andere route. Het Korps Commandotroepen richt zich op Special Operations Forces, terwijl 11 Luchtmobiele Brigade een fysiek en mentaal veeleisende infanterieroute is. Luchtmobiel vraagt snelheid, mobiliteit, teamwork, marsen met bepakking, veldvaardigheden en functioneren onder druk. Het is geen lichtere keuze, maar een ander soort belasting.",
       },
       {
         title: "Is dit programma ook geschikt voor vrouwen?",
         content:
-          "Zeker. Steeds meer vrouwen ronden de luchtmobiele opleiding succesvol af. Het traject stelt dezelfde eisen aan iedereen, ongeacht geslacht. Dit programma focust op functionele kracht, uithoudingsvermogen, herstel en mentale weerbaarheid. Vrouwen zijn volwaardig inzetbaar binnen de eenheid, mits ze voldoen aan de standaard, net als ieder ander.",
+          "Ja. De voorbereiding is bedoeld voor iedere serieuze kandidaat die richting 11 Luchtmobiele Brigade wil werken. De principes blijven hetzelfde: kracht, uithoudingsvermogen, herstel, discipline, belastbaarheid en mentale weerbaarheid. De eisen zijn hoog en vragen om eerlijke, gerichte voorbereiding.",
       },
       {
         title: "Hoe combineer ik training met werk of school?",
         content:
-          "De voorbereiding is flexibel op te bouwen en zelfstandig uit te voeren. Elke week heb je duidelijke trainingsdoelen, maar het is aan jou om je tijd goed te plannen. Verwacht wel een hoge mate van consistentie. De opleiding vraagt straks ook om discipline naast slaaptekort, groepsdruk en fysieke vermoeidheid. Hoe beter je nu leert plannen, hoe sterker je instroom wordt.",
+          "Dat kan, maar het vraagt planning, consistentie en realistisch omgaan met je totale belasting. De training kan rond school of werk worden opgebouwd, zolang je eerlijk kijkt naar herstel, beschikbare tijd en prioriteiten. Luchtmobiel worden vraagt discipline en structurele inzet.",
       },
       {
         title: "Wat als ik twijfel of ik geschikt ben?",
         content:
-          "Twijfel is normaal, zeker als je iets aangaat dat groter is dan jezelf. De enige manier om daarachter te komen is door actie te ondernemen. Een gerichte voorbereiding helpt je testen waar je staat: fysiek, mentaal en qua mindset. Niet iedereen hoeft militair te worden, maar als het in je hoofd speelt, verdien je het om er serieus achter te komen of dit bij je past.",
+          "Twijfel is normaal. Een gestructureerde voorbereiding helpt je duidelijk krijgen waar je nu staat, waar je zwakke punten zitten en of deze route echt bij je past. Je werkt aan fysieke eisen, marsen met bepakking, herstel, samenwerking en mentale weerbaarheid voordat je het officiële traject instapt.",
       },
       {
         title: "Ik sport al, waarom zou ik dit nodig hebben?",
         content:
-          "Zelf trainen is goed. Maar luchtmobiel vraagt om specifieke vaardigheden: lopen met bepakking, presteren onder groepsdruk, herstel onder vermoeidheid, werken binnen hiërarchie. Een doelgericht trainingsplan voorkomt overbelasting, leert je omgaan met belasting, en bouwt vertrouwen op vóór je begint. De AMOL is geen plek om dingen nog uit te zoeken. Dat doe je nu.",
+          "Algemene fitheid is niet hetzelfde als voorbereiding op Luchtmobiel. Je krijgt te maken met marsen met bepakking, herstel onder vermoeidheid, herhaalde trainingsdagen, teamwork, hiërarchie, veldomstandigheden en progressieve belasting. Gerichte voorbereiding helpt je die belasting stapsgewijs opbouwen.",
       },
       {
         title: "Wat leer je tijdens de AMOL voor luchtmobiel?",
         content:
-          "De AMOL (Algemene Militaire Opleiding Landmacht) met luchtmobiel profiel duurt gemiddeld 24 weken. Je leert onder andere militair gedrag, kaartlezen, schieten, marsen met bepakking, samenwerken onder druk, camoufleren, slaapdeprivatie en basisveldhandelingen. Richting het einde van de opleiding volgen luchtmobiele veldoefeningen met helikopterinzet. Zowel fysiek als mentaal vraagt dit traject alles van je. Een goede voorbereiding is geen luxe. Het is noodzakelijk.",
+          "Tijdens de AMOL met luchtmobiel profiel leer je militair gedrag, kaartlezen, schieten, marsen met bepakking, samenwerken onder druk, camoufleren en basisveldhandelingen. Richting het einde volgen luchtmobiele veldoefeningen met helikopterinzet. Fysiek en mentaal vraagt dit om een stevige basis in kracht, uithoudingsvermogen, herstel en belastbaarheid.",
       },
     ],
   },
   stickyMobileCta: {
     enabled: true,
     delayMs: 20000,
-    label: "Klaar voor?",
-    buttonText: "Bekijk Programma",
-    buttonTo: "/pricing",
+    label: "Klaar om gericht te trainen?",
+    buttonText: "Bekijk programma",
+    buttonTo: "/program",
   },
 };
 

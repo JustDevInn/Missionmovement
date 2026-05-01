@@ -27,6 +27,32 @@ const LuchtmobieleBrigade = () => {
     faq,
     stickyMobileCta,
   } = luchtmobieleBrigadeConfig;
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Voorbereiding 11 Luchtmobiele Brigade",
+    url: "https://missionmovement.vercel.app/units/luchtmobiel",
+    inLanguage: "nl-NL",
+    description:
+      "Informatie en voorbereiding voor kandidaten richting 11 Luchtmobiele Brigade: AMOL, rode baret, fysieke eisen, marsen met bepakking, mentale weerbaarheid en belastbaarheid.",
+    publisher: {
+      "@type": "Organization",
+      name: "Mission Movement",
+      url: "https://missionmovement.vercel.app/",
+    },
+  };
+  const faqPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.items.map((item) => ({
+      "@type": "Question",
+      name: item.title,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.content,
+      },
+    })),
+  };
 
   return (
     <div className={`min-h-screen ${theme.page}`}>
@@ -40,6 +66,12 @@ const LuchtmobieleBrigade = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:url" content={meta.ogUrl} />
         <link rel="canonical" href={meta.canonical} />
+        <script type="application/ld+json">
+          {JSON.stringify(webPageSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(faqPageSchema)}
+        </script>
       </Helmet>
 
       <UnitHeroSection hero={hero} theme={theme} />
