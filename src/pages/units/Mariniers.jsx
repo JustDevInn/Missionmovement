@@ -33,6 +33,10 @@ const Mariniers = () => {
       <Helmet>
         <title>{meta.title}</title>
         <meta name="description" content={meta.description} />
+        <link
+          rel="canonical"
+          href="https://missionmovement.vercel.app/units/mariniers"
+        />
       </Helmet>
 
       <UnitHeroSection hero={hero} theme={theme} />

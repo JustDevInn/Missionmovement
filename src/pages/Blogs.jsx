@@ -29,7 +29,7 @@ const Blogs = () => {
         }));
 
         const sorted = blogData.sort(
-          (a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0)
+          (a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0),
         );
         setBlogs(sorted);
 
@@ -84,11 +84,13 @@ const Blogs = () => {
           name="description"
           content="Explore tactical training articles, real-world lessons, and expert insights from Mission Movement."
         />
+        <link
+          rel="canonical"
+          href="https://missionmovement.vercel.app/blogs"
+        />{" "}
       </Helmet>
 
-      <h1 className="mm-h1 text-mmText text-center mb-10">
-        Mission Artikelen
-      </h1>
+      <h1 className="mm-h1 text-mmText text-center mb-10">Mission Artikelen</h1>
 
       {/* Search & Sort */}
       <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
@@ -177,7 +179,7 @@ const Blogs = () => {
                   {blog.createdAt?.seconds &&
                     format(
                       new Date(blog.createdAt.seconds * 1000),
-                      "dd MMM yyyy"
+                      "dd MMM yyyy",
                     )}
                 </p>
 
@@ -195,7 +197,9 @@ const Blogs = () => {
           ))}
         </div>
       ) : (
-        <p className="text-mmTextMuted text-center mt-10">Geen artikelen gevonden.</p>
+        <p className="text-mmTextMuted text-center mt-10">
+          Geen artikelen gevonden.
+        </p>
       )}
 
       {/* Pagination */}
