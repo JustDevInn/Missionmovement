@@ -30,8 +30,7 @@ Stuur me een bericht. Dan kijken we samen waar je nu staat, wat je doel is en we
 
             <p className="mt-5 text-mmTextMuted leading-relaxed max-w-sm mx-auto md:mx-0">
               Persoonlijke begeleiding en gestructureerde voorbereiding voor
-              serieuze kandidaten richting Defensie, politie, brandweer en
-              veiligheidsdiensten.
+              serieuze kandidaten richting Defensie de en veiligheidsdiensten.
             </p>
           </div>
 

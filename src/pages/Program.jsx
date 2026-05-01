@@ -3,7 +3,6 @@ import { FaCheck } from "react-icons/fa6";
 import { GrAchievement } from "react-icons/gr";
 import Banners from "../components/Banners";
 import MobileBanners from "../components/MobileBanners";
-import { useGlowEffect } from "../Hooks/useGlowEffect";
 import { faqDataNL, programDetails } from "../data/data";
 import Reviews from "../components/Reviews";
 import { Link } from "react-router-dom";
@@ -39,19 +38,8 @@ const programServiceSchema = {
     "Het Mission Movement programma helpt kandidaten gericht bouwen aan kracht, conditie, belastbaarheid, discipline en mentale voorbereiding voor Defensie en veiligheidsdiensten.",
 };
 
-const wordDefinitions = {
-  Verbondenheid:
-    "Een diepe, wederzijdse band tussen mensen gebaseerd op vertrouwen, respect en gedeelde doelen.",
-  Kracht:
-    "Het vermogen om fysieke, mentale of emotionele weerstand te bieden en actie te ondernemen, zelfs onder druk.",
-  Toewijding:
-    "De bereidheid en het doorzettingsvermogen om jezelf volledig in te zetten voor een doel, dag in dag uit.",
-};
-
 const Program = () => {
   const VideoPreview = lazy(() => import("../components/VideoPreview"));
-  const { animate, elementRef } = useGlowEffect();
-  const [hoveredWord, setHoveredWord] = useState(null);
   const [openProgramIndex, setOpenProgramIndex] = useState(null);
   const [openFAQIndex, setOpenFAQIndex] = useState(null);
 
@@ -333,64 +321,20 @@ const Program = () => {
         author="Justin Peeters"
       />
 
-      <section className="w-screen flex flex-col lg:flex-row py-20 p-10 justify-between items-center lg:items-start lg:mt-20">
-        <div className="md:w-1/2 flex flex-col px-5 lg:px-28">
-          <h5 className="font-display text-[30px] lg:text-[50px] tracking-widest text-mmTextMuted lg:text-left text-center">
+      <section className="w-full bg-mmSurface py-16 md:py-20 px-5 sm:px-10 lg:px-20 border-t border-mmBorder">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="font-display text-[28px] md:text-[42px] lg:text-[50px] tracking-widest text-mmTextMuted uppercase leading-tight">
             <span className="text-mmAccent tracking-widest">
               Klaar om gericht te starten?{" "}
             </span>
             Bouw aan een lichaam en mindset die voorbereid zijn op wat er straks
             gevraagd wordt.
-          </h5>
-          <div
-            ref={elementRef}
-            className={`font-display text-mmText uppercase lg:py-20 pt-10 pb-20 text-center lg:text-left tracking-widest cursor-pointer ${
-              animate ? "" : ""
-            }`}
-          >
-            {[
-              "Verbondenheid",
-              <span className="text-mmAccent">|</span>,
-              "Kracht",
-              <span className="text-mmAccent">|</span>,
-              "Toewijding",
-            ].map((word, index) => (
-              <span
-                key={index}
-                onMouseEnter={() => word !== "|" && setHoveredWord(word)}
-                onMouseLeave={() => setHoveredWord(null)}
-                className="relative inline-block px-2 transition duration-200 hover:text-mmAccent text-mmText tracking-wider text-lg"
-              >
-                {word}
-                {hoveredWord === word && (
-                  <div className="absolute left-1/2 transform -translate-x-1/2 top-10 bg-mmSurface text-mmText text-lg rounded-xl px-4 py-3 shadow-sm border border-mmBorder w-[220px] transition-opacity duration-300">
-                    {wordDefinitions[word]}
-                  </div>
-                )}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div className="flex flex-col justify-center items-center lg:w-1/2">
-          <img
-            src={Bundle}
-            loading="lazy"
-            alt="projectbundlecover"
-            className="h-[400px] w-[250px] rounded-2xl shadow-sm border border-mmBorder bg-mmSurface"
-          />
-          <div className="flex justify-center items-center mt-10">
-            <Link to="/pricing" className="hidden md:block">
-              <button className="mm-btnPrimary !min-w-0 !h-auto px-10 py-4 text-center whitespace-nowrap w-[250px]">
-                Start nu
-              </button>
-            </Link>
-            <Link to="/pricing" className="block md:hidden">
-              <button className="mm-btnPrimary !min-w-0 !h-auto px-6 py-3 text-center whitespace-nowrap w-[250px]">
-                Start Nu
-              </button>
-            </Link>
-          </div>
+          </h2>
+          <Link to="/pricing" className="inline-flex mt-8">
+            <button className="mm-btnPrimary !min-w-0 !h-auto px-8 py-4 text-center uppercase tracking-widest">
+              Bekijk het aanbod
+            </button>
+          </Link>
         </div>
       </section>
     </div>
