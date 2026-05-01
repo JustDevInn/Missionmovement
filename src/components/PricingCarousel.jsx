@@ -62,8 +62,8 @@ const PricingCarousel = ({ onCheckout, loading = false }) => {
       <h2 className="mm-h2 text-center mb-16 text-mmText">Kies jouw aanpak</h2>
       <p className="max-w-3xl text-center text-mmTextMuted text-base md:text-lg leading-relaxed mb-12 -mt-8">
         Kies zelfstandig als je richting Defensie traint en zelf wilt uitvoeren.
-        Kies persoonlijk als je begeleiding, intake en aanpassing nodig hebt —
-        of als je richting Politie, Brandweer of KMar werkt.
+        Kies persoonlijk als je begeleiding, intake en aanpassing nodig hebt, of
+        als je richting Politie, Brandweer of KMar werkt.
       </p>
 
       {/* Desktop/Tablet */}
