@@ -128,7 +128,6 @@ const serviceSchema = {
     "@type": "Country",
     name: "Netherlands",
   },
-  inLanguage: "nl-NL",
   serviceType: "Persoonlijke training en begeleiding voor veiligheidsdiensten",
   audience: {
     "@type": "Audience",
