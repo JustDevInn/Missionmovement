@@ -163,7 +163,7 @@ const Nav = () => {
             {/* Center: Brand */}
             <RouterLink
               to="/"
-              alt="to-homepage"
+              aria-label="Ga naar homepage"
               className="flex flex-col items-center justify-self-center text-center text-sm font-display uppercase tracking-[0.14em] text-mmAccent"
               onClick={() => setNav(false)}
             >
@@ -296,26 +296,19 @@ const Nav = () => {
       ) : (
         <>
           {/* Desktop Left: Menu button */}
-          <div
-            className="flex items-center cursor-pointer text-mmText"
+          <button
+            type="button"
+            className="flex items-center cursor-pointer text-mmText outline-none focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0"
             onClick={() => setNav(!nav)}
-            role="button"
-            tabIndex={0}
             aria-expanded={nav}
             aria-controls="main-menu"
             ref={menuButtonRef}
-            onKeyDown={(event) => {
-              if (event.key === "Enter" || event.key === " ") {
-                event.preventDefault();
-                setNav(!nav);
-              }
-            }}
           >
             {nav ? <MdClose size={35} /> : <IoMdMenu size={35} />}
             <span className="ml-2 text-lg font-display uppercase tracking-[0.14em] hidden lg:inline">
               Menu
             </span>
-          </div>
+          </button>
 
           {/* Desktop Center: Brand */}
           <RouterLink
@@ -373,7 +366,7 @@ const Nav = () => {
             aria-modal="true"
             ref={menuRef}
           >
-            <div className="grid grid-cols-3 gap-10 px-20 py-10">
+            <div className="grid grid-cols-3 gap-10 px-20 py-10 h-full">
               {/* Column 1 */}
               <div className="flex flex-col space-y-8">
                 <div>
@@ -482,14 +475,12 @@ const Nav = () => {
               </div>
 
               {/* Column 3 */}
-              <div className="flex flex-col justify-center items-center">
-                <div className="mt-auto">
-                  <img
-                    src="/img/MissionMovement-yellow.png"
-                    alt="Military Prep"
-                    className="w-[420px] h-[300px] object-cover"
-                  />
-                </div>
+              <div className="flex items-center justify-center h-full">
+                <img
+                  src="/img/MissionMovement-yellow.png"
+                  alt="Mission Movement"
+                  className="w-[420px] max-w-full h-auto object-contain"
+                />
               </div>
             </div>
           </div>
