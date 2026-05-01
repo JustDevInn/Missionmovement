@@ -59,14 +59,14 @@ const linkCards = [
     text: "Lees meer over politie, brandweer, KMar en andere veiligheidsroutes.",
   },
   {
-    title: "Contact",
-    path: "/contact",
-    text: "Vertel kort welke richting je op wilt en waar je nu staat.",
+    title: "Plan intake",
+    path: "/contact#contact-form",
+    text: "Vertel welke richting je op wilt en waar je nu staat.",
   },
   {
-    title: "Aanbod",
+    title: "Bekijk aanbod",
     path: "/pricing",
-    text: "Bekijk de beschikbare mogelijkheden binnen Mission Movement.",
+    text: "Bekijk de beschikbare begeleiding en mogelijkheden binnen Mission Movement.",
   },
 ];
 
@@ -90,6 +90,12 @@ const faqItems = [
     question: "Kan ik starten als ik nog niet fit genoeg ben?",
     answer:
       "Ja. Je hoeft nog niet op niveau te zijn om te starten. Het belangrijkste is dat je eerlijk kijkt naar waar je nu staat en bereid bent om gericht te werken aan wat nodig is.",
+  },
+  {
+    question:
+      "Wat krijg ik concreet bij het programma Veiligheidsdiensten?",
+    answer:
+      "Je krijgt een intake, een persoonlijk trainingsplan, duidelijke trainingsrichting en follow-ups tijdens je voorbereiding. De focus ligt op kracht, conditie, belastbaarheid, herstel, mentale weerbaarheid en structuur richting jouw selectie, keuring of opleiding.",
   },
 ];
 
@@ -186,7 +192,7 @@ const ProgrammaVeiligheidsdiensten = () => {
         eyebrow="Mission Movement"
         title="Programma Veiligheidsdiensten"
         subtitle="Gerichte begeleiding voor kandidaten richting politie, brandweer, KMar en andere fysiek en mentaal veeleisende functies."
-        button={{ label: "Neem contact op", to: "/contact" }}
+        button={{ label: "Neem contact op", to: "/contact#contact-form" }}
         imageSrc={heroImage}
         imageAlt="Veiligheidsdiensten voorbereiding"
         imageClassName="object-center"
@@ -346,11 +352,11 @@ const ProgrammaVeiligheidsdiensten = () => {
             </h2>
             <p className="text-mmTextMuted text-base md:text-lg leading-relaxed max-w-3xl mx-auto">
               Stuur een bericht en vertel kort welke richting je op wilt. Dan
-              kijken we samen waar je nu staat en welke aanpak logisch is voor
-              jouw doel.
+              kijken we samen naar je startniveau, je doel en welke aanpak
+              logisch is richting jouw selectie, keuring of opleiding.
             </p>
             <div className="mt-8">
-              <Link to="/contact">
+              <Link to="/contact#contact-form">
                 <button className="mm-btnPrimary uppercase font-bold tracking-widest h-[56px] px-8">
                   Neem contact op
                 </button>
