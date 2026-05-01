@@ -21,17 +21,28 @@ const pricingServiceSchema = {
     "@type": "Country",
     name: "Netherlands",
   },
-  inLanguage: "nl-NL",
   serviceType:
     "Online voorbereiding en coaching voor Defensie en veiligheidsdiensten",
   description:
     "Bekijk het Mission Movement aanbod voor kandidaten die serieus richting Defensie, politie, brandweer, KMar of specialistische eenheden willen werken.",
-  offers: {
-    "@type": "Offer",
-    url: "https://missionmovement.vercel.app/pricing",
-    availability: "https://schema.org/InStock",
-    priceCurrency: "EUR",
-  },
+  offers: [
+    {
+      "@type": "Offer",
+      name: "Zelfstandig Programma",
+      url: "https://missionmovement.vercel.app/pricing",
+      availability: "https://schema.org/InStock",
+      priceCurrency: "EUR",
+      price: "89",
+    },
+    {
+      "@type": "Offer",
+      name: "Persoonlijk 12-Weeks Traject",
+      url: "https://missionmovement.vercel.app/pricing",
+      availability: "https://schema.org/InStock",
+      priceCurrency: "EUR",
+      price: "189",
+    },
+  ],
 };
 
 const Aanbod = () => {
@@ -129,7 +140,7 @@ const Aanbod = () => {
               beschikbaar.
             </p>
             <p className="text-mmTextMuted mb-4">
-              Wil je starten met het traject? Neem dan direct contact op met
+              Wil je starten met een traject? Neem dan direct contact op met
               Justin Peeters via:
             </p>
             <div className="space-y-2 text-mmText">
@@ -192,60 +203,64 @@ const Aanbod = () => {
         <div className="grid md:grid-cols-2 gap-10 w-full max-w-5xl text-mmTextMuted text-sm md:text-base">
           <div className="mm-card space-y-4 p-6">
             <h3 className="font-display uppercase tracking-widest text-mmAccent mb-2">
-              Volledige toegang tot het programma
+              Zelfstandig Programma
             </h3>
             <ul className="list-none space-y-2">
               <li className="flex gap-2 items-start">
-                <span className="text-mmAccent mt-1">•</span> Programma 01:
-                Basisvereisten
+                <span className="text-mmAccent mt-1">•</span> 12-weeks
+                militair voorbereidingsprogramma
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-mmAccent mt-1">•</span> Programma 02:
-                Fundamentele Kracht
+                <span className="text-mmAccent mt-1">•</span> Downloadbaar
+                programma / PDF
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-mmAccent mt-1">•</span> Programma 03:
-                Zwemmen of Zinken
+                <span className="text-mmAccent mt-1">•</span> Training voor
+                kracht, conditie, mobiliteit en belastbaarheid
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-mmAccent mt-1">•</span> Programma 04/05:
-                Ondersteuning (Mobiliteit + Oefenbibliotheek)
+                <span className="text-mmAccent mt-1">•</span> Voor kandidaten
+                richting Defensie
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-mmAccent mt-1">•</span> 12-Weeks
-                Gestructureerd Trainingsplan
+                <span className="text-mmAccent mt-1">•</span> Zelfstandig
+                uitvoeren zonder coaching
               </li>
             </ul>
           </div>
 
           <div className="mm-card space-y-4 p-6">
             <h3 className="font-display uppercase tracking-widest text-mmAccent mb-2">
-              In de app
+              Persoonlijk 12-Weeks Traject
             </h3>
             <ul className="list-none space-y-2">
               <li className="flex gap-2 items-start">
-                <span className="text-mmAccent mt-1">•</span> Dagelijkse
-                structuur gericht op resultaat
+                <span className="text-mmAccent mt-1">•</span> 12-weeks
+                persoonlijk begeleidingstraject
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-mmAccent mt-1">•</span> Verantwoording,
-                zoals in het echt
+                <span className="text-mmAccent mt-1">•</span> Intakegesprek en
+                doelbepaling
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-mmAccent mt-1">•</span> Downloadbare PDF’s
-                van alle programma’s
+                <span className="text-mmAccent mt-1">•</span> Assessment van je
+                startniveau
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-mmAccent mt-1">•</span> Beheersing van
-                tactische bewegingen met video’s en uitleg
+                <span className="text-mmAccent mt-1">•</span> Aanpassing van het
+                programma op jouw situatie
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-mmAccent mt-1">•</span> Echte begeleiding,
-                geen generieke schema’s
+                <span className="text-mmAccent mt-1">•</span> Geschikt voor
+                Defensie, Politie, Brandweer en KMar
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-mmAccent mt-1">•</span>{" "}
-                Voedingsrichtlijnen
+                <span className="text-mmAccent mt-1">•</span> Follow-up/contact
+                tijdens je voorbereiding
+              </li>
+              <li className="flex gap-2 items-start">
+                <span className="text-mmAccent mt-1">•</span> Persoonlijke
+                correcties en advies
               </li>
             </ul>
           </div>
