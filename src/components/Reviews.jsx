@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { useSwipeable } from "react-swipeable";
 import { reviews } from "../data/data"; // Import reviews data
 
@@ -19,14 +19,6 @@ const Reviews = () => {
     },
   });
 
-  // Ensure scrollbar remains visible
-  useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.style.overflowX = "scroll"; // Ensures horizontal scroll
-      scrollRef.current.style.scrollbarGutter = "stable"; // Keeps space for scrollbar
-    }
-  }, []);
-
   return (
     <section className="w-screen flex flex-col justify-center items-center p-10 text-justify">
       <h2 className="mm-h1 text-mmText text-center py-20 tracking-widest">
@@ -37,7 +29,7 @@ const Reviews = () => {
       <div
         {...handlers}
         ref={scrollRef}
-        className="w-full flex overflow-x-auto scrollbar-visible snap-x snap-mandatory space-x-5 p-5"
+        className="reviews-scroll w-full flex overflow-x-auto snap-x snap-mandatory gap-5 p-5 pb-7 scroll-smooth touch-pan-x"
       >
         {reviews.map((review, index) => (
           <div
@@ -53,6 +45,10 @@ const Reviews = () => {
           </div>
         ))}
       </div>
+      <p className="mt-3 text-center text-xs md:text-sm uppercase tracking-widest text-mmTextMuted">
+        Swipe om meer ervaringen te bekijken{" "}
+        <span className="text-mmAccent">→</span>
+      </p>
     </section>
   );
 };

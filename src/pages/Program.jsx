@@ -321,17 +321,18 @@ const Program = () => {
         author="Justin Peeters"
       />
 
-      <section className="w-full bg-mmSurface py-16 md:py-20 px-5 sm:px-10 lg:px-20 border-t border-mmBorder">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="font-display text-[28px] md:text-[42px] lg:text-[50px] tracking-widest text-mmTextMuted uppercase leading-tight">
-            <span className="text-mmAccent tracking-widest">
-              Klaar om gericht te starten?{" "}
-            </span>
+      <section className="w-full bg-mmPage py-16 md:py-20 px-5 sm:px-10 lg:px-20 border-t border-mmBorder">
+        <div className="mm-card max-w-4xl mx-auto p-7 md:p-10 text-center">
+          <p className="font-display text-mmAccent text-sm md:text-base uppercase tracking-widest mb-3">
+            Mission Movement
+          </p>
+          <h2 className="mm-h2 mb-4">Klaar om gericht te starten?</h2>
+          <p className="text-mmTextMuted text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
             Bouw aan een lichaam en mindset die voorbereid zijn op wat er straks
             gevraagd wordt.
-          </h2>
+          </p>
           <Link to="/pricing" className="inline-flex mt-8">
-            <button className="mm-btnPrimary !min-w-0 !h-auto px-8 py-4 text-center uppercase tracking-widest">
+            <button className="mm-btnPrimary !min-w-0 !h-auto px-8 py-4 text-center uppercase font-bold tracking-widest">
               Bekijk het aanbod
             </button>
           </Link>

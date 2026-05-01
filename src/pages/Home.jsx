@@ -193,11 +193,17 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="flex flex-col-reverse md:flex-row items-center gap-4 mt-6">
-            <Link to="/pricing">
+          <div className="flex flex-col md:flex-row items-center gap-4 mt-6">
+            <Link to="#programmas">
               <button className="mm-btnPrimary uppercase font-bold tracking-widest text-xl min-w-[200px] h-[60px]">
-                Aanmelden
+                Bekijk de programma&apos;s
               </button>
+            </Link>
+            <Link
+              to="/contact#contact-form"
+              className="font-semibold text-mmAccent hover:opacity-80 transition"
+            >
+              Plan gratis intake →
             </Link>
           </div>
 
@@ -213,6 +219,12 @@ const Home = () => {
       {/* VOOR WIE */}
       <section className="bg-mmPage py-14 md:py-16 px-6 md:px-10 lg:px-20">
         <div className="mm-container">
+          <p className="text-mmTextMuted text-center text-sm md:text-base leading-relaxed max-w-3xl mx-auto mb-8">
+            Mission Movement is een Nederlands voorbereidingsplatform voor
+            kandidaten richting Defensie, politie, brandweer, KMar en
+            specialistische eenheden.
+          </p>
+
           <h2 className="mm-h2 text-center mb-8">Voor wie is dit?</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -235,8 +247,8 @@ const Home = () => {
                   <Link
                     to={
                       track.title === "Defensie"
-                        ? "/units/mariniers"
-                        : "/units/veiligheidsdiensten"
+                        ? "/voorbereiding-defensie"
+                        : "/programma-veiligheidsdiensten"
                     }
                   >
                     <span className="text-mmAccent font-semibold hover:opacity-80 transition">
@@ -290,17 +302,10 @@ const Home = () => {
           </div>
 
           <div className="mt-10 flex flex-col md:flex-row items-center justify-center gap-6">
-            <Link to="/program">
+            <Link to="#programmas">
               <button className="mm-btnPrimary h-[56px] px-8 uppercase font-bold tracking-widest">
-                Bekijk programma
+                Bekijk programma&apos;s
               </button>
-            </Link>
-
-            <Link
-              to="/contact#contact-form"
-              className="font-semibold text-mmAccent hover:opacity-80 transition"
-            >
-              Plan gratis intake →
             </Link>
           </div>
         </div>
@@ -393,7 +398,10 @@ const Home = () => {
       </section>
 
       {/* IMAGE CARDS (Optie A) */}
-      <section className="bg-mmPage py-16 md:py-20 px-6 md:px-10 lg:px-20">
+      <section
+        id="programmas"
+        className="bg-mmPage py-16 md:py-20 px-6 md:px-10 lg:px-20 scroll-mt-24"
+      >
         <div className="mm-container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <ImageCard
@@ -409,21 +417,51 @@ const Home = () => {
               imgSrc="/img/eenheden/veiligheidsdiensten.jpg"
               text="Verhalen van kandidaten die kozen voor structuur. Geen ‘before/after’ sprookjes. Meetbare progressie, betere belastbaarheid en meer vertrouwen richting selectie of opleiding."
               cta="Bekijk verhalen"
-              to="/pricing"
+              to="#ervaringen"
             />
 
             <div className="md:col-span-2">
-              <ImageCard
-                title="Het Programma"
-                imgSrc="/img/eenheden/veiligheidsdiensten.jpg"
-                text="Eén systeem, aangepast aan jouw route en startniveau. We bouwen kracht, conditie, mobiliteit en mentale weerbaarheid met duidelijke opbouw, tracking en begeleiding. Gericht op selectie-eisen, zonder blessure-ruis."
-                cta="Bekijk programma"
-                to="/program"
-              />
+              <div className="group mm-card overflow-hidden p-0 border border-mmBorder transition-all duration-300 hover:-translate-y-[2px] hover:border-mmAccent/40">
+                <div className="relative h-[180px] md:h-[240px] w-full overflow-hidden">
+                  <img
+                    src="/img/eenheden/veiligheidsdiensten.jpg"
+                    alt="Programma's"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.06]"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent opacity-90 transition-opacity duration-300" />
+                </div>
+
+                <div className="p-6 md:p-8">
+                  <h3 className="font-display uppercase tracking-widest text-[18px] md:text-[22px] text-mmText mb-3">
+                    Programma&apos;s
+                  </h3>
+                  <p className="text-mmTextMuted text-[15px] md:text-[16px] leading-relaxed max-w-4xl">
+                    Kies de route die past bij jouw doel: Defensie of
+                    Veiligheidsdiensten. Beide routes bouwen aan structuur,
+                    belastbaarheid, discipline en gerichte voorbereiding.
+                  </p>
+
+                  <div className="mt-6 flex flex-col sm:flex-row flex-wrap gap-3">
+                    <Link to="/program">
+                      <button className="mm-btnPrimary h-[52px] px-6">
+                        Defensie-programma →
+                      </button>
+                    </Link>
+                    <Link to="/programma-veiligheidsdiensten">
+                      <button className="mm-btnPrimary h-[52px] px-6">
+                        Veiligheidsdiensten-programma →
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      <div id="ervaringen" className="scroll-mt-24" />
 
       {/* QUOTE */}
       <QuoteBlock
@@ -453,7 +491,9 @@ const Home = () => {
           </p>
 
           <Link to="/pricing">
-            <button className="mm-btnPrimary my-7 md:my-10">Start</button>
+            <button className="mm-btnPrimary my-7 md:my-10">
+              Start jouw voorbereiding
+            </button>
           </Link>
         </div>
       </section>
