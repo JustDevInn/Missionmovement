@@ -136,6 +136,10 @@ const Contact = () => {
           property="og:url"
           content="https://missionmovement.vercel.app/contact"
         />
+        <link
+          rel="canonical"
+          href="https://missionmovement.vercel.app/contact"
+        />
       </Helmet>
 
       {/* Hero Section */}
@@ -152,12 +156,10 @@ const Contact = () => {
 
       {/* Introtekst */}
       <section className="w-full px-5 sm:px-10 lg:px-20 py-20 flex flex-col justify-center items-center">
-        <h1 className="mm-h1 text-mmText mb-6 text-center">
-          Jouw Eerste Stap
-        </h1>
+        <h1 className="mm-h1 text-mmText mb-6 text-center">Jouw Eerste Stap</h1>
         <p className="text-mmTextMuted font-normal uppercase tracking-widest md:text-lg text-center max-w-2xl text-base">
-          Klaar om het serieus aan te pakken? Laat je gegevens achter. Wij
-          nemen contact op.
+          Klaar om het serieus aan te pakken? Laat je gegevens achter. Wij nemen
+          contact op.
         </p>
       </section>
 
@@ -238,12 +240,18 @@ const Contact = () => {
               )}
               <div ref={captchaRef} />
               {CAPTCHA_SITE_KEY && !captchaReady && (
-                <p className="text-xs text-gray-400">CAPTCHA wordt geladen...</p>
+                <p className="text-xs text-gray-400">
+                  CAPTCHA wordt geladen...
+                </p>
               )}
             </div>
 
-            {error && <p className="text-red-500 text-base md:text-lg">{error}</p>}
-            {success && <p className="text-green-600 text-base md:text-lg">{success}</p>}
+            {error && (
+              <p className="text-red-500 text-base md:text-lg">{error}</p>
+            )}
+            {success && (
+              <p className="text-green-600 text-base md:text-lg">{success}</p>
+            )}
 
             {/* Verstuur */}
             <button

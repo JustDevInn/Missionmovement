@@ -53,6 +53,10 @@ const Aanbod = () => {
         />
         <meta property="og:type" content="product" />
         <meta name="twitter:card" content="summary_large_image" />
+        <link
+          rel="canonical"
+          href="https://missionmovement.vercel.app/pricing"
+        />
       </Helmet>
 
       <PricingCarousel onCheckout={openPaymentModal} />
@@ -81,7 +85,8 @@ const Aanbod = () => {
               Betaling tijdelijk niet beschikbaar
             </h3>
             <p className="text-mmTextMuted mb-4">
-              De online betaaldienst is op dit moment tijdelijk niet beschikbaar.
+              De online betaaldienst is op dit moment tijdelijk niet
+              beschikbaar.
             </p>
             <p className="text-mmTextMuted mb-4">
               Wil je starten met het traject? Neem dan direct contact op met
@@ -179,8 +184,8 @@ const Aanbod = () => {
             </h3>
             <ul className="list-none space-y-2">
               <li className="flex gap-2 items-start">
-                <span className="text-mmAccent mt-1">•</span> Dagelijkse structuur
-                gericht op resultaat
+                <span className="text-mmAccent mt-1">•</span> Dagelijkse
+                structuur gericht op resultaat
               </li>
               <li className="flex gap-2 items-start">
                 <span className="text-mmAccent mt-1">•</span> Verantwoording,
@@ -199,7 +204,8 @@ const Aanbod = () => {
                 geen generieke schema’s
               </li>
               <li className="flex gap-2 items-start">
-                <span className="text-mmAccent mt-1">•</span> Voedingsrichtlijnen
+                <span className="text-mmAccent mt-1">•</span>{" "}
+                Voedingsrichtlijnen
               </li>
             </ul>
           </div>

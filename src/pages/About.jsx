@@ -31,6 +31,7 @@ const About = () => {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:url" content={meta.ogUrl} />
+        <link rel="canonical" href="https://missionmovement.vercel.app/about" />
       </Helmet>
 
       {/* Hero Section: The Story */}

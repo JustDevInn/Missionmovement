@@ -63,6 +63,10 @@ const Program = () => {
           property="og:url"
           content="https://missionmovement.vercel.app/about"
         />
+        <link
+          rel="canonical"
+          href="https://missionmovement.vercel.app/program"
+        />
       </Helmet>
 
       {/* Hero sectie */}

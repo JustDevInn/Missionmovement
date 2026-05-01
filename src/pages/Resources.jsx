@@ -35,6 +35,10 @@ const Resources = () => {
           property="og:url"
           content="https://missionmovement.vercel.app/resources"
         />
+        <link
+          rel="canonical"
+          href="https://missionmovement.vercel.app/resources"
+        />
       </Helmet>
 
       {/* Resources */}
@@ -51,16 +55,12 @@ const Resources = () => {
 
       {/* FAQ Section */}
       <section className="w-screen px-10 py-20 lg:pt-40 lg:pb-20 flex flex-col justify-center items-center">
-        <h1 className="mm-h1 text-mmText">
-          Wat je moet weten.
-        </h1>
+        <h1 className="mm-h1 text-mmText">Wat je moet weten.</h1>
       </section>
 
       {/* FAQ container */}
       <section className="px-4 md:px-10 max-w-5xl mx-auto py-16 space-y-4 border-t border-mmBorder">
-        <h2 className="mm-h2 text-mmText mb-6">
-          Veelgestelde Vragen
-        </h2>
+        <h2 className="mm-h2 text-mmText mb-6">Veelgestelde Vragen</h2>
 
         {faqDataNL.map((faq, index) => {
           const isOpen = openIndex === index;
@@ -78,7 +78,9 @@ const Resources = () => {
                 <span className="text-mmAccent font-display text-base md:text-lg tracking-widest uppercase">
                   {faq.vraag}
                 </span>
-                <span className="text-mmAccent text-xl">{isOpen ? "−" : "+"}</span>
+                <span className="text-mmAccent text-xl">
+                  {isOpen ? "−" : "+"}
+                </span>
               </button>
               <div
                 className={`overflow-hidden transition-all duration-500 ease-in-out ${
@@ -160,7 +162,9 @@ const Resources = () => {
                 <p className="italic text-mmTextMuted text-base md:text-lg">
                   by {blog.author} • {blog.date}
                 </p>
-                <p className="text-mmTextMuted text-base md:text-lg">{blog.summary}</p>
+                <p className="text-mmTextMuted text-base md:text-lg">
+                  {blog.summary}
+                </p>
                 <a
                   href={`/blogs/${blog.slug}`}
                   className="inline-block mt-3 mm-btnPrimary text-sm"
