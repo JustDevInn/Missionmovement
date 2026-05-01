@@ -7,6 +7,37 @@ import aboutConfig from "./config/about.config";
 import mmTheme from "../styles/mmTheme";
 import Container from "../components/layout/Container";
 
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Justin Peeters",
+  url: "https://missionmovement.vercel.app/about",
+  jobTitle: "Oprichter van Mission Movement",
+  worksFor: {
+    "@type": "Organization",
+    name: "Mission Movement",
+    url: "https://missionmovement.vercel.app/",
+  },
+  sameAs: ["https://www.linkedin.com/in/justin-peeters/"],
+  description:
+    "Justin Peeters is voormalig marinier, gecertificeerd coach sinds 2014 en oprichter van Mission Movement.",
+};
+
+const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "Over Mission Movement",
+  url: "https://missionmovement.vercel.app/about",
+  inLanguage: "nl-NL",
+  description:
+    "Lees het verhaal achter Mission Movement, opgericht door Justin Peeters: voormalig marinier, gecertificeerd coach en specialist in voorbereiding richting Defensie en veiligheidsdiensten.",
+  mainEntity: {
+    "@type": "Organization",
+    name: "Mission Movement",
+    url: "https://missionmovement.vercel.app/",
+  },
+};
+
 const About = () => {
   const theme = mmTheme;
   const {
@@ -32,6 +63,12 @@ const About = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:url" content={meta.ogUrl} />
         <link rel="canonical" href={meta.canonical} />
+        <script type="application/ld+json">
+          {JSON.stringify(personSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(aboutPageSchema)}
+        </script>
       </Helmet>
 
       {/* Hero Section: The Story */}

@@ -75,6 +75,34 @@ const StepCard = ({ step, title, text }) => {
   );
 };
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Mission Movement",
+  url: "https://missionmovement.vercel.app/",
+  logo: "https://missionmovement.vercel.app/img/mmvmtlogo.png",
+  founder: {
+    "@type": "Person",
+    name: "Justin Peeters",
+  },
+  sameAs: [
+    "https://www.instagram.com/mission.movement",
+    "https://www.linkedin.com/in/justin-peeters/",
+  ],
+  description:
+    "Mission Movement is een Nederlands voorbereidingsplatform voor kandidaten richting Defensie, politie, brandweer, KMar en specialistische eenheden.",
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Mission Movement",
+  url: "https://missionmovement.vercel.app/",
+  inLanguage: "nl-NL",
+  description:
+    "Mission Movement helpt kandidaten zich fysiek en mentaal voorbereiden op Defensie en veiligheidsdiensten.",
+};
+
 const Home = () => {
   const { ref, isVisible } = useInView();
 
@@ -128,6 +156,12 @@ const Home = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:url" content="https://missionmovement.vercel.app/" />
         <link rel="canonical" href="https://missionmovement.vercel.app/" />
+        <script type="application/ld+json">
+          {JSON.stringify(organizationSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(websiteSchema)}
+        </script>
       </Helmet>
 
       {/* HERO */}

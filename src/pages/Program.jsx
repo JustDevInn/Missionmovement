@@ -12,6 +12,32 @@ import { Helmet } from "react-helmet-async";
 
 const Bundle = "/img/bundle.png";
 
+const programServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Mission Movement Voorbereidingsprogramma",
+  url: "https://missionmovement.vercel.app/program",
+  provider: {
+    "@type": "Organization",
+    name: "Mission Movement",
+    url: "https://missionmovement.vercel.app/",
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "Netherlands",
+  },
+  inLanguage: "nl-NL",
+  serviceType:
+    "Militaire voorbereiding en begeleiding richting Defensie en veiligheidsdiensten",
+  audience: {
+    "@type": "Audience",
+    audienceType:
+      "Kandidaten richting Defensie, politie, brandweer, KMar en specialistische eenheden",
+  },
+  description:
+    "Het Mission Movement programma helpt kandidaten gericht bouwen aan kracht, conditie, belastbaarheid, discipline en mentale voorbereiding voor Defensie en veiligheidsdiensten.",
+};
+
 const wordDefinitions = {
   Verbondenheid:
     "Een diepe, wederzijdse band tussen mensen gebaseerd op vertrouwen, respect en gedeelde doelen.",
@@ -72,6 +98,9 @@ const Program = () => {
           rel="canonical"
           href="https://missionmovement.vercel.app/program"
         />
+        <script type="application/ld+json">
+          {JSON.stringify(programServiceSchema)}
+        </script>
       </Helmet>
 
       {/* Hero sectie */}

@@ -3,6 +3,23 @@ import FloatingCTA from "../components/FloatingCTA";
 import Spinner from "../components/Spinner";
 import { Helmet } from "react-helmet-async";
 
+const contactPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contact Mission Movement",
+  url: "https://missionmovement.vercel.app/contact",
+  inLanguage: "nl-NL",
+  description:
+    "Neem contact op met Mission Movement voor gerichte begeleiding richting Defensie, politie, brandweer, KMar of specialistische eenheden.",
+  mainEntity: {
+    "@type": "Organization",
+    name: "Mission Movement",
+    url: "https://missionmovement.vercel.app/",
+    email: "MissionMovement@gmail.com",
+    sameAs: ["https://www.instagram.com/mission.movement"],
+  },
+};
+
 const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -143,6 +160,9 @@ const Contact = () => {
           rel="canonical"
           href="https://missionmovement.vercel.app/contact"
         />
+        <script type="application/ld+json">
+          {JSON.stringify(contactPageSchema)}
+        </script>
       </Helmet>
 
       {/* Hero Section */}

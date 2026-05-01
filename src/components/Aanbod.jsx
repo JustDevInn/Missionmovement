@@ -7,6 +7,33 @@ import PricingCarousel from "./PricingCarousel";
 
 const VideoPreview = lazy(() => import("../components/VideoPreview"));
 
+const pricingServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Mission Movement Aanbod",
+  url: "https://missionmovement.vercel.app/pricing",
+  provider: {
+    "@type": "Organization",
+    name: "Mission Movement",
+    url: "https://missionmovement.vercel.app/",
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "Netherlands",
+  },
+  inLanguage: "nl-NL",
+  serviceType:
+    "Online voorbereiding en coaching voor Defensie en veiligheidsdiensten",
+  description:
+    "Bekijk het Mission Movement aanbod voor kandidaten die serieus richting Defensie, politie, brandweer, KMar of specialistische eenheden willen werken.",
+  offers: {
+    "@type": "Offer",
+    url: "https://missionmovement.vercel.app/pricing",
+    availability: "https://schema.org/InStock",
+    priceCurrency: "EUR",
+  },
+};
+
 const Aanbod = () => {
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const { ref: enlistRef, visible: enlistVisible } = useFadeIn();
@@ -67,6 +94,9 @@ const Aanbod = () => {
           rel="canonical"
           href="https://missionmovement.vercel.app/pricing"
         />
+        <script type="application/ld+json">
+          {JSON.stringify(pricingServiceSchema)}
+        </script>
       </Helmet>
 
       <PricingCarousel onCheckout={openPaymentModal} />
