@@ -2,10 +2,10 @@ const mariniersConfig = {
   meta: {
     title: "Voorbereiding Korps Mariniers | Mission Movement",
     description:
-      "Bereid je gericht voor op het Korps Mariniers met training voor kracht, conditie, belastbaarheid, discipline en mentale weerbaarheid.",
+      "Alles over voorbereiding richting het Korps Mariniers: selectie, opleiding, fysieke eisen, mentale weerbaarheid, belastbaarheid en gerichte training via Mission Movement.",
     ogTitle: "Voorbereiding Korps Mariniers | Mission Movement",
     ogDescription:
-      "Bereid je gericht voor op het Korps Mariniers met training voor kracht, conditie, belastbaarheid, discipline en mentale weerbaarheid.",
+      "Alles over voorbereiding richting het Korps Mariniers: selectie, opleiding, fysieke eisen, mentale weerbaarheid, belastbaarheid en gerichte training via Mission Movement.",
     ogImage: "https://missionmovement.vercel.app/img/thestory.png",
     ogUrl: "https://missionmovement.vercel.app/units/mariniers",
     canonical: "https://missionmovement.vercel.app/units/mariniers",
@@ -17,7 +17,7 @@ const mariniersConfig = {
     overlayClass: "mm-heroOverlay",
     title: "Korps Mariniers",
     subtitle:
-      "Alles wat je moet weten over deze elite-eenheid, van selectie tot inzet.",
+      "Voor kandidaten die serieus richting het Korps Mariniers willen werken: van selectie en keuring tot opleiding, belastbaarheid en voorbereiding.",
   },
   subNav: {
     variant: "dark",
@@ -28,7 +28,7 @@ const mariniersConfig = {
     emblemAlt: "Korps Mariniers Embleem",
     heading: "Wat is het Korps Mariniers?",
     body:
-      "Het Korps Mariniers is de amfibische infanterie van de Koninklijke Marine. Ze zijn gespecialiseerd in operaties vanuit zee naar land, maar ook inzetbaar in de lucht en op het land. Mariniers opereren wereldwijd in de zwaarste omstandigheden, van poolgebieden tot tropische regenwouden, in conflictgebieden of bij humanitaire rampen.\n\nDeze eenheid staat bekend om discipline, fysieke kracht, mentale weerbaarheid en sterke onderlinge verbondenheid. Of je nu kiest voor de rol van manschap of officier: je betreedt een omgeving waarin alleen de meest gedreven en goed voorbereide kandidaten kunnen slagen.",
+      "Het Korps Mariniers is de amfibische infanterie van de Koninklijke Marine. Ze zijn gespecialiseerd in operaties vanuit zee naar land, maar ook inzetbaar in de lucht en op het land. Mariniers opereren wereldwijd in de zwaarste omstandigheden, van poolgebieden tot tropische regenwouden, in conflictgebieden of bij humanitaire rampen.\n\nDeze eenheid staat bekend om discipline, fysieke kracht, mentale weerbaarheid en sterke onderlinge verbondenheid. Of je nu kiest voor de rol van manschap of officier: je betreedt een omgeving waarin alleen de meest gedreven en goed voorbereide kandidaten kunnen slagen.\n\nVoor kandidaten betekent dit dat voorbereiding verder moet gaan dan alleen fit worden voor een testmoment. Je moet bouwen aan kracht, conditie, zwemvaardigheid, herstel, discipline en mentale weerbaarheid. Niet alleen om door de keuring te komen, maar om sterker te starten aan de opleiding.",
     accentBorder: "border-mmAccent",
   },
   accordion: {
@@ -181,33 +181,33 @@ const mariniersConfig = {
     },
   ],
   cta: {
-    eyebrow: "Vanuit ervaring",
-    heading: "Dit is geen training. Dit is een levenskeuze.",
+    eyebrow: "Gerichte voorbereiding",
+    heading: "Wil je serieus richting het Korps Mariniers?",
     body:
-      "Als je iets voelt voor discipline, broederschap en het uiterste uit jezelf halen, dan is dit voor jou. Ik help je erbij.",
-    buttonText: "Start Voorbereiding",
-    buttonTo: "/pricing",
+      "Begin niet met losse trainingen of giswerk. Bouw aan kracht, conditie, zwemvaardigheid, belastbaarheid en mentale weerbaarheid met een programma dat verder kijkt dan alleen de keuring.",
+    buttonText: "Bekijk het programma",
+    buttonTo: "/program",
   },
   forWho: {
     heading: "Voor wie is dit geschikt?",
     bullets: [
-      "Je voelt dat er méér in je zit dan wat je nu laat zien en je bent klaar om het te bewijzen.",
-      "Je wilt geen gymprogramma, je wilt een doel. Een reden om elke dag op te staan met vuur.",
-      "Je verlangt naar structuur, discipline en een leven met standaarden die ertoe doen.",
-      "Je bent (bijna) marinier, ex-militair of burger maar diep vanbinnen voel jij dat je gemaakt bent voor meer.",
-      "Je wil je voorbereiding serieus nemen. Niet gokken. Niet hopen. Komen opdagen als professional.",
-      "Je bent op zoek naar een broederschap. Iets dat je kunt verdienen. Iets dat blijft als het zwaar wordt.",
+      "Je wilt marinier worden en zoekt structuur in je fysieke en mentale voorbereiding.",
+      "Je traint al, maar weet niet zeker of je voorbereiding aansluit op de eisen van keuring en opleiding.",
+      "Je wilt sterker worden in kracht, conditie, zwemvaardigheid en belastbaarheid.",
+      "Je wilt niet alleen de minimale norm halen, maar met meer marge aan je traject beginnen.",
+      "Je zoekt een duidelijke opbouw in plaats van losse trainingen zonder richting.",
+      "Je wilt serieus werken aan discipline, herstel, techniek en mentale weerbaarheid.",
     ],
   },
   route: {
     heading: "Jouw route naar het Korps Mariniers",
     steps: [
-      "Serieuze voorbereiding, fysiek en mentaal",
-      "Interesse in dienst nemen",
-      "Oriëntatiegesprek & aanmelding",
-      "Marinierskeuring (fysiek & mentaal)",
-      "Start AMOL opleiding in Rotterdam",
-      "Operationele inzet als marinier",
+      "Oriëntatie: begrijpen wat het Korps Mariniers vraagt",
+      "Start voorbereiding: kracht, conditie, zwemmen en belastbaarheid opbouwen",
+      "Aanmelding en selectieprocedure bij Defensie",
+      "Medische keuring, psychologisch onderzoek en fysieke testmomenten",
+      "Start opleiding tot marinier",
+      "Doorgroeien naar inzetbaarheid, specialisaties en operationeel functioneren",
     ],
   },
   faq: {
@@ -216,46 +216,46 @@ const mariniersConfig = {
       {
         title: "Moet ik al superfit zijn voor ik begin met de keuring?",
         content:
-          "Nee. Je hoeft geen topatleet te zijn om te beginnen, maar zonder gerichte voorbereiding is de kans op uitval groot. De meeste kandidaten vallen af omdat ze te laat begonnen zijn of zich enkel fysiek voorbereiden. Mission Movement helpt je stap voor stap sterker worden, fysiek en mentaal, zodat je voorbereid aankomt, niet opgebrand vertrekt.",
+          "Nee. Je hoeft geen topatleet te zijn om te starten, maar je moet wel gericht gaan bouwen. Voorbereiding op het Korps Mariniers vraagt om kracht, conditie, zwemvaardigheid, belastbaarheid en mentale weerbaarheid. Mission Movement helpt je gestructureerd trainen, zodat je beter voorbereid richting keuring en opleiding werkt.",
       },
       {
         title: "Kan ik dit combineren met school of werk?",
         content:
-          "Ja. Het programma is ontworpen met realiteit in het achterhoofd. Je kunt de trainingen uitvoeren op momenten die passen binnen jouw schema zolang je consistent blijft en de discipline opbrengt. Het vergt toewijding, maar juist dat maakt het waardevol. Dit is geen quick fix, dit is voorbereiding voor een ander soort leven.",
+          "Ja. Het programma is gemaakt voor kandidaten met een normale agenda naast hun voorbereiding. Je traint met structuur en duidelijke prioriteiten, zodat kracht, conditie, herstel en consistentie uitvoerbaar blijven naast school, werk of andere verplichtingen.",
       },
       {
         title: "Wat als ik nog twijfel over mijn keuze?",
         content:
-          "Twijfel is normaal. En juist die twijfel maakt dit programma waardevol. Het geeft je een eerlijke inkijk in wat er gevraagd wordt, zowel fysiek en mentaal als qua mindset. Je ontdekt niet alleen of je het fysiek aankan, maar vooral of je dit écht wilt. Zonder direct een opleiding in te stappen kun je jezelf testen, voelen en groeien.",
+          "Twijfel is normaal. Gerichte voorbereiding helpt je beter begrijpen wat marinier worden vraagt: fysieke eisen, discipline, mentale druk, herstel en langdurige belasting. Je ontdekt waar je nu staat en wat je nog moet ontwikkelen voordat je richting selectie of opleiding gaat.",
       },
       {
         title: "Wat als ik al zelf train, wat voegt dit toe?",
         content:
-          "Train je al zelfstandig? Mooi. Maar trainen op eigen kracht is niet hetzelfde als doelgericht toewerken naar een selectie met militaire eisen. Mission Movement geeft je structuur, testmomenten, herstelopbouw en mentale druk, zodat je geen energie verspilt en weet waar je écht staat.",
+          "Zelf trainen is waardevol, maar voorbereiding op het Korps Mariniers vraagt meer dan losse trainingen. Mission Movement brengt structuur aan in kracht, conditie, zwemmen, techniek, herstel en belastbaarheid, zodat je training beter aansluit op selectie, keuring en opleiding.",
       },
       {
         title: "Wat gebeurt er als ik uitval of een week mis?",
         content:
-          "Uitval is geen falen. Het is onderdeel van het proces. In dit programma leer je omgaan met tegenslag, maar ook hoe je herpakt. Je krijgt praktische tools om ritme op te bouwen en je voortgang bij te houden, ook als het even misgaat. Want het gaat niet om perfectie, het gaat om volhouden.",
+          "Een gemiste week of terugval hoeft je voorbereiding niet te breken. Het programma helpt je herpakken met duidelijke keuzes, aangepaste opbouw en aandacht voor herstel. Het doel is niet perfect trainen, maar duurzaam blijven bouwen aan niveau en belastbaarheid.",
       },
       {
         title: "Is dit programma alleen voor mensen die marinier willen worden?",
         content:
-          "Nee. Dit programma is geschikt voor iedereen die zich serieus wil voorbereiden op een militaire loopbaan binnen het Korps Mariniers, Korps Commandotroepen (KCT) of 11 Luchtmobiele Brigade. Hoewel de basisprincipes van fysieke en mentale voorbereiding hetzelfde zijn, verschilt de aanpak per eenheid. Afhankelijk van jouw doel, stemmen we daar het contact en de inhoud op af, zodat je traint met de juiste focus.",
+          "De informatie op deze pagina richt zich specifiek op het Korps Mariniers. Het programma kan ook relevant zijn voor kandidaten richting andere Defensie-eenheden, zoals het Korps Commandotroepen of 11 Luchtmobiele Brigade, maar de accenten verschillen per doel. Daarom blijft jouw route en startniveau belangrijk.",
       },
       {
         title: "Is dit programma ook geschikt voor vrouwen?",
         content:
-          "Absoluut. Steeds meer vrouwen kiezen bewust voor een leven vol discipline, fysieke uitdaging en mentale kracht. Voor luchtmobiele eenheden is het inmiddels gebruikelijk dat vrouwelijke kandidaten de selectie halen. Voor het Korps Mariniers en het Korps Commandotroepen is dit nog niet gebeurd, maar dat betekent niet dat het onmogelijk is. Ben jij degene die die grens doorbreekt?\n\nDit programma helpt je fysiek én mentaal groeien met eerlijke feedback, duidelijke opbouw en persoonlijke begeleiding. Het is ontworpen voor iedereen met de mindset om zichzelf te overstijgen, ongeacht geslacht.",
+          "Ja. De voorbereiding draait om jouw doel, startniveau en belastbaarheid. Iedereen die serieus richting Defensie of het Korps Mariniers wil werken, heeft baat bij een duidelijke opbouw in kracht, conditie, techniek, herstel en mentale weerbaarheid. De eisen blijven hoog, maar voorbereiding begint met eerlijk kijken waar je nu staat.",
       },
     ],
   },
   stickyMobileCta: {
     enabled: true,
     delayMs: 20000,
-    label: "Klaar voor?",
-    buttonText: "Bekijk Programma",
-    buttonTo: "/pricing",
+    label: "Klaar om gericht te trainen?",
+    buttonText: "Bekijk programma",
+    buttonTo: "/program",
   },
 };
 
