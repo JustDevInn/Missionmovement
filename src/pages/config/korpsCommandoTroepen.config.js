@@ -2,10 +2,10 @@ const korpsCommandoTroepenConfig = {
   meta: {
     title: "Voorbereiding Korps Commandotroepen | Mission Movement",
     description:
-      "Train gericht richting het Korps Commandotroepen met aandacht voor belastbaarheid, fysieke basis, mentale weerbaarheid en duurzame voorbereiding.",
+      "Alles over voorbereiding richting het Korps Commandotroepen: KCT selectie, ECO, fysieke eisen, mentale weerbaarheid, belastbaarheid en gerichte training via Mission Movement.",
     ogTitle: "Voorbereiding Korps Commandotroepen | Mission Movement",
     ogDescription:
-      "Train gericht richting het Korps Commandotroepen met aandacht voor belastbaarheid, fysieke basis, mentale weerbaarheid en duurzame voorbereiding.",
+      "Alles over voorbereiding richting het Korps Commandotroepen: KCT selectie, ECO, fysieke eisen, mentale weerbaarheid, belastbaarheid en gerichte training via Mission Movement.",
     ogImage: "https://missionmovement.vercel.app/img/thestory.png",
     ogUrl: "https://missionmovement.vercel.app/units/commandotroepen",
     canonical: "https://missionmovement.vercel.app/units/commandotroepen",
@@ -17,7 +17,7 @@ const korpsCommandoTroepenConfig = {
     overlayClass: "mm-heroOverlay",
     title: "Korps Commandotroepen",
     subtitle:
-      "De absolute top binnen Defensie. Ontdek hoe jij hier klaar voor kunt zijn.",
+      "Voor kandidaten die serieus richting het Korps Commandotroepen willen werken: van fysieke basis en mentale weerbaarheid tot selectie, ECO en belastbaarheid.",
   },
   subNav: {
     variant: "dark",
@@ -28,7 +28,7 @@ const korpsCommandoTroepenConfig = {
     emblemAlt: "KCT Embleem",
     heading: "Wat is het KCT?",
     body:
-      "Het Korps Commandotroepen (KCT) is de Special Operations Force van de Koninklijke Landmacht. De eenheid voert wereldwijd specialistische operaties uit, vaak onder strikte geheimhouding en in hoog-risico-gebieden. Commandotroepen worden ingezet voor verkenningen, sabotage, precisieacties en het ondersteunen van buitenlandse eenheden in vijandig gebied.\n\nToelating tot het KCT is een van de zwaarste trajecten binnen Defensie. Kandidaten worden geselecteerd op fysieke kracht, mentale weerbaarheid, uithoudingsvermogen en het vermogen om zelfstandig te opereren onder druk. Alleen wie alle fasen van de selectie en opleiding doorstaat, mag zich uiteindelijk commando noemen.",
+      "Het Korps Commandotroepen (KCT) is de Special Operations Force van de Koninklijke Landmacht. De eenheid voert wereldwijd specialistische operaties uit, vaak onder strikte geheimhouding en in hoog-risico-gebieden. Commandotroepen worden ingezet voor verkenningen, sabotage, precisieacties en het ondersteunen van buitenlandse eenheden in vijandig gebied.\n\nToelating tot het KCT is een van de zwaarste trajecten binnen Defensie. Kandidaten worden geselecteerd op fysieke kracht, mentale weerbaarheid, uithoudingsvermogen en het vermogen om zelfstandig te opereren onder druk. Alleen wie alle fasen van de selectie en opleiding doorstaat, mag zich uiteindelijk commando noemen.\n\nVoor kandidaten betekent dit dat voorbereiding verder moet gaan dan alleen hard trainen. Je moet bouwen aan kracht, uithoudingsvermogen, herstel, navigatiebasis, mentale weerbaarheid en het vermogen om onder druk te blijven functioneren. Niet alleen om aan de start te verschijnen, maar om met meer marge aan het traject te beginnen.",
     accentBorder: "border-mmAccent",
   },
   accordion: {
@@ -110,33 +110,33 @@ const korpsCommandoTroepenConfig = {
     },
   ],
   cta: {
-    eyebrow: "Special Forces Voorbereiding",
-    heading: "Eén kans. Eén selectie. Zorg dat je klaar bent.",
+    eyebrow: "KCT voorbereiding",
+    heading: "Wil je serieus richting het Korps Commandotroepen?",
     body:
-      "De weg naar het KCT is geen traject om 'wel te proberen'. Je krijgt geen tweede kans, je moet sterk, voorbereid en gefocust starten. Dit programma is gebouwd om je daar te krijgen, met begeleiding van iemand die de lat begrijpt.",
-    buttonText: "Start Voorbereiding",
-    buttonTo: "/pricing",
+      "De voorbereiding op het KCT vraagt meer dan losse trainingen. Bouw gericht aan kracht, conditie, belastbaarheid, herstel, discipline en mentale weerbaarheid, zodat je beter voorbereid richting selectie en opleiding gaat.",
+    buttonText: "Bekijk het programma",
+    buttonTo: "/program",
   },
   forWho: {
     heading: "Voor wie is dit geschikt?",
     bullets: [
-      "Je ambieert een plek binnen het Korps Commandotroepen maar weet niet waar je voorbereiding moet beginnen.",
-      "Je hebt al eerder een poging gewaagd, maar liep vast tijdens de keuring of ECO.",
-      "Je wilt niet afwachten of je het haalt. Je wilt doelgericht toewerken naar je selectie.",
-      "Je zoekt meer dan alleen fysieke training. Je zoekt structuur, mentale druk en begeleiding richting iets dat telt.",
-      "Je neemt deze kans serieus. Eén moment, één selectie. Je wil er alles aan doen om klaar te zijn.",
-      "Je bent vrouw en vastberaden om het onmogelijke waar te maken, misschien wel de eerste Nederlandse vrouwelijke commando ooit.",
+      "Je wilt commando worden en zoekt structuur in je voorbereiding richting KCT-selectie.",
+      "Je traint al, maar weet niet zeker of je voorbereiding aansluit op de eisen van AMOL, VO en ECO.",
+      "Je wilt sterker worden in kracht, uithoudingsvermogen, herstelvermogen en mentale weerbaarheid.",
+      "Je wilt niet alleen de minimale norm halen, maar met meer marge aan je traject beginnen.",
+      "Je zoekt een duidelijke opbouw in plaats van losse trainingen zonder richting.",
+      "Je wilt serieus werken aan discipline, belastbaarheid, navigatiebasis en functioneren onder druk.",
     ],
   },
   route: {
     heading: "Jouw route naar het Korps Commandotroepen",
     steps: [
-      "Serieuze voorbereiding, fysiek en mentaal",
-      "Oriëntatie en aanmelding via Defensie",
-      "Kennismakingsdag en toelating tot de AMOL",
-      "Militaire keuringen en fysieke voorselectie",
-      "Start van de Elementaire Commando Opleiding (ECO)",
-      "Afronding en inzet als operationeel commando",
+      "Oriëntatie: begrijpen wat het KCT vraagt",
+      "Start voorbereiding: kracht, conditie, herstel en belastbaarheid opbouwen",
+      "Aanmelding en selectieprocedure bij Defensie",
+      "AMOL, vooropleiding en fysieke testmomenten",
+      "Elementaire Commando Opleiding (ECO)",
+      "Voortgezette Commando Opleiding en operationele inzetbaarheid",
     ],
   },
   faq: {
@@ -145,36 +145,36 @@ const korpsCommandoTroepenConfig = {
       {
         title: "Hoe zwaar is de ECO écht?",
         content:
-          "De Elementaire Commando Opleiding (ECO) staat bekend als een van de zwaarste trajecten binnen Defensie. De fysieke en mentale druk is structureel. Het is ontworpen om te breken, niet te motiveren. Slechts een klein percentage haalt het. Maar wie zich tijdig en doelgericht voorbereidt, vergroot niet alleen de overlevingskans en de kans om echt te presteren.",
+          "De Elementaire Commando Opleiding (ECO) is een van de zwaarste onderdelen van de route richting het Korps Commandotroepen. Je krijgt te maken met fysieke uitputting, mentale druk, weinig herstel, discipline en besluitvorming onder stress. Gerichte voorbereiding garandeert geen succes, maar kan wel helpen om met betere fysieke en mentale marges aan KCT selectie en opleiding te beginnen.",
       },
       {
         title: "Kan ik trainen naast school of werk?",
         content:
-          "Ja, maar het vereist planning, discipline en prioriteit. De voorbereiding is flexibel op te bouwen, maar vraagt structurele inzet. Je traint op je eigen tijd zolang je de lat serieus neemt. Als je het combineert met andere verplichtingen, moet je dus keuzes durven maken. De realiteit is: dit past niet in een 'even kijken of het lukt'-schema.",
+          "Ja, maar het vraagt planning, consistentie en realistisch omgaan met je totale belasting. De voorbereiding kan rond school of werk worden opgebouwd, zolang je eerlijk kijkt naar herstel, beschikbare tijd en prioriteiten. Het doel vraagt discipline en structurele inzet.",
       },
       {
         title: "Wat als ik nog twijfel of ik geschikt ben?",
         content:
-          "Twijfel is normaal, vooral bij iets dat zó groot is. Maar uiteindelijk ontdek je pas wat je in je hebt door het aan te gaan. Een serieuze voorbereidingstraject confronteert je met je zwaktes en laat je groeien in wat nodig is. Niet iedereen hoeft commando te worden, maar als jij het overweegt, verdien je het om goed te testen of je die weg echt wilt bewandelen.",
+          "Twijfel is normaal. Een serieus voorbereidingstraject helpt je duidelijk krijgen waar je nu staat, waar je zwakke punten zitten en of deze route echt bij je past. Je werkt aan fysieke eisen, mentale weerbaarheid, belastbaarheid en functioneren onder druk voordat je het officiële traject instapt.",
       },
       {
         title: "Is dit alleen voor mannen?",
         content:
-          "Nee. Hoewel het KCT op dit moment nog geen vrouwelijke operatoren kent, staat de deur niet gesloten. De selectie stelt dezelfde eisen aan iedereen en wordt niet aangepast. Ben jij vastberaden genoeg om geschiedenis te schrijven? Dan is de voorbereiding niet anders, maar des te belangrijker.",
+          "Nee. De voorbereiding is bedoeld voor iedere serieuze kandidaat die richting Defensie of het Korps Commandotroepen wil werken. De principes blijven hetzelfde: kracht, uithoudingsvermogen, herstel, discipline, mentale weerbaarheid en belastbaarheid. De eisen zijn hoog en vragen om eerlijke, gerichte voorbereiding.",
       },
       {
         title: "Wat maakt deze voorbereiding anders dan zelf trainen?",
         content:
-          "Zelf trainen is goed. Gerichte voorbereiding is beter. Het verschil zit in structuur, testmomenten, herstelopbouw en mentale druk. Een opbouwend traject helpt je energie richten, voortgang meten en obstakels herkennen voor het te laat is. De ECO is geen plek om fouten te corrigeren. Dat gebeurt ervoor.",
+          "Zelf trainen kan een goede basis zijn, maar voorbereiding op KCT selectie en ECO vraagt structuur. Het verschil zit in testmomenten, progressieve opbouw, herstelplanning, mentale druk en begrijpen waarom je traint. Zo verspil je minder energie en werk je gerichter aan belastbaarheid, kracht en uithoudingsvermogen.",
       },
     ],
   },
   stickyMobileCta: {
     enabled: true,
     delayMs: 20000,
-    label: "Klaar voor?",
-    buttonText: "Bekijk Programma",
-    buttonTo: "/pricing",
+    label: "Klaar om gericht te trainen?",
+    buttonText: "Bekijk programma",
+    buttonTo: "/program",
   },
 };
 

@@ -27,6 +27,32 @@ const KorpsCommandoTroepen = () => {
     faq,
     stickyMobileCta,
   } = korpsCommandoTroepenConfig;
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Voorbereiding Korps Commandotroepen",
+    url: "https://missionmovement.vercel.app/units/commandotroepen",
+    inLanguage: "nl-NL",
+    description:
+      "Informatie en voorbereiding voor kandidaten richting het Korps Commandotroepen: KCT selectie, ECO, fysieke eisen, mentale weerbaarheid en belastbaarheid.",
+    publisher: {
+      "@type": "Organization",
+      name: "Mission Movement",
+      url: "https://missionmovement.vercel.app/",
+    },
+  };
+  const faqPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.items.map((item) => ({
+      "@type": "Question",
+      name: item.title,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.content,
+      },
+    })),
+  };
 
   return (
     <div className={`min-h-screen ${theme.page}`}>
@@ -40,6 +66,12 @@ const KorpsCommandoTroepen = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:url" content={meta.ogUrl} />
         <link rel="canonical" href={meta.canonical} />
+        <script type="application/ld+json">
+          {JSON.stringify(webPageSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(faqPageSchema)}
+        </script>
       </Helmet>
 
       <UnitHeroSection hero={hero} theme={theme} />

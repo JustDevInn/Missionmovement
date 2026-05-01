@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 const AccordionList = ({
   items,
@@ -8,10 +8,39 @@ const AccordionList = ({
   renderImage,
   imageLayout = "inline",
 }) => {
+  const buttonRefs = useRef(new Map());
+  const stabilizerFrameRef = useRef(null);
   const shouldRenderImage =
     typeof renderImage === "boolean"
       ? renderImage
       : items.some((item) => Boolean(item.image));
+
+  useEffect(() => {
+    return () => {
+      if (stabilizerFrameRef.current) {
+        cancelAnimationFrame(stabilizerFrameRef.current);
+      }
+    };
+  }, []);
+
+  const stabilizeHeaderPosition = (targetIndex, targetTop, startedAt) => {
+    const button = buttonRefs.current.get(targetIndex);
+
+    if (!button) return;
+
+    const afterTop = button.getBoundingClientRect().top;
+    const delta = afterTop - targetTop;
+
+    if (Math.abs(delta) > 0.5) {
+      window.scrollBy({ top: delta, left: 0, behavior: "auto" });
+    }
+
+    if (performance.now() - startedAt < 650) {
+      stabilizerFrameRef.current = requestAnimationFrame(() => {
+        stabilizeHeaderPosition(targetIndex, targetTop, startedAt);
+      });
+    }
+  };
 
   return (
     <>
@@ -19,6 +48,32 @@ const AccordionList = ({
         const resolvedIndex = index + baseIndexOffset;
         const isOpen = activeIndex === resolvedIndex;
         const hasImage = shouldRenderImage && item.image;
+        const handleToggle = (event) => {
+          const beforeTop = event.currentTarget.getBoundingClientRect().top;
+          const isSwitchingOpenItem =
+            activeIndex !== null &&
+            activeIndex !== undefined &&
+            activeIndex !== resolvedIndex &&
+            !isOpen;
+
+          if (stabilizerFrameRef.current) {
+            cancelAnimationFrame(stabilizerFrameRef.current);
+          }
+
+          setActiveIndex(isOpen ? null : resolvedIndex);
+
+          if (!isSwitchingOpenItem) return;
+
+          stabilizerFrameRef.current = requestAnimationFrame(() => {
+            stabilizerFrameRef.current = requestAnimationFrame(() => {
+              stabilizeHeaderPosition(
+                resolvedIndex,
+                beforeTop,
+                performance.now()
+              );
+            });
+          });
+        };
         const contentClassName = isOpen
           ? imageLayout === "separate"
             ? "max-h-[1000px]"
@@ -36,8 +91,16 @@ const AccordionList = ({
             }`}
           >
             <button
-              onClick={() => setActiveIndex(isOpen ? null : resolvedIndex)}
+              ref={(node) => {
+                if (node) {
+                  buttonRefs.current.set(resolvedIndex, node);
+                } else {
+                  buttonRefs.current.delete(resolvedIndex);
+                }
+              }}
+              onClick={handleToggle}
               className="w-full flex justify-between items-center px-6 py-4 text-left"
+              aria-expanded={isOpen}
             >
               <span className="text-mmAccent font-display text-base md:text-lg tracking-widest uppercase">
                 {item.title}
