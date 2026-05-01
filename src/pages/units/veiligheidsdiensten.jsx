@@ -14,7 +14,7 @@ const Veiligheidsdiensten = () => {
 
   return (
     <main
-      className={`veiligheidsdienstenPage min-h-screen pt-20 font-body ${theme.page}`}
+      className={`veiligheidsdienstenPage min-h-screen font-body ${theme.page}`}
     >
       <Helmet>
         <title>{meta.title}</title>

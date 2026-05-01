@@ -130,7 +130,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="pt-20 md:pt-0 bg-mmPage">
+    <div className="bg-mmPage">
       <Helmet>
         <title>
           Mission Movement | Militaire Voorbereiding voor Defensie &

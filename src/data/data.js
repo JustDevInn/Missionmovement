@@ -87,28 +87,34 @@ export const faqDataNL = [
 // program details
 export const programDetails = [
   {
-    title: "Military Coaching Guide",
-    description: "Overzicht en essentiële inzichten voor special forces.",
+    title: "Het Fundament",
+    description:
+      "De basis van het traject: doel, opbouw, verwachtingen en de manier waarop je gericht werkt richting Defensie.",
   },
   {
-    title: "01 Basic Requirements",
-    description: "Progressieve kracht- en uithoudingstraining gericht op militaire selectie.",
+    title: "01 Basisvereisten",
+    description:
+      "De fysieke en mentale basis die nodig is om serieus richting selectie, keuring en opleiding te bouwen.",
   },
   {
-    title: "02 Foundational Strength",
-    description: "Duurzame paraatheid tijdens actieve dienst.",
+    title: "02 Fundamentele kracht",
+    description:
+      "Krachttraining gericht op belastbaarheid, techniek en duurzame fysieke voorbereiding.",
   },
   {
-    title: "03 Swimming Practice",
-    description: "Beheersing van belangrijke slagen en geoptimaliseerde technieken voor selectietests.",
+    title: "03 Zwemmen & watervertrouwen",
+    description:
+      "Gerichte zwemtraining en techniek om met meer controle en vertrouwen in het water te werken.",
   },
   {
-    title: "04/05 Support",
-    description: "Oefenbibliotheek en mobiliteitsgidsen voor volledige paraatheid.",
+    title: "04/05 Ondersteuning",
+    description:
+      "Oefenbibliotheek, mobiliteit en aanvullende richtlijnen om je training beter uit te voeren.",
   },
   {
-    title: "Including REMOTE COACHING",
-    description: "We beoordelen je oefeningen en vragen om je gefocust en op koers te houden.",
+    title: "Coaching",
+    description:
+      "Begeleiding, feedback en bijsturing om gefocust te blijven en je voorbereiding scherp te houden.",
   },
 ];
 

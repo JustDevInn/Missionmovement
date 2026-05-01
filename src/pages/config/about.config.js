@@ -13,9 +13,7 @@ const aboutConfig = {
   hero: {
     title: "Het verhaal achter Mission Movement",
     subtitle:
-      `Elke serieuze voorbereiding begint met een reden.
-      
-    Mission Movement is ontstaan uit ervaring. In training, coaching en operationele praktijk.`,
+      "Elke serieuze voorbereiding begint met een reden. Mission Movement is ontstaan uit ervaring. In training, coaching en operationele praktijk.",
     backgroundClass: "bg-parajumping bg-bottom bg-no-repeat bg-cover",
   },
 foundations: {

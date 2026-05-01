@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import FloatingCTA from "../components/FloatingCTA";
 import Spinner from "../components/Spinner";
 import { Helmet } from "react-helmet-async";
+import PublicHero from "../components/PublicHero";
 
 const contactPageSchema = {
   "@context": "https://schema.org",
@@ -133,7 +134,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="pt-10">
+    <div>
       <Helmet>
         <title>Contact | Start jouw Voorbereiding met Mission Movement</title>
         <meta
@@ -165,15 +166,12 @@ const Contact = () => {
         </script>
       </Helmet>
 
-      {/* Hero Section */}
-      <section className="section flex justify-center items-center bg-takethestep bg-center bg-no-repeat bg-cover relative bg-fixed">
-        <div className="absolute inset-0 bg-black/50"></div>
-        <div className="relative z-10 w-full flex justify-center items-center pt-20 px-5 lg:px-20">
-          <h1 className="font-display text-mmAccent text-[35px] md:text-[60px] uppercase tracking-widest text-center">
-            Vragen?
-          </h1>
-        </div>
-      </section>
+      <PublicHero
+        eyebrow="Contact"
+        title="Vragen?"
+        subtitle="Wil je weten welke voorbereiding past bij jouw doel? Laat je gegevens achter en ik neem contact met je op."
+        backgroundClass="bg-takethestep bg-center bg-no-repeat bg-cover bg-fixed"
+      />
 
       <FloatingCTA />
 

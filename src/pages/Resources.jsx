@@ -5,6 +5,7 @@ import { faqDataNL } from "../data/data.js";
 // Icons
 import FloatingCTA from "../components/FloatingCTA.jsx";
 import { Helmet } from "react-helmet-async";
+import PublicHero from "../components/PublicHero.jsx";
 
 const Resources = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -13,7 +14,7 @@ const Resources = () => {
   };
 
   return (
-    <div className="pt-10">
+    <div>
       <Helmet>
         <title>
           Resources | Militaire Voorbereiding, Training & Veelgestelde Vragen
@@ -46,16 +47,12 @@ const Resources = () => {
         />
       </Helmet>
 
-      {/* Resources */}
-      <section className="section flex justify-center items-center bg-hlo bg-center bg-no-repeat bg-cover relative bg-fixed">
-        {/* Background Overlay for Better Readability */}
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-        <div className="relative h-full w-full flex justify-center lg:justify-end items-center pt-20 px-5 lg:px-20">
-          <h1 className="font-display text-mmAccent text-[35px] md:text-[60px] uppercase tracking-widest text-center lg:text-right">
-            Voorbereiden met een doel
-          </h1>
-        </div>
-      </section>
+      <PublicHero
+        eyebrow="Kennisbank"
+        title="Voorbereiden met een doel"
+        subtitle="Artikelen, antwoorden en praktische inzichten over training, belastbaarheid, discipline en voorbereiding richting Defensie en veiligheidsdiensten."
+        backgroundClass="bg-hlo bg-center bg-no-repeat bg-cover bg-fixed"
+      />
       <FloatingCTA />
 
       {/* FAQ Section */}

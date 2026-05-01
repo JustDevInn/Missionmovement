@@ -21,6 +21,19 @@ const Nav = () => {
   const menuButtonRef = useRef(null);
   const firstMobileLinkRef = useRef(null);
 
+  const mobileTopLinkClass =
+    "block text-lg font-display uppercase tracking-[0.14em] text-mmText hover:text-mmAccent py-3 border-b border-mmBorder focus-visible:ring-2 focus-visible:ring-mmFocus";
+  const mobileAccordionLabelClass =
+    "flex justify-between items-center text-mmText hover:text-mmAccent uppercase text-lg font-display tracking-[0.14em] py-3 border-b border-mmBorder cursor-pointer";
+  const mobileSubmenuClass =
+    "block text-sm text-mmTextMuted hover:text-mmAccent py-1 first:pt-2 last:pb-2 focus-visible:ring-2 focus-visible:ring-mmFocus";
+  const desktopLinkClass =
+    "text-mmText hover:text-mmAccent text-2xl font-display uppercase tracking-[0.14em]";
+  const desktopGroupLabelClass =
+    "text-mmTextMuted text-xl font-display uppercase tracking-[0.18em] cursor-default select-none";
+  const desktopSubmenuLinkClass =
+    "block text-mmTextMuted hover:text-mmAccent py-1";
+
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 1024);
     window.addEventListener("resize", handleResize);
@@ -213,22 +226,86 @@ const Nav = () => {
             aria-modal="true"
             ref={menuRef}
           >
-            <form className="px-6 py-8 space-y-4 text-mmText">
+            <form className="px-6 py-8 text-mmText">
               {/* Direct links */}
               {[
                 { title: "Over ons", path: "/about" },
-                { title: "Programma", path: "/program" },
-                { title: "Artikelen", path: "/blogs" },
-                { title: "Bronnen", path: "/resources" },
-                { title: "Prijzen", path: "/pricing" },
-                { title: "Contact", path: "/contact" },
+                {
+                  title: "Voorbereiding Defensie",
+                  path: "/voorbereiding-defensie",
+                },
               ].map(({ title, path }, index) => (
                 <RouterLink
                   key={title}
                   to={path}
                   ref={index === 0 ? firstMobileLinkRef : null}
                   onClick={() => setNav(false)}
-                  className="block text-lg font-display uppercase tracking-[0.14em] text-mmText hover:text-mmAccent py-3 border-b border-mmBorder focus-visible:ring-2 focus-visible:ring-mmFocus"
+                  className={mobileTopLinkClass}
+                >
+                  {title}
+                </RouterLink>
+              ))}
+
+              {/* Programma's expandable */}
+              <div>
+                <input
+                  type="checkbox"
+                  id="menu-Programmas"
+                  className="hidden"
+                  checked={dropdown["Programmas"] || false}
+                  onChange={() => toggleDropdown("Programmas")}
+                />
+                <label
+                  htmlFor="menu-Programmas"
+                  className={mobileAccordionLabelClass}
+                >
+                  Programma’s
+                  <span>
+                    {dropdown["Programmas"] ? (
+                      <FaMinus size={16} />
+                    ) : (
+                      <FaPlus size={16} />
+                    )}
+                  </span>
+                </label>
+
+                <ul
+                  className={`pl-4 overflow-hidden transition-all duration-300 ease-in-out ${
+                    dropdown["Programmas"]
+                      ? "max-h-40 opacity-100"
+                      : "max-h-0 opacity-0"
+                  }`}
+                >
+                  {[
+                    { title: "Defensie", path: "/program" },
+                    {
+                      title: "Veiligheidsdiensten",
+                      path: "/programma-veiligheidsdiensten",
+                    },
+                  ].map(({ title, path }) => (
+                    <RouterLink
+                      key={title}
+                      to={path}
+                      onClick={() => setNav(false)}
+                      className={mobileSubmenuClass}
+                    >
+                      {title}
+                    </RouterLink>
+                  ))}
+                </ul>
+              </div>
+
+              {[
+                { title: "Artikelen", path: "/blogs" },
+                { title: "Bronnen", path: "/resources" },
+                { title: "Prijzen", path: "/pricing" },
+                { title: "Contact", path: "/contact" },
+              ].map(({ title, path }) => (
+                <RouterLink
+                  key={title}
+                  to={path}
+                  onClick={() => setNav(false)}
+                  className={mobileTopLinkClass}
                 >
                   {title}
                 </RouterLink>
@@ -245,7 +322,7 @@ const Nav = () => {
                 />
                 <label
                   htmlFor="menu-Eenheden"
-                  className="flex justify-between items-center text-mmText hover:text-mmAccent uppercase text-lg font-display tracking-[0.14em] py-3 border-b border-mmBorder cursor-pointer"
+                  className={mobileAccordionLabelClass}
                 >
                   Eenheden
                   <span>
@@ -258,7 +335,7 @@ const Nav = () => {
                 </label>
 
                 <ul
-                  className={`pl-4 py-2 space-y-1 overflow-hidden transition-all duration-300 ease-in-out ${
+                  className={`pl-4 overflow-hidden transition-all duration-300 ease-in-out ${
                     dropdown["Eenheden"]
                       ? "max-h-96 opacity-100"
                       : "max-h-0 opacity-0"
@@ -283,7 +360,7 @@ const Nav = () => {
                       key={title}
                       to={path}
                       onClick={() => setNav(false)}
-                      className="block text-sm text-mmTextMuted hover:text-mmAccent focus-visible:ring-2 focus-visible:ring-mmFocus"
+                      className={mobileSubmenuClass}
                     >
                       {title}
                     </RouterLink>
@@ -372,7 +449,7 @@ const Nav = () => {
                 <div>
                   <RouterLink
                     to="/about"
-                    className="text-mmText hover:text-mmAccent text-2xl font-display uppercase tracking-[0.14em]"
+                    className={desktopLinkClass}
                     onClick={() => setNav(false)}
                   >
                     Over ons
@@ -381,34 +458,45 @@ const Nav = () => {
                 </div>
 
                 <div>
-                  <h3 className="text-mmText text-2xl font-display uppercase tracking-[0.14em]">
+                  <RouterLink
+                    to="/voorbereiding-defensie"
+                    className={desktopLinkClass}
+                    onClick={() => setNav(false)}
+                  >
+                    Voorbereiding Defensie
+                  </RouterLink>
+                  <div className="border-t border-mmBorder w-48 my-2" />
+                </div>
+
+                <div>
+                  <h3 className={desktopGroupLabelClass}>
                     Eenheden
                   </h3>
                   <div className="border-t border-mmBorder w-48 my-2" />
                   <RouterLink
                     to="/units/mariniers"
-                    className="block text-mmTextMuted hover:text-mmAccent py-1"
+                    className={desktopSubmenuLinkClass}
                     onClick={() => setNav(false)}
                   >
                     Korps Mariniers
                   </RouterLink>
                   <RouterLink
                     to="/units/commandotroepen"
-                    className="block text-mmTextMuted hover:text-mmAccent py-1"
+                    className={desktopSubmenuLinkClass}
                     onClick={() => setNav(false)}
                   >
                     Korps Commando Troepen
                   </RouterLink>
                   <RouterLink
                     to="/units/luchtmobiel"
-                    className="block text-mmTextMuted hover:text-mmAccent py-1"
+                    className={desktopSubmenuLinkClass}
                     onClick={() => setNav(false)}
                   >
                     11 Luchtmobiele brigade
                   </RouterLink>
                   <RouterLink
                     to="/units/veiligheidsdiensten"
-                    className="block text-mmTextMuted hover:text-mmAccent py-1"
+                    className={desktopSubmenuLinkClass}
                     onClick={() => setNav(false)}
                   >
                     Veiligheidsdiensten
@@ -416,14 +504,24 @@ const Nav = () => {
                 </div>
 
                 <div>
+                  <h3 className={desktopGroupLabelClass}>
+                    Programma’s
+                  </h3>
+                  <div className="border-t border-mmBorder w-48 my-2" />
                   <RouterLink
                     to="/program"
-                    className="text-mmText hover:text-mmAccent text-2xl font-display uppercase tracking-[0.14em]"
+                    className={desktopSubmenuLinkClass}
                     onClick={() => setNav(false)}
                   >
-                    Het programma
+                    Defensie
                   </RouterLink>
-                  <div className="border-t border-mmBorder w-48 my-2" />
+                  <RouterLink
+                    to="/programma-veiligheidsdiensten"
+                    className={desktopSubmenuLinkClass}
+                    onClick={() => setNav(false)}
+                  >
+                    Veiligheidsdiensten
+                  </RouterLink>
                 </div>
               </div>
 
@@ -432,7 +530,7 @@ const Nav = () => {
                 <div>
                   <RouterLink
                     to="/blogs"
-                    className="text-mmText hover:text-mmAccent text-2xl font-display uppercase tracking-[0.14em]"
+                    className={desktopLinkClass}
                     onClick={() => setNav(false)}
                   >
                     Artikelen
@@ -443,7 +541,7 @@ const Nav = () => {
                 <div>
                   <RouterLink
                     to="/resources"
-                    className="text-mmText hover:text-mmAccent text-2xl font-display uppercase tracking-[0.14em]"
+                    className={desktopLinkClass}
                     onClick={() => setNav(false)}
                   >
                     Bronnen
@@ -454,7 +552,7 @@ const Nav = () => {
                 <div>
                   <RouterLink
                     to="/pricing"
-                    className="text-mmText hover:text-mmAccent text-2xl font-display uppercase tracking-[0.14em]"
+                    className={desktopLinkClass}
                     onClick={() => setNav(false)}
                   >
                     Bekijk ons aanbod
@@ -465,7 +563,7 @@ const Nav = () => {
                 <div>
                   <RouterLink
                     to="/contact"
-                    className="text-mmText hover:text-mmAccent text-2xl font-display uppercase tracking-[0.14em]"
+                    className={desktopLinkClass}
                     onClick={() => setNav(false)}
                   >
                     Contact

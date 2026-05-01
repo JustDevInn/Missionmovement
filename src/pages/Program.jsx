@@ -9,6 +9,7 @@ import Reviews from "../components/Reviews";
 import { Link } from "react-router-dom";
 import QuoteBlock from "../components/QuoteBlock";
 import { Helmet } from "react-helmet-async";
+import PublicHero from "../components/PublicHero";
 
 const Bundle = "/img/bundle.png";
 
@@ -67,7 +68,7 @@ const Program = () => {
   ];
 
   return (
-    <div className="pt-10">
+    <div>
       <Helmet>
         <title>
           Programma | Voorbereiding op Defensie, Politie, Brandweer & KMar
@@ -103,23 +104,15 @@ const Program = () => {
         </script>
       </Helmet>
 
-      {/* Hero sectie */}
-      <section className="section flex flex-col justify-center items-center md:mb-20">
-        <div className="flex flex-col justify-start items-start">
-          <p className="font-display uppercase tracking-widest text-mmText text-[20px] md:text-[30px] animate-fade-in">
-            Het
-          </p>
-          <h1 className="font-display text-mmAccent text-[35px] md:text-[100px] uppercase leading-[120%] tracking-widest animate-slide-in-left">
-            Militaraire
-          </h1>
-          <h1 className="font-display text-mmAccent text-[35px] md:text-[100px] uppercase leading-[120%] tracking-widest animate-slide-in-left">
-            Voorbereidings-
-          </h1>
-          <p className="font-display uppercase tracking-widest text-mmText text-[20px] md:text-[30px] animate-fade-in">
-            Programma
-          </p>
-        </div>
-      </section>
+      <PublicHero
+        eyebrow="Mission Movement"
+        title="Militair Voorbereidingsprogramma"
+        subtitle="Een gestructureerd programma voor kandidaten die zich serieus willen voorbereiden op Defensie, selectie, opleiding en de fysieke belasting daarna."
+        button={{ label: "Bekijk het aanbod", to: "/pricing" }}
+        imageSrc="/img/royalmarines.webp"
+        imageAlt="Militaire voorbereiding voor Defensie"
+        imageClassName="object-[center_left] md:object-bottom"
+      />
 
       <section className="bg-mmSurface py-4 border-t border-b border-mmBorder w-full text-center mb-20">
         <div className="text-mmTextMuted font-display tracking-widest uppercase text-md md:text-lg flex flex-wrap justify-center gap-4 px-4">
@@ -140,19 +133,23 @@ const Program = () => {
       {/* Programma overzicht */}
       <section className="w-full px-5 sm:px-10 lg:px-20">
         <header className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 tracking-wider text-mmText max-w-7xl mx-auto">
-          <div className="mm-card p-4 md:p-6 lg:p-8">
+          <div className="mm-card p-5 md:p-7 lg:p-8">
             <h1 className="mm-h2 text-center border-b border-mmBorder pb-2 mb-4 text-mmText">
               Programma Overzicht
             </h1>
-            <p className="text-xs md:text-sm font-normal text-mmTextMuted text-justify leading-relaxed mb-4">
-              Het Militaire voorbereidingsprogramma van Mission Movement is
-              gebouwd op meer dan 10 jaar ervaring binnen elite eenheden en 10
-              jaar in de sport branche. Het gaat verder dan fitness - het is
-              voor wie een hoger doel nastreeft. Voor wie klaar is voor het
-              leven van een special operator.
+            <p className="text-sm md:text-base font-normal text-mmTextMuted text-left leading-relaxed mb-6">
+              Het Militair Voorbereidingsprogramma van Mission Movement is
+              gebouwd voor kandidaten die zich serieus willen voorbereiden op
+              Defensie, selectie, opleiding en de fysieke belasting daarna.
               <br />
               <br />
-              Het programma bestaat uit 5 deeltrajecten.
+              Het programma gaat verder dan alleen trainen voor een testmoment.
+              Je werkt aan kracht, conditie, belastbaarheid, herstel, discipline
+              en mentale voorbereiding, zodat je niet alleen de norm haalt, maar
+              met meer marge aan je traject begint.
+              <br />
+              <br />
+              Het programma bestaat uit vijf onderdelen.
             </p>
             {programDetails.map((item, index) => (
               <div
@@ -185,12 +182,12 @@ const Program = () => {
           </div>
 
           {/* Vereisten + Skills + Voor wie */}
-          <div className="flex flex-col p-4 md:p-6 lg:p-8 gap-8 lg:gap-10">
-            <div>
+          <div className="mm-card flex flex-col p-5 md:p-7 lg:p-8 gap-8 lg:gap-10">
+            <div className="border-b border-mmBorder pb-6">
               <h1 className="text-mmAccent font-display text-xl md:text-2xl tracking-widest uppercase mb-3">
                 Vereisten
               </h1>
-              <ul className="grid grid-cols-2 gap-2 text-xs md:text-sm text-mmTextMuted">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-mmTextMuted">
                 {[
                   "Mindset en houding",
                   "Fysieke basisconditie",
@@ -199,7 +196,7 @@ const Program = () => {
                   "Tijdsinvestering",
                   "Geen medische belemmeringen",
                 ].map((req, i) => (
-                  <li key={i} className="flex items-center gap-2">
+                  <li key={i} className="flex items-start gap-2">
                     <FaCheck className="text-mmAccent min-w-[16px] h-[16px] md:min-w-[20px] md:h-[20px]" />
                     {req}
                   </li>
@@ -207,20 +204,20 @@ const Program = () => {
               </ul>
             </div>
 
-            <div>
+            <div className="border-b border-mmBorder pb-6">
               <h1 className="text-mmAccent font-display text-xl md:text-2xl tracking-widest uppercase mb-3">
                 Wat Je Leert
               </h1>
-              <ul className="grid grid-cols-2 gap-2 text-xs md:text-sm text-mmTextMuted">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-mmTextMuted">
                 {[
-                  "Fysieke paraatheid",
-                  "Gespecialiseerde technieken",
+                  "Fysieke belastbaarheid",
+                  "Techniek en uitvoering",
                   "Mentale weerbaarheid",
                   "Discipline",
-                  "Aanpassings- vermogen",
-                  "Doorzettings- vermogen",
+                  "Herstel en opbouw",
+                  "Doorzettingsvermogen",
                 ].map((skill, i) => (
-                  <li key={i} className="flex items-center gap-2">
+                  <li key={i} className="flex items-start gap-2">
                     <GrAchievement className="text-mmAccent min-w-[16px] h-[16px] md:min-w-[20px] md:h-[20px]" />
                     {skill}
                   </li>
@@ -232,16 +229,16 @@ const Program = () => {
               <h1 className="text-mmAccent font-display text-xl md:text-2xl uppercase tracking-widest mb-3">
                 Voor Wie
               </h1>
-              <ul className="grid grid-cols-2 gap-2 text-xs md:text-sm text-mmTextMuted">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-mmTextMuted">
                 {[
-                  "Toekomstige militairen die zich voorbereiden op selectie",
-                  "Actieve militairen die structuur zoeken",
-                  "Atleten die elite fitheid nastreven",
-                  "Sporters die mentale uitdaging zoeken",
-                  "Mensen toegewijd aan persoonlijke groei",
-                  "Iedereen die fysieke & mentale weerbaarheid wil opbouwen",
+                  "Kandidaten richting Defensie",
+                  "Kandidaten richting selectie of keuring",
+                  "Mensen die starten aan een opleiding",
+                  "Sporters die militaire voorbereiding zoeken",
+                  "Mensen die belastbaarheid willen opbouwen",
+                  "Iedereen die fysieke en mentale voorbereiding serieus neemt",
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-2">
+                  <li key={i} className="flex items-start gap-2">
                     <FaCheck className="text-mmAccent min-w-[16px] h-[16px] md:min-w-[20px] md:h-[20px]" />
                     {item}
                   </li>
@@ -339,9 +336,11 @@ const Program = () => {
       <section className="w-screen flex flex-col lg:flex-row py-20 p-10 justify-between items-center lg:items-start lg:mt-20">
         <div className="md:w-1/2 flex flex-col px-5 lg:px-28">
           <h5 className="font-display text-[30px] lg:text-[50px] tracking-widest text-mmTextMuted lg:text-left text-center">
-            <span className="text-mmAccent tracking-widest">Klaar? </span>
-            Schrijf je in en verander je lijf en geest in een kracht waar niet
-            mee te spotten valt.
+            <span className="text-mmAccent tracking-widest">
+              Klaar om gericht te starten?{" "}
+            </span>
+            Bouw aan een lichaam en mindset die voorbereid zijn op wat er straks
+            gevraagd wordt.
           </h5>
           <div
             ref={elementRef}

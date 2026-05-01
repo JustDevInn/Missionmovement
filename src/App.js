@@ -26,6 +26,8 @@ import Luchtmobiel from "./pages/units/LuchtmobieleBrigade";
 import Veiligheidsdiensten from "./pages/units/veiligheidsdiensten";
 import Aanbod from "./components/Aanbod.jsx";
 import MilitaryPrep from "./pages/MilitaryPrep.jsx";
+import VoorbereidingDefensie from "./pages/VoorbereidingDefensie.jsx";
+import ProgrammaVeiligheidsdiensten from "./pages/ProgrammaVeiligheidsdiensten.jsx";
 
 // Auth
 import { AuthProvider } from "./context/AuthContext";
@@ -171,12 +173,14 @@ const MainRoutes = () => {
       </Routes>
     </Suspense>
   ) : (
-    <div className="mm-public mm-page pt-18 md:pt-20">
+    <div className="mm-public mm-page pt-16 md:pt-20">
       <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         {/* Public Pages */}
         <Route path="/" element={<Home />} />
         <Route path="/program" element={<Program />} />
+        <Route path="/programma-veiligheidsdiensten" element={<ProgrammaVeiligheidsdiensten />} />
+        <Route path="/voorbereiding-defensie" element={<VoorbereidingDefensie />} />
         <Route path="/about" element={<About />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/blogs" element={<Blogs />} />

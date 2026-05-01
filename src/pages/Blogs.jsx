@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet-async";
 import Spinner from "../components/Spinner";
 import { format } from "date-fns";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import PublicHero from "../components/PublicHero";
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -77,7 +78,7 @@ const Blogs = () => {
   }, [currentPage, selectedTag, searchTerm, sortBy]);
 
   return (
-    <div className="pt-20 px-6 md:px-10 lg:px-20 bg-mmPage min-h-screen">
+    <div className="bg-mmPage min-h-screen">
       <Helmet>
         <title>Blogs | Militaire Voorbereiding & Training voor Veiligheidsdiensten</title>
         <meta
@@ -108,136 +109,143 @@ const Blogs = () => {
         />
       </Helmet>
 
-      <h1 className="mm-h1 text-mmText text-center mb-10">Mission Artikelen</h1>
+      <PublicHero
+        title="Mission Artikelen"
+        imageSrc="/img/blog-thumbnails/training-translates.jpg"
+        imageAlt="Mission Movement artikelen"
+        imageClassName="object-center"
+      />
 
-      {/* Search & Sort */}
-      <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
-        <input
-          type="text"
-          placeholder="Zoek artikelen..."
-          className="w-full md:max-w-sm px-4 py-2 text-sm rounded border border-mmBorder bg-mmSurface text-mmText placeholder:text-mmTextMuted"
-          value={searchTerm}
-          onChange={(e) => {
-            setSearchTerm(e.target.value);
-            setCurrentPage(1);
-          }}
-        />
-        <div className="relative">
-          <select
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
-            className="appearance-none px-4 py-2 pr-6 bg-mmSurface border border-mmBorder text-mmText rounded text-sm w-full"
-          >
-            <option value="newest">Sorteer: Nieuwste</option>
-            <option value="title">Sorteer: Titel (A-Z)</option>
-          </select>
+      <section className="px-6 md:px-10 lg:px-20 py-12">
+        {/* Search & Sort */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+          <input
+            type="text"
+            placeholder="Zoek artikelen..."
+            className="w-full md:max-w-sm px-4 py-2 text-sm rounded border border-mmBorder bg-mmSurface text-mmText placeholder:text-mmTextMuted"
+            value={searchTerm}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              setCurrentPage(1);
+            }}
+          />
+          <div className="relative">
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              className="appearance-none px-4 py-2 pr-6 bg-mmSurface border border-mmBorder text-mmText rounded text-sm w-full"
+            >
+              <option value="newest">Sorteer: Nieuwste</option>
+              <option value="title">Sorteer: Titel (A-Z)</option>
+            </select>
 
-          {/* Custom arrow */}
-          <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-mmAccent text-sm">
-            <MdKeyboardArrowDown />
+            {/* Custom arrow */}
+            <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-mmAccent text-sm">
+              <MdKeyboardArrowDown />
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Tag Filter */}
-      <div className="overflow-x-auto whitespace-nowrap hide-scrollbar mb-10 pb-2 border-b border-mmBorder">
-        <div className="inline-flex gap-2">
-          {allTags.map((tag) => (
-            <button
-              key={tag}
-              onClick={() => {
-                setSelectedTag(tag);
-                setCurrentPage(1);
-              }}
-              className={`uppercase px-4 py-1 text-xs md:text-sm border rounded-full transition-all whitespace-nowrap ${
-                selectedTag === tag
-                  ? "bg-mmAccent text-white font-bold border-mmAccent"
-                  : "border-mmBorder text-mmTextMuted hover:border-mmAccent hover:text-mmText"
-              }`}
-            >
-              {tag}
-            </button>
-          ))}
+        {/* Tag Filter */}
+        <div className="overflow-x-auto whitespace-nowrap hide-scrollbar mb-10 pb-2 border-b border-mmBorder">
+          <div className="inline-flex gap-2">
+            {allTags.map((tag) => (
+              <button
+                key={tag}
+                onClick={() => {
+                  setSelectedTag(tag);
+                  setCurrentPage(1);
+                }}
+                className={`uppercase px-4 py-1 text-xs md:text-sm border rounded-full transition-all whitespace-nowrap ${
+                  selectedTag === tag
+                    ? "bg-mmAccent text-white font-bold border-mmAccent"
+                    : "border-mmBorder text-mmTextMuted hover:border-mmAccent hover:text-mmText"
+                }`}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* Blog Cards */}
-      {loading ? (
-        <div className="flex justify-center py-20">
-          <Spinner color="border-mmAccent" />
-        </div>
-      ) : currentBlogs.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {currentBlogs.map((blog) => (
-            <Link
-              to={`/blogs/${blog.slug}`}
-              key={blog.id}
-              className="group bg-mmSurface border border-mmBorder rounded-2xl shadow-sm hover:scale-[1.02] transition-transform flex flex-col"
-            >
-              <img
-                src={blog.thumbnail}
-                alt={blog.title}
-                loading="lazy"
-                className="rounded-t-xl h-48 w-full object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <div className="flex items-center justify-between mb-2">
-                  <h2 className="text-mmText text-xl font-display uppercase tracking-widest">
-                    {blog.title}
-                  </h2>
-                  {blog.pinned && (
-                    <span className="text-xs text-white bg-mmAccent px-2 py-1 rounded-full font-bold uppercase">
-                      aanbevolen
-                    </span>
-                  )}
-                </div>
-
-                <p className="text-mmTextMuted italic mb-2 text-base md:text-lg">
-                  door {blog.author} •{" "}
-                  {blog.createdAt?.seconds &&
-                    format(
-                      new Date(blog.createdAt.seconds * 1000),
-                      "dd MMM yyyy",
+        {/* Blog Cards */}
+        {loading ? (
+          <div className="flex justify-center py-20">
+            <Spinner color="border-mmAccent" />
+          </div>
+        ) : currentBlogs.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {currentBlogs.map((blog) => (
+              <Link
+                to={`/blogs/${blog.slug}`}
+                key={blog.id}
+                className="group bg-mmSurface border border-mmBorder rounded-2xl shadow-sm hover:scale-[1.02] transition-transform flex flex-col"
+              >
+                <img
+                  src={blog.thumbnail}
+                  alt={blog.title}
+                  loading="lazy"
+                  className="rounded-t-xl h-48 w-full object-cover"
+                />
+                <div className="p-6 flex flex-col flex-grow">
+                  <div className="flex items-center justify-between mb-2">
+                    <h2 className="text-mmText text-xl font-display uppercase tracking-widest">
+                      {blog.title}
+                    </h2>
+                    {blog.pinned && (
+                      <span className="text-xs text-white bg-mmAccent px-2 py-1 rounded-full font-bold uppercase">
+                        aanbevolen
+                      </span>
                     )}
-                </p>
+                  </div>
 
-                <p className="text-mmTextMuted leading-relaxed line-clamp-3 mb-6 text-base md:text-lg">
-                  {blog.summary}
-                </p>
+                  <p className="text-mmTextMuted italic mb-2 text-base md:text-lg">
+                    door {blog.author} •{" "}
+                    {blog.createdAt?.seconds &&
+                      format(
+                        new Date(blog.createdAt.seconds * 1000),
+                        "dd MMM yyyy",
+                      )}
+                  </p>
 
-                <div className="mt-auto">
-                  <div className="text-sm text-white bg-mmAccent font-bold tracking-wide px-4 py-2 w-max uppercase border border-mmAccent transition-all group-hover:bg-transparent group-hover:text-mmAccent">
-                    Lees meer →
+                  <p className="text-mmTextMuted leading-relaxed line-clamp-3 mb-6 text-base md:text-lg">
+                    {blog.summary}
+                  </p>
+
+                  <div className="mt-auto">
+                    <div className="text-sm text-white bg-mmAccent font-bold tracking-wide px-4 py-2 w-max uppercase border border-mmAccent transition-all group-hover:bg-transparent group-hover:text-mmAccent">
+                      Lees meer →
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      ) : (
-        <p className="text-mmTextMuted text-center mt-10">
-          Geen artikelen gevonden.
-        </p>
-      )}
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <p className="text-mmTextMuted text-center mt-10">
+            Geen artikelen gevonden.
+          </p>
+        )}
 
-      {/* Pagination */}
-      {totalPages > 1 && (
-        <div className="flex justify-center items-center mt-12 gap-2">
-          {[...Array(totalPages).keys()].map((num) => (
-            <button
-              key={num}
-              onClick={() => setCurrentPage(num + 1)}
-              className={`w-10 h-10 rounded-full border border-mmBorder text-sm transition ${
-                currentPage === num + 1
-                  ? "bg-mmAccent text-white font-bold border-mmAccent"
-                  : "text-mmTextMuted hover:border-mmAccent hover:text-mmText"
-              }`}
-            >
-              {num + 1}
-            </button>
-          ))}
-        </div>
-      )}
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="flex justify-center items-center mt-12 gap-2">
+            {[...Array(totalPages).keys()].map((num) => (
+              <button
+                key={num}
+                onClick={() => setCurrentPage(num + 1)}
+                className={`w-10 h-10 rounded-full border border-mmBorder text-sm transition ${
+                  currentPage === num + 1
+                    ? "bg-mmAccent text-white font-bold border-mmAccent"
+                    : "text-mmTextMuted hover:border-mmAccent hover:text-mmText"
+                }`}
+              >
+                {num + 1}
+              </button>
+            ))}
+          </div>
+        )}
+      </section>
     </div>
   );
 };

@@ -29,7 +29,7 @@ const KorpsCommandoTroepen = () => {
   } = korpsCommandoTroepenConfig;
 
   return (
-    <div className={`min-h-screen pt-20 ${theme.page}`}>
+    <div className={`min-h-screen ${theme.page}`}>
       <Helmet>
         <title>{meta.title}</title>
         <meta name="description" content={meta.description} />
